@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Elevate — EDMP | Enterprise Decision Memory Platform</title>
   <meta name="description" content="AI Elevate is the category home of EDMP — Enterprise Decision Memory Platform — connecting decision memory, reasoning structure, ownership continuity, and accountable execution." />
+  <link rel="icon" href="assets/ae-logo-blue.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/ae-logo-blue.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -45,13 +47,13 @@
   </div>
 
   <header class="topbar glass">
-    <div class="brand">
-      <div class="brand-mark brand-logo-wrap"><img src="assets/ae-logo-blue.png" alt="AI Elevate logo" class="brand-logo" loading="lazy" decoding="async" width="48" height="48" /></div>
+    <button class="brand brand-home" type="button" aria-label="Return to AI Elevate homepage">
+      <div class="brand-mark brand-logo-wrap"><img src="assets/ae-logo-blue.png" alt="" class="brand-logo" loading="lazy" decoding="async" width="48" height="48" /></div>
       <div>
         <div class="brand-kicker">AI Elevate</div>
         <div class="brand-title">Enterprise Decision Memory Platform</div>
       </div>
-    </div>
+    </button>
 
     <button class="menu-toggle" id="mobileMenuToggle" aria-expanded="false" aria-controls="headerDrawer" aria-label="Open navigation menu">
       <span></span><span></span><span></span>
@@ -553,14 +555,12 @@
 
       <div class="footer-column">
         <div class="footer-title">Cockpits</div>
-        <div class="footer-chip-wrap">
-          <a class="footer-chip footer-chip-btn" href="#env-finance" data-domain-jump="finance" data-target-view="library">Executive Capital Decisions</a>
-          <a class="footer-chip footer-chip-btn" href="#env-sales" data-domain-jump="sales" data-target-view="library">Commercial Decision Flow</a>
-          <a class="footer-chip footer-chip-btn" href="#env-governance" data-domain-jump="governance" data-target-view="library">AI Decision Oversight</a>
-          <a class="footer-chip footer-chip-btn" href="#env-recruitment" data-domain-jump="recruitment" data-target-view="library">Talent & Hiring Decisions</a>
-          <a class="footer-chip footer-chip-btn" href="#env-legal" data-domain-jump="legal" data-target-view="library">Legal Decision Defensibility</a>
-          <a class="footer-chip footer-chip-btn" href="#env-procurement" data-domain-jump="procurement" data-target-view="library">Procurement & Vendor Decisions</a>
-        </div>
+        <button class="footer-link footer-cockpit-link" type="button" data-domain-jump="finance">Executive Capital Decisions</button>
+        <button class="footer-link footer-cockpit-link" type="button" data-domain-jump="sales">Commercial Decision Flow</button>
+        <button class="footer-link footer-cockpit-link" type="button" data-domain-jump="governance">AI Decision Oversight</button>
+        <button class="footer-link footer-cockpit-link" type="button" data-domain-jump="recruitment">Talent &amp; Hiring Decisions</button>
+        <button class="footer-link footer-cockpit-link" type="button" data-domain-jump="legal">Legal Decision Defensibility</button>
+        <button class="footer-link footer-cockpit-link" type="button" data-domain-jump="procurement">Procurement &amp; Vendor Decisions</button>
       </div>
 
       <div class="footer-column footer-contact-col">

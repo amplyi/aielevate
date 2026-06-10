@@ -192,12 +192,25 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   flex-wrap: wrap;
 }
-.brand { display: flex; align-items: center; gap: 14px; }
+.brand, .brand-home { display: flex; align-items: center; gap: 14px; }
+.brand-home {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  appearance: none;
+}
+.brand-home:hover .brand-kicker,
+.brand-home:hover .brand-title { color: var(--accent); }
 .brand-mark {
-  width: 48px; height: 48px; border-radius: 16px;
+  width: auto; height: auto; border-radius: 0;
   display: grid; place-items: center;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.03));
+  border: 0;
+  background: transparent;
   font-weight: 700;
   letter-spacing: .08em;
 }
@@ -1278,19 +1291,7 @@ a { color: inherit; text-decoration: none; }
   opacity: .9;
 }
 .footer-link:hover { opacity: 1; color: var(--accent); }
-.footer-chip-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.footer-chip {
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.04);
-  color: var(--text);
-  font-size: 13px;
-}
+.footer-cockpit-link { font-size: inherit; }
 .footer-mail {
   display: inline-block;
   font-size: 1.02rem;
@@ -1873,12 +1874,12 @@ a { color: inherit; text-decoration: none; }
 .brand-logo-wrap {
   display: grid;
   place-items: center;
-  background: linear-gradient(180deg, rgba(143,211,255,.08), rgba(143,154,255,.03));
-  box-shadow: inset 0 0 0 1px rgba(143,211,255,.16), 0 10px 24px rgba(0,0,0,.18);
+  background: transparent;
+  box-shadow: none;
 }
 .brand-logo {
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   object-fit: contain;
   mix-blend-mode: screen;
   background: transparent;
