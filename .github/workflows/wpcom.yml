@@ -1,0 +1,38 @@
+# WordPress.com GitHub Deployments workflow
+# Connect this repo at: WordPress.com → Sites → aielevate.xyz → Deployments
+# Destination directory: /wp-content/plugins/ai-elevate-cockpit-standalone
+# Deployment mode: Advanced (select this workflow file)
+# Recommended: Manual deployments for production
+
+name: Publish Website
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  Publish-Website:
+    name: Publish-Website
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare plugin files
+        run: |
+          mkdir -p artifact
+          rsync -a \
+            --exclude='*.bak' \
+            --exclude='.idea/' \
+            --exclude='.DS_Store' \
+            --exclude='Thumbs.db' \
+            ai-elevate-cockpit-plugin-v4-standalone/ artifact/
+
+      - name: Upload the artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wpcom
+          path: artifact
+          retention-days: 1

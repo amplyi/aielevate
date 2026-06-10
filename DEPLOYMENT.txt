@@ -1,0 +1,75 @@
+AI Elevate Cockpit — Rollout to aielevate.xyz (WordPress.com)
+=============================================================
+
+WHAT YOU ARE DEPLOYING
+----------------------
+A WordPress plugin that serves the full AI Elevate cockpit at:
+
+  https://aielevate.xyz/ai-elevate-cockpit/
+
+Source: ai-elevate-cockpit-plugin-v4-standalone/
+
+
+PREREQUISITES
+-------------
+1. WordPress.com Business or Commerce plan (required for custom plugins)
+2. SFTP/SSH or GitHub Deployments enabled on the site
+3. Site launched (currently aielevate.xyz shows "Private Site")
+
+
+OPTION A — AUTOMATED GITHUB DEPLOYMENTS (RECOMMENDED)
+-----------------------------------------------------
+1. Push this folder to a GitHub repo (main branch).
+
+2. In WordPress.com:
+   Sites -> aielevate.xyz -> Deployments -> Connect repository
+
+3. Settings:
+   - Deployment mode: Advanced
+   - Workflow file: .github/workflows/wpcom.yml
+   - Destination directory: /wp-content/plugins/ai-elevate-cockpit-standalone
+   - Deployments: Manual (recommended for production)
+
+4. Trigger the first deployment from the Deployments tab.
+
+5. In WP Admin (one-time):
+   - Plugins -> activate "AI Elevate Cockpit Standalone"
+   - Settings -> Permalinks -> Save Changes
+   - Settings -> General -> launch site (disable "Coming soon/private")
+
+6. Verify:
+   powershell -File scripts/verify-deployment.ps1
+
+
+OPTION B — SFTP DEPLOY FROM YOUR PC
+-----------------------------------
+1. Copy deploy.env.example to deploy.env
+2. Fill in SFTP credentials from:
+   WordPress.com -> Sites -> aielevate.xyz -> Settings -> SFTP/SSH
+3. Run:
+   powershell -File scripts/deploy.ps1 -Method sftp
+
+
+OPTION C — MANUAL ZIP UPLOAD
+----------------------------
+1. Run:
+   powershell -File scripts/deploy.ps1 -Method zip
+2. In WP Admin:
+   Plugins -> Add New -> Upload Plugin
+3. Upload dist/ai-elevate-cockpit-wordpress-plugin-v4-standalone.zip
+4. Activate, flush permalinks, launch site
+
+
+MAKE THE COCKPIT YOUR HOMEPAGE (OPTIONAL)
+-----------------------------------------
+After the plugin is live, either:
+- Set your WP homepage to redirect to /ai-elevate-cockpit/, or
+- Point the primary menu "Home" link to /ai-elevate-cockpit/
+
+
+TROUBLESHOOTING
+---------------
+- 404 on /ai-elevate-cockpit/ -> activate plugin + save permalinks
+- Private site page -> launch site in WP Admin
+- Broken images -> confirm app/assets/ deployed with the plugin
+- Plugin blocked on WP.com -> some PHP plugins are restricted; this one uses standard rewrite rules

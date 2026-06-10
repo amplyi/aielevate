@@ -1,0 +1,92 @@
+AI Elevate — Deploy to aielevate.xyz via GitHub Pages (FREE)
+============================================================
+
+No WordPress Business plan needed. Your cockpit is a static site — GitHub
+hosts it for free and you point your domain at it.
+
+Your email (Titan / info@aielevate.xyz) keeps working — only the website
+A record changes. Do NOT delete MX, SPF, DKIM, or DMARC records.
+
+
+STEP 1 — CREATE GITHUB REPO AND PUSH
+------------------------------------
+Run these in PowerShell from this folder (c:\AI Elevate):
+
+  git branch -M main
+  git add .
+  git commit -m "Add AI Elevate cockpit with GitHub Pages deploy"
+  git remote add origin https://github.com/YOUR_USERNAME/aielevate.git
+  git push -u origin main
+
+Replace YOUR_USERNAME with your GitHub username.
+Create the empty repo first at https://github.com/new (name: aielevate).
+
+
+STEP 2 — ENABLE GITHUB PAGES
+------------------------------
+1. Open your repo on GitHub
+2. Settings -> Pages
+3. Source: GitHub Actions  (NOT "Deploy from branch")
+4. Wait for the first workflow run to finish (Actions tab)
+5. Back in Pages settings, under Custom domain, enter: aielevate.xyz
+6. Enable "Enforce HTTPS" when the certificate is ready (can take up to 24h)
+
+
+STEP 3 — UPDATE DNS (KEEP EMAIL RECORDS)
+----------------------------------------
+Go to WordPress.com -> Domains -> aielevate.xyz -> DNS records -> Manage
+
+CHANGE ONLY THE WEBSITE RECORDS:
+
+  Type   Name   Value
+  ----   ----   -----
+  A      @      185.199.108.153
+  A      @      185.199.109.153
+  A      @      185.199.110.153
+  A      @      185.199.111.153
+  CNAME  www    YOUR_USERNAME.github.io
+
+Replace YOUR_USERNAME with your GitHub username.
+
+If WordPress.com only allows one A record for @, delete the old
+"Handled by WordPress.com" A record and add all four GitHub IPs above.
+
+DO NOT CHANGE (email will break):
+
+  MX    @     mx1.titan.email  (priority 10)
+  MX    @     mx2.titan.email  (priority 20)
+  TXT   @     v=spf1 include:_spf.wpcloud.com include:spf.titan.email ~all
+  TXT   _dmarc                  v=DMARC1;p=none;
+  TXT   titan1._domainkey       (DKIM — keep as-is)
+  CNAME wpcloud1._domainkey...  (keep as-is)
+  CNAME wpcloud2._domainkey...  (keep as-is)
+
+
+STEP 4 — VERIFY
+---------------
+DNS can take 5–60 minutes (sometimes up to 24h).
+
+  powershell -File scripts/verify-static.ps1
+
+Or open https://aielevate.xyz in your browser.
+
+
+STEP 5 — FUTURE UPDATES (AUTOMATIC)
+-----------------------------------
+Edit files in ai-elevate-cockpit-plugin-v4-standalone/app/
+Then:
+
+  git add .
+  git commit -m "Update site"
+  git push
+
+GitHub Actions redeploys automatically on every push to main.
+
+
+TROUBLESHOOTING
+---------------
+- "Site not found" on GitHub Pages -> check Actions tab for failed workflow
+- Domain not verified -> confirm all 4 A records are set correctly
+- Email stopped working -> you changed MX/TXT records by mistake; restore them
+- HTTPS not ready -> wait up to 24h after DNS propagates, then enable Enforce HTTPS
+- Old WordPress page still shows -> clear browser cache or wait for DNS TTL

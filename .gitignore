@@ -1,0 +1,20 @@
+# Secrets
+deploy.env
+.env
+.env.*
+
+# Build output
+dist/
+*.zip
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak

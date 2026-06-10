@@ -1,0 +1,31 @@
+# WordPress.com deployment exclusions (same syntax as .gitignore)
+# https://developer.wordpress.com/docs/developer-tools/github-deployments/connect-repo/
+
+# IDE and editor
+.idea/**
+.vscode/**
+*.iml
+
+# Backup and local dev files
+*.bak
+**/*.bak
+
+# Build output and packages
+dist/**
+*.zip
+
+# Scripts and deployment config (not needed on the server)
+scripts/**
+deploy.env
+deploy.env.example
+DEPLOYMENT.txt
+
+# Git and CI
+.git/**
+.github/**
+.deployignore
+.gitignore
+
+# OS junk
+.DS_Store
+Thumbs.db
