@@ -1,6 +1,6 @@
 # Deploy AI Elevate cockpit to GitHub Pages (free hosting)
-# After push: GitHub repo -> Settings -> Pages -> Source: GitHub Actions
-# Custom domain: aielevate.xyz
+# Repo Settings -> Pages -> Source: GitHub Actions
+# Custom domain: aielevate.xyz (set in Pages settings after first deploy)
 
 name: Deploy GitHub Pages
 
@@ -21,29 +21,33 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Build static site
         run: |
           mkdir -p _site
-          rsync -a \
-            --exclude='*.bak' \
-            --exclude='.idea/' \
-            --exclude='README.txt' \
-            ai-elevate-cockpit-plugin-v4-standalone/app/ _site/
-          echo "aielevate.xyz" > _site/CNAME
+          cp -r ai-elevate-cockpit-plugin-v4-standalone/app/. _site/
+          find _site -name '*.bak' -delete
+          rm -rf _site/.idea
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: _site
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

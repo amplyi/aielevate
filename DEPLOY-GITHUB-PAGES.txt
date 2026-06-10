@@ -15,11 +15,10 @@ Run these in PowerShell from this folder (c:\AI Elevate):
   git branch -M main
   git add .
   git commit -m "Add AI Elevate cockpit with GitHub Pages deploy"
-  git remote add origin https://github.com/YOUR_USERNAME/aielevate.git
+  git remote add origin https://github.com/amplyi/aielevate.git
   git push -u origin main
 
-Replace YOUR_USERNAME with your GitHub username.
-Create the empty repo first at https://github.com/new (name: aielevate).
+Create the empty repo first at https://github.com/new (name: aielevate, owner: amplyi).
 
 
 STEP 2 — ENABLE GITHUB PAGES
@@ -44,9 +43,7 @@ CHANGE ONLY THE WEBSITE RECORDS:
   A      @      185.199.109.153
   A      @      185.199.110.153
   A      @      185.199.111.153
-  CNAME  www    YOUR_USERNAME.github.io
-
-Replace YOUR_USERNAME with your GitHub username.
+  CNAME  www    amplyi.github.io
 
 If WordPress.com only allows one A record for @, delete the old
 "Handled by WordPress.com" A record and add all four GitHub IPs above.
