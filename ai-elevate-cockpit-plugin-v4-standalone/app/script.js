@@ -523,7 +523,17 @@ function openDomainContactIntake(domainKey, source = 'library', context = 'Cockp
   window.setTimeout(() => enforceSelectContrast(overlayContent), 0);
 }
 
+let libraryRendered = false;
+
+function ensureLibraryRendered() {
+  if (libraryRendered) return;
+  libraryRendered = true;
+  renderLibrary();
+}
+
 function showView(viewId) {
+  if (viewId === 'library') ensureLibraryRendered();
+
   views.forEach(view => view.classList.toggle('active-view', view.id === viewId));
   navButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.view === viewId));
   footerNavButtons.forEach(btn => btn.classList.toggle('active-link', btn.dataset.view === viewId));
@@ -849,7 +859,7 @@ function renderLibrary() {
   cockpitGrid.innerHTML = cockpitData.map((item, index) => `
     <article class="domain-card glass" data-cockpit="${item.id}">
       <div class="domain-visual">
-        <img src="${item.image}" alt="${item.title}">
+        <img src="${item.image}" alt="${item.title}" loading="lazy" decoding="async">
         <div class="holo-icon"><span>${item.badge}</span></div>
       </div>
       <div class="domain-content">
@@ -1119,7 +1129,6 @@ if (startupSplash) {
   }, 3000);
 }
 
-renderLibrary();
 renderCases();
 renderInsights();
 applyHardDomFixes();

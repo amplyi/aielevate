@@ -6,6 +6,7 @@ deploy.env
 # Build output
 dist/
 *.zip
+node_modules/
 
 # IDE
 .idea/
