@@ -9,7 +9,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <link rel="icon" href="assets/ae-logo-blue.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/ae-logo-blue.png" />
-  <link rel="stylesheet" href="styles.css?v=20260611b" />
+  <link rel="stylesheet" href="styles.css?v=20260611c" />
 </head>
 <body>
 
@@ -72,7 +72,7 @@
       </nav>
 
       <div class="header-actions">
-        <button class="btn btn-secondary jump-btn" data-view="engage" type="button">View Programs</button>
+        <button class="btn btn-secondary jump-btn" data-view="contact" type="button">Contact</button>
         <a class="btn btn-primary btn-cta" id="headerDemoBtn" data-open-intake="demo" data-source="header" href="mailto:info@aielevate.xyz?subject=AI%20Elevate%20Demo%20Request&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20book%20a%20demo.%0A%0AName%3A%0ACompany%3A%0APrimary%20use%20case%3A%0ATimeline%3A%0A">Request Executive Briefing</a>
       </div>
     </div>
@@ -427,37 +427,92 @@
 
       <div id="engageGrid" class="engage-product-grid"></div>
 
-      <article class="glass engage-checkout-info">
-        <div class="engage-checkout-info-head">
-          <div>
-            <div class="section-kicker">Checkout details</div>
-            <h3>Who you are buying from</h3>
-          </div>
-          <p class="engage-checkout-lead">Required merchant information for secure payment and support.</p>
+      <p class="engage-legal-links">Enterprise or multi-domain scope? <button class="footer-link engage-inline-link" type="button" data-view="contact">Contact us</button> for a proposal. Checkout is subject to our <button class="footer-link engage-inline-link" type="button" data-view="terms">Terms &amp; Conditions</button> and <button class="footer-link engage-inline-link" type="button" data-view="privacy">Privacy Policy</button>.</p>
+    </section>
+
+    <section id="terms" class="view">
+      <div class="section-head glass">
+        <div>
+          <div class="section-kicker">Legal</div>
+          <h2>Terms &amp; Conditions</h2>
         </div>
-        <div class="engage-info-grid">
-          <div class="engage-info-cell">
-            <span class="engage-info-label">Program brand</span>
-            <strong id="engageMerchantBrand">AI Elevate</strong>
-          </div>
-          <div class="engage-info-cell">
-            <span class="engage-info-label">Legal seller</span>
-            <strong id="engageMerchantLegal">AvL Consultancy</strong>
-          </div>
-          <div class="engage-info-cell">
-            <span class="engage-info-label">Email</span>
-            <a class="engage-info-link" href="mailto:info@aielevate.xyz" id="engageMerchantEmail">info@aielevate.xyz</a>
-          </div>
-          <div class="engage-info-cell">
-            <span class="engage-info-label">Phone</span>
-            <a class="engage-info-link" href="tel:+31646438478" id="engageMerchantPhone">+31 6 46438478</a>
-          </div>
-          <div class="engage-info-cell engage-info-cell-wide">
-            <span class="engage-info-label">Pricing &amp; payment methods</span>
-            <p class="engage-info-copy" id="engageMerchantMeta">All prices include 21% VAT unless stated otherwise. · iDEAL · Cards · Bancontact · Bank transfer</p>
-          </div>
+        <p>Terms for AI Elevate programs sold via aielevate.xyz. Last updated: June 2026.</p>
+      </div>
+      <article class="glass legal-prose" id="termsContent">
+        <h3>1. Merchant information</h3>
+        <p><strong id="legalTermsBrand">AI Elevate</strong> programs are offered by <strong id="legalTermsSeller">AvL Consultancy</strong> (“we”, “us”).</p>
+        <ul class="legal-list">
+          <li>Website: <a href="https://aielevate.xyz">aielevate.xyz</a></li>
+          <li>Email: <a id="legalTermsEmail" href="mailto:info@aielevate.xyz">info@aielevate.xyz</a></li>
+          <li>Phone: <a id="legalTermsPhone" href="tel:+31646438478">+31 6 46438478</a></li>
+        </ul>
+
+        <h3>2. Products &amp; pricing</h3>
+        <p>We sell fixed-scope professional programs and digital products relating to EDMP (Enterprise Decision Memory Platform), including executive briefings, readiness assessments, and board briefing packs. Prices shown on the Engage page include 21% VAT unless stated otherwise.</p>
+
+        <h3>3. Payment</h3>
+        <p>Payments are processed securely by <a href="https://www.mollie.com" rel="noopener noreferrer">Mollie</a>. Accepted methods: <span id="legalTermsPaymentMethods">iDEAL, cards, Bancontact, and bank transfer</span>. Your order is confirmed when payment is successfully completed.</p>
+
+        <h3>4. Delivery</h3>
+        <p>Delivery timelines are stated on each program card. Briefings are scheduled by email; assessments and digital packs are delivered to the email address provided at checkout or follow-up intake.</p>
+
+        <h3>5. Cancellations &amp; refunds</h3>
+        <p>For scheduled executive sessions, you may reschedule once with at least 48 hours’ notice. Cancellations within 48 hours of a confirmed session, or after delivery of a digital product or written assessment, are non-refundable unless required by applicable law.</p>
+
+        <h3>6. Intellectual property</h3>
+        <p>All briefing materials, frameworks, and digital assets remain the intellectual property of AvL Consultancy unless otherwise agreed in writing. You receive a licence to use delivered materials for internal executive and board purposes only.</p>
+
+        <h3>7. Liability</h3>
+        <p>Our programs provide education, assessment, and strategic framing — not legal, tax, or regulated professional advice. Liability is limited to the amount paid for the relevant program, except where limitation is not permitted by law.</p>
+
+        <h3>8. Governing law</h3>
+        <p>These terms are governed by the laws of the Netherlands. Disputes are submitted to the competent court in the Netherlands, unless mandatory consumer law provides otherwise.</p>
+
+        <h3>9. Contact</h3>
+        <p>Questions about these terms: <a id="legalTermsEmailFooter" href="mailto:info@aielevate.xyz">info@aielevate.xyz</a>.</p>
+      </article>
+    </section>
+
+    <section id="privacy" class="view">
+      <div class="section-head glass">
+        <div>
+          <div class="section-kicker">Legal</div>
+          <h2>Privacy Policy</h2>
         </div>
-        <p class="engage-enterprise-note">Multi-domain or enterprise rollout? <button class="footer-link engage-inline-link" type="button" data-view="contact">Request a scoped proposal</button> instead of self-serve checkout.</p>
+        <p>How AvL Consultancy / AI Elevate handles personal data on aielevate.xyz. Last updated: June 2026.</p>
+      </div>
+      <article class="glass legal-prose" id="privacyContent">
+        <h3>1. Who we are</h3>
+        <p>The data controller for this website is <strong id="legalPrivacySeller">AvL Consultancy</strong>, operating the <strong id="legalPrivacyBrand">AI Elevate</strong> brand. Contact: <a id="legalPrivacyEmail" href="mailto:info@aielevate.xyz">info@aielevate.xyz</a>, <a id="legalPrivacyPhone" href="tel:+31646438478">+31 6 46438478</a>.</p>
+
+        <h3>2. What we collect</h3>
+        <ul class="legal-list">
+          <li><strong>Inquiries:</strong> name, company, email, and message content when you contact us.</li>
+          <li><strong>Checkout:</strong> payment and billing details processed by Mollie — we receive confirmation and customer contact details needed for delivery.</li>
+          <li><strong>Technical data:</strong> basic server and analytics logs (IP address, browser type, pages visited) for security and performance.</li>
+        </ul>
+
+        <h3>3. Why we use your data</h3>
+        <ul class="legal-list">
+          <li>To respond to inquiries and deliver purchased programs.</li>
+          <li>To process payments and meet tax and accounting obligations.</li>
+          <li>To improve the website and protect against abuse.</li>
+        </ul>
+
+        <h3>4. Legal basis (GDPR)</h3>
+        <p>We process data on the basis of contract performance (delivering programs you purchase), legitimate interests (operating and securing the website), and consent where required (e.g. optional marketing — none by default).</p>
+
+        <h3>5. Sharing &amp; processors</h3>
+        <p>We use trusted processors including <strong>Mollie</strong> (payments) and <strong>GitHub Pages</strong> (hosting). We do not sell personal data. Data may be shared when required by law.</p>
+
+        <h3>6. Retention</h3>
+        <p>Inquiry and order records are kept for up to seven years where required for tax and legal purposes, otherwise no longer than necessary for delivery and support.</p>
+
+        <h3>7. Your rights</h3>
+        <p>You may request access, correction, deletion, restriction, or portability of your personal data, and object to certain processing. Contact <a id="legalPrivacyEmailRights" href="mailto:info@aielevate.xyz">info@aielevate.xyz</a>. You may lodge a complaint with your local supervisory authority.</p>
+
+        <h3>8. Cookies</h3>
+        <p>This site uses essential cookies/storage only for basic functionality. No third-party advertising cookies are used.</p>
       </article>
     </section>
 
@@ -627,11 +682,17 @@
         <button class="footer-link footer-cockpit-link" type="button" data-domain-jump="procurement">Procurement &amp; Vendor Decisions</button>
       </div>
 
+      <div class="footer-column">
+        <div class="footer-title">Legal</div>
+        <button class="footer-link nav-btn-link" data-view="terms" type="button">Terms &amp; Conditions</button>
+        <button class="footer-link nav-btn-link" data-view="privacy" type="button">Privacy Policy</button>
+        <div class="footer-merchant-note">Programs sold by AvL Consultancy</div>
+      </div>
+
       <div class="footer-column footer-contact-col">
         <div class="footer-title">Contact</div>
         <a class="footer-mail" href="mailto:info@aielevate.xyz">info@aielevate.xyz</a>
         <a class="footer-mail" href="tel:+31646438478">+31 6 46438478</a>
-        <div class="footer-merchant-note">Programs sold by AvL Consultancy</div>
         <div class="footer-mini-metrics">
           <div><span>Signal visibility</span><strong>High</strong></div>
           <div><span>Board framing</span><strong>Ready</strong></div>
@@ -641,8 +702,12 @@
     </div>
 
     <div class="footer-bottom">
-      <div>© 2026 AI Elevate. Building the Enterprise Decision Memory Layer.</div>
-      <div class="footer-bottom-note">EDMP · Cognitive Trace Architecture · PDE · EDM Protocol · Decision Room</div>
+      <div>© 2026 AI Elevate · AvL Consultancy</div>
+      <div class="footer-bottom-legal">
+        <button class="footer-link footer-bottom-link" data-view="terms" type="button">Terms</button>
+        <button class="footer-link footer-bottom-link" data-view="privacy" type="button">Privacy</button>
+        <span class="footer-bottom-note">EDMP · Cognitive Trace Architecture · PDE · EDM Protocol · Decision Room</span>
+      </div>
     </div>
   </footer>
 
@@ -709,7 +774,7 @@
   </aside>
 </div>
 
-  <script src="engage-config.js?v=20260611b"></script>
-  <script src="script.js?v=20260611b"></script>
+  <script src="engage-config.js?v=20260611c"></script>
+  <script src="script.js?v=20260611c"></script>
 </body>
 </html>

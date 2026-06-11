@@ -547,32 +547,52 @@ function getEngageConfig() {
   return window.AIE_ENGAGE_CONFIG || { merchant: {}, products: [] };
 }
 
+let legalApplied = false;
+
+function applyLegalMerchantInfo() {
+  if (legalApplied) return;
+  legalApplied = true;
+  const merchant = getEngageConfig().merchant || {};
+  const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (el && value) el.textContent = value;
+  };
+  const setEmail = (id, value) => {
+    const el = document.getElementById(id);
+    if (!el || !value) return;
+    el.textContent = value;
+    el.href = `mailto:${value}`;
+  };
+  const setPhone = (id, value) => {
+    const el = document.getElementById(id);
+    if (!el || !value) return;
+    el.textContent = value;
+    el.href = `tel:${value.replace(/\s/g, '')}`;
+  };
+  setText('legalTermsBrand', merchant.brand);
+  setText('legalTermsSeller', merchant.legalName);
+  setText('legalPrivacyBrand', merchant.brand);
+  setText('legalPrivacySeller', merchant.legalName);
+  setEmail('legalTermsEmail', merchant.email);
+  setEmail('legalTermsEmailFooter', merchant.email);
+  setEmail('legalPrivacyEmail', merchant.email);
+  setEmail('legalPrivacyEmailRights', merchant.email);
+  setPhone('legalTermsPhone', merchant.phone);
+  setPhone('legalPrivacyPhone', merchant.phone);
+  const methods = document.getElementById('legalTermsPaymentMethods');
+  if (methods && merchant.paymentMethods) {
+    methods.textContent = merchant.paymentMethods.replace(/ · /g, ', ').replace(/ ·/g, ',');
+  }
+}
+
 function renderEngage() {
   if (engageRendered) return;
   engageRendered = true;
+  applyLegalMerchantInfo();
 
   const config = getEngageConfig();
   const grid = document.getElementById('engageGrid');
   if (!grid) return;
-
-  const brand = document.getElementById('engageMerchantBrand');
-  const legal = document.getElementById('engageMerchantLegal');
-  const email = document.getElementById('engageMerchantEmail');
-  const phone = document.getElementById('engageMerchantPhone');
-  const meta = document.getElementById('engageMerchantMeta');
-  if (brand && config.merchant?.brand) brand.textContent = config.merchant.brand;
-  if (legal && config.merchant?.legalName) legal.textContent = config.merchant.legalName;
-  if (email && config.merchant?.email) {
-    email.textContent = config.merchant.email;
-    email.href = `mailto:${config.merchant.email}`;
-  }
-  if (phone && config.merchant?.phone) {
-    phone.textContent = config.merchant.phone;
-    phone.href = `tel:${config.merchant.phone.replace(/\s/g, '')}`;
-  }
-  if (meta && config.merchant) {
-    meta.textContent = `${config.merchant.vatNote || ''} · ${config.merchant.paymentMethods || ''}`.replace(/^ · /, '');
-  }
 
   grid.innerHTML = (config.products || []).map(product => {
     const hasCheckout = Boolean(product.mollieUrl);
@@ -612,7 +632,7 @@ function isEngageThankYouRoute() {
   return params.get('payment') === 'success';
 }
 
-function handleEngageRoute() {
+function handleStaticRoute() {
   const hash = (window.location.hash || '').replace('#', '').toLowerCase();
   const thankYou = isEngageThankYouRoute();
   if (hash === 'engage' || hash === 'engage-thanks' || thankYou) {
@@ -620,6 +640,11 @@ function handleEngageRoute() {
     showView('engage');
     setEngageThankYouVisible(thankYou);
     if (thankYou) window.scrollTo({ top: 0, behavior: 'smooth' });
+    return true;
+  }
+  if (hash === 'privacy' || hash === 'terms') {
+    applyLegalMerchantInfo();
+    showView(hash);
     return true;
   }
   setEngageThankYouVisible(false);
@@ -651,7 +676,7 @@ function showView(viewId) {
   }
   const prefooterShell = document.querySelector('.prefooter-shell');
   if (prefooterShell) {
-    prefooterShell.style.display = viewId === 'engage' ? 'none' : '';
+    prefooterShell.style.display = ['engage', 'privacy', 'terms'].includes(viewId) ? 'none' : '';
   }
 
   const target = document.getElementById(viewId);
@@ -659,11 +684,13 @@ function showView(viewId) {
 }
 
 function navigateToView(viewId) {
-  if (viewId === 'engage') {
-    history.replaceState(null, '', '#engage');
-  } else if (window.location.hash && (window.location.hash === '#engage' || window.location.hash === '#engage-thanks')) {
+  const hashRoutes = { engage: '#engage', privacy: '#privacy', terms: '#terms' };
+  if (hashRoutes[viewId]) {
+    history.replaceState(null, '', hashRoutes[viewId]);
+  } else if (window.location.hash) {
     history.replaceState(null, '', window.location.pathname + window.location.search);
   }
+  if (viewId === 'privacy' || viewId === 'terms') applyLegalMerchantInfo();
   showView(viewId);
   closeOverlay();
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1497,7 +1524,7 @@ document.addEventListener('click', (event) => {
 
 
 window.addEventListener('hashchange', () => {
-  if (handleEngageRoute()) return;
+  if (handleStaticRoute()) return;
   const hash = (window.location.hash || '').replace('#', '');
   if (hash.startsWith('env-')) {
     navigateToDomain(hash.replace('env-', ''));
@@ -1508,7 +1535,8 @@ window.addEventListener('load', () => {
   enforceSelectContrast(document);
   applyHardDomFixes();
   const hash = (window.location.hash || '').replace('#', '');
-  if (handleEngageRoute()) return;
+  applyLegalMerchantInfo();
+  if (handleStaticRoute()) return;
   showView('platform');
   if (hash && hash.startsWith('env-')) {
     navigateToDomain(hash.replace('env-', ''));
