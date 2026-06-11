@@ -610,6 +610,9 @@ function renderEngage() {
     const downloadBtn = product.downloadUrl
       ? `<a class="btn btn-secondary engage-download-btn" href="${product.downloadUrl}" download>Download pack (PDF)</a>`
       : '';
+    const deckBtn = product.deckDownloadUrl
+      ? `<a class="btn btn-secondary engage-download-btn" href="${product.deckDownloadUrl}" download>Download slides (PDF)</a>`
+      : '';
     return `
       <article class="engage-product-card glass" data-engage-product="${product.id}">
         <div class="engage-product-head">
@@ -635,7 +638,7 @@ function renderEngage() {
           <div class="engage-product-meta"><span>Timeline</span><strong>${product.timeline}</strong></div>
         </div>
         ${notIncluded}
-        <div class="engage-product-actions">${checkoutBtn}${downloadBtn}</div>
+        <div class="engage-product-actions">${checkoutBtn}${downloadBtn}${deckBtn}</div>
       </article>
     `;
   }).join('');

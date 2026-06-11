@@ -111,6 +111,7 @@ window.AIE_ENGAGE_CONFIG = {
       ],
       notIncluded: 'Not a full bespoke strategy engagement — light customization only.',
       downloadUrl: 'assets/ai-elevate-board-briefing-pack.pdf',
+      deckDownloadUrl: 'assets/ai-elevate-board-briefing-deck.pdf',
       intakeFormUrl: '',
       mollieUrl: '',
       mollieRedirect: 'https://aielevate.xyz/?payment=success&product=briefing-pack',
