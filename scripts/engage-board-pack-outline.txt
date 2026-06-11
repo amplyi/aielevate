@@ -1,0 +1,79 @@
+AI Elevate — Board Briefing Pack (standard content outline)
+============================================================
+Source doctrine: Anthony EDMP business case (June 2026)
+Build target: PDF ~25–35 pages + 10–12 slide deck + 1-page investor summary
+Languages: Dutch and English versions (separate files or bilingual pack)
+
+---
+ONE-PAGER (forwardable)
+---
+  30-second investor version (verbatim from doctrine):
+  "Every organization stores data. Every organization stores transactions.
+   Every organization stores workflows. Almost no organization stores
+   decision formation. As AI accelerates decision velocity, the inability
+   to reconstruct why decisions were made becomes a governance, risk, and
+   performance problem. EDMP creates the missing enterprise memory layer
+   by preserving signal, reasoning, decision lineage, execution trace, and
+   institutional memory."
+
+---
+SLIDE DECK (10–12 slides)
+---
+  1. Title — EDMP: The Missing Enterprise Memory Layer
+  2. What executives can answer today (what happened) vs. cannot (why)
+  3. The cost of forgetting — institutional memory breaks when people leave
+  4. Why AI makes this worse — velocity up, traceability down
+  5. The paradox — more decisions, less understanding
+  6. EDMP value chain — Signal → Structure → Decision → Execution → Memory
+  7. Financial case — risk reduction
+  8. Financial case — reduced rework + executive continuity
+  9. Financial case — AI governance (AI Act, auditors, boards)
+  10. Category thesis — CRM = customer memory, ERP = operational memory, EDMP = decision memory
+  11. Not another dashboard / workflow / AI platform — a layer above them
+  12. Recommended next steps — Briefing · Assessment · Environment exploration
+
+---
+PDF PACK (chapter outline)
+---
+  1. Executive summary
+  2. The strongest business case is not AI (core insight)
+  3. The executive problem — six questions organizations cannot answer
+  4. The cost of forgetting — €100M company scenario
+  5. Why AI makes this worse — decision chain before/after AI
+  6. EDMP core value — what gets preserved (value chain diagram)
+  7. Financial business case — risk reduction (governance, audit, litigation)
+  8. Financial business case — reduced rework (repeated decisions)
+  9. Financial business case — executive continuity
+  10. Financial business case — AI governance entry market
+  11. Why this can become a category (CRM / ERP / EDMP)
+  12. Domain primers (6 environments — 1–2 pages each)
+  13. How to engage — programs on aielevate.xyz
+
+---
+LIGHT CUSTOMIZATION (optional intake)
+---
+  - Company name on cover
+  - Sector-specific examples in addendum (finance, governance, legal, etc.)
+  - Language: NL or EN
+  Deliver within 3–5 business days after intake
+
+---
+EXECUTIVE BRIEFING — 90 min session agenda (for reference)
+---
+  0:00–0:15  The executive problem
+  0:15–0:30  Cost of forgetting + client domain examples
+  0:30–0:50  AI paradox + EDMP value chain
+  0:50–1:10  Financial case applied to client's stated pressure domain
+  1:10–1:25  Category positioning + Q&A
+  1:25–1:30  Next steps
+
+---
+ASSESSMENT — scoring dimensions (for questionnaire + report)
+---
+  1. Decision traceability — can you reconstruct signal → reasoning → decision?
+  2. Institutional memory risk — key-person dependency on decision context
+  3. AI governance exposure — reasoning lineage for AI-assisted decisions
+  4. Rework exposure — repeated discussions on the same decisions
+  5. Signal-to-decision visibility — what triggered decisions, what changed
+  6. Executive continuity — survivability when leaders leave
+  Output: maturity scores, gap narrative, 90-day intervention map
