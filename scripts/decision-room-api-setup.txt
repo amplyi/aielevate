@@ -1,0 +1,31 @@
+AI Elevate — Decision Room API (Vercel)
+=======================================
+
+The static site stays on GitHub Pages. The Decision Room Claude proxy runs on Vercel.
+
+DEPLOY VERCEL
+  1. Import repo amplyi/aielevate at vercel.com
+  2. Root directory: repository root (vercel.json + api/ folder)
+  3. Add environment variables (Production):
+       ANTHROPIC_API_KEY          = your Anthropic key (server-side only)
+       DECISION_ROOM_SESSION_SECRET = long random string (32+ chars)
+       ANTHROPIC_MODEL            = optional (default claude-sonnet-4-20250514)
+       DECISION_ROOM_ALLOWED_ORIGINS = https://aielevate.xyz (optional)
+  4. Deploy ? note URL e.g. https://aielevate-api.vercel.app
+
+CONFIGURE SITE
+  In app/engage-config.js set:
+    decisionRoom.apiBase = 'https://YOUR-VERCEL-URL.vercel.app'
+
+ISSUE TOKENS (after Mollie payment)
+  DECISION_ROOM_SESSION_SECRET=xxx node scripts/issue-decision-room-token.mjs --industry "Finance" --role "CFO" --days 7
+
+  Send customer:
+    https://aielevate.xyz/#decision-room?token=TOKEN
+
+AUTOMATION (Phase 2)
+  Make.com: Mollie paid (decision-room) ? HTTP module runs issue script logic or calls internal admin endpoint ? email token
+
+LOCAL TEST
+  vercel dev
+  Set engage-config decisionRoom.apiBase to http://localhost:3000

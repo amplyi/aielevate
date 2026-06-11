@@ -622,6 +622,9 @@ function renderEngage() {
     const runbookBtn = product.runbookDownloadUrl
       ? `<a class="btn btn-secondary engage-download-btn" href="${product.runbookDownloadUrl}" download>Download runbook (PDF)</a>`
       : '';
+    const roomBtn = product.roomUrl
+      ? `<a class="btn btn-secondary engage-download-btn" href="${product.roomUrl}">Enter Decision Room</a>`
+      : '';
     return `
       <article class="engage-product-card glass" data-engage-product="${product.id}">
         <div class="engage-product-head">
@@ -647,7 +650,7 @@ function renderEngage() {
           <div class="engage-product-meta"><span>Timeline</span><strong>${product.timeline}</strong></div>
         </div>
         ${notIncluded}
-        <div class="engage-product-actions">${checkoutBtn}${downloadBtn}${deckBtn}${briefBtn}${frameworkBtn}${runbookBtn}</div>
+        <div class="engage-product-actions">${checkoutBtn}${downloadBtn}${deckBtn}${briefBtn}${frameworkBtn}${runbookBtn}${roomBtn}</div>
       </article>
     `;
   }).join('');
@@ -682,21 +685,34 @@ function updateEngageThankYou() {
   }
 
   if (product && body) {
-    body.textContent = `Payment confirmed for ${product.title}. Complete the intake form to start delivery. ${product.timeline}.`;
+    if (product.id === 'decision-room') {
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get('token');
+      body.textContent = token
+        ? `Payment confirmed for ${product.title}. Your access token is ready — enter the Decision Room below.`
+        : `Payment confirmed for ${product.title}. Your session access token will be emailed within 1 business day. ${product.timeline}.`;
+    } else {
+      body.textContent = `Payment confirmed for ${product.title}. Complete the intake form to start delivery. ${product.timeline}.`;
+    }
   } else if (body) {
     body.textContent = `We received your payment. You will hear from ${merchantEmail} within one business day.`;
   }
 
   if (intakeBtn) {
-    const intakeUrl = product?.intakeFormUrl;
-    if (intakeUrl) {
-      intakeBtn.href = intakeUrl;
+    const params = new URLSearchParams(window.location.search);
+    const roomToken = params.get('token');
+    if (product?.id === 'decision-room' && roomToken) {
+      intakeBtn.href = `${window.location.pathname}?token=${encodeURIComponent(roomToken)}#decision-room`;
+      intakeBtn.classList.remove('hidden');
+      intakeBtn.textContent = 'Enter Decision Room';
+    } else if (product?.intakeFormUrl) {
+      intakeBtn.href = product.intakeFormUrl;
       intakeBtn.classList.remove('hidden');
       intakeBtn.textContent = 'Complete intake form';
     } else {
       intakeBtn.classList.add('hidden');
       intakeBtn.removeAttribute('href');
-      if (product && body) {
+      if (product && product.id !== 'decision-room' && body) {
         body.textContent += ` Intake form link will be emailed from ${merchantEmail} within 1 business day (Typeform URL not configured yet).`;
       }
     }
@@ -732,6 +748,10 @@ function handleStaticRoute() {
     showView(hash);
     return true;
   }
+  if (hash === 'decision-room') {
+    showView('decision-room');
+    return true;
+  }
   setEngageThankYouVisible(false);
   return false;
 }
@@ -743,6 +763,11 @@ function showView(viewId) {
     if (!isEngageThankYouRoute()) setEngageThankYouVisible(false);
   } else {
     setEngageThankYouVisible(false);
+  }
+
+  document.body.classList.toggle('decision-room-mode', viewId === 'decision-room');
+  if (viewId === 'decision-room' && window.DecisionRoom) {
+    window.DecisionRoom.onViewActive();
   }
 
   views.forEach(view => view.classList.toggle('active-view', view.id === viewId));
@@ -761,7 +786,7 @@ function showView(viewId) {
   }
   const prefooterShell = document.querySelector('.prefooter-shell');
   if (prefooterShell) {
-    prefooterShell.style.display = ['engage', 'privacy', 'terms'].includes(viewId) ? 'none' : '';
+    prefooterShell.style.display = ['engage', 'privacy', 'terms', 'decision-room'].includes(viewId) ? 'none' : '';
   }
 
   const target = document.getElementById(viewId);
@@ -769,7 +794,7 @@ function showView(viewId) {
 }
 
 function navigateToView(viewId) {
-  const hashRoutes = { engage: '#engage', privacy: '#privacy', terms: '#terms' };
+  const hashRoutes = { engage: '#engage', privacy: '#privacy', terms: '#terms', 'decision-room': '#decision-room' };
   if (hashRoutes[viewId]) {
     history.replaceState(null, '', hashRoutes[viewId]);
   } else if (window.location.hash) {

@@ -5,6 +5,7 @@
  *   https://aielevate.xyz/?payment=success&product=briefing
  *   https://aielevate.xyz/?payment=success&product=assessment
  *   https://aielevate.xyz/?payment=success&product=briefing-pack
+ *   https://aielevate.xyz/?payment=success&product=decision-room
  *
  * Intake automation: Typeform + Make.com (see scripts/engage-intake-automation.txt)
  * Paste each intakeFormUrl after creating the Typeform.
@@ -28,6 +29,13 @@ window.AIE_ENGAGE_CONFIG = {
    * Board Pack PDF + Briefing agenda + Assessment rubric derive from this.
    * Full outline: scripts/engage-board-pack-outline.txt
    */
+  /**
+   * Decision Room API (Vercel). Set apiBase after deploying api/ — see scripts/decision-room-api-setup.txt
+   */
+  decisionRoom: {
+    apiBase: '',
+    setupGuide: 'scripts/decision-room-api-setup.txt',
+  },
   doctrine: {
     coreInsight: 'Organizations preserve data, workflows, and AI outputs — but not how important decisions were formed.',
     investorPitch: 'As AI accelerates decision velocity, the inability to reconstruct why decisions were made becomes a governance, risk, and performance problem. EDMP preserves signal, reasoning, decision lineage, execution trace, and institutional memory.',
@@ -118,6 +126,34 @@ window.AIE_ENGAGE_CONFIG = {
       intakeFormUrl: '',
       mollieUrl: '',
       mollieRedirect: 'https://aielevate.xyz/?payment=success&product=briefing-pack',
+    },
+    {
+      id: 'decision-room',
+      tag: 'Interactive session',
+      title: 'Decision Room Session',
+      subtitle: 'A 20-minute industry scenario — experience decision pressure and traceability gaps firsthand.',
+      audience: 'Executives, board sponsors, and governance leads who want experiential proof before a briefing or assessment.',
+      priceLabel: '€89',
+      priceNote: 'incl. 21% VAT · one session · 48h access',
+      format: '6-turn simulation + EDMP-aligned debrief (web)',
+      timeline: 'Access token emailed within 1 business day of payment',
+      youReceive: [
+        'Personalized industry and role context for your scenario',
+        '6 timed decision signals with integrity, velocity, and risk tradeoffs',
+        'Advisor panel and decision log showing reasoning under pressure',
+        'EDMP debrief: traceability gaps, memory risks, and recommended next step',
+      ],
+      intake: [
+        'Pay via Mollie — confirmation page explains next steps',
+        'Intake: work email, industry, role, pressure domain (or provide at room entry)',
+        'Session access token sent by email within 1 business day',
+        'Enter token at aielevate.xyz/#decision-room — valid 48 hours',
+      ],
+      notIncluded: 'Not a consulting engagement or custom software build — one simulation session per purchase.',
+      roomUrl: '#decision-room',
+      intakeFormUrl: '',
+      mollieUrl: '',
+      mollieRedirect: 'https://aielevate.xyz/?payment=success&product=decision-room',
     },
   ],
 };

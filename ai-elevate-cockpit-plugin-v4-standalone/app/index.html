@@ -9,7 +9,8 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <link rel="icon" href="assets/ae-logo-blue.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/ae-logo-blue.png" />
-  <link rel="stylesheet" href="styles.css?v=20260612-runbook" />
+  <link rel="stylesheet" href="styles.css?v=20260613-room" />
+  <link rel="stylesheet" href="decision-room.css?v=20260613-room" />
 </head>
 <body>
 
@@ -88,7 +89,7 @@
             <div class="hero-actions">
               <a class="btn btn-primary btn-cta" id="heroDemoBtn" data-open-intake="demo" data-source="hero" href="mailto:info@aielevate.xyz?subject=AI%20Elevate%20Demo%20Request&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20book%20a%20demo.%0A%0AName%3A%0ACompany%3A%0APrimary%20use%20case%3A%0ATimeline%3A%0A">Request Executive Briefing</a>
               <button class="btn btn-secondary jump-btn" data-view="library">See Use Environments</button>
-              <button class="btn btn-secondary jump-btn" data-view="cases">Enter Decision Room</button>
+              <button class="btn btn-secondary jump-btn" data-view="decision-room">Enter Decision Room</button>
             </div>
           </div>
           <div class="hero-image-wrap">
@@ -400,6 +401,107 @@
       <div id="insightGrid" class="card-grid insights-grid"></div>
     </section>
 
+    <section id="decision-room" class="view">
+      <div class="decision-room-wrap">
+        <div id="drGate" class="dr-gate">
+          <div class="dr-gate-card">
+            <div class="dr-kicker">AI Elevate · Decision Room</div>
+            <h2>Decision Room Session</h2>
+            <p>Experience how decisions form under pressure — and what your organization would fail to reconstruct later. Access requires a paid session token.</p>
+            <label class="dr-field">
+              <span>Session access token</span>
+              <div class="dr-token-row">
+                <input id="drTokenInput" type="text" placeholder="Paste token from your confirmation email" autocomplete="off" />
+                <button type="button" class="dr-btn dr-btn-primary" id="drValidateBtn">Enter</button>
+              </div>
+            </label>
+            <p id="drGateError" class="dr-error" role="alert"></p>
+            <div class="dr-actions">
+              <button type="button" class="dr-btn" id="drBuyBtn">Purchase a session</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="drSetup" class="dr-setup hidden">
+          <div class="dr-setup-card">
+            <div class="dr-kicker">Session setup</div>
+            <h2>Your decision environment</h2>
+            <p>Personalize the simulation for your industry and role. Scenarios will reflect your sector's governance and memory pressures.</p>
+            <label class="dr-field">
+              <span>Industry</span>
+              <input id="drIndustry" type="text" placeholder="e.g. Financial Services, Healthcare, Public Sector" />
+            </label>
+            <label class="dr-field">
+              <span>Your role</span>
+              <input id="drRole" type="text" placeholder="e.g. CFO, CRO, Program Director" />
+            </label>
+            <label class="dr-field">
+              <span>Pressure domain</span>
+              <select id="drPressure">
+                <option value="Governance and decision traceability">Governance and decision traceability</option>
+                <option value="AI oversight and accountability">AI oversight and accountability</option>
+                <option value="Regulatory and audit exposure">Regulatory and audit exposure</option>
+                <option value="Procurement and vendor risk">Procurement and vendor risk</option>
+                <option value="Executive continuity">Executive continuity</option>
+                <option value="Strategic portfolio decisions">Strategic portfolio decisions</option>
+              </select>
+            </label>
+            <p id="drSetupError" class="dr-error" role="alert"></p>
+            <div class="dr-actions">
+              <button type="button" class="dr-btn dr-btn-primary" id="drStartBtn">Begin simulation</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="drApp" class="dr-app hidden">
+          <div class="dr-topbar">
+            <div class="dr-title-block">
+              <div class="dr-blinker"></div>
+              <div class="dr-title-text">AI ELEVATE · DECISION ROOM</div>
+            </div>
+            <div class="dr-metrics-row">
+              <div class="dr-metric dr-m-integrity">
+                <div class="dr-metric-label">Integrity</div>
+                <div class="dr-metric-val" id="drMIntegrity">90</div>
+                <div class="dr-metric-bar dr-bar-integrity"><div class="dr-metric-fill" id="drBarIntegrity" style="width:90%"></div></div>
+              </div>
+              <div class="dr-metric dr-m-velocity">
+                <div class="dr-metric-label">Velocity</div>
+                <div class="dr-metric-val" id="drMVelocity">70</div>
+                <div class="dr-metric-bar dr-bar-velocity"><div class="dr-metric-fill" id="drBarVelocity" style="width:70%"></div></div>
+              </div>
+              <div class="dr-metric dr-m-risk">
+                <div class="dr-metric-label">Risk</div>
+                <div class="dr-metric-val" id="drMRisk">20</div>
+                <div class="dr-metric-bar dr-bar-risk"><div class="dr-metric-fill" id="drBarRisk" style="width:20%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="dr-main">
+            <div class="dr-log-panel">
+              <h3>Decision Log</h3>
+              <div id="drLogList" class="dr-log-list"></div>
+            </div>
+            <div class="dr-center">
+              <div id="drSignalArea" class="dr-signal-area"></div>
+              <div id="drTimerRow" class="dr-timer-row hidden">
+                <span id="drTimerLabel" class="dr-timer-label">TIME: 0:30</span>
+                <div class="dr-timer-bar-wrap"><div id="drTimerBar" class="dr-timer-bar"></div></div>
+              </div>
+              <div id="drOptionsArea" class="dr-options-area hidden">
+                <h4>Your response</h4>
+                <div id="drOptionsList"></div>
+              </div>
+            </div>
+            <div class="dr-advisor-panel">
+              <h3>Advisors</h3>
+              <div id="drAdvisorMsgs" class="dr-advisor-msgs"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="engage" class="view">
       <div id="engageThankYou" class="engage-thankyou glass hidden" role="status" aria-live="polite">
         <div class="section-kicker">Payment received</div>
@@ -453,7 +555,7 @@
         </ul>
 
         <h3>2. Products &amp; pricing</h3>
-        <p>We sell fixed-scope professional programs and digital products relating to EDMP (Enterprise Decision Memory Platform), including executive briefings, readiness assessments, and board briefing packs. Prices shown on the Engage page include 21% VAT unless stated otherwise.</p>
+        <p>We sell fixed-scope professional programs and digital products relating to EDMP (Enterprise Decision Memory Platform), including executive briefings, readiness assessments, board briefing packs, and Decision Room sessions. Prices shown on the Engage page include 21% VAT unless stated otherwise.</p>
 
         <h3>3. Payment</h3>
         <p>Payments are processed securely by <a href="https://www.mollie.com" rel="noopener noreferrer">Mollie</a>. Accepted methods: <span id="legalTermsPaymentMethods">iDEAL, cards, Bancontact, and bank transfer</span>. Your order is confirmed when payment is successfully completed.</p>
@@ -779,7 +881,8 @@
   </aside>
 </div>
 
-  <script src="engage-config.js?v=20260612-runbook"></script>
-  <script src="script.js?v=20260612-runbook"></script>
+  <script src="engage-config.js?v=20260613-room"></script>
+  <script src="decision-room.js?v=20260613-room"></script>
+  <script src="script.js?v=20260613-room"></script>
 </body>
 </html>
