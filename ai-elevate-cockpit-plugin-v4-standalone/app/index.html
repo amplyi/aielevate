@@ -70,7 +70,7 @@
       </nav>
 
       <div class="header-actions">
-        <button class="btn btn-secondary jump-btn route-library" data-view="library" type="button">Explore EDMP</button>
+        <button class="btn btn-secondary jump-btn" data-view="engage" type="button">View Programs</button>
         <a class="btn btn-primary btn-cta" id="headerDemoBtn" data-open-intake="demo" data-source="header" href="mailto:info@aielevate.xyz?subject=AI%20Elevate%20Demo%20Request&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20book%20a%20demo.%0A%0AName%3A%0ACompany%3A%0APrimary%20use%20case%3A%0ATimeline%3A%0A">Request Executive Briefing</a>
       </div>
     </div>
@@ -86,7 +86,7 @@
             <p class="hero-copy">Organizations already preserve data, workflow, and AI output. They still do not preserve how meaningful decisions are formed, changed, and executed.</p><p class="hero-copy">AI Elevate builds EDMP — the enterprise system for preserving decision lineage, reasoning structure, ownership continuity, and accountable follow-through.</p><p class="hero-trust">Built for organizations where reasoning, ownership, and accountability cannot drift.</p>
             <div class="hero-actions">
               <a class="btn btn-primary btn-cta" id="heroDemoBtn" data-open-intake="demo" data-source="hero" href="mailto:info@aielevate.xyz?subject=AI%20Elevate%20Demo%20Request&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20book%20a%20demo.%0A%0AName%3A%0ACompany%3A%0APrimary%20use%20case%3A%0ATimeline%3A%0A">Request Executive Briefing</a>
-              <button class="btn btn-secondary jump-btn" data-view="library">Explore EDMP</button>
+              <button class="btn btn-secondary jump-btn" data-view="library">See Use Environments</button>
               <button class="btn btn-secondary jump-btn" data-view="cases">Enter Decision Room</button>
             </div>
           </div>
@@ -407,22 +407,55 @@
         <button class="btn btn-secondary" type="button" data-view="platform">Return to EDMP</button>
       </div>
 
-      <div class="section-head glass">
+      <div class="section-head glass engage-intro">
         <div>
           <div class="section-kicker">Engage</div>
-          <h2>Enter EDMP through a defined program</h2>
+          <h2>Choose a program, pay securely, we activate delivery</h2>
         </div>
-        <p>Secure checkout via Mollie. Choose a program, complete payment, and we activate delivery — briefing, assessment, or digital pack.</p>
+        <p>Fixed-scope EDMP programs for executives and boards. Pick one of three offerings below — checkout opens via Mollie when live.</p>
+      </div>
+
+      <div class="engage-flow-hint glass">
+        <span><strong>1</strong> Choose program</span>
+        <span class="engage-flow-dot" aria-hidden="true"></span>
+        <span><strong>2</strong> Pay via Mollie</span>
+        <span class="engage-flow-dot" aria-hidden="true"></span>
+        <span><strong>3</strong> Delivery activated</span>
       </div>
 
       <div id="engageGrid" class="engage-product-grid"></div>
 
-      <article class="glass engage-merchant-note">
-        <div class="section-kicker">Merchant &amp; support</div>
-        <p><strong id="engageMerchantBrand">AI Elevate</strong> programs are sold by <strong id="engageMerchantLegal">AvL Consultancy</strong>.</p>
-        <p>Contact: <a class="footer-mail" href="mailto:info@aielevate.xyz" id="engageMerchantEmail">info@aielevate.xyz</a> · <a class="footer-mail" href="tel:+31646438478" id="engageMerchantPhone">+31 6 46438478</a></p>
-        <p class="engage-merchant-meta" id="engageMerchantMeta">All prices include 21% VAT unless stated otherwise. · iDEAL · Cards · Bancontact · Bank transfer</p>
-        <p class="engage-merchant-meta">Enterprise implementation and multi-domain deployments: <button class="footer-link engage-inline-link" type="button" data-view="contact">contact us</button> for a scoped proposal.</p>
+      <article class="glass engage-checkout-info">
+        <div class="engage-checkout-info-head">
+          <div>
+            <div class="section-kicker">Checkout details</div>
+            <h3>Who you are buying from</h3>
+          </div>
+          <p class="engage-checkout-lead">Required merchant information for secure payment and support.</p>
+        </div>
+        <div class="engage-info-grid">
+          <div class="engage-info-cell">
+            <span class="engage-info-label">Program brand</span>
+            <strong id="engageMerchantBrand">AI Elevate</strong>
+          </div>
+          <div class="engage-info-cell">
+            <span class="engage-info-label">Legal seller</span>
+            <strong id="engageMerchantLegal">AvL Consultancy</strong>
+          </div>
+          <div class="engage-info-cell">
+            <span class="engage-info-label">Email</span>
+            <a class="engage-info-link" href="mailto:info@aielevate.xyz" id="engageMerchantEmail">info@aielevate.xyz</a>
+          </div>
+          <div class="engage-info-cell">
+            <span class="engage-info-label">Phone</span>
+            <a class="engage-info-link" href="tel:+31646438478" id="engageMerchantPhone">+31 6 46438478</a>
+          </div>
+          <div class="engage-info-cell engage-info-cell-wide">
+            <span class="engage-info-label">Pricing &amp; payment methods</span>
+            <p class="engage-info-copy" id="engageMerchantMeta">All prices include 21% VAT unless stated otherwise. · iDEAL · Cards · Bancontact · Bank transfer</p>
+          </div>
+        </div>
+        <p class="engage-enterprise-note">Multi-domain or enterprise rollout? <button class="footer-link engage-inline-link" type="button" data-view="contact">Request a scoped proposal</button> instead of self-serve checkout.</p>
       </article>
     </section>
 

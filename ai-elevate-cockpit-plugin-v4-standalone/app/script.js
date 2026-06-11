@@ -456,14 +456,14 @@ const prefooterContent = {
     secondaryView: 'platform'
   },
   engage: {
-    kicker: 'Engage',
-    title: 'Start with a defined EDMP program',
-    text: 'Executive briefing, readiness assessment, or board briefing pack — secure checkout and clear delivery.',
-    metrics: [['Checkout','Mollie'],['Programs','03'],['Delivery','Defined'],['Enterprise','On request']],
-    primaryLabel: 'Enterprise scope inquiry',
+    kicker: 'Questions before checkout?',
+    title: 'Talk to us about scope, timing, or enterprise rollout',
+    text: 'Self-serve programs cover briefing, assessment, and board pack. Larger deployments need a scoped conversation first.',
+    metrics: [['Response','1 business day'],['Channel','Email'],['Seller','AvL Consultancy'],['Programs','03 live']],
+    primaryLabel: 'Contact us',
     primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Enterprise%20Program%20Inquiry&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20discuss%20a%20multi-domain%20or%20enterprise%20EDMP%20deployment.%0A%0AName%3A%0ACompany%3A%0A',
-    secondaryLabel: 'Return to EDMP',
+    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Program%20Question&body=Hi%20AI%20Elevate%2C%0A%0AI%20have%20a%20question%20before%20checkout.%0A%0AName%3A%0ACompany%3A%0AProgram%20of%20interest%3A%0A',
+    secondaryLabel: 'Explore EDMP category',
     secondaryView: 'platform'
   }
 };
@@ -648,6 +648,10 @@ function showView(viewId) {
   const trustStrip = document.querySelector('.trust-strip');
   if (trustStrip) {
     trustStrip.style.display = viewId === 'library' ? '' : 'none';
+  }
+  const prefooterShell = document.querySelector('.prefooter-shell');
+  if (prefooterShell) {
+    prefooterShell.style.display = viewId === 'engage' ? 'none' : '';
   }
 
   const target = document.getElementById(viewId);
@@ -1575,18 +1579,6 @@ function initMobileHeaderBehavior() {
 }
 
 function bindRouteIntegrity() {
-  document.querySelectorAll('a,button').forEach(el => {
-    const label = (el.textContent || '').trim().toLowerCase();
-    if (label === 'explore edmp') {
-      el.addEventListener('click', (event) => {
-        event.preventDefault();
-        showView('library');
-        const library = document.getElementById('library');
-        if (library) library.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    }
-  });
-
   const domainCaseBtn = document.getElementById('domainCaseBtn');
   if (domainCaseBtn) {
     domainCaseBtn.addEventListener('click', (event) => {
