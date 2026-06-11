@@ -599,20 +599,39 @@ function renderEngage() {
     const checkoutBtn = hasCheckout
       ? `<a class="btn btn-primary btn-cta engage-checkout-btn" href="${product.mollieUrl}" rel="noopener noreferrer">Proceed to secure checkout</a>`
       : `<button class="btn btn-primary btn-cta engage-checkout-btn" type="button" disabled title="Add Mollie Payment Link URL in engage-config.js">Checkout opening soon</button>`;
-    const deliverables = (product.deliverables || []).map(item => `<li>${item}</li>`).join('');
+    const youReceive = (product.youReceive || product.deliverables || [])
+      .map(item => `<li>${item}</li>`).join('');
+    const intake = (product.intake || [])
+      .map((item, index) => `<li><span class="engage-step-num">${index + 1}</span>${item}</li>`).join('');
+    const audience = product.audience
+      ? `<p class="engage-product-audience"><span>For:</span> ${product.audience}</p>` : '';
+    const notIncluded = product.notIncluded
+      ? `<p class="engage-product-scope-note">${product.notIncluded}</p>` : '';
     return `
       <article class="engage-product-card glass" data-engage-product="${product.id}">
         <div class="engage-product-head">
           <span class="card-tag">${product.tag}</span>
           <h3>${product.title}</h3>
           <p>${product.subtitle}</p>
+          ${audience}
         </div>
         <div class="engage-product-price">
           <strong>${product.priceLabel}</strong>
           <span>${product.priceNote}</span>
         </div>
-        <ul class="engage-product-list">${deliverables}</ul>
-        <div class="engage-product-meta"><span>Timeline</span><strong>${product.timeline}</strong></div>
+        <div class="engage-product-block">
+          <span class="engage-product-label">You receive</span>
+          <ul class="engage-product-list">${youReceive}</ul>
+        </div>
+        <div class="engage-product-block">
+          <span class="engage-product-label">After payment</span>
+          <ol class="engage-intake-list">${intake}</ol>
+        </div>
+        <div class="engage-product-meta-row">
+          <div class="engage-product-meta"><span>Format</span><strong>${product.format || '—'}</strong></div>
+          <div class="engage-product-meta"><span>Timeline</span><strong>${product.timeline}</strong></div>
+        </div>
+        ${notIncluded}
         <div class="engage-product-actions">${checkoutBtn}</div>
       </article>
     `;
