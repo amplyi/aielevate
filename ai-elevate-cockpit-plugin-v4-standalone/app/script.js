@@ -409,7 +409,7 @@ const prefooterContent = {
     primaryIntake: 'demo',
     primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Executive%20Briefing%20Request&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20request%20an%20executive%20briefing.%0A%0AName%3A%0ACompany%3A%0AUse%20environment%3A%0A',
     secondaryLabel: 'Review the Architecture',
-    secondaryView: 'insights'
+    secondaryView: 'cases'
   },
   library: {
     kicker: 'EDMP stack',
@@ -420,7 +420,7 @@ const prefooterContent = {
     primaryIntake: 'contact',
     primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20EDMP%20Inquiry&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20discuss%20EDMP.%0A%0AName%3A%0ACompany%3A%0AEnvironment%3A%0A',
     secondaryLabel: 'See Use Environments',
-    secondaryView: 'cases'
+    secondaryView: 'library'
   },
   cases: {
     kicker: 'Decision Room',
@@ -431,7 +431,7 @@ const prefooterContent = {
     primaryIntake: 'demo',
     primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20EDMP%20Environment%20Request&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20see%20EDMP%20in%20my%20environment.%0A%0AName%3A%0ACompany%3A%0AEnvironment%3A%0A',
     secondaryLabel: 'Review the Architecture',
-    secondaryView: 'library'
+    secondaryView: 'cases'
   },
   insights: {
     kicker: 'Operating doctrine',
@@ -450,10 +450,10 @@ const prefooterContent = {
     text: 'Review how Enterprise Decision Memory applies to your organization’s decision pressure, governance requirements, and operating model.',
     metrics: [['Inquiry path','Direct'],['Response mode','Human'],['Category','EDMP'],['Next step','Briefing']],
     primaryLabel: 'Request Executive Briefing',
-    primaryIntake: 'contact',
+    primaryIntake: 'demo',
     primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Executive%20Briefing%20Request&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20review%20EDMP%20for%20my%20environment.%0A%0AName%3A%0ACompany%3A%0A',
     secondaryLabel: 'Review the Architecture',
-    secondaryView: 'platform'
+    secondaryView: 'cases'
   },
   engage: {
     kicker: 'Questions before checkout?',
@@ -952,9 +952,89 @@ function intakeFormHTML(options = {}) {
   `;
 }
 
+function resolveDomainLabel(domainAttr) {
+  if (!domainAttr) return '';
+  const byId = cockpitData.find(entry => entry.id === domainAttr);
+  if (byId) return byId.domain;
+  return domainAttr;
+}
+
+function resolveDomainKey(domainAttr) {
+  if (!domainAttr) {
+    return typeof getCurrentTopDomainKey === 'function' ? getCurrentTopDomainKey() : 'governance';
+  }
+  const byId = cockpitData.find(entry => entry.id === domainAttr);
+  if (byId) return byId.id;
+  const byLabel = cockpitData.find(entry => entry.domain === domainAttr);
+  if (byLabel) return byLabel.id;
+  return 'governance';
+}
+
+function getNavLabel(el) {
+  return (el.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function goToCases(domainKey) {
+  const key = domainKey || resolveDomainKey();
+  navigateToView('cases');
+  if (typeof selectCase === 'function') selectCase(key);
+  const journey = document.querySelector('.journey-panel') || document.getElementById('cases');
+  if (journey) {
+    window.setTimeout(() => journey.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+  }
+}
+
+function goToLibrary(domainKey) {
+  if (domainKey) {
+    navigateToDomain(domainKey);
+    return;
+  }
+  navigateToView('library');
+  const grid = document.getElementById('cockpitGrid') || document.getElementById('library');
+  if (grid) window.setTimeout(() => grid.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+}
+
+function initNavigationIntegrity() {
+  document.addEventListener('click', (event) => {
+    const el = event.target.closest('a, button');
+    if (!el || el.closest('#engage')) return;
+
+    const label = getNavLabel(el);
+
+    if (label === 'explore edmp') {
+      event.preventDefault();
+      event.stopPropagation();
+      goToLibrary();
+      return;
+    }
+
+    if (label === 'see use environments') {
+      event.preventDefault();
+      event.stopPropagation();
+      const domainKey = el.id === 'domainLiveBtn' ? getCurrentTopDomainKey() : null;
+      goToLibrary(domainKey);
+      return;
+    }
+
+    if (label === 'review the architecture' || label === 'review architecture') {
+      event.preventDefault();
+      event.stopPropagation();
+      goToCases(resolveDomainKey(el.dataset.domain));
+      return;
+    }
+  }, true);
+
+  document.querySelectorAll('a.btn-primary.btn-cta, a.btn-primary#conceptDemoBtn').forEach(el => {
+    if (getNavLabel(el) === 'request executive briefing' && !el.dataset.openIntake) {
+      el.dataset.openIntake = 'demo';
+      if (!el.dataset.source) el.dataset.source = 'site';
+    }
+  });
+}
+
 function openIntakeFromTrigger(trigger) {
   const type = trigger.dataset.openIntake || 'contact';
-  const domain = trigger.dataset.domain || '';
+  const domain = resolveDomainLabel(trigger.dataset.domain || '');
   const context = trigger.dataset.intakeContext || trigger.textContent.trim();
   const source = trigger.dataset.source || 'site';
   openOverlay(intakeFormHTML({ type, domain, context, source }));
@@ -1693,20 +1773,7 @@ function bindRouteIntegrity() {
   if (domainLiveBtn) {
     domainLiveBtn.addEventListener('click', (event) => {
       event.preventDefault();
-      const activeDomain = getCurrentTopDomainKey();
-      openDomainContactIntake(activeDomain, 'library-top', `${getCockpitDomainLabel(activeDomain)} discussion`);
-    });
-  }
-
-  const libraryStripSecondary = document.querySelector('.sales-cta-strip .btn.btn-secondary.jump-btn[data-view="cases"]');
-  if (libraryStripSecondary) {
-    libraryStripSecondary.dataset.view = 'library';
-    libraryStripSecondary.textContent = 'See Use Environments';
-    libraryStripSecondary.addEventListener('click', (event) => {
-      event.preventDefault();
-      const grid = document.getElementById('cockpitGrid') || document.getElementById('library');
-      showView('library');
-      if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      goToLibrary(getCurrentTopDomainKey());
     });
   }
 }
@@ -1734,6 +1801,7 @@ function initBrandHome() {
 }
 
 window.addEventListener('load', () => {
+  initNavigationIntegrity();
   initMobileHeaderBehavior();
   bindRouteIntegrity();
   initBrandHome();
