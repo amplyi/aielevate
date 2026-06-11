@@ -65,6 +65,7 @@ window.AIE_ENGAGE_CONFIG = {
         'Live session delivered; summary PDF within 2 business days after',
       ],
       notIncluded: 'No custom cockpit build, implementation, or ongoing advisory.',
+      invitationEmailDownloadUrl: 'assets/ai-elevate-edmp-executive-briefing-invitation-email.pdf',
       runbookDownloadUrl: 'assets/ai-elevate-edmp-executive-briefing-runbook.pdf',
       calendarInviteDownloadUrl: 'assets/ai-elevate-edmp-executive-briefing-calendar-invite.pdf',
       findingsReportDownloadUrl: 'assets/ai-elevate-edmp-executive-briefing-findings-report.pdf',

@@ -619,6 +619,9 @@ function renderEngage() {
     const frameworkBtn = product.frameworkDownloadUrl
       ? `<a class="btn btn-secondary engage-download-btn" href="${product.frameworkDownloadUrl}" download>Download framework (PDF)</a>`
       : '';
+    const invitationEmailBtn = product.invitationEmailDownloadUrl
+      ? `<a class="btn btn-secondary engage-download-btn" href="${product.invitationEmailDownloadUrl}" download>Download invitation email (PDF)</a>`
+      : '';
     const runbookBtn = product.runbookDownloadUrl
       ? `<a class="btn btn-secondary engage-download-btn" href="${product.runbookDownloadUrl}" download>Download runbook (PDF)</a>`
       : '';
@@ -656,7 +659,7 @@ function renderEngage() {
           <div class="engage-product-meta"><span>Timeline</span><strong>${product.timeline}</strong></div>
         </div>
         ${notIncluded}
-        <div class="engage-product-actions">${checkoutBtn}${downloadBtn}${deckBtn}${briefBtn}${frameworkBtn}${runbookBtn}${calendarBtn}${findingsBtn}${roomBtn}</div>
+        <div class="engage-product-actions">${checkoutBtn}${downloadBtn}${deckBtn}${briefBtn}${frameworkBtn}${invitationEmailBtn}${runbookBtn}${calendarBtn}${findingsBtn}${roomBtn}</div>
       </article>
     `;
   }).join('');
