@@ -67,6 +67,7 @@ window.AIE_ENGAGE_CONFIG = {
       notIncluded: 'No custom cockpit build, implementation, or ongoing advisory.',
       runbookDownloadUrl: 'assets/ai-elevate-edmp-executive-briefing-runbook.pdf',
       calendarInviteDownloadUrl: 'assets/ai-elevate-edmp-executive-briefing-calendar-invite.pdf',
+      findingsReportDownloadUrl: 'assets/ai-elevate-edmp-executive-briefing-findings-report.pdf',
       intakeFormUrl: '',
       mollieUrl: '',
       mollieRedirect: 'https://aielevate.xyz/?payment=success&product=briefing',
