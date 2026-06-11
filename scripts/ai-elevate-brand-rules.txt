@@ -1,0 +1,54 @@
+AI Elevate — Brand Rules (documents & board materials)
+======================================================
+Version: June 2026 · Seller: AvL Consultancy · Site: aielevate.xyz
+
+LEGAL / MERCHANT
+  Brand name:        AI Elevate
+  Legal seller:      AvL Consultancy
+  Category term:     EDMP (Enterprise Decision Memory Platform)
+  Email:             info@aielevate.xyz
+  Phone:             +31 6 46438478
+  Website:           https://aielevate.xyz
+
+COLOUR PALETTE (from aielevate.xyz)
+  Background dark:   #070b12
+  Background mid:    #0f1420
+  Panel:             rgba(14, 19, 30, 0.82) → print as #0e131e
+  Primary text:      #f2f6fb
+  Muted text:        #aab5c5
+  Muted secondary:   #7c8798
+  Accent (primary):  #8fd3ff
+  Accent secondary:  #8f9aff
+  Line / border:     rgba(255,255,255,0.09) → print as #2a3140
+
+TYPOGRAPHY
+  Primary:           Inter, Helvetica, Arial, sans-serif
+  Kicker / label:    ALL CAPS, letter-spacing 0.14–0.18em, 8–10pt, accent colour
+  Headings:          Bold, sentence case, primary text colour
+  Body:              Regular, 10–11pt, muted or primary depending on hierarchy
+  Do not use:        Comic Sans, serif-only decks, neon gradients off-brand
+
+LOGO & MARK
+  Wordmark:          AI ELEVATE (kicker) + Enterprise Decision Memory Platform
+  Monogram:          AE (when logo image unavailable)
+  Logo file:         assets/ae-logo-blue.png (site favicon / header)
+  Clear space:       Minimum padding equal to height of “AI ELEVATE” kicker
+
+DOCUMENT STRUCTURE (Board Briefing Pack)
+  1. Cover — AI Elevate, pack title, AvL Consultancy, date
+  2. Table of contents
+  3. Chapters 1–13 with divider pages
+  4. Footer every page: AvL Consultancy · info@aielevate.xyz · aielevate.xyz
+  5. Header every page: AI ELEVATE · Enterprise Decision Memory Platform
+
+VOICE & POSITIONING
+  Lead with:         Decision formation gap (not AI features)
+  Category frame:    CRM = customer memory · ERP = operational memory · EDMP = decision memory
+  Tone:              Board-ready, precise, no hype, no tool-demo language
+  Languages:         English primary; Dutch available on request for custom packs
+
+PROHIBITED IN BRANDED MATERIALS
+  - Promising custom software delivery in self-serve pack
+  - “Revolutionary” / “disruptive” hyperbole
+  - Confusing AI Elevate (brand) with AvL Consultancy (legal entity) on invoices
+  - Removing VAT / merchant contact from commercial PDFs
