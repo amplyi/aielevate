@@ -23,7 +23,7 @@ The strongest business case is NOT AI, NOT memory technology — it is:
   "Organizations preserve data, workflows, tickets, emails, dashboards, AI outputs,
    approvals, and transactions. They do NOT preserve how important decisions were formed."
 
-Full doctrine text: user will paste separately (Anthony EDMP business case, June 2026).
+Full doctrine text: scripts/edmp-business-case.txt
 Outline derived from doctrine: scripts/engage-board-pack-outline.txt
 
 ================================================================================
@@ -174,7 +174,7 @@ Six use environments (domain primers for pack):
 ================================================================================
 
 PRIORITY 1 — Board Briefing Pack content (sellable fastest)
-  Input needed: Anthony doctrine (full text — user provides)
+  Input needed: scripts/edmp-business-case.txt (attach to ChatGPT)
   Output requested:
     a) Full PDF copy — all 13 chapters from engage-board-pack-outline.txt
     b) 10–12 slide deck speaker notes (English; then Dutch translation)
@@ -253,7 +253,7 @@ Bump ?v= query string on index.html asset links if browsers cache old JS.
 ================================================================================
 
   [Required for content quality]
-    - Full Anthony EDMP business case text (June 2026 — already written)
+    - scripts/edmp-business-case.txt (canonical doctrine document)
     - Preferred language priority (EN first, then NL — or both parallel)
     - Any KVK / legal entity details for Terms if needed on invoices
     - Sector examples Anthony wants emphasized (default: governance + finance)
@@ -307,11 +307,12 @@ Make.com: {{name}}, {{company}}, {{product}}, {{language}}.
 ================================================================================
 
   scripts/engage-intake-automation.txt    — Typeform fields + Make.com steps
+  scripts/edmp-business-case.txt          — canonical business case (Anthony doctrine)
   scripts/engage-board-pack-outline.txt   — PDF/slide chapter structure
   scripts/CHATGPT-DEVELOPMENT-BRIEF.txt   — this file
   ai-elevate-cockpit-plugin-v4-standalone/app/engage-config.js — product config
   DEPLOY-GITHUB-PAGES.txt                 — hosting setup
 
 ================================================================================
-END OF BRIEF — attach Anthony doctrine text when starting content work
+END OF BRIEF — attach scripts/edmp-business-case.txt when starting content work
 ================================================================================

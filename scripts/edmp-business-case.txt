@@ -1,0 +1,242 @@
+EDMP Business Case — Anthony Doctrine
+======================================
+Source: Anthony (June 2026)
+Use for: Board Pack PDF, Executive Briefing, Assessment framing, investor conversations
+Brand: AI Elevate · Seller: AvL Consultancy · Category: EDMP (Enterprise Decision Memory Platform)
+
+---
+
+The strongest EDMP business case is actually NOT AI, NOT memory, and NOT technology.
+
+The business case is:
+
+> Organizations preserve data, documents, workflows, tickets, emails, dashboards,
+> AI outputs, approvals, and transactions.
+>
+> They do NOT preserve how important decisions were formed.
+
+That gap becomes exponentially more expensive as AI adoption increases.
+
+---
+
+# The Executive Problem
+
+Today an executive can answer:
+
+* What happened?
+* Who approved it?
+* What was implemented?
+* What was the outcome?
+
+But they often cannot answer:
+
+* Why was this decision made?
+* What alternatives were considered?
+* Which assumptions were used?
+* Which risks were accepted?
+* What signal triggered the decision?
+* What changed between version 1 and version 5?
+
+The organization remembers the outcome.
+
+It forgets the reasoning.
+
+---
+
+# The Cost of Forgetting
+
+Consider a €100M company.
+
+Three years later:
+
+* CFO leaves
+* Program manager leaves
+* AI model changes
+* Strategy changes
+* Board changes
+
+The organization still has:
+
+* PowerPoints
+* Jira tickets
+* Teams chats
+* Email archives
+* SharePoint folders
+
+But nobody can reconstruct:
+
+    Signal
+    → Reasoning
+    → Decision
+    → Execution
+    → Outcome
+
+The institutional memory is broken.
+
+---
+
+# Why AI Makes This Worse
+
+Before AI:
+
+    Human
+    → Decision
+
+After AI:
+
+    Human
+    → AI
+    → Human
+    → Workflow
+    → Approval
+    → Decision
+
+Decision velocity increases.
+
+Decision traceability decreases.
+
+Organizations start making more decisions faster while understanding less about
+how those decisions were formed.
+
+That is the paradox.
+
+---
+
+# EDMP's Core Value
+
+EDMP preserves:
+
+    Signal
+    Structure
+    Decision
+    Execution Trace
+    Institutional Memory
+
+Instead of storing only:
+
+    What happened
+
+EDMP stores:
+
+    Why it happened
+
+---
+
+# The Financial Business Case
+
+Most executives immediately understand the following:
+
+## Risk Reduction
+
+Examples:
+
+* AI governance
+* Regulatory investigations
+* Audit findings
+* Litigation
+* Procurement disputes
+
+Question:
+
+> Can you demonstrate why this decision was made?
+
+EDMP says:
+
+> Yes.
+
+---
+
+## Reduced Rework
+
+Most organizations repeatedly solve the same problem.
+
+Because prior reasoning is lost.
+
+Example:
+
+    2024: Decision made
+    2025: Same discussion
+    2026: Same discussion
+
+Millions wasted.
+
+EDMP creates reusable decision memory.
+
+---
+
+## Executive Continuity
+
+People leave.
+
+Memory leaves with them.
+
+EDMP converts:
+
+    Personal memory
+
+into
+
+    Institutional memory
+
+---
+
+## AI Governance
+
+This is likely the strongest entry market.
+
+The AI Act, governance frameworks, auditors, and boards increasingly ask:
+
+> How do you demonstrate accountability?
+
+Most companies can show outputs.
+
+Few can show reasoning lineage.
+
+EDMP is designed precisely for that gap.
+
+---
+
+# Why This Can Become a Category
+
+CRM became:
+
+    Customer Memory
+
+ERP became:
+
+    Operational Memory
+
+EDMP becomes:
+
+    Decision Memory
+
+Not another dashboard.
+
+Not another workflow tool.
+
+Not another AI platform.
+
+A new memory layer sitting above all of them.
+
+---
+
+# The 30-Second Investor Version
+
+> Every organization stores data. Every organization stores transactions.
+> Every organization stores workflows. Almost no organization stores decision
+> formation. As AI accelerates decision velocity, the inability to reconstruct
+> why decisions were made becomes a governance, risk, and performance problem.
+> EDMP creates the missing enterprise memory layer by preserving signal,
+> reasoning, decision lineage, execution trace, and institutional memory. The
+> result is reduced risk, preserved knowledge, faster onboarding, stronger
+> governance, and reusable decision intelligence.
+
+That is the business case that boards, investors, governance leaders, and
+enterprise architects can understand in under a minute.
+
+---
+
+Related repo files:
+  scripts/engage-board-pack-outline.txt  — chapter structure for Board Pack PDF
+  scripts/CHATGPT-DEVELOPMENT-BRIEF.txt  — full development handoff
+  ai-elevate-cockpit-plugin-v4-standalone/app/engage-config.js  — doctrine summary (JS)
