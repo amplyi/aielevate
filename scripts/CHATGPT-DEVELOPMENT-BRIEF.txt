@@ -1,0 +1,317 @@
+================================================================================
+AI ELEVATE — CHATGPT DEVELOPMENT BRIEF (paste this entire file into ChatGPT)
+================================================================================
+Last updated: June 2026
+Live site: https://aielevate.xyz
+GitHub: https://github.com/amplyi/aielevate
+Merchant: AvL Consultancy (Mollie profile for aielevate.xyz, pending approval)
+Contact: info@aielevate.xyz · +31 6 46438478
+
+================================================================================
+1. WHAT WE ARE BUILDING
+================================================================================
+
+AI Elevate is the category home of EDMP (Enterprise Decision Memory Platform).
+The commercial layer ("Engage") sells three fixed-scope B2B programs via Mollie.
+This is NOT selling software yet — it is selling:
+  - Live executive briefing (education / business case)
+  - Written readiness assessment (diagnostic)
+  - Digital board briefing pack (PDF + slides)
+
+The strongest business case is NOT AI, NOT memory technology — it is:
+
+  "Organizations preserve data, workflows, tickets, emails, dashboards, AI outputs,
+   approvals, and transactions. They do NOT preserve how important decisions were formed."
+
+Full doctrine text: user will paste separately (Anthony EDMP business case, June 2026).
+Outline derived from doctrine: scripts/engage-board-pack-outline.txt
+
+================================================================================
+2. TECH STACK (CURRENT — PHASE 1)
+================================================================================
+
+FRONTEND (live):
+  - Static SPA: HTML + CSS + vanilla JS
+  - Hosted: GitHub Pages → custom domain aielevate.xyz
+  - App path: ai-elevate-cockpit-plugin-v4-standalone/app/
+  - Key files:
+      index.html          — all views (platform, library, cases, insights, engage, terms, privacy, contact)
+      script.js           — routing, rendering, engage product cards
+      styles.css          — glass UI, dark theme
+      engage-config.js    — products, prices, doctrine, Mollie URLs, intake form URLs (SINGLE CONFIG FILE)
+
+PAYMENTS (Phase 1):
+  - Mollie Payment Links (no API yet)
+  - Profile: AvL Consultancy / aielevate.xyz (under review)
+  - Same Mollie account as Clarisloket (separate profile — do not touch Clarisloket API keys)
+
+INTAKE AUTOMATION (Phase 1 — to build):
+  - Typeform (3 forms) → Make.com webhooks → email + Google Sheet
+  - Guide: scripts/engage-intake-automation.txt
+
+FULFILLMENT (Phase 1 — manual/automated hybrid):
+  - Board Pack: Google Drive download links emailed via Make.com
+  - Briefing: Calendly + email scheduling after intake
+  - Assessment: separate Typeform/Google Form questionnaire → manual report PDF
+
+PHASE 2 (later, not now):
+  - Next.js API on api.aielevate.xyz (Vercel)
+  - Mollie webhooks, Supabase orders table
+  - Reuse patterns from amplyi/claris-web repo
+
+DEPLOY:
+  - Push to main → GitHub Actions auto-deploys
+  - scripts/deploy.ps1 -Method push
+
+================================================================================
+3. THREE PRODUCTS (LOCKED SPEC)
+================================================================================
+
+PRODUCT 1 — Executive Briefing
+  ID: briefing
+  Price: €3,025 incl. 21% VAT
+  Format: 90 min live video (Dutch OR English), max 6 attendees
+  Mollie redirect: https://aielevate.xyz/?payment=success&product=briefing
+
+  DELIVERABLES:
+    - Pre-read PDF (1 page): executive problem — what happened vs. why decided
+    - Live session agenda:
+        0:00–0:15  Executive problem
+        0:15–0:30  Cost of forgetting + client domain
+        0:30–0:50  AI paradox + EDMP value chain
+        0:50–1:10  Financial case on client's domain
+        1:10–1:30  Category + Q&A + next steps
+    - Post-session PDF (2 pages): domain gaps + recommended path
+
+  NOT INCLUDED: custom software, cockpit build, retainer
+
+PRODUCT 2 — EDMP Readiness Assessment
+  ID: assessment
+  Price: €1,815 incl. 21% VAT
+  Format: questionnaire + PDF report + 30 min readout call (NL or EN)
+  Mollie redirect: https://aielevate.xyz/?payment=success&product=assessment
+
+  DELIVERABLES:
+    - Intake form → questionnaire link within 1 business day
+    - Questionnaire (~30–40 min) scoring 6 dimensions:
+        1. Decision traceability
+        2. Institutional memory / key-person risk
+        3. AI governance exposure
+        4. Rework exposure (repeated decisions)
+        5. Signal-to-decision visibility
+        6. Executive continuity
+    - Report PDF (12–18 pages): scores, gaps, 90-day map
+    - 30 min readout call (included)
+
+  NOT INCLUDED: software install, data integration, workshops
+
+PRODUCT 3 — Board Briefing Pack
+  ID: briefing-pack
+  Price: €603.79 incl. 21% VAT
+  Format: digital download — standard within 24h; optional light customization 3–5 days
+  Mollie redirect: https://aielevate.xyz/?payment=success&product=briefing-pack
+
+  DELIVERABLES (STANDARD):
+    - PDF ~25–35 pages (chapter list in engage-board-pack-outline.txt)
+    - Slide deck 10–12 slides (board-ready)
+    - One-pager: 30-second investor pitch (verbatim in outline file)
+
+  OPTIONAL CUSTOMIZATION (via intake):
+    - Company name on cover
+    - Sector-focused addendum
+    - Language: Dutch or English
+
+  NOT INCLUDED: full bespoke strategy engagement
+
+================================================================================
+4. EDMP VALUE CHAIN (use in all content)
+================================================================================
+
+  Signal → Structure → Decision → Execution Trace → Institutional Memory
+
+Financial pillars:
+  - Risk reduction (audit, litigation, regulatory, AI governance)
+  - Reduced rework (same decisions debated repeatedly)
+  - Executive continuity (memory survives people leaving)
+  - AI governance (reasoning lineage for AI-assisted decisions)
+
+Category positioning:
+  CRM = Customer Memory
+  ERP = Operational Memory
+  EDMP = Decision Memory
+  (Layer above dashboards, workflows, and AI platforms — not replacing them)
+
+Six use environments (domain primers for pack):
+  1. Executive Capital Decisions (finance)
+  2. Commercial Decision Flow (sales)
+  3. AI Decision Oversight (governance)
+  4. Talent & Hiring Decisions (recruitment)
+  5. Legal Decision Defensibility (legal)
+  6. Procurement & Vendor Decisions (procurement)
+
+================================================================================
+5. WHAT IS ALREADY DONE (do not rebuild)
+================================================================================
+
+  [x] Live site aielevate.xyz on GitHub Pages
+  [x] Engage page with 3 product cards (youReceive + after-payment intake steps)
+  [x] Privacy + Terms pages (merchant info for Mollie)
+  [x] Post-payment thank-you with product-specific messaging (?payment=success&product=)
+  [x] engage-config.js as single source of truth for products
+  [x] Footer legal links, contact details
+  [x] Mollie profile created (pending approval)
+
+  [ ] Mollie payment link URLs (empty in engage-config.js → mollieUrl)
+  [ ] Typeform intake URLs (empty → intakeFormUrl)
+  [ ] Make.com automation scenarios
+  [ ] Board Pack PDF + slide deck + one-pager (CONTENT ASSETS)
+  [ ] Briefing pre-read PDF + facilitator runbook + summary template
+  [ ] Assessment questionnaire (full questions) + report template + scoring rubric
+  [ ] Google Drive hosted download links for Board Pack
+
+================================================================================
+6. WHAT CHATGPT SHOULD HELP BUILD (prioritized)
+================================================================================
+
+PRIORITY 1 — Board Briefing Pack content (sellable fastest)
+  Input needed: Anthony doctrine (full text — user provides)
+  Output requested:
+    a) Full PDF copy — all 13 chapters from engage-board-pack-outline.txt
+    b) 10–12 slide deck speaker notes (English; then Dutch translation)
+    c) One-pager (investor version — verbatim from doctrine)
+    d) Optional: sector addendum template (finance, governance, legal, etc.)
+  Tone: board-level, no hype, no tool screenshots, category creation
+  Brand: AI Elevate / AvL Consultancy / EDMP
+
+PRIORITY 2 — Assessment questionnaire + scoring
+  Output requested:
+    a) Full Typeform-ready questions (30–40 min) for 6 dimensions
+    b) Scoring rubric (1–5 per dimension, maturity bands: Initial / Developing / Defined / Managed)
+    c) Report template structure (12–18 page PDF sections with placeholder fields)
+    d) Readout call agenda (30 min)
+
+PRIORITY 3 — Executive Briefing materials
+  Output requested:
+    a) Pre-read PDF copy (1 page)
+    b) Facilitator runbook (90 min script with timing, talking points, questions)
+    c) Post-session summary template (2 pages, fill-in for client domain)
+    d) Calendly event description text
+
+PRIORITY 4 — Automation copy
+  Output requested:
+    a) Make.com email templates (buyer auto-reply per product)
+    b) Internal notification email template (to info@aielevate.xyz)
+    c) Typeform intro/outro text per form (3 forms — fields in engage-intake-automation.txt)
+
+PRIORITY 5 — Dutch translations
+  All customer-facing assets need NL versions (briefing, assessment, board pack)
+
+================================================================================
+7. CONFIG FILE — WHERE TO PASTE URLS WHEN READY
+================================================================================
+
+File: ai-elevate-cockpit-plugin-v4-standalone/app/engage-config.js
+
+Per product, fill in:
+  mollieUrl: 'https://paymentlink.mollie.com/...'
+  intakeFormUrl: 'https://form.typeform.com/to/...'
+
+After editing, deploy: git push origin main (or scripts/deploy.ps1 -Method push)
+Bump ?v= query string on index.html asset links if browsers cache old JS.
+
+================================================================================
+8. BUYER JOURNEY (end-to-end)
+================================================================================
+
+  1. Visitor lands aielevate.xyz → Engage nav
+  2. Reads product card (what you receive + after payment steps)
+  3. Clicks checkout → Mollie hosted payment
+  4. Redirect → aielevate.xyz/?payment=success&product={id}
+  5. Thank-you banner → "Complete intake form" (if intakeFormUrl set)
+  6. Typeform submitted → Make.com → email buyer + log order + notify AvL
+  7. Fulfillment per product timeline
+
+================================================================================
+9. BRAND & COPY RULES
+================================================================================
+
+  DO:
+    - Lead with decision formation gap, not AI features
+    - Use "EDMP" and "decision memory" as category terms
+    - Speak to CFO, board, governance, risk, transformation leaders
+    - Fixed scope — always state what is NOT included
+    - Dutch and English for all buyer-facing materials
+
+  DO NOT:
+    - Pitch as SaaS product or cockpit software sale (Phase 1)
+    - Promise custom implementation in self-serve programs
+    - Use hype words ("revolutionary", "disruptive")
+    - Confuse AI Elevate (brand) with AvL Consultancy (legal seller)
+
+================================================================================
+10. WHAT THE USER MUST PROVIDE TO CHATGPT
+================================================================================
+
+  [Required for content quality]
+    - Full Anthony EDMP business case text (June 2026 — already written)
+    - Preferred language priority (EN first, then NL — or both parallel)
+    - Any KVK / legal entity details for Terms if needed on invoices
+    - Sector examples Anthony wants emphasized (default: governance + finance)
+
+  [Required for automation go-live]
+    - Typeform account + form URLs
+    - Make.com account
+    - Google Drive folder for Board Pack files + share links
+    - Mollie payment link URLs (after profile approved)
+    - Calendly link for briefing scheduling
+
+  [Optional but helpful]
+    - Logo files (assets/ae-logo-blue.png on site)
+    - Example client anonymized scenarios for assessment report samples
+    - Clarisloket reference if building Phase 2 API (separate project)
+
+================================================================================
+11. STARTER PROMPTS FOR CHATGPT (copy one at a time)
+================================================================================
+
+PROMPT A — Board Pack PDF:
+"I'm building the AI Elevate Board Briefing Pack. Use the development brief
+and doctrine below. Write full copy for all 13 PDF chapters listed in
+engage-board-pack-outline.txt. Tone: board-ready, category creation, no tool
+demo. ~25–35 pages total. Include the 30-second investor pitch verbatim.
+[paste doctrine + this brief]"
+
+PROMPT B — Assessment questionnaire:
+"Using the 6 scoring dimensions in the development brief, create a complete
+Typeform questionnaire (~30–40 minutes). Include scoring rubric 1–5 per
+dimension, maturity band definitions, and a 12–18 page report template
+outline with section headings and what each section contains.
+[paste brief]"
+
+PROMPT C — Briefing runbook:
+"Create a 90-minute Executive Briefing facilitator runbook for EDMP.
+Include pre-read PDF copy (1 page), minute-by-minute script, discussion
+questions, and a 2-page post-session summary template with fill-in fields
+for client domain and pressure points. Dutch and English.
+[paste brief + doctrine]"
+
+PROMPT D — Make.com emails:
+"Write buyer auto-reply and internal notification email templates for three
+products (briefing, assessment, briefing-pack) based on the buyer journey in
+the development brief. Professional B2B tone. Include variables for
+Make.com: {{name}}, {{company}}, {{product}}, {{language}}.
+[paste brief]"
+
+================================================================================
+12. RELATED FILES IN REPO (for reference)
+================================================================================
+
+  scripts/engage-intake-automation.txt    — Typeform fields + Make.com steps
+  scripts/engage-board-pack-outline.txt   — PDF/slide chapter structure
+  scripts/CHATGPT-DEVELOPMENT-BRIEF.txt   — this file
+  ai-elevate-cockpit-plugin-v4-standalone/app/engage-config.js — product config
+  DEPLOY-GITHUB-PAGES.txt                 — hosting setup
+
+================================================================================
+END OF BRIEF — attach Anthony doctrine text when starting content work
+================================================================================
