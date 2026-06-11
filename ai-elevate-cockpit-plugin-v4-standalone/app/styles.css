@@ -1311,10 +1311,15 @@ a { color: inherit; text-decoration: none; }
 .footer-link:hover { opacity: 1; color: var(--accent); }
 .footer-cockpit-link { font-size: inherit; }
 .footer-mail {
-  display: inline-block;
+  display: block;
   font-size: 1.02rem;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+}
+.footer-merchant-note {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 4px 0 16px;
 }
 .footer-mini-metrics {
   display: grid;
@@ -1709,6 +1714,103 @@ a { color: inherit; text-decoration: none; }
   flex-wrap: wrap;
   justify-content: flex-end;
   margin-top: 18px;
+}
+
+.engage-thankyou {
+  margin-bottom: 18px;
+  padding: 24px 28px;
+  border-radius: 28px;
+  border-color: rgba(143, 211, 255, 0.28);
+}
+.engage-thankyou.hidden { display: none; }
+.engage-thankyou h3 { margin: 8px 0 12px; }
+.engage-thankyou p { color: var(--muted); max-width: 70ch; }
+
+.engage-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.engage-product-card {
+  padding: 24px;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 100%;
+}
+.engage-product-head h3 {
+  margin: 8px 0;
+  font-size: 1.35rem;
+}
+.engage-product-head p {
+  color: var(--muted);
+  margin: 0;
+}
+.engage-product-price strong {
+  display: block;
+  font-size: 1.8rem;
+  letter-spacing: -0.03em;
+}
+.engage-product-price span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.engage-product-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text);
+  display: grid;
+  gap: 8px;
+}
+.engage-product-meta {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+}
+.engage-product-meta span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 4px;
+}
+.engage-product-actions {
+  margin-top: auto;
+  padding-top: 6px;
+}
+.engage-checkout-btn[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.engage-merchant-note {
+  padding: 24px 28px;
+  border-radius: 28px;
+}
+.engage-merchant-note p {
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+.engage-merchant-meta {
+  font-size: 0.92rem;
+}
+.engage-inline-link {
+  display: inline;
+  width: auto;
+  padding: 0;
+  color: var(--accent);
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+.engage-inline-link:hover { opacity: 1; color: var(--text); }
+
+@media (max-width: 1100px) {
+  .engage-product-grid { grid-template-columns: 1fr; }
 }
 
 .sales-infra-grid {

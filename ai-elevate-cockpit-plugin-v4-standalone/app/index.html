@@ -65,6 +65,7 @@
         <button class="nav-btn" data-view="library">Use Environments</button>
         <button class="nav-btn" data-view="cases">Cases</button>
         <button class="nav-btn" data-view="insights">Insights</button>
+        <button class="nav-btn" data-view="engage">Engage</button>
         <button class="nav-btn" data-view="contact">Contact</button>
       </nav>
 
@@ -398,6 +399,33 @@
       <div id="insightGrid" class="card-grid insights-grid"></div>
     </section>
 
+    <section id="engage" class="view">
+      <div id="engageThankYou" class="engage-thankyou glass hidden" role="status" aria-live="polite">
+        <div class="section-kicker">Payment received</div>
+        <h3>Thank you — your program is being activated</h3>
+        <p>We received your payment via Mollie. You will hear from <strong>info@aielevate.xyz</strong> within one business day with next steps, scheduling, or digital delivery details.</p>
+        <button class="btn btn-secondary" type="button" data-view="platform">Return to EDMP</button>
+      </div>
+
+      <div class="section-head glass">
+        <div>
+          <div class="section-kicker">Engage</div>
+          <h2>Enter EDMP through a defined program</h2>
+        </div>
+        <p>Secure checkout via Mollie. Choose a program, complete payment, and we activate delivery — briefing, assessment, or digital pack.</p>
+      </div>
+
+      <div id="engageGrid" class="engage-product-grid"></div>
+
+      <article class="glass engage-merchant-note">
+        <div class="section-kicker">Merchant &amp; support</div>
+        <p><strong id="engageMerchantBrand">AI Elevate</strong> programs are sold by <strong id="engageMerchantLegal">AvL Consultancy</strong>.</p>
+        <p>Contact: <a class="footer-mail" href="mailto:info@aielevate.xyz" id="engageMerchantEmail">info@aielevate.xyz</a> · <a class="footer-mail" href="tel:+31646438478" id="engageMerchantPhone">+31 6 46438478</a></p>
+        <p class="engage-merchant-meta" id="engageMerchantMeta">All prices include 21% VAT unless stated otherwise. · iDEAL · Cards · Bancontact · Bank transfer</p>
+        <p class="engage-merchant-meta">Enterprise implementation and multi-domain deployments: <button class="footer-link engage-inline-link" type="button" data-view="contact">contact us</button> for a scoped proposal.</p>
+      </article>
+    </section>
+
     <section id="contact" class="view">
       <div class="section-head glass">
         <div>
@@ -550,6 +578,7 @@
         <button class="footer-link nav-btn-link" data-view="library">Use Environments</button>
         <button class="footer-link nav-btn-link" data-view="cases">Cases</button>
         <button class="footer-link nav-btn-link" data-view="insights">Insights</button>
+        <button class="footer-link nav-btn-link" data-view="engage">Engage</button>
         <button class="footer-link nav-btn-link" data-view="contact">Contact</button>
       </div>
 
@@ -566,6 +595,8 @@
       <div class="footer-column footer-contact-col">
         <div class="footer-title">Contact</div>
         <a class="footer-mail" href="mailto:info@aielevate.xyz">info@aielevate.xyz</a>
+        <a class="footer-mail" href="tel:+31646438478">+31 6 46438478</a>
+        <div class="footer-merchant-note">Programs sold by AvL Consultancy</div>
         <div class="footer-mini-metrics">
           <div><span>Signal visibility</span><strong>High</strong></div>
           <div><span>Board framing</span><strong>Ready</strong></div>
@@ -643,6 +674,7 @@
   </aside>
 </div>
 
+  <script src="engage-config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -454,6 +454,17 @@ const prefooterContent = {
     primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Executive%20Briefing%20Request&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20review%20EDMP%20for%20my%20environment.%0A%0AName%3A%0ACompany%3A%0A',
     secondaryLabel: 'Review the Architecture',
     secondaryView: 'platform'
+  },
+  engage: {
+    kicker: 'Engage',
+    title: 'Start with a defined EDMP program',
+    text: 'Executive briefing, readiness assessment, or board briefing pack — secure checkout and clear delivery.',
+    metrics: [['Checkout','Mollie'],['Programs','03'],['Delivery','Defined'],['Enterprise','On request']],
+    primaryLabel: 'Enterprise scope inquiry',
+    primaryIntake: 'contact',
+    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Enterprise%20Program%20Inquiry&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20discuss%20a%20multi-domain%20or%20enterprise%20EDMP%20deployment.%0A%0AName%3A%0ACompany%3A%0A',
+    secondaryLabel: 'Return to EDMP',
+    secondaryView: 'platform'
   }
 };
 
@@ -524,6 +535,7 @@ function openDomainContactIntake(domainKey, source = 'library', context = 'Cockp
 }
 
 let libraryRendered = false;
+let engageRendered = false;
 
 function ensureLibraryRendered() {
   if (libraryRendered) return;
@@ -531,8 +543,97 @@ function ensureLibraryRendered() {
   renderLibrary();
 }
 
+function getEngageConfig() {
+  return window.AIE_ENGAGE_CONFIG || { merchant: {}, products: [] };
+}
+
+function renderEngage() {
+  if (engageRendered) return;
+  engageRendered = true;
+
+  const config = getEngageConfig();
+  const grid = document.getElementById('engageGrid');
+  if (!grid) return;
+
+  const brand = document.getElementById('engageMerchantBrand');
+  const legal = document.getElementById('engageMerchantLegal');
+  const email = document.getElementById('engageMerchantEmail');
+  const phone = document.getElementById('engageMerchantPhone');
+  const meta = document.getElementById('engageMerchantMeta');
+  if (brand && config.merchant?.brand) brand.textContent = config.merchant.brand;
+  if (legal && config.merchant?.legalName) legal.textContent = config.merchant.legalName;
+  if (email && config.merchant?.email) {
+    email.textContent = config.merchant.email;
+    email.href = `mailto:${config.merchant.email}`;
+  }
+  if (phone && config.merchant?.phone) {
+    phone.textContent = config.merchant.phone;
+    phone.href = `tel:${config.merchant.phone.replace(/\s/g, '')}`;
+  }
+  if (meta && config.merchant) {
+    meta.textContent = `${config.merchant.vatNote || ''} · ${config.merchant.paymentMethods || ''}`.replace(/^ · /, '');
+  }
+
+  grid.innerHTML = (config.products || []).map(product => {
+    const hasCheckout = Boolean(product.mollieUrl);
+    const checkoutBtn = hasCheckout
+      ? `<a class="btn btn-primary btn-cta engage-checkout-btn" href="${product.mollieUrl}" rel="noopener noreferrer">Proceed to secure checkout</a>`
+      : `<button class="btn btn-primary btn-cta engage-checkout-btn" type="button" disabled title="Add Mollie Payment Link URL in engage-config.js">Checkout opening soon</button>`;
+    const deliverables = (product.deliverables || []).map(item => `<li>${item}</li>`).join('');
+    return `
+      <article class="engage-product-card glass" data-engage-product="${product.id}">
+        <div class="engage-product-head">
+          <span class="card-tag">${product.tag}</span>
+          <h3>${product.title}</h3>
+          <p>${product.subtitle}</p>
+        </div>
+        <div class="engage-product-price">
+          <strong>${product.priceLabel}</strong>
+          <span>${product.priceNote}</span>
+        </div>
+        <ul class="engage-product-list">${deliverables}</ul>
+        <div class="engage-product-meta"><span>Timeline</span><strong>${product.timeline}</strong></div>
+        <div class="engage-product-actions">${checkoutBtn}</div>
+      </article>
+    `;
+  }).join('');
+}
+
+function setEngageThankYouVisible(show) {
+  const banner = document.getElementById('engageThankYou');
+  if (!banner) return;
+  banner.classList.toggle('hidden', !show);
+}
+
+function isEngageThankYouRoute() {
+  const hash = (window.location.hash || '').replace('#', '').toLowerCase();
+  if (hash === 'engage-thanks') return true;
+  const params = new URLSearchParams(window.location.search);
+  return params.get('payment') === 'success';
+}
+
+function handleEngageRoute() {
+  const hash = (window.location.hash || '').replace('#', '').toLowerCase();
+  const thankYou = isEngageThankYouRoute();
+  if (hash === 'engage' || hash === 'engage-thanks' || thankYou) {
+    renderEngage();
+    showView('engage');
+    setEngageThankYouVisible(thankYou);
+    if (thankYou) window.scrollTo({ top: 0, behavior: 'smooth' });
+    return true;
+  }
+  setEngageThankYouVisible(false);
+  return false;
+}
+
 function showView(viewId) {
   if (viewId === 'library') ensureLibraryRendered();
+  if (viewId === 'engage') {
+    renderEngage();
+    if (!isEngageThankYouRoute()) setEngageThankYouVisible(false);
+  } else {
+    setEngageThankYouVisible(false);
+  }
 
   views.forEach(view => view.classList.toggle('active-view', view.id === viewId));
   navButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.view === viewId));
@@ -553,9 +654,30 @@ function showView(viewId) {
   if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-navButtons.forEach(btn => btn.addEventListener('click', () => { showView(btn.dataset.view); closeOverlay(); window.scrollTo({ top: 0, behavior: 'smooth' }); }));
-footerNavButtons.forEach(btn => btn.addEventListener('click', () => { showView(btn.dataset.view); closeOverlay(); window.scrollTo({ top: 0, behavior: 'smooth' }); }));
-jumpButtons.forEach(btn => btn.addEventListener('click', () => showView(btn.dataset.view)));
+function navigateToView(viewId) {
+  if (viewId === 'engage') {
+    history.replaceState(null, '', '#engage');
+  } else if (window.location.hash && (window.location.hash === '#engage' || window.location.hash === '#engage-thanks')) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+  showView(viewId);
+  closeOverlay();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+navButtons.forEach(btn => btn.addEventListener('click', () => navigateToView(btn.dataset.view)));
+footerNavButtons.forEach(btn => btn.addEventListener('click', () => navigateToView(btn.dataset.view)));
+jumpButtons.forEach(btn => btn.addEventListener('click', () => navigateToView(btn.dataset.view)));
+
+document.addEventListener('click', (event) => {
+  const btn = event.target.closest('[data-view]');
+  if (!btn) return;
+  if (btn.matches('.nav-btn, .jump-btn, .nav-btn-link')) return;
+  const viewId = btn.dataset.view;
+  if (!viewId) return;
+  event.preventDefault();
+  navigateToView(viewId);
+});
 
 document.querySelectorAll('[data-domain-jump]').forEach(btn => {
   btn.addEventListener('click', () => navigateToDomain(btn.dataset.domainJump));
@@ -1371,13 +1493,23 @@ document.addEventListener('click', (event) => {
 
 
 window.addEventListener('hashchange', () => {
+  if (handleEngageRoute()) return;
   const hash = (window.location.hash || '').replace('#', '');
   if (hash.startsWith('env-')) {
     navigateToDomain(hash.replace('env-', ''));
   }
 });
 
-window.addEventListener('load', () => { enforceSelectContrast(document); showView('platform'); applyHardDomFixes(); const hash=(window.location.hash||'').replace('#',''); if(hash && hash.startsWith('env-')){ const domain=hash.replace('env-',''); navigateToDomain(domain); } });
+window.addEventListener('load', () => {
+  enforceSelectContrast(document);
+  applyHardDomFixes();
+  const hash = (window.location.hash || '').replace('#', '');
+  if (handleEngageRoute()) return;
+  showView('platform');
+  if (hash && hash.startsWith('env-')) {
+    navigateToDomain(hash.replace('env-', ''));
+  }
+});
 
 
 /* v61 mobile nav and route consistency */
@@ -1495,6 +1627,10 @@ function initBrandHome() {
 
   brandHome.addEventListener('click', () => {
     closeOverlay();
+    setEngageThankYouVisible(false);
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
     showView('platform');
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
