@@ -536,7 +536,70 @@ function openDomainContactIntake(domainKey, source = 'library', context = 'Cockp
 
 let libraryRendered = false;
 let engageRendered = false;
-let engageFreeRendered = false;
+let engageSelfCheckRendered = false;
+
+const ENGAGE_PROGRAM_IDS = ['briefing', 'assessment', 'briefing-pack'];
+
+const ENGAGE_PROGRAM_DISPLAY = {
+  briefing: {
+    positioning: '90-minute executive session to understand the decision-memory gap, AI accountability paradox, and where your organization may be exposed.',
+    cta: 'Request Executive Briefing',
+    bullets: [
+      'Live executive session (NL or EN)',
+      'Pre-read on the decision-formation gap',
+      'Post-session findings report',
+    ],
+  },
+  assessment: {
+    positioning: 'Structured diagnostic across six decision memory dimensions, resulting in a scored report and 90-day intervention map.',
+    cta: 'Request Assessment',
+    bullets: [
+      'Full questionnaire across six dimensions',
+      'Scored report with gap analysis',
+      '30-minute readout call',
+    ],
+  },
+  'briefing-pack': {
+    positioning: 'Board-ready PDF, slide deck, and one-pager explaining the EDMP business case for internal discussion.',
+    cta: 'Request Board Pack',
+    bullets: [
+      'Full board briefing PDF',
+      'Slide deck with speaker notes',
+      'Executive one-pager for forwarding',
+    ],
+  },
+};
+
+const ENGAGE_INTAKE_META = {
+  briefing: {
+    label: 'Executive Briefing',
+    subject: 'AI Elevate — Executive Briefing Request',
+    intro: 'Request a 90-minute executive briefing on Enterprise Decision Memory. We will follow up by email to confirm scope, attendees, and scheduling.',
+    button: 'Send briefing request',
+    reason: 'Executive Briefing',
+  },
+  assessment: {
+    label: 'EDMP Readiness Assessment',
+    subject: 'AI Elevate — EDMP Readiness Assessment Request',
+    intro: 'Request the full EDMP Readiness Assessment. We will follow up with intake steps, questionnaire access, and readout scheduling.',
+    button: 'Send assessment request',
+    reason: 'EDMP Readiness Assessment',
+  },
+  'briefing-pack': {
+    label: 'Board Briefing Pack',
+    subject: 'AI Elevate — Board Briefing Pack Request',
+    intro: 'Request the Board Briefing Pack for board or investor discussion. We will follow up with delivery and optional customization intake.',
+    button: 'Send board pack request',
+    reason: 'Board Briefing Pack',
+  },
+  'one-pager': {
+    label: 'Executive One-Pager',
+    subject: 'AI Elevate — Executive One-Pager Request',
+    intro: 'Request the free executive one-pager — a short internal explainer on Enterprise Decision Memory. We will send it to your work email.',
+    button: 'Request one-pager',
+    reason: 'Executive One-Pager (free)',
+  },
+};
 
 function ensureLibraryRendered() {
   if (libraryRendered) return;
@@ -586,31 +649,44 @@ function applyLegalMerchantInfo() {
   }
 }
 
-function scrollToEngageProduct(productId) {
-  const card = document.querySelector(`[data-engage-product="${productId}"]`);
-  if (card) {
-    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    card.classList.add('engage-product-highlight');
-    setTimeout(() => card.classList.remove('engage-product-highlight'), 2200);
-  }
+function scrollToEngageSelfCheck() {
+  const block = document.getElementById('engageSelfCheck');
+  if (block) block.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function renderEngageFree() {
-  if (engageFreeRendered) return;
-  engageFreeRendered = true;
+function interpretQuickScore(score) {
+  if (score <= 39) {
+    return { band: 'High exposure', detail: 'Decision memory gaps are likely creating governance, continuity, or rework risk.' };
+  }
+  if (score <= 69) {
+    return { band: 'Moderate exposure', detail: 'Some decision memory capability exists, but critical domains may still be fragile.' };
+  }
+  return { band: 'Lower exposure', detail: 'Still review critical domains — this is a directional check, not a full maturity assessment.' };
+}
 
-  const mount = document.getElementById('engageFree');
-  const config = getEngageConfig();
-  const free = config.freeResources;
-  if (!mount || !free) return;
+function openEngageIntake(productId, source = 'engage') {
+  const meta = ENGAGE_INTAKE_META[productId];
+  if (!meta) return;
+  openOverlay(intakeFormHTML({
+    type: 'contact',
+    engageProduct: productId,
+    source,
+    context: meta.reason,
+  }));
+  window.setTimeout(() => enforceSelectContrast(overlayContent), 0);
+}
 
-  const onePager = free.onePager || {};
-  const preview = free.boardPackPreview || {};
-  const quick = free.quickAssessment || {};
+function renderEngageSelfCheck() {
+  if (engageSelfCheckRendered) return;
+  engageSelfCheckRendered = true;
+
+  const mount = document.getElementById('engageSelfCheck');
+  const quick = getEngageConfig().freeResources?.quickAssessment || {};
   const dims = quick.dimensions || [];
+  if (!mount || !dims.length) return;
 
   const quickQuestions = dims.map((dim, index) => `
-    <fieldset class="engage-quick-q glass" data-quick-q="${dim.id}">
+    <fieldset class="engage-quick-q" data-quick-q="${dim.id}">
       <legend><span class="engage-quick-num">${index + 1}</span> ${dim.name}</legend>
       <p>${dim.question}</p>
       <div class="engage-quick-scale" role="radiogroup" aria-label="${dim.name}">
@@ -625,84 +701,22 @@ function renderEngageFree() {
   `).join('');
 
   mount.innerHTML = `
-    <div class="engage-free-head glass">
-      <div class="section-kicker">Start here</div>
-      <h3>Free insight — not the full products</h3>
-      <p>Download the one-pager, preview the Board Pack, or take the quick self-check. Full packs, frameworks, and facilitator materials are delivered after payment.</p>
-    </div>
-    <div class="engage-free-grid">
-      <article class="engage-free-card glass" id="engageOnePagerCard">
-        <span class="card-tag">Free</span>
-        <h4>${onePager.title || 'Executive One-Pager'}</h4>
-        <p>${onePager.subtitle || ''}</p>
-        <p class="engage-free-purpose">${onePager.purpose || ''}</p>
-        <form id="engageOnePagerForm" class="engage-lead-form">
-          <label class="engage-lead-field">
-            <span>Work email</span>
-            <input type="email" id="engageLeadEmail" required placeholder="you@company.com" autocomplete="email" />
-          </label>
-          <label class="engage-lead-field">
-            <span>Name</span>
-            <input type="text" id="engageLeadName" required placeholder="Your name" autocomplete="name" />
-          </label>
-          <button type="submit" class="btn btn-primary btn-cta">Get the one-pager</button>
-        </form>
-        <div id="engageOnePagerUnlock" class="engage-lead-unlock hidden">
-          <p>Thank you. Your download is ready.</p>
-          <a class="btn btn-secondary" id="engageOnePagerDownload" href="${onePager.downloadUrl || '#'}" download>Download Executive One-Pager (PDF)</a>
-        </div>
-      </article>
-
-      <article class="engage-free-card glass">
-        <span class="card-tag">Free preview</span>
-        <h4>${preview.title || 'Board Pack Preview'}</h4>
-        <p>${preview.subtitle || ''}</p>
-        <p class="engage-free-note">Cover · executive summary excerpt · one sample chapter</p>
-        <div class="engage-free-actions">
-          <a class="btn btn-secondary" href="${preview.downloadUrl || '#'}" download>Download preview (PDF)</a>
-          <button type="button" class="btn btn-primary btn-cta" data-scroll-product="${preview.purchaseProductId || 'briefing-pack'}">${preview.ctaLabel || 'Purchase full pack'}</button>
-        </div>
-      </article>
-
-      <article class="engage-free-card glass engage-free-card-wide" id="engageQuickCard">
-        <span class="card-tag">Free self-check</span>
-        <h4>${quick.title || 'EDMP Quick Self-Check'}</h4>
-        <p>${quick.subtitle || ''}</p>
-        <form id="engageQuickForm" class="engage-quick-form">${quickQuestions}</form>
-        <div class="engage-quick-actions">
-          <button type="button" class="btn btn-secondary" id="engageQuickScoreBtn">See my score</button>
-        </div>
-        <div id="engageQuickResult" class="engage-quick-result hidden" aria-live="polite"></div>
-      </article>
+    <div class="engage-check-shell glass">
+      <div class="section-kicker">Quick self-check</div>
+      <h3>${quick.title || 'EDMP Quick Self-Check'}</h3>
+      <p class="engage-check-lead">Five questions across decision memory dimensions. This is a directional self-check only — not the full EDMP maturity model.</p>
+      <form id="engageQuickForm" class="engage-quick-form">${quickQuestions}</form>
+      <div class="engage-quick-actions">
+        <button type="button" class="btn btn-secondary" id="engageQuickScoreBtn">See my score</button>
+      </div>
+      <div id="engageQuickResult" class="engage-quick-result hidden" aria-live="polite"></div>
     </div>
   `;
 
-  const leadKey = 'aie_onepager_lead';
-  const unlock = document.getElementById('engageOnePagerUnlock');
-  const form = document.getElementById('engageOnePagerForm');
-  if (sessionStorage.getItem(leadKey) && unlock && form) {
-    form.classList.add('hidden');
-    unlock.classList.remove('hidden');
-  }
-  form?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const email = document.getElementById('engageLeadEmail')?.value?.trim();
-    const name = document.getElementById('engageLeadName')?.value?.trim();
-    if (!email || !name) return;
-    sessionStorage.setItem(leadKey, JSON.stringify({ email, name, at: Date.now() }));
-    form.classList.add('hidden');
-    unlock?.classList.remove('hidden');
-  });
-
-  mount.querySelectorAll('[data-scroll-product]').forEach((btn) => {
-    btn.addEventListener('click', () => scrollToEngageProduct(btn.dataset.scrollProduct));
-  });
-
   document.getElementById('engageQuickScoreBtn')?.addEventListener('click', () => {
-    const dimensions = quick.dimensions || [];
     let sum = 0;
     let answered = 0;
-    for (const dim of dimensions) {
+    for (const dim of dims) {
       const picked = mount.querySelector(`input[name="quick-${dim.id}"]:checked`);
       if (!picked) continue;
       sum += Number(picked.value);
@@ -710,26 +724,43 @@ function renderEngageFree() {
     }
     const result = document.getElementById('engageQuickResult');
     if (!result) return;
-    if (answered < dimensions.length) {
+    if (answered < dims.length) {
       result.classList.remove('hidden');
       result.innerHTML = '<p class="engage-quick-warning">Please answer all five questions.</p>';
       return;
     }
-    const score = Math.round((sum / (dimensions.length * 5)) * 100);
+    const score = Math.round((sum / (dims.length * 5)) * 100);
+    const interp = interpretQuickScore(score);
     result.classList.remove('hidden');
     result.innerHTML = `
       <p class="engage-quick-score">Your organization scored: <strong>${score}/100</strong></p>
-      <p class="engage-quick-score-note">This is a directional self-check using dimension names only — not the full EDMP maturity model, scoring rubric, or intervention roadmap.</p>
-      <button type="button" class="btn btn-primary btn-cta" data-scroll-product="${quick.ctaProductId || 'assessment'}">${quick.ctaLabel || 'Request full assessment'}</button>
+      <p class="engage-quick-band"><strong>${interp.band}</strong> — ${interp.detail}</p>
+      <p class="engage-quick-score-note">Directional self-check only. Not the full scoring rubric, recommendations, or intervention roadmap.</p>
+      <button type="button" class="btn btn-primary btn-cta" data-engage-product="assessment" data-source="engage-self-check">${quick.ctaLabel || 'Request full EDMP Readiness Assessment'}</button>
     `;
-    result.querySelector('[data-scroll-product]')?.addEventListener('click', (e) => {
-      scrollToEngageProduct(e.currentTarget.dataset.scrollProduct);
+    result.querySelector('[data-engage-product]')?.addEventListener('click', (e) => {
+      openEngageIntake(e.currentTarget.dataset.engageProduct, e.currentTarget.dataset.source);
     });
   });
 }
 
+function renderEngageSecondaryLinks() {
+  const mount = document.getElementById('engageSecondaryLinks');
+  const free = getEngageConfig().freeResources || {};
+  if (!mount) return;
+  const previewUrl = free.boardPackPreview?.downloadUrl || '#';
+  mount.innerHTML = `
+    <span>Need a short internal explainer? <button type="button" class="engage-secondary-link" data-engage-product="one-pager" data-source="engage-secondary">Request the executive one-pager</button>.</span>
+    <span><a class="engage-secondary-link" href="${previewUrl}" download>Board Pack preview (PDF)</a></span>
+    <span class="engage-secondary-muted">Decision Room experiential sessions available after executive briefing.</span>
+  `;
+  mount.querySelectorAll('[data-engage-product]').forEach((btn) => {
+    btn.addEventListener('click', () => openEngageIntake(btn.dataset.engageProduct, btn.dataset.source));
+  });
+}
+
 function renderEngage() {
-  renderEngageFree();
+  renderEngageSelfCheck();
   if (engageRendered) return;
   engageRendered = true;
   applyLegalMerchantInfo();
@@ -738,48 +769,58 @@ function renderEngage() {
   const grid = document.getElementById('engageGrid');
   if (!grid) return;
 
-  grid.innerHTML = (config.products || []).map(product => {
-    const hasCheckout = Boolean(product.mollieUrl);
-    const checkoutBtn = hasCheckout
-      ? `<a class="btn btn-primary btn-cta engage-checkout-btn" href="${product.mollieUrl}" rel="noopener noreferrer">Proceed to secure checkout</a>`
-      : `<button class="btn btn-primary btn-cta engage-checkout-btn" type="button" disabled title="Add Mollie Payment Link URL in engage-config.js">Checkout opening soon</button>`;
-    const youReceive = (product.youReceive || product.deliverables || [])
-      .map(item => `<li>${item}</li>`).join('');
-    const intake = (product.intake || [])
+  const productsById = Object.fromEntries((config.products || []).map((p) => [p.id, p]));
+  const programs = ENGAGE_PROGRAM_IDS.map((id) => productsById[id]).filter(Boolean);
+
+  grid.innerHTML = programs.map((product) => {
+    const display = ENGAGE_PROGRAM_DISPLAY[product.id] || {};
+    const bullets = (display.bullets || (product.youReceive || []).slice(0, 3))
+      .map((item) => `<li>${item}</li>`).join('');
+    const intakeDetails = (product.intake || [])
       .map((item, index) => `<li><span class="engage-step-num">${index + 1}</span>${item}</li>`).join('');
     const audience = product.audience
-      ? `<p class="engage-product-audience"><span>For:</span> ${product.audience}</p>` : '';
+      ? `<p class="engage-product-audience">${product.audience}</p>` : '';
+    const positioning = display.positioning || product.subtitle;
+    const cta = display.cta || 'Request program';
     const notIncluded = product.notIncluded
-      ? `<p class="engage-product-scope-note">${product.notIncluded}</p>` : '';
+      ? `<p class="engage-product-scope-note">${product.notIncluded.split('.')[0]}.</p>` : '';
     return `
-      <article class="engage-product-card glass" data-engage-product="${product.id}">
+      <article class="engage-product-card glass engage-product-card-clean" data-engage-product-card="${product.id}">
         <div class="engage-product-head">
-          <span class="card-tag">${product.tag}</span>
           <h3>${product.title}</h3>
-          <p>${product.subtitle}</p>
+          <p class="engage-product-positioning">${positioning}</p>
           ${audience}
         </div>
         <div class="engage-product-price">
           <strong>${product.priceLabel}</strong>
           <span>${product.priceNote}</span>
         </div>
-        <div class="engage-product-block">
-          <span class="engage-product-label">You receive</span>
-          <ul class="engage-product-list">${youReceive}</ul>
-        </div>
-        <div class="engage-product-block">
-          <span class="engage-product-label">After payment</span>
-          <ol class="engage-intake-list">${intake}</ol>
-        </div>
-        <div class="engage-product-meta-row">
-          <div class="engage-product-meta"><span>Format</span><strong>${product.format || '—'}</strong></div>
-          <div class="engage-product-meta"><span>Timeline</span><strong>${product.timeline}</strong></div>
-        </div>
+        <ul class="engage-product-list engage-product-list-compact">${bullets}</ul>
+        <p class="engage-product-timeline"><span>Timeline</span> ${product.timeline}</p>
         ${notIncluded}
-        <div class="engage-product-actions">${checkoutBtn}</div>
+        <details class="engage-product-details">
+          <summary>Delivery details</summary>
+          <ol class="engage-intake-list">${intakeDetails}</ol>
+        </details>
+        <div class="engage-product-actions">
+          <button type="button" class="btn btn-primary btn-cta" data-engage-product="${product.id}" data-source="engage-program">${cta}</button>
+        </div>
       </article>
     `;
   }).join('');
+
+  grid.querySelectorAll('[data-engage-product]').forEach((btn) => {
+    btn.addEventListener('click', () => openEngageIntake(btn.dataset.engageProduct, btn.dataset.source));
+  });
+
+  renderEngageSecondaryLinks();
+
+  document.querySelectorAll('[data-scroll-engage-check]').forEach((btn) => {
+    btn.addEventListener('click', scrollToEngageSelfCheck);
+  });
+  document.querySelectorAll('#engageFinalCta [data-engage-product]').forEach((btn) => {
+    btn.addEventListener('click', () => openEngageIntake(btn.dataset.engageProduct, btn.dataset.source));
+  });
 }
 
 function getPaidProductId() {
@@ -1035,20 +1076,45 @@ function buildDirectMailto(subject, body) {
 
 function intakeFormHTML(options = {}) {
   const type = options.type || 'contact';
-  const meta = intakeTypeMeta[type] || intakeTypeMeta.contact;
+  const engageProduct = options.engageProduct || '';
+  const engageMeta = engageProduct ? ENGAGE_INTAKE_META[engageProduct] : null;
+  const meta = engageMeta
+    ? {
+      label: engageMeta.label,
+      subject: engageMeta.subject,
+      intro: engageMeta.intro,
+      button: engageMeta.button,
+    }
+    : (intakeTypeMeta[type] || intakeTypeMeta.contact);
   const domain = options.domain || '';
-  const context = options.context || '';
+  const context = options.context || engageMeta?.reason || '';
   const source = options.source || 'site';
   const challengePlaceholder = type === 'demo'
     ? 'Describe the operating pressure, decision bottleneck, or cockpit you want to see live.'
     : 'Describe the challenge, cockpit interest, or reason for contacting AI Elevate.';
+  const heading = engageMeta
+    ? `Request ${engageMeta.label}`
+    : (type === 'demo' ? 'Request an executive briefing' : 'Start an EDMP conversation');
+  const reasonOptions = engageMeta
+    ? `<option value="${escapeHtml(engageMeta.reason)}" selected>${escapeHtml(engageMeta.reason)}</option>`
+    : (type === 'demo' ? `
+                <option value="Live cockpit walkthrough">Live cockpit walkthrough</option>
+                <option value="Use-case specific demo">Use-case specific demo</option>
+                <option value="Case journey review">Case journey review</option>
+                <option value="Executive operating model review">Executive operating model review</option>
+              ` : `
+                <option value="Discuss a cockpit">Discuss a cockpit</option>
+                <option value="Explore a use case">Explore a use case</option>
+                <option value="Partnership / design inquiry">Partnership / design inquiry</option>
+                <option value="General inquiry">General inquiry</option>
+              `);
   return `
     <div class="intake-form-shell">
       <div class="form-meta">${meta.label} · EDMP intake</div>
-      <h2>${type === 'demo' ? 'Request an executive briefing' : 'Start an EDMP conversation'}</h2>
+      <h2>${heading}</h2>
       <p>${meta.intro}</p>
       <div class="intake-helper">The form stays local and opens a prefilled email draft to <strong>info@aielevate.xyz</strong>. This keeps the experience usable today and ready for future backend or CRM connection.</div>
-      <form id="intakeForm" data-intake-form="${type}" data-source="${escapeHtml(source)}" data-context="${escapeHtml(context)}">
+      <form id="intakeForm" data-intake-form="${type}" data-source="${escapeHtml(source)}" data-context="${escapeHtml(context)}"${engageProduct ? ` data-engage-product="${escapeHtml(engageProduct)}"` : ''}>
         <div class="form-grid">
           <div class="field">
             <label for="intakeName">Name</label>
@@ -1077,17 +1143,7 @@ function intakeFormHTML(options = {}) {
           <div class="field">
             <label for="intakeReason">${type === 'demo' ? 'What do you want to see?' : 'Reason for contacting'}</label>
             <select id="intakeReason" name="reason" required>
-              ${type === 'demo' ? `
-                <option value="Live cockpit walkthrough">Live cockpit walkthrough</option>
-                <option value="Use-case specific demo">Use-case specific demo</option>
-                <option value="Case journey review">Case journey review</option>
-                <option value="Executive operating model review">Executive operating model review</option>
-              ` : `
-                <option value="Discuss a cockpit">Discuss a cockpit</option>
-                <option value="Explore a use case">Explore a use case</option>
-                <option value="Partnership / design inquiry">Partnership / design inquiry</option>
-                <option value="General inquiry">General inquiry</option>
-              `}
+              ${reasonOptions}
             </select>
           </div>
           <div class="field field-full">
@@ -1112,7 +1168,7 @@ function intakeFormHTML(options = {}) {
           <button class="btn btn-primary btn-cta" type="submit">${meta.button}</button>
           <a class="btn btn-secondary" href="${buildDirectMailto(meta.subject, 'Hi AI Elevate,\n\nI would like to continue the conversation.\n')}">Use direct email instead</a>
         </div>
-        <div class="form-disclaimer">Source: ${escapeHtml(source)}${context ? ` · Context: ${escapeHtml(context)}` : ''}</div>
+        <div class="form-disclaimer">Source: ${escapeHtml(source)}${engageProduct ? ` · Product: ${escapeHtml(engageProduct)}` : ''}${context ? ` · Context: ${escapeHtml(context)}` : ''}</div>
       </form>
     </div>
   `;
@@ -1210,12 +1266,19 @@ function openIntakeFromTrigger(trigger) {
 function submitIntakeForm(form) {
   const data = Object.fromEntries(new FormData(form).entries());
   const type = form.dataset.intakeForm || 'contact';
-  const meta = intakeTypeMeta[type] || intakeTypeMeta.contact;
+  const engageProduct = form.dataset.engageProduct || '';
+  const engageMeta = engageProduct ? ENGAGE_INTAKE_META[engageProduct] : null;
+  const meta = engageMeta
+    ? { subject: engageMeta.subject }
+    : (intakeTypeMeta[type] || intakeTypeMeta.contact);
   const lines = [
     'Hi AI Elevate,',
     '',
-    type === 'demo' ? 'I would like to request a demo.' : 'I would like to get in touch.',
+    engageMeta
+      ? `I would like to request: ${engageMeta.label}.`
+      : (type === 'demo' ? 'I would like to request a demo.' : 'I would like to get in touch.'),
     '',
+    ...(engageProduct ? [`Product: ${engageProduct}`, `Program: ${engageMeta?.label || engageProduct}`, ''] : []),
     `Name: ${data.name || ''}`,
     `Company: ${data.company || ''}`,
     `Work email: ${data.email || ''}`,

@@ -9,8 +9,8 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <link rel="icon" href="assets/ae-logo-blue.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/ae-logo-blue.png" />
-  <link rel="stylesheet" href="styles.css?v=20260613-funnel" />
-  <link rel="stylesheet" href="decision-room.css?v=20260613-funnel" />
+  <link rel="stylesheet" href="styles.css?v=20260613-engage-clean" />
+  <link rel="stylesheet" href="decision-room.css?v=20260613-engage-clean" />
 </head>
 <body>
 
@@ -514,33 +514,36 @@
         </div>
       </div>
 
-      <div class="section-head glass engage-intro">
-        <div>
-          <div class="section-kicker">Engage</div>
-          <h2>The business case is not AI — it is decision formation</h2>
+      <div class="engage-block engage-block-problem glass">
+        <div class="section-kicker">Engage</div>
+        <h2 class="engage-problem-title">The business case is not AI — it is decision formation</h2>
+        <p class="engage-problem-copy">Organizations preserve data, workflows, approvals, and AI outputs. They do not preserve how important decisions were formed. EDMP helps executive teams understand, assess, and improve decision memory before governance, continuity, or accountability gaps become expensive.</p>
+        <div class="engage-pressure-row" aria-label="Executive pressures">
+          <span>Lost reasoning</span>
+          <span>Repeated decisions</span>
+          <span>AI accountability pressure</span>
         </div>
-        <p>Organizations preserve data, workflows, and AI outputs. They do not preserve how important decisions were formed. Each program delivers that case — live, diagnostic, or board-ready — with fixed scope and clear intake.</p>
       </div>
 
-      <div class="engage-flow-hint glass">
-        <span><strong>1</strong> Free insight</span>
-        <span class="engage-flow-dot" aria-hidden="true"></span>
-        <span><strong>2</strong> Choose program</span>
-        <span class="engage-flow-dot" aria-hidden="true"></span>
-        <span><strong>3</strong> Pay securely</span>
-        <span class="engage-flow-dot" aria-hidden="true"></span>
-        <span><strong>4</strong> Delivered by email</span>
+      <div id="engageSelfCheck" class="engage-block engage-block-check" aria-label="EDMP Quick Self-Check"></div>
+
+      <div class="engage-block engage-block-programs">
+        <div class="engage-programs-head">
+          <div class="section-kicker">Executive programs</div>
+          <h3>Board-level engagements with fixed scope</h3>
+        </div>
+        <div id="engageGrid" class="engage-product-grid engage-product-grid-clean"></div>
+        <p class="engage-secondary-links" id="engageSecondaryLinks"></p>
       </div>
 
-      <div id="engageFree" class="engage-free" aria-label="Free resources"></div>
-
-      <div class="engage-paid-head glass">
-        <div class="section-kicker">Programs</div>
-        <h3>Paid programs — understanding, diagnosis, and application</h3>
-        <p>Full packs, live briefings, and assessments are delivered after payment. We do not publish paid deliverables as free downloads.</p>
+      <div class="engage-block engage-block-final glass" id="engageFinalCta">
+        <h3>Start with the conversation, not the software.</h3>
+        <p>EDMP engagements are designed to help leaders understand whether decision memory is a governance, continuity, or performance issue inside their organization.</p>
+        <div class="engage-final-actions">
+          <button type="button" class="btn btn-primary btn-cta" data-engage-product="briefing" data-source="engage-final">Request Executive Briefing</button>
+          <button type="button" class="btn btn-secondary" data-scroll-engage-check>Take Quick Self-Check</button>
+        </div>
       </div>
-
-      <div id="engageGrid" class="engage-product-grid"></div>
 
       <p class="engage-legal-links">Enterprise or multi-domain scope? <button class="footer-link engage-inline-link" type="button" data-view="contact">Contact us</button> for a proposal. Checkout is subject to our <button class="footer-link engage-inline-link" type="button" data-view="terms">Terms &amp; Conditions</button> and <button class="footer-link engage-inline-link" type="button" data-view="privacy">Privacy Policy</button>.</p>
     </section>
@@ -889,8 +892,8 @@
   </aside>
 </div>
 
-  <script src="engage-config.js?v=20260613-funnel"></script>
-  <script src="decision-room.js?v=20260613-funnel"></script>
-  <script src="script.js?v=20260613-funnel"></script>
+  <script src="engage-config.js?v=20260613-engage-clean"></script>
+  <script src="decision-room.js?v=20260613-engage-clean"></script>
+  <script src="script.js?v=20260613-engage-clean"></script>
 </body>
 </html>

@@ -1746,6 +1746,198 @@ a { color: inherit; text-decoration: none; }
 }
 .engage-thankyou-actions .hidden { display: none; }
 
+#engage .engage-block {
+  margin-bottom: 42px;
+}
+
+.engage-block-problem {
+  padding: 28px 32px;
+  border-radius: 28px;
+}
+
+.engage-problem-title {
+  margin: 10px 0 14px;
+  max-width: 22ch;
+  line-height: 1.15;
+}
+
+.engage-problem-copy {
+  margin: 0 0 20px;
+  max-width: 58ch;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.engage-pressure-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.engage-pressure-row span {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  color: var(--accent-2);
+  border: 1px solid rgba(143, 211, 255, 0.22);
+  background: rgba(143, 211, 255, 0.06);
+}
+
+.engage-check-shell {
+  padding: 28px 32px;
+  border-radius: 28px;
+}
+
+.engage-check-shell h3 {
+  margin: 8px 0 10px;
+}
+
+.engage-check-lead {
+  margin: 0 0 18px;
+  max-width: 52ch;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.engage-programs-head {
+  margin-bottom: 20px;
+}
+
+.engage-programs-head h3 {
+  margin: 8px 0 0;
+}
+
+.engage-product-grid-clean {
+  align-items: stretch;
+}
+
+.engage-product-card-clean {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  padding: 24px;
+  border-radius: 28px;
+}
+
+.engage-product-positioning {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.engage-product-audience {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--accent-2);
+  line-height: 1.45;
+}
+
+.engage-product-list-compact {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.engage-product-timeline {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--muted-2);
+  line-height: 1.45;
+}
+
+.engage-product-timeline span {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-right: 6px;
+}
+
+.engage-product-details {
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.engage-product-details summary {
+  cursor: pointer;
+  color: var(--accent-2);
+  list-style: none;
+}
+
+.engage-product-details summary::-webkit-details-marker { display: none; }
+
+.engage-product-card-clean .engage-product-actions {
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.engage-secondary-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.engage-secondary-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--accent-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.engage-secondary-link:hover {
+  color: var(--accent);
+}
+
+.engage-secondary-muted {
+  font-size: 0.85rem;
+  color: var(--muted-2);
+}
+
+.engage-block-final {
+  padding: 32px;
+  border-radius: 28px;
+  text-align: center;
+}
+
+.engage-block-final h3 {
+  margin: 0 0 12px;
+  max-width: 28ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.engage-block-final p {
+  margin: 0 auto 22px;
+  max-width: 52ch;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.engage-final-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.engage-quick-band {
+  margin: 0 0 10px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
 .engage-intro p { max-width: 52ch; }
 .engage-flow-hint {
   display: flex;
@@ -2160,6 +2352,14 @@ a { color: inherit; text-decoration: none; }
   .engage-product-grid { grid-template-columns: 1fr; }
   .engage-free-grid { grid-template-columns: 1fr; }
   .engage-free-card-wide { grid-column: auto; }
+  #engage .engage-block { margin-bottom: 32px; }
+  .engage-block-problem,
+  .engage-check-shell,
+  .engage-block-final { padding: 22px 20px; border-radius: 22px; }
+  .engage-problem-title { max-width: none; }
+  .engage-pressure-row span { flex: 1 1 auto; text-align: center; }
+  .engage-final-actions { flex-direction: column; align-items: stretch; }
+  .engage-final-actions .btn { width: 100%; justify-content: center; }
 }
 @media (max-width: 640px) {
   .engage-flow-hint { border-radius: 22px; }
