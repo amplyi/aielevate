@@ -1,14 +1,14 @@
 /**
  * AI Elevate Engage — programs, Mollie links, intake forms.
  *
- * Mollie redirect URL per product (set on each Payment Link):
+ * COMMERCIAL RULE: Paid deliverables are emailed after payment — never linked on the public site.
+ * Free funnel assets only in `freeResources`. Operator map: scripts/commercial-funnel.txt
+ *
+ * Mollie redirect URL per product:
  *   https://aielevate.xyz/?payment=success&product=briefing
  *   https://aielevate.xyz/?payment=success&product=assessment
  *   https://aielevate.xyz/?payment=success&product=briefing-pack
  *   https://aielevate.xyz/?payment=success&product=decision-room
- *
- * Intake automation: Typeform + Make.com (see scripts/engage-intake-automation.txt)
- * Paste each intakeFormUrl after creating the Typeform.
  */
 window.AIE_ENGAGE_CONFIG = {
   merchant: {
@@ -24,25 +24,97 @@ window.AIE_ENGAGE_CONFIG = {
     setupGuide: 'scripts/engage-intake-automation.txt',
     mollieRedirectBase: 'https://aielevate.xyz/?payment=success&product=',
   },
-  /**
-   * Canonical EDMP business case (Anthony doctrine).
-   * Board Pack PDF + Briefing agenda + Assessment rubric derive from this.
-   * Full outline: scripts/engage-board-pack-outline.txt
-   */
-  /**
-   * Decision Room API (Vercel). Set apiBase after deploying api/ — see scripts/decision-room-api-setup.txt
-   */
   decisionRoom: {
     apiBase: '',
     setupGuide: 'scripts/decision-room-api-setup.txt',
+  },
+  /**
+   * Free funnel — insight, not full products. See scripts/commercial-funnel.txt
+   */
+  freeResources: {
+    onePager: {
+      title: 'Executive One-Pager',
+      subtitle: 'The 30-second board and investor case for Enterprise Decision Memory.',
+      purpose: 'Interesting. Tell me more.',
+      downloadUrl: 'assets/ai-elevate-edmp-executive-brief.pdf',
+      requiresEmail: true,
+    },
+    boardPackPreview: {
+      title: 'Board Briefing Pack Preview',
+      subtitle: 'Cover, executive summary excerpt, and one sample chapter.',
+      downloadUrl: 'assets/ai-elevate-board-briefing-pack-preview.pdf',
+      purchaseProductId: 'briefing-pack',
+      ctaLabel: 'Purchase full Board Briefing Pack',
+    },
+    quickAssessment: {
+      title: 'EDMP Quick Self-Check',
+      subtitle: 'Five questions across decision memory dimensions (names only — not the full maturity model).',
+      ctaProductId: 'assessment',
+      ctaLabel: 'Request full EDMP Readiness Assessment',
+      dimensions: [
+        {
+          id: 'traceability',
+          name: 'Decision Traceability',
+          question: 'How confidently could your organization reconstruct the reasoning behind a major strategic decision made three years ago?',
+        },
+        {
+          id: 'memory',
+          name: 'Institutional Memory',
+          question: 'How much critical decision knowledge would leave if two key leaders departed next quarter?',
+        },
+        {
+          id: 'governance',
+          name: 'AI Governance',
+          question: 'How explainable and defensible are your AI-assisted decisions today?',
+        },
+        {
+          id: 'rework',
+          name: 'Rework Exposure',
+          question: 'How often does your organization revisit decisions that were already made?',
+        },
+        {
+          id: 'continuity',
+          name: 'Executive Continuity',
+          question: 'How quickly can new executives understand historical decision logic?',
+        },
+      ],
+    },
   },
   doctrine: {
     coreInsight: 'Organizations preserve data, workflows, and AI outputs — but not how important decisions were formed.',
     investorPitch: 'As AI accelerates decision velocity, the inability to reconstruct why decisions were made becomes a governance, risk, and performance problem. EDMP preserves signal, reasoning, decision lineage, execution trace, and institutional memory.',
     valueChain: ['Signal', 'Structure', 'Decision', 'Execution Trace', 'Institutional Memory'],
     financialPillars: ['Risk reduction', 'Reduced rework', 'Executive continuity', 'AI governance'],
+    funnel: 'Free insight → Board Pack → Executive Briefing → Assessment → Advisory',
   },
   products: [
+    {
+      id: 'briefing-pack',
+      tag: 'Digital download',
+      title: 'Board Briefing Pack',
+      subtitle: 'The full EDMP business case for board and investor conversations — standard or lightly customized.',
+      audience: 'Board members, NEDs, investors, or exec sponsors who need the category case, not a tool pitch.',
+      priceLabel: '€603.79',
+      priceNote: 'incl. 21% VAT · digital delivery',
+      format: 'PDF pack + slide deck (standard); optional customized cover addendum',
+      timeline: 'Standard pack within 24h · customized addendum within 3–5 business days if requested',
+      youReceive: [
+        'Full PDF pack (~40+ pages): executive problem, cost of forgetting, AI paradox, financial case, category thesis',
+        'Slide deck (12 slides) with speaker notes',
+        'Executive one-pager for internal forwarding',
+        'Optional intake: company name on cover + sector-focused addendum (3–5 business days)',
+      ],
+      intake: [
+        'Pay via Mollie — confirmation page links to a short intake form',
+        'Intake: company, billing contact, language (NL/EN), standard vs. light customization',
+        'Download links delivered by email within 24 hours',
+        'If customization requested: tailored cover/addendum within 3–5 business days',
+      ],
+      notIncluded: 'Preview sample is free; full pack is delivered after payment only.',
+      intakeFormUrl: '',
+      mollieUrl: '',
+      mollieRedirect: 'https://aielevate.xyz/?payment=success&product=briefing-pack',
+    },
     {
       id: 'briefing',
       tag: 'Live session',
@@ -54,9 +126,10 @@ window.AIE_ENGAGE_CONFIG = {
       format: '90 min live (video, NL or EN) + written summary',
       timeline: 'Session within 10 business days of completed intake',
       youReceive: [
-        'Pre-read PDF: the executive problem — what happened vs. why it was decided',
+        'Pre-read materials: the executive problem — what happened vs. why it was decided',
         'Live agenda: cost of forgetting → AI paradox → EDMP value chain → financial case → your domain',
-        'Post-session PDF: your pressure domain, gaps, and recommended next-step path',
+        'Post-session findings report: your pressure domain, gaps, and recommended next-step path',
+        'Facilitator materials and calendar assets (delivered to you, not published publicly)',
       ],
       intake: [
         'Pay via Mollie — confirmation page links to your intake form',
@@ -64,11 +137,7 @@ window.AIE_ENGAGE_CONFIG = {
         'We confirm your session slot by email',
         'Live session delivered; summary PDF within 2 business days after',
       ],
-      notIncluded: 'No custom cockpit build, implementation, or ongoing advisory.',
-      invitationEmailDownloadUrl: 'assets/ai-elevate-edmp-executive-briefing-invitation-email.pdf',
-      runbookDownloadUrl: 'assets/ai-elevate-edmp-executive-briefing-runbook.pdf',
-      calendarInviteDownloadUrl: 'assets/ai-elevate-edmp-executive-briefing-calendar-invite.pdf',
-      findingsReportDownloadUrl: 'assets/ai-elevate-edmp-executive-briefing-findings-report.pdf',
+      notIncluded: 'No custom cockpit build, implementation, or ongoing advisory. Runbook is facilitator IP — not a public download.',
       intakeFormUrl: '',
       mollieUrl: '',
       mollieRedirect: 'https://aielevate.xyz/?payment=success&product=briefing',
@@ -84,8 +153,8 @@ window.AIE_ENGAGE_CONFIG = {
       format: 'Questionnaire + PDF report + 30 min readout (NL or EN)',
       timeline: 'Report 5–7 business days after questionnaire submitted',
       youReceive: [
-        'Questionnaire (~30–40 min): traceability, rework, continuity, governance, signal-to-decision visibility',
-        'Report PDF (12–18 pages): maturity scores, gap analysis, priority domains, 90-day intervention map',
+        'Full questionnaire (~30–40 min): traceability, rework, continuity, governance, signal-to-decision visibility',
+        'Scored report PDF (12–18 pages): maturity scores, gap analysis, priority domains, 90-day intervention map',
         '30-minute readout call on findings and board-ready framing (Dutch or English)',
       ],
       intake: [
@@ -94,41 +163,10 @@ window.AIE_ENGAGE_CONFIG = {
         'Questionnaire link sent within 1 business day; complete within 5 business days',
         'Report by email; readout call scheduled after delivery',
       ],
-      notIncluded: 'No software installation, data integration, or workshop series.',
-      frameworkDownloadUrl: 'assets/ai-elevate-edmp-readiness-assessment.pdf',
+      notIncluded: 'Quick self-check on site shows dimension names only. Full scoring rubric and roadmaps are client deliverables.',
       intakeFormUrl: '',
       mollieUrl: '',
       mollieRedirect: 'https://aielevate.xyz/?payment=success&product=assessment',
-    },
-    {
-      id: 'briefing-pack',
-      tag: 'Digital download',
-      title: 'Board Briefing Pack',
-      subtitle: 'The full EDMP business case for board and investor conversations — standard or lightly customized.',
-      audience: 'Board members, NEDs, investors, or exec sponsors who need the category case, not a tool pitch.',
-      priceLabel: '€603.79',
-      priceNote: 'incl. 21% VAT · digital delivery',
-      format: 'PDF pack + slide deck (standard); optional customized cover addendum',
-      timeline: 'Standard pack within 24h · customized addendum within 3–5 business days if requested',
-      youReceive: [
-        'PDF (~25–35 pages): executive problem, cost of forgetting, AI paradox, financial case, category thesis',
-        'Slide deck (10–12 slides): board-ready version of the same narrative',
-        'One-pager: 30-second investor/board pitch you can forward internally',
-        'Optional intake: company name on cover + sector-focused addendum (3–5 business days)',
-      ],
-      intake: [
-        'Pay via Mollie — confirmation page links to a short intake form',
-        'Intake: company, billing contact, language (NL/EN), standard vs. light customization',
-        'Standard pack: download links within 24 hours',
-        'If customization requested: tailored cover/addendum within 3–5 business days',
-      ],
-      notIncluded: 'Not a full bespoke strategy engagement — light customization only.',
-      downloadUrl: 'assets/ai-elevate-board-briefing-pack.pdf',
-      deckDownloadUrl: 'assets/ai-elevate-board-briefing-deck.pdf',
-      briefDownloadUrl: 'assets/ai-elevate-edmp-executive-brief.pdf',
-      intakeFormUrl: '',
-      mollieUrl: '',
-      mollieRedirect: 'https://aielevate.xyz/?payment=success&product=briefing-pack',
     },
     {
       id: 'decision-room',
@@ -148,12 +186,10 @@ window.AIE_ENGAGE_CONFIG = {
       ],
       intake: [
         'Pay via Mollie — confirmation page explains next steps',
-        'Intake: work email, industry, role, pressure domain (or provide at room entry)',
         'Session access token sent by email within 1 business day',
         'Enter token at aielevate.xyz/#decision-room — valid 48 hours',
       ],
-      notIncluded: 'Not a consulting engagement or custom software build — one simulation session per purchase.',
-      roomUrl: '#decision-room',
+      notIncluded: 'Not a consulting engagement. Access requires paid token — not open to the public.',
       intakeFormUrl: '',
       mollieUrl: '',
       mollieRedirect: 'https://aielevate.xyz/?payment=success&product=decision-room',

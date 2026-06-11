@@ -536,6 +536,7 @@ function openDomainContactIntake(domainKey, source = 'library', context = 'Cockp
 
 let libraryRendered = false;
 let engageRendered = false;
+let engageFreeRendered = false;
 
 function ensureLibraryRendered() {
   if (libraryRendered) return;
@@ -585,7 +586,150 @@ function applyLegalMerchantInfo() {
   }
 }
 
+function scrollToEngageProduct(productId) {
+  const card = document.querySelector(`[data-engage-product="${productId}"]`);
+  if (card) {
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    card.classList.add('engage-product-highlight');
+    setTimeout(() => card.classList.remove('engage-product-highlight'), 2200);
+  }
+}
+
+function renderEngageFree() {
+  if (engageFreeRendered) return;
+  engageFreeRendered = true;
+
+  const mount = document.getElementById('engageFree');
+  const config = getEngageConfig();
+  const free = config.freeResources;
+  if (!mount || !free) return;
+
+  const onePager = free.onePager || {};
+  const preview = free.boardPackPreview || {};
+  const quick = free.quickAssessment || {};
+  const dims = quick.dimensions || [];
+
+  const quickQuestions = dims.map((dim, index) => `
+    <fieldset class="engage-quick-q glass" data-quick-q="${dim.id}">
+      <legend><span class="engage-quick-num">${index + 1}</span> ${dim.name}</legend>
+      <p>${dim.question}</p>
+      <div class="engage-quick-scale" role="radiogroup" aria-label="${dim.name}">
+        ${[1, 2, 3, 4, 5].map((n) => `
+          <label class="engage-quick-opt">
+            <input type="radio" name="quick-${dim.id}" value="${n}" />
+            <span>${n}</span>
+          </label>`).join('')}
+      </div>
+      <div class="engage-quick-scale-labels"><span>Low exposure</span><span>High exposure</span></div>
+    </fieldset>
+  `).join('');
+
+  mount.innerHTML = `
+    <div class="engage-free-head glass">
+      <div class="section-kicker">Start here</div>
+      <h3>Free insight — not the full products</h3>
+      <p>Download the one-pager, preview the Board Pack, or take the quick self-check. Full packs, frameworks, and facilitator materials are delivered after payment.</p>
+    </div>
+    <div class="engage-free-grid">
+      <article class="engage-free-card glass" id="engageOnePagerCard">
+        <span class="card-tag">Free</span>
+        <h4>${onePager.title || 'Executive One-Pager'}</h4>
+        <p>${onePager.subtitle || ''}</p>
+        <p class="engage-free-purpose">${onePager.purpose || ''}</p>
+        <form id="engageOnePagerForm" class="engage-lead-form">
+          <label class="engage-lead-field">
+            <span>Work email</span>
+            <input type="email" id="engageLeadEmail" required placeholder="you@company.com" autocomplete="email" />
+          </label>
+          <label class="engage-lead-field">
+            <span>Name</span>
+            <input type="text" id="engageLeadName" required placeholder="Your name" autocomplete="name" />
+          </label>
+          <button type="submit" class="btn btn-primary btn-cta">Get the one-pager</button>
+        </form>
+        <div id="engageOnePagerUnlock" class="engage-lead-unlock hidden">
+          <p>Thank you. Your download is ready.</p>
+          <a class="btn btn-secondary" id="engageOnePagerDownload" href="${onePager.downloadUrl || '#'}" download>Download Executive One-Pager (PDF)</a>
+        </div>
+      </article>
+
+      <article class="engage-free-card glass">
+        <span class="card-tag">Free preview</span>
+        <h4>${preview.title || 'Board Pack Preview'}</h4>
+        <p>${preview.subtitle || ''}</p>
+        <p class="engage-free-note">Cover · executive summary excerpt · one sample chapter</p>
+        <div class="engage-free-actions">
+          <a class="btn btn-secondary" href="${preview.downloadUrl || '#'}" download>Download preview (PDF)</a>
+          <button type="button" class="btn btn-primary btn-cta" data-scroll-product="${preview.purchaseProductId || 'briefing-pack'}">${preview.ctaLabel || 'Purchase full pack'}</button>
+        </div>
+      </article>
+
+      <article class="engage-free-card glass engage-free-card-wide" id="engageQuickCard">
+        <span class="card-tag">Free self-check</span>
+        <h4>${quick.title || 'EDMP Quick Self-Check'}</h4>
+        <p>${quick.subtitle || ''}</p>
+        <form id="engageQuickForm" class="engage-quick-form">${quickQuestions}</form>
+        <div class="engage-quick-actions">
+          <button type="button" class="btn btn-secondary" id="engageQuickScoreBtn">See my score</button>
+        </div>
+        <div id="engageQuickResult" class="engage-quick-result hidden" aria-live="polite"></div>
+      </article>
+    </div>
+  `;
+
+  const leadKey = 'aie_onepager_lead';
+  const unlock = document.getElementById('engageOnePagerUnlock');
+  const form = document.getElementById('engageOnePagerForm');
+  if (sessionStorage.getItem(leadKey) && unlock && form) {
+    form.classList.add('hidden');
+    unlock.classList.remove('hidden');
+  }
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const email = document.getElementById('engageLeadEmail')?.value?.trim();
+    const name = document.getElementById('engageLeadName')?.value?.trim();
+    if (!email || !name) return;
+    sessionStorage.setItem(leadKey, JSON.stringify({ email, name, at: Date.now() }));
+    form.classList.add('hidden');
+    unlock?.classList.remove('hidden');
+  });
+
+  mount.querySelectorAll('[data-scroll-product]').forEach((btn) => {
+    btn.addEventListener('click', () => scrollToEngageProduct(btn.dataset.scrollProduct));
+  });
+
+  document.getElementById('engageQuickScoreBtn')?.addEventListener('click', () => {
+    const dimensions = quick.dimensions || [];
+    let sum = 0;
+    let answered = 0;
+    for (const dim of dimensions) {
+      const picked = mount.querySelector(`input[name="quick-${dim.id}"]:checked`);
+      if (!picked) continue;
+      sum += Number(picked.value);
+      answered += 1;
+    }
+    const result = document.getElementById('engageQuickResult');
+    if (!result) return;
+    if (answered < dimensions.length) {
+      result.classList.remove('hidden');
+      result.innerHTML = '<p class="engage-quick-warning">Please answer all five questions.</p>';
+      return;
+    }
+    const score = Math.round((sum / (dimensions.length * 5)) * 100);
+    result.classList.remove('hidden');
+    result.innerHTML = `
+      <p class="engage-quick-score">Your organization scored: <strong>${score}/100</strong></p>
+      <p class="engage-quick-score-note">This is a directional self-check using dimension names only — not the full EDMP maturity model, scoring rubric, or intervention roadmap.</p>
+      <button type="button" class="btn btn-primary btn-cta" data-scroll-product="${quick.ctaProductId || 'assessment'}">${quick.ctaLabel || 'Request full assessment'}</button>
+    `;
+    result.querySelector('[data-scroll-product]')?.addEventListener('click', (e) => {
+      scrollToEngageProduct(e.currentTarget.dataset.scrollProduct);
+    });
+  });
+}
+
 function renderEngage() {
+  renderEngageFree();
   if (engageRendered) return;
   engageRendered = true;
   applyLegalMerchantInfo();
@@ -607,33 +751,6 @@ function renderEngage() {
       ? `<p class="engage-product-audience"><span>For:</span> ${product.audience}</p>` : '';
     const notIncluded = product.notIncluded
       ? `<p class="engage-product-scope-note">${product.notIncluded}</p>` : '';
-    const downloadBtn = product.downloadUrl
-      ? `<a class="btn btn-secondary engage-download-btn" href="${product.downloadUrl}" download>Download pack (PDF)</a>`
-      : '';
-    const deckBtn = product.deckDownloadUrl
-      ? `<a class="btn btn-secondary engage-download-btn" href="${product.deckDownloadUrl}" download>Download slides (PDF)</a>`
-      : '';
-    const briefBtn = product.briefDownloadUrl
-      ? `<a class="btn btn-secondary engage-download-btn" href="${product.briefDownloadUrl}" download>Download brief (PDF)</a>`
-      : '';
-    const frameworkBtn = product.frameworkDownloadUrl
-      ? `<a class="btn btn-secondary engage-download-btn" href="${product.frameworkDownloadUrl}" download>Download framework (PDF)</a>`
-      : '';
-    const invitationEmailBtn = product.invitationEmailDownloadUrl
-      ? `<a class="btn btn-secondary engage-download-btn" href="${product.invitationEmailDownloadUrl}" download>Download invitation email (PDF)</a>`
-      : '';
-    const runbookBtn = product.runbookDownloadUrl
-      ? `<a class="btn btn-secondary engage-download-btn" href="${product.runbookDownloadUrl}" download>Download runbook (PDF)</a>`
-      : '';
-    const calendarBtn = product.calendarInviteDownloadUrl
-      ? `<a class="btn btn-secondary engage-download-btn" href="${product.calendarInviteDownloadUrl}" download>Download calendar invite (PDF)</a>`
-      : '';
-    const findingsBtn = product.findingsReportDownloadUrl
-      ? `<a class="btn btn-secondary engage-download-btn" href="${product.findingsReportDownloadUrl}" download>Download findings report (PDF)</a>`
-      : '';
-    const roomBtn = product.roomUrl
-      ? `<a class="btn btn-secondary engage-download-btn" href="${product.roomUrl}">Enter Decision Room</a>`
-      : '';
     return `
       <article class="engage-product-card glass" data-engage-product="${product.id}">
         <div class="engage-product-head">
@@ -659,7 +776,7 @@ function renderEngage() {
           <div class="engage-product-meta"><span>Timeline</span><strong>${product.timeline}</strong></div>
         </div>
         ${notIncluded}
-        <div class="engage-product-actions">${checkoutBtn}${downloadBtn}${deckBtn}${briefBtn}${frameworkBtn}${invitationEmailBtn}${runbookBtn}${calendarBtn}${findingsBtn}${roomBtn}</div>
+        <div class="engage-product-actions">${checkoutBtn}</div>
       </article>
     `;
   }).join('');
