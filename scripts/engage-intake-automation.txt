@@ -1,0 +1,85 @@
+AI Elevate — Engage intake automation (Typeform + Make.com)
+============================================================
+
+Recommended stack (automatable, no custom API required for Phase 1):
+  1. Typeform  — intake forms (webhooks on paid plan)
+  2. Make.com  — receives webhook → email + Google Sheet order log
+  3. Mollie    — payment links with per-product redirect URLs
+  4. Google Drive — Board Pack download links (stable share URLs)
+
+Alternative free tier: Tally.so (webhooks on free plan) instead of Typeform.
+
+---
+STEP 1 — Create three Typeforms (or one form with Logic branching)
+---
+
+FORM A — Executive Briefing (product=briefing)
+  - Full name *
+  - Work email *
+  - Company *
+  - Role / title *
+  - Session language *  (Dutch / English)
+  - Primary EDMP domain *  (Finance / Governance / Legal / Commercial / Talent / Procurement / Other)
+  - Describe 3 decision pressure points *  (long text)
+  - Expected attendees (names + roles, max 6) *  (long text)
+  - Preferred dates / times (timezone) *  (long text)
+  - Anything else we should prepare?  (long text, optional)
+  Hidden field: product = briefing
+
+FORM B — EDMP Readiness Assessment (product=assessment)
+  - Full name *
+  - Work email *
+  - Company *
+  - Role *
+  - Language for report and readout *  (Dutch / English)
+  - Primary domain for assessment *
+  - Who will complete the questionnaire? *  (short text)
+  - Target date for readout call  (short text, optional)
+  Hidden field: product = assessment
+
+FORM C — Board Briefing Pack (product=briefing-pack)
+  - Full name *
+  - Work email *
+  - Company *
+  - Delivery language *  (Dutch / English)
+  - Pack version *  (Standard pack only / Standard + light customization)
+  - If customization: sector focus + wording preferences  (long text, show if customized)
+  - Company name for cover (if customized)  (short text, optional)
+  Hidden field: product = briefing-pack
+
+---
+STEP 2 — Paste form URLs into engage-config.js
+---
+  intakeFormUrl: 'https://form.typeform.com/to/XXXXXXXX'
+
+---
+STEP 3 — Make.com scenario (one scenario, three webhooks or one router)
+---
+  Trigger: Typeform — Watch Responses
+  Actions:
+    1. Google Sheets — Add row (order log: date, product, name, email, company, language)
+    2. Email — Send to info@aielevate.xyz with full response
+    3. Email — Auto-reply to submitter:
+         Briefing: "We received your intake and will confirm your session within 1 business day."
+         Assessment: "Questionnaire link will follow within 1 business day."
+         Board Pack (standard): "Download links within 24 hours."
+         Board Pack (custom): "Standard pack within 24h; customized addendum within 3–5 days."
+
+---
+STEP 4 — Mollie Payment Links (one per product)
+---
+  Executive Briefing     €3025.00   redirect: https://aielevate.xyz/?payment=success&product=briefing
+  EDMP Assessment        €1815.00   redirect: https://aielevate.xyz/?payment=success&product=assessment
+  Board Briefing Pack    €603.79    redirect: https://aielevate.xyz/?payment=success&product=briefing-pack
+
+  Paste each payment link URL into engage-config.js → mollieUrl
+
+---
+STEP 5 — Board Pack asset delivery
+---
+  Upload PDF + deck to Google Drive → share link (anyone with link).
+  Store links in a Make.com variable or email template.
+  Standard pack: include links in Make auto-reply for product=briefing-pack + standard version.
+
+---
+Phase 2 (later): Mollie webhook → Vercel API → auto-email intake link without manual step.

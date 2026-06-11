@@ -638,9 +638,60 @@ function renderEngage() {
   }).join('');
 }
 
+function getPaidProductId() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('payment') !== 'success') return null;
+  return params.get('product') || null;
+}
+
+function updateEngageThankYou() {
+  const productId = getPaidProductId();
+  const config = getEngageConfig();
+  const product = productId ? (config.products || []).find(p => p.id === productId) : null;
+
+  const title = document.getElementById('engageThankYouTitle');
+  const body = document.getElementById('engageThankYouBody');
+  const intakeBtn = document.getElementById('engageThankYouIntake');
+  const emailLink = document.getElementById('engageThankYouEmail');
+  const merchantEmail = config.merchant?.email || 'info@aielevate.xyz';
+
+  if (emailLink) {
+    emailLink.href = `mailto:${merchantEmail}`;
+    emailLink.textContent = merchantEmail;
+  }
+
+  if (product && title) {
+    title.textContent = `Thank you — ${product.title} is being activated`;
+  } else if (title) {
+    title.textContent = 'Thank you — your program is being activated';
+  }
+
+  if (product && body) {
+    body.textContent = `Payment confirmed for ${product.title}. Complete the intake form to start delivery. ${product.timeline}.`;
+  } else if (body) {
+    body.textContent = `We received your payment. You will hear from ${merchantEmail} within one business day.`;
+  }
+
+  if (intakeBtn) {
+    const intakeUrl = product?.intakeFormUrl;
+    if (intakeUrl) {
+      intakeBtn.href = intakeUrl;
+      intakeBtn.classList.remove('hidden');
+      intakeBtn.textContent = 'Complete intake form';
+    } else {
+      intakeBtn.classList.add('hidden');
+      intakeBtn.removeAttribute('href');
+      if (product && body) {
+        body.textContent += ` Intake form link will be emailed from ${merchantEmail} within 1 business day (Typeform URL not configured yet).`;
+      }
+    }
+  }
+}
+
 function setEngageThankYouVisible(show) {
   const banner = document.getElementById('engageThankYou');
   if (!banner) return;
+  if (show) updateEngageThankYou();
   banner.classList.toggle('hidden', !show);
 }
 

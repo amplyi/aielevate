@@ -1738,6 +1738,13 @@ a { color: inherit; text-decoration: none; }
 .engage-thankyou.hidden { display: none; }
 .engage-thankyou h3 { margin: 8px 0 12px; }
 .engage-thankyou p { color: var(--muted); max-width: 70ch; }
+.engage-thankyou-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+.engage-thankyou-actions .hidden { display: none; }
 
 .engage-intro p { max-width: 52ch; }
 .engage-flow-hint {

@@ -9,7 +9,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <link rel="icon" href="assets/ae-logo-blue.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/ae-logo-blue.png" />
-  <link rel="stylesheet" href="styles.css?v=20260611e" />
+  <link rel="stylesheet" href="styles.css?v=20260611f" />
 </head>
 <body>
 
@@ -403,9 +403,13 @@
     <section id="engage" class="view">
       <div id="engageThankYou" class="engage-thankyou glass hidden" role="status" aria-live="polite">
         <div class="section-kicker">Payment received</div>
-        <h3>Thank you — your program is being activated</h3>
-        <p>We received your payment via Mollie. You will hear from <strong>info@aielevate.xyz</strong> within one business day with next steps, scheduling, or digital delivery details.</p>
-        <button class="btn btn-secondary" type="button" data-view="platform">Return to EDMP</button>
+        <h3 id="engageThankYouTitle">Thank you — your program is being activated</h3>
+        <p id="engageThankYouBody">We received your payment via Mollie. Complete the intake form to start delivery.</p>
+        <div class="engage-thankyou-actions">
+          <a id="engageThankYouIntake" class="btn btn-primary btn-cta hidden" href="#">Complete intake form</a>
+          <a class="btn btn-secondary footer-mail" id="engageThankYouEmail" href="mailto:info@aielevate.xyz">Email support</a>
+          <button class="btn btn-secondary" type="button" data-view="platform">Return to EDMP</button>
+        </div>
       </div>
 
       <div class="section-head glass engage-intro">
@@ -775,7 +779,7 @@
   </aside>
 </div>
 
-  <script src="engage-config.js?v=20260611e"></script>
-  <script src="script.js?v=20260611e"></script>
+  <script src="engage-config.js?v=20260611f"></script>
+  <script src="script.js?v=20260611f"></script>
 </body>
 </html>
