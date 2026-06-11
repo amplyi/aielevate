@@ -83,6 +83,7 @@ window.AIE_ENGAGE_CONFIG = {
         'Report by email; readout call scheduled after delivery',
       ],
       notIncluded: 'No software installation, data integration, or workshop series.',
+      frameworkDownloadUrl: 'assets/ai-elevate-edmp-readiness-assessment.pdf',
       intakeFormUrl: '',
       mollieUrl: '',
       mollieRedirect: 'https://aielevate.xyz/?payment=success&product=assessment',
