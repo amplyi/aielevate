@@ -44,6 +44,7 @@ jobs:
           mkdir -p _site
           cp -r ai-elevate-cockpit-plugin-v4-standalone/app/. _site/
           find _site -name '*.bak' -delete
+          rm -f _site/edmp-assessment-config.js _site/edmp-assessment-full-config.js
           rm -rf _site/.idea
 
       - name: Upload Pages artifact

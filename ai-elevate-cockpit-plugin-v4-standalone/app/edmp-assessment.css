@@ -1,0 +1,518 @@
+/* EDMP Digital Assessment Engine ù scoped to #edmp-assessment */
+body.edmp-assessment-mode .ambient,
+body.edmp-assessment-mode .global-map-bg,
+body.edmp-assessment-mode .grid-layer,
+body.edmp-assessment-mode .traffic-lanes,
+body.edmp-assessment-mode .supply-chain-network {
+  display: none;
+}
+
+#edmp-assessment.view {
+  padding: 0;
+  min-height: calc(100vh - 72px);
+}
+
+#edmp-assessment.view.active-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.edmp-assess-wrap {
+  --ea-bg: #070b12;
+  --ea-panel: rgba(14, 19, 30, 0.92);
+  --ea-border: #2a3140;
+  --ea-accent: #8fd3ff;
+  --ea-accent2: #8f9aff;
+  --ea-text: #f2f6fb;
+  --ea-muted: #aab5c5;
+  --ea-muted2: #7c8798;
+  --ea-high: #e87878;
+  --ea-mod: #d4a853;
+  --ea-managed: #8fd3ff;
+  --ea-adv: #7dcea0;
+  flex: 1;
+  background: var(--ea-bg);
+  color: var(--ea-text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding: 24px 20px 48px;
+}
+
+.edmp-assess-shell {
+  width: min(920px, 100%);
+  margin: 0 auto;
+}
+
+.edmp-assess-card {
+  background: var(--ea-panel);
+  border: 1px solid var(--ea-border);
+  border-radius: 24px;
+  padding: 28px 32px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.edmp-assess-kicker {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ea-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.edmp-assess-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.45rem;
+}
+
+.edmp-assess-lead {
+  margin: 0 0 20px;
+  color: var(--ea-muted);
+  line-height: 1.55;
+  max-width: 62ch;
+}
+
+.edmp-assess-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.edmp-assess-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.edmp-assess-field span {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ea-muted2);
+}
+
+.edmp-assess-field input,
+.edmp-assess-field textarea {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: var(--ea-text);
+  font: inherit;
+}
+
+.edmp-assess-field textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.edmp-assess-progress {
+  margin-bottom: 20px;
+}
+
+.edmp-assess-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--ea-muted);
+  margin-bottom: 8px;
+}
+
+.edmp-assess-progress-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.edmp-assess-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--ea-accent), var(--ea-accent2));
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.edmp-assess-dim-title {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+
+.edmp-assess-dim-note {
+  margin: 0 0 18px;
+  color: var(--ea-muted2);
+  font-size: 0.9rem;
+}
+
+.edmp-assess-q {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.edmp-assess-q legend {
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0 4px;
+  line-height: 1.45;
+}
+
+.edmp-assess-q-num {
+  color: var(--ea-accent);
+  margin-right: 6px;
+}
+
+.edmp-assess-scale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.edmp-assess-opt {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 52px;
+  padding: 8px 6px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  font-size: 0.72rem;
+  color: var(--ea-muted);
+  text-align: center;
+}
+
+.edmp-assess-opt input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.edmp-assess-opt strong {
+  font-size: 1rem;
+  color: var(--ea-text);
+  margin-bottom: 2px;
+}
+
+.edmp-assess-opt:has(input:checked) {
+  border-color: rgba(143, 211, 255, 0.55);
+  background: rgba(143, 211, 255, 0.12);
+  color: var(--ea-accent);
+}
+
+.edmp-assess-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.edmp-assess-btn {
+  border-radius: 999px;
+  padding: 10px 18px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--ea-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--ea-text);
+}
+
+.edmp-assess-btn-primary {
+  background: rgba(143, 211, 255, 0.18);
+  border-color: rgba(143, 211, 255, 0.45);
+  color: var(--ea-accent);
+}
+
+.edmp-assess-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.edmp-assess-error {
+  color: var(--ea-high);
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Report */
+.edmp-report {
+  display: grid;
+  gap: 20px;
+}
+
+.edmp-report-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.edmp-report-score-block {
+  text-align: center;
+  min-width: 140px;
+}
+
+.edmp-report-score {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--ea-accent);
+  line-height: 1;
+}
+
+.edmp-report-band {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.edmp-report-band.band-high { background: rgba(232, 120, 120, 0.15); color: var(--ea-high); }
+.edmp-report-band.band-moderate { background: rgba(212, 168, 83, 0.15); color: var(--ea-mod); }
+.edmp-report-band.band-managed { background: rgba(143, 211, 255, 0.15); color: var(--ea-managed); }
+.edmp-report-band.band-advanced { background: rgba(125, 206, 160, 0.15); color: var(--ea-adv); }
+
+.edmp-report-section h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+}
+
+.edmp-report-section p,
+.edmp-report-section li {
+  color: var(--ea-muted);
+  line-height: 1.55;
+  font-size: 0.94rem;
+}
+
+.edmp-heatmap {
+  display: grid;
+  gap: 10px;
+}
+
+.edmp-heatmap-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 1.2fr) 1fr 48px;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.88rem;
+}
+
+.edmp-heatmap-label {
+  color: var(--ea-muted);
+}
+
+.edmp-heatmap-bar-wrap {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.edmp-heatmap-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ea-accent2), var(--ea-accent));
+}
+
+.edmp-heatmap-val {
+  text-align: right;
+  font-weight: 600;
+  color: var(--ea-text);
+}
+
+.edmp-dim-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+.edmp-dim-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.edmp-dim-score {
+  color: var(--ea-accent);
+}
+
+.edmp-roadmap-phase {
+  margin-bottom: 14px;
+}
+
+.edmp-roadmap-phase h4 {
+  margin: 0 0 6px;
+  color: var(--ea-accent2);
+  font-size: 0.95rem;
+}
+
+.edmp-consultant-notes {
+  margin-top: 8px;
+}
+
+.edmp-preview-gate {
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(143, 211, 255, 0.22);
+  background: rgba(143, 211, 255, 0.05);
+  margin-bottom: 28px;
+}
+
+.edmp-preview-gate h3 {
+  margin: 0 0 8px;
+}
+
+.edmp-token-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.edmp-token-row input {
+  flex: 1;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: var(--ea-text);
+  font: inherit;
+}
+
+.edmp-preview-section {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.edmp-preview-dim-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.edmp-preview-dim {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.edmp-preview-dim h4 {
+  margin: 0 0 8px;
+  color: var(--ea-accent2);
+  font-size: 0.95rem;
+}
+
+.edmp-preview-sample-q {
+  margin: 0 0 8px;
+  color: var(--ea-text);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.edmp-preview-note {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--ea-muted2);
+}
+
+.edmp-preview-sample-report {
+  position: relative;
+  overflow: hidden;
+}
+
+.edmp-preview-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(143, 211, 255, 0.12);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.edmp-preview-disclaimer {
+  font-size: 0.85rem;
+  color: var(--ea-muted2);
+  margin: 0 0 12px;
+}
+
+.edmp-preview-heatmap {
+  opacity: 0.85;
+  filter: blur(0.3px);
+}
+
+.edmp-preview-recs {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--ea-muted);
+  line-height: 1.55;
+}
+
+.edmp-session-banner {
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: var(--ea-adv);
+  border: 1px solid rgba(125, 206, 160, 0.35);
+  background: rgba(125, 206, 160, 0.08);
+  display: inline-block;
+}
+
+@media (max-width: 720px) {
+  .edmp-preview-dim-grid { grid-template-columns: 1fr; }
+  .edmp-assess-meta-grid { grid-template-columns: 1fr; }
+  .edmp-assess-card { padding: 22px 18px; }
+  .edmp-heatmap-row { grid-template-columns: 1fr; gap: 4px; }
+  .edmp-heatmap-val { text-align: left; }
+}
+
+@media print {
+  body.edmp-assessment-print .topbar,
+  body.edmp-assessment-print .site-footer,
+  body.edmp-assessment-print .prefooter-shell,
+  body.edmp-assessment-print #edmpAssessFlow,
+  body.edmp-assessment-print .edmp-assess-actions,
+  body.edmp-assessment-print .edmp-consultant-edit {
+    display: none !important;
+  }
+
+  body.edmp-assessment-print #edmp-assessment,
+  body.edmp-assessment-print .edmp-assess-wrap,
+  body.edmp-assessment-print #edmpReportPrint {
+    background: #fff !important;
+    color: #111 !important;
+    padding: 0 !important;
+  }
+
+  body.edmp-assessment-print .edmp-assess-card {
+    background: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #111 !important;
+    padding: 0 !important;
+  }
+
+  body.edmp-assessment-print .edmp-report-section p,
+  body.edmp-assessment-print .edmp-report-section li,
+  body.edmp-assessment-print .edmp-dim-card p {
+    color: #333 !important;
+  }
+
+  body.edmp-assessment-print .edmp-report-score { color: #0b4f7a !important; }
+  body.edmp-assessment-print .edmp-heatmap-bar { background: #3d8cc4 !important; }
+  body.edmp-assessment-print .edmp-report-band { border: 1px solid #ccc; }
+}

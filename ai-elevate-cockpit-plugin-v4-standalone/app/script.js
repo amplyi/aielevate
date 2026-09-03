@@ -1,5 +1,4 @@
 
-
 const topDomainProfiles = {
   finance: {title:'Executive Capital Decisions',copy:'Choose the enterprise environment where reasoning, ownership, and accountability must remain visible under capital pressure.',liveLabel:'Discuss this cockpit',chip:'Executive Capital Decisions',stateLabel:'Capital decision environment',stateTitle:'Make capital reasoning, ownership continuity, and intervention thresholds visible before exposure escalates.',stateCopy:'EDMP helps finance teams preserve how capital decisions, scenario shifts, and ownership changes evolve over time.',pills:['Capital logic preserved','Scenario shifts linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['CFO','Finance Director','FP&A Lead','Treasury Owner'],insight:'Relevant to capital allocation, forecast discipline, scenario pressure, and board defensibility.'},
   sales: {title:'Commercial Decision Flow',copy:'Choose the enterprise environment where commercial reasoning, sponsor movement, and accountable next-step logic must remain visible under pressure.',liveLabel:'Discuss this cockpit',chip:'Commercial Decision Flow',stateLabel:'Commercial decision environment',stateTitle:'Make stalled deals, sponsor gaps, and next-step ownership visible before revenue slips.',stateCopy:'EDMP helps commercial teams preserve how account pressure, intervention decisions, and ownership shifts evolve over time.',pills:['Commercial logic preserved','Stakeholder movement linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['CRO','VP Sales','Commercial Director','Strategic Account Owner'],insight:'Relevant to pipeline discipline, sponsor pressure, intervention timing, and revenue accountability.'},
@@ -401,70 +400,114 @@ const closeOverlay = document.getElementById('closeOverlay');
 
 const prefooterContent = {
   platform: {
-    kicker: 'Platform',
-    title: 'Turn decision-making into a persistent, accountable system',
-    text: 'EDMP connects signals, reasoning, ownership, and execution into one continuous enterprise memory layer.',
-    metrics: [['Decisions tracked','124'],['Active decision cycles','08'],['Governance visibility layers','06'],['Decision integrity status','Stable']],
-    primaryLabel: 'Request Executive Briefing',
-    primaryIntake: 'demo',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Executive%20Briefing%20Request&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20request%20an%20executive%20briefing.%0A%0AName%3A%0ACompany%3A%0AUse%20environment%3A%0A',
-    secondaryLabel: 'Review the Architecture',
-    secondaryView: 'cases'
-  },
-  library: {
-    kicker: 'EDMP stack',
-    title: 'A new enterprise layer for preserving how organizations think',
-    text: 'EDMP, Cognitive Trace Architecture, EDM Protocol, PDE Method, and Decision Room operate as one enterprise layer.',
-    metrics: [['EDMP','Platform'],['CTA','Reasoning engine'],['EDM Protocol','Governance standard'],['PDE','Operating logic']],
-    primaryLabel: 'Explore EDMP',
+    kicker: 'AI Elevate',
+    title: 'Turn AI adoption into governed organisational capability',
+    text: 'We work between executive ambition and technical implementation—connecting business value, organisational design, enterprise architecture, governance and human accountability.',
+    metrics: [['Stance','Vendor-neutral'],['Focus','Organisational capability'],['Role','Independent advice'],['Legal seller','AvL Consultancy']],
+    primaryLabel: 'Discuss your AI capability',
     primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20EDMP%20Inquiry&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20discuss%20EDMP.%0A%0AName%3A%0ACompany%3A%0AEnvironment%3A%0A',
-    secondaryLabel: 'See Use Environments',
-    secondaryView: 'library'
+    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A%0AName%3A%0AOrganisation%3A%0A',
+    secondaryLabel: 'Explore our services',
+    secondaryView: 'services'
   },
-  cases: {
-    kicker: 'Decision Room',
-    title: 'Where decision lineage becomes visible',
-    text: 'Inspect reasoning, monitor drift, track precedent, assign accountability, and preserve decision continuity over time.',
-    metrics: [['Decision triggers','05'],['EDMP environments','06'],['Execution trace','Live'],['Institutional memory','Active']],
-    primaryLabel: 'See EDMP in your environment',
-    primaryIntake: 'demo',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20EDMP%20Environment%20Request&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20see%20EDMP%20in%20my%20environment.%0A%0AName%3A%0ACompany%3A%0AEnvironment%3A%0A',
-    secondaryLabel: 'Review the Architecture',
-    secondaryView: 'cases'
-  },
-  insights: {
-    kicker: 'Operating doctrine',
-    title: 'Without decision memory, organizations repeat error at scale',
-    text: 'A decision is not a moment. It is a memory-bearing object that evolves over time.',
-    metrics: [['Doctrine','Live'],['Signal briefs','03'],['Board relevance','High'],['Category','EDMP']],
-    primaryLabel: 'Discuss a Use Case',
+  services: {
+    kicker: 'Services',
+    title: 'Start with a bounded question',
+    text: 'Begin with the opportunity, constraint or implementation decision that currently lacks organisational clarity.',
+    metrics: [['Orientation','Executive'],['Diagnosis','Capability'],['Design','Operating model'],['Assurance','Independent']],
+    primaryLabel: 'Discuss your AI capability',
     primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Use%20Case%20Discussion&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20discuss%20a%20use%20case.%0A%0AName%3A%0ACompany%3A%0A',
-    secondaryLabel: 'See EDMP in your environment',
+    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A%0AName%3A%0AOrganisation%3A%0A',
+    secondaryLabel: 'Contact',
     secondaryView: 'contact'
   },
+  partners: {
+    kicker: 'Partners',
+    title: 'Independent advice that strengthens implementation',
+    text: 'AI Elevate does not replace implementation partners. We help clients define the organisational requirement and governed destination.',
+    metrics: [['Compatibility','High'],['Competition','None'],['Scope','Organisational layer'],['Test','One customer case']],
+    primaryLabel: 'Discuss a partnership opportunity',
+    primaryIntake: 'contact',
+    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Partnership%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20a%20partnership%20opportunity.%0A%0AName%3A%0AOrganisation%3A%0A',
+    secondaryLabel: 'View services',
+    secondaryView: 'services'
+  },
+  edmp: {
+    kicker: 'Specialised solution',
+    title: 'Enterprise Decision Memory',
+    text: 'EDMP preserves how important decisions were formed, how ownership changed, and whether execution remained aligned with intent.',
+    metrics: [['Programs','Live'],['Decision Room','Token-gated'],['Assessment','Preview + paid'],['Seller','AvL Consultancy']],
+    primaryLabel: 'Explore EDMP programs',
+    primaryIntake: 'contact',
+    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20EDMP%20Inquiry&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20EDMP.%0A%0AName%3A%0AOrganisation%3A%0A',
+    secondaryLabel: 'Engage',
+    secondaryView: 'engage'
+  },
+  library: {
+    kicker: 'EDMP environments',
+    title: 'Use environments for decision memory',
+    text: 'Explore domain environments that make reasoning, ownership and control trace visible under pressure.',
+    metrics: [['Domains','06'],['Cockpits','Live'],['Activation','Local'],['Return','EDMP']],
+    primaryLabel: 'Discuss EDMP',
+    primaryIntake: 'contact',
+    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20EDMP%20Inquiry&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20EDMP.%0A',
+    secondaryLabel: 'EDMP destination',
+    secondaryView: 'edmp'
+  },
+  cases: {
+    kicker: 'EDMP cases',
+    title: 'Where decision lineage becomes visible',
+    text: 'Inspect reasoning, monitor drift, track precedent, assign accountability, and preserve decision continuity over time.',
+    metrics: [['Decision triggers','05'],['Environments','06'],['Execution trace','Live'],['Return','EDMP']],
+    primaryLabel: 'Discuss EDMP',
+    primaryIntake: 'contact',
+    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20EDMP%20Inquiry&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20EDMP.%0A',
+    secondaryLabel: 'EDMP destination',
+    secondaryView: 'edmp'
+  },
+  insights: {
+    kicker: 'Insights',
+    title: 'Thinking that supports organisational AI capability',
+    text: 'Retain decision-memory doctrine while situating it within broader organisational AI, authority, architecture and learning.',
+    metrics: [['Capability','Organisational'],['Authority','Human'],['Architecture','Governance'],['Memory','Decision']],
+    primaryLabel: 'Discuss your AI capability',
+    primaryIntake: 'contact',
+    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A',
+    secondaryLabel: 'About AI Elevate',
+    secondaryView: 'about'
+  },
+  about: {
+    kicker: 'About',
+    title: 'Built for organisational questions technology alone cannot answer',
+    text: 'AI Elevate is an independent, vendor-neutral consultancy founded by Anthony van Lobbrecht.',
+    metrics: [['Experience','25+ years'],['Stance','Vendor-neutral'],['Focus','Capability'],['Legal','AvL Consultancy']],
+    primaryLabel: 'Discuss your AI capability',
+    primaryIntake: 'contact',
+    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A',
+    secondaryLabel: 'Services',
+    secondaryView: 'services'
+  },
   contact: {
-    kicker: 'Final CTA',
-    title: 'See EDMP in your environment',
-    text: 'Review how Enterprise Decision Memory applies to your organization’s decision pressure, governance requirements, and operating model.',
-    metrics: [['Inquiry path','Direct'],['Response mode','Human'],['Category','EDMP'],['Next step','Briefing']],
-    primaryLabel: 'Request Executive Briefing',
-    primaryIntake: 'demo',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Executive%20Briefing%20Request&body=Hi%20AI%20Elevate%2C%0A%0AI%27d%20like%20to%20review%20EDMP%20for%20my%20environment.%0A%0AName%3A%0ACompany%3A%0A',
-    secondaryLabel: 'Review the Architecture',
-    secondaryView: 'cases'
+    kicker: 'Contact',
+    title: 'Discuss your AI capability',
+    text: 'Tell us where AI adoption, organisational readiness, governance or implementation is creating an unresolved decision.',
+    metrics: [['Response','Human'],['Entry','Conversation'],['Scan','Enquiry-based'],['Seller','AvL Consultancy']],
+    primaryLabel: 'Request a focused conversation',
+    primaryIntake: 'contact',
+    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A',
+    secondaryLabel: 'Services',
+    secondaryView: 'services'
   },
   engage: {
-    kicker: 'Questions before checkout?',
+    kicker: 'EDMP programs',
     title: 'Talk to us about scope, timing, or enterprise rollout',
-    text: 'Self-serve programs cover briefing, assessment, and board pack. Larger deployments need a scoped conversation first.',
-    metrics: [['Response','1 business day'],['Channel','Email'],['Seller','AvL Consultancy'],['Programs','03 live']],
+    text: 'Self-serve EDMP programs cover briefing, assessment, and board pack. Larger deployments need a scoped conversation first.',
+    metrics: [['Response','1 business day'],['Channel','Email'],['Seller','AvL Consultancy'],['Programs','Live']],
     primaryLabel: 'Contact us',
     primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Program%20Question&body=Hi%20AI%20Elevate%2C%0A%0AI%20have%20a%20question%20before%20checkout.%0A%0AName%3A%0ACompany%3A%0AProgram%20of%20interest%3A%0A',
-    secondaryLabel: 'Explore EDMP category',
-    secondaryView: 'platform'
+    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Program%20Question&body=Hi%20AI%20Elevate%2C%0A%0AI%20have%20a%20question%20before%20checkout.%0A',
+    secondaryLabel: 'EDMP destination',
+    secondaryView: 'edmp'
   }
 };
 
@@ -485,9 +528,16 @@ function updatePrefooter(viewId) {
   `).join('');
   primary.textContent = data.primaryLabel;
   primary.href = data.primaryHref;
-  primary.dataset.openIntake = data.primaryIntake || 'demo';
   primary.dataset.source = `prefooter-${viewId}`;
   primary.dataset.intakeContext = data.title;
+  const consultViews = ['platform', 'services', 'partners', 'about', 'contact', 'insights'];
+  if (consultViews.includes(viewId)) {
+    primary.removeAttribute('data-open-intake');
+    primary.dataset.view = 'contact';
+  } else {
+    primary.dataset.openIntake = data.primaryIntake || 'demo';
+    delete primary.dataset.view;
+  }
   secondary.textContent = data.secondaryLabel;
   secondary.dataset.view = data.secondaryView;
 }
@@ -675,6 +725,7 @@ function openEngageIntake(productId, source = 'engage') {
   }));
   window.setTimeout(() => enforceSelectContrast(overlayContent), 0);
 }
+window.openEngageIntake = openEngageIntake;
 
 function renderEngageSelfCheck() {
   if (engageSelfCheckRendered) return;
@@ -753,7 +804,9 @@ function renderEngageSecondaryLinks() {
     <span>Need a short internal explainer? <button type="button" class="engage-secondary-link" data-engage-product="one-pager" data-source="engage-secondary">Request the executive one-pager</button>.</span>
     <span><a class="engage-secondary-link" href="${previewUrl}" download>Board Pack preview (PDF)</a></span>
     <span class="engage-secondary-muted">Decision Room experiential sessions available after executive briefing.</span>
+    <span><button type="button" class="engage-secondary-link" data-open-assessment-preview>EDMP assessment preview</button></span>
   `;
+  mount.querySelector('[data-open-assessment-preview]')?.addEventListener('click', () => navigateToView('edmp-assessment'));
   mount.querySelectorAll('[data-engage-product]').forEach((btn) => {
     btn.addEventListener('click', () => openEngageIntake(btn.dataset.engageProduct, btn.dataset.source));
   });
@@ -872,6 +925,10 @@ function updateEngageThankYou() {
       intakeBtn.href = `${window.location.pathname}?token=${encodeURIComponent(roomToken)}#decision-room`;
       intakeBtn.classList.remove('hidden');
       intakeBtn.textContent = 'Enter Decision Room';
+    } else if (product?.id === 'assessment' && roomToken) {
+      intakeBtn.href = `${window.location.pathname}?token=${encodeURIComponent(roomToken)}#edmp-assessment`;
+      intakeBtn.classList.remove('hidden');
+      intakeBtn.textContent = 'Enter EDMP Assessment';
     } else if (product?.intakeFormUrl) {
       intakeBtn.href = product.intakeFormUrl;
       intakeBtn.classList.remove('hidden');
@@ -919,6 +976,15 @@ function handleStaticRoute() {
     showView('decision-room');
     return true;
   }
+  if (hash === 'edmp-assessment') {
+    showView('edmp-assessment');
+    return true;
+  }
+  const consultancyHashes = ['services', 'partners', 'edmp', 'about', 'contact', 'home', 'insights', 'library', 'cases'];
+  if (consultancyHashes.includes(hash)) {
+    showView(hash === 'home' ? 'platform' : hash);
+    return true;
+  }
   setEngageThankYouVisible(false);
   return false;
 }
@@ -933,12 +999,25 @@ function showView(viewId) {
   }
 
   document.body.classList.toggle('decision-room-mode', viewId === 'decision-room');
+  document.body.classList.toggle('edmp-assessment-mode', viewId === 'edmp-assessment');
   if (viewId === 'decision-room' && window.DecisionRoom) {
     window.DecisionRoom.onViewActive();
   }
+  if (viewId === 'edmp-assessment' && window.EdmpAssessment) {
+    window.EdmpAssessment.onViewActive();
+  }
 
   views.forEach(view => view.classList.toggle('active-view', view.id === viewId));
-  navButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.view === viewId));
+  const edmpCluster = ['edmp', 'library', 'cases', 'engage', 'decision-room', 'edmp-assessment'];
+  navButtons.forEach(btn => {
+    if (btn.dataset.view === 'platform') {
+      btn.classList.toggle('active', viewId === 'platform');
+    } else if (btn.dataset.view === 'edmp') {
+      btn.classList.toggle('active', edmpCluster.includes(viewId));
+    } else {
+      btn.classList.toggle('active', btn.dataset.view === viewId);
+    }
+  });
   footerNavButtons.forEach(btn => btn.classList.toggle('active-link', btn.dataset.view === viewId));
   updatePrefooter(viewId);
 
@@ -953,7 +1032,7 @@ function showView(viewId) {
   }
   const prefooterShell = document.querySelector('.prefooter-shell');
   if (prefooterShell) {
-    prefooterShell.style.display = ['engage', 'privacy', 'terms', 'decision-room'].includes(viewId) ? 'none' : '';
+    prefooterShell.style.display = ['engage', 'privacy', 'terms', 'decision-room', 'edmp-assessment'].includes(viewId) ? 'none' : '';
   }
 
   const target = document.getElementById(viewId);
@@ -961,23 +1040,52 @@ function showView(viewId) {
 }
 
 function navigateToView(viewId) {
-  const hashRoutes = { engage: '#engage', privacy: '#privacy', terms: '#terms', 'decision-room': '#decision-room' };
-  if (hashRoutes[viewId]) {
+  const hashRoutes = {
+    platform: '#',
+    services: '#services',
+    partners: '#partners',
+    edmp: '#edmp',
+    about: '#about',
+    contact: '#contact',
+    insights: '#insights',
+    engage: '#engage',
+    privacy: '#privacy',
+    terms: '#terms',
+    'decision-room': '#decision-room',
+    'edmp-assessment': '#edmp-assessment',
+    library: '#library',
+    cases: '#cases',
+  };
+  if (hashRoutes[viewId] === '#') {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  } else if (hashRoutes[viewId]) {
     history.replaceState(null, '', hashRoutes[viewId]);
   } else if (window.location.hash) {
     history.replaceState(null, '', window.location.pathname + window.location.search);
   }
   if (viewId === 'privacy' || viewId === 'terms') applyLegalMerchantInfo();
+  if (viewId === 'contact') {
+    const intent = window.__aieContactIntent;
+    const need = document.getElementById('consultNeed');
+    if (intent === 'scan' && need) need.value = 'Capability diagnosis';
+    if (intent === 'partnership' && need) need.value = 'Implementation partnership';
+    window.__aieContactIntent = '';
+  }
   showView(viewId);
-  closeOverlay();
+  closeOverlayPanel();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+window.navigateToView = navigateToView;
 navButtons.forEach(btn => btn.addEventListener('click', () => navigateToView(btn.dataset.view)));
 footerNavButtons.forEach(btn => btn.addEventListener('click', () => navigateToView(btn.dataset.view)));
 jumpButtons.forEach(btn => btn.addEventListener('click', () => navigateToView(btn.dataset.view)));
 
 document.addEventListener('click', (event) => {
+  const intentBtn = event.target.closest('[data-contact-intent]');
+  if (intentBtn) {
+    window.__aieContactIntent = intentBtn.dataset.contactIntent || '';
+  }
   const btn = event.target.closest('[data-view]');
   if (!btn) return;
   if (btn.matches('.nav-btn, .jump-btn, .nav-btn-link')) return;
@@ -1008,9 +1116,10 @@ function openOverlay(html) {
 }
 
 function closeOverlayPanel() {
+  if (!overlay) return;
   overlay.classList.add('hidden');
   overlay.setAttribute('aria-hidden', 'true');
-  overlayContent.innerHTML = '';
+  if (overlayContent) overlayContent.innerHTML = '';
   document.body.style.overflow = '';
 }
 
@@ -1226,7 +1335,8 @@ function initNavigationIntegrity() {
     if (label === 'explore edmp') {
       event.preventDefault();
       event.stopPropagation();
-      goToLibrary();
+      if (el.dataset.view === 'edmp') navigateToView('edmp');
+      else goToLibrary();
       return;
     }
 
@@ -1294,8 +1404,8 @@ function submitIntakeForm(form) {
   window.location.href = buildDirectMailto(meta.subject, lines.join('\n'));
 }
 
-closeOverlay.addEventListener('click', closeOverlayPanel);
-overlay.addEventListener('click', (event) => {
+if (closeOverlay) closeOverlay.addEventListener('click', closeOverlayPanel);
+if (overlay) overlay.addEventListener('click', (event) => {
   if (event.target.dataset.close === 'true') closeOverlayPanel();
 });
 document.addEventListener('keydown', (event) => {
@@ -1309,7 +1419,7 @@ document.addEventListener('click', (event) => {
   openIntakeFromTrigger(trigger);
 });
 
-overlayContent.addEventListener('submit', (event) => {
+if (overlayContent) overlayContent.addEventListener('submit', (event) => {
   const form = event.target.closest('[data-intake-form]');
   if (!form) return;
   event.preventDefault();
@@ -2012,7 +2122,7 @@ function initBrandHome() {
   if (!brandHome) return;
 
   brandHome.addEventListener('click', () => {
-    closeOverlay();
+    closeOverlayPanel();
     setEngageThankYouVisible(false);
     if (window.location.hash) {
       history.replaceState(null, '', window.location.pathname + window.location.search);
@@ -2034,4 +2144,39 @@ window.addEventListener('load', () => {
   initMobileHeaderBehavior();
   bindRouteIntegrity();
   initBrandHome();
+  initConsultContactForm();
 });
+
+window.navigateToView = navigateToView;
+window.showView = showView;
+window.handleStaticRoute = handleStaticRoute;
+
+function initConsultContactForm() {
+  const form = document.getElementById('consultContactForm');
+  if (!form) return;
+  const errorEl = document.getElementById('consultContactError');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (errorEl) errorEl.textContent = '';
+    const name = (document.getElementById('consultName')?.value || '').trim();
+    const org = (document.getElementById('consultOrg')?.value || '').trim();
+    const role = (document.getElementById('consultRole')?.value || '').trim();
+    const email = (document.getElementById('consultEmail')?.value || '').trim();
+    const situation = (document.getElementById('consultSituation')?.value || '').trim();
+    const need = (document.getElementById('consultNeed')?.value || '').trim();
+    const next = (document.getElementById('consultNext')?.value || '').trim();
+    if (!name || !org || !role || !email || !situation || !need) {
+      if (errorEl) errorEl.textContent = 'Please complete all required fields.';
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      if (errorEl) errorEl.textContent = 'Please enter a valid business email.';
+      return;
+    }
+    const subject = encodeURIComponent(`AI Elevate enquiry — ${need}`);
+    const body = encodeURIComponent(
+      `Hi AI Elevate,\n\nI would like to request a focused conversation.\n\nName: ${name}\nOrganisation: ${org}\nRole: ${role}\nBusiness email: ${email}\nPrimary need: ${need}\nPreferred next step: ${next || 'n/a'}\n\nCurrent situation:\n${situation}\n`
+    );
+    window.location.href = `mailto:info@aielevate.xyz?subject=${subject}&body=${body}`;
+  });
+}

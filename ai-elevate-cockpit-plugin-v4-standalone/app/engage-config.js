@@ -28,6 +28,10 @@ window.AIE_ENGAGE_CONFIG = {
     apiBase: '',
     setupGuide: 'scripts/decision-room-api-setup.txt',
   },
+  edmpAssessment: {
+    apiBase: '',
+    setupGuide: 'scripts/edmp-assessment-api-setup.txt',
+  },
   /**
    * Free funnel — insight, not full products. See scripts/commercial-funnel.txt
    */

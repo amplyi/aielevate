@@ -4429,3 +4429,202 @@ select option,
 #library .decision-activation-shell {
   margin-top: 28px !important;
 }
+
+/* Phase 1 — consultancy surfaces */
+.consult-home,
+.consult-page {
+  display: grid;
+  gap: 22px;
+}
+.consult-hero .hero-content {
+  max-width: 920px;
+}
+.consult-proof-strip {
+  margin: 18px 0 0;
+  color: rgba(210, 228, 255, 0.78);
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+}
+.consult-tertiary {
+  opacity: 0.92;
+}
+.consult-block {
+  padding: 28px 30px;
+}
+.consult-block h2,
+.consult-block h3 {
+  margin-top: 6px;
+}
+.consult-domain-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+.consult-domain-grid article {
+  padding: 16px 14px;
+  border: 1px solid rgba(140, 180, 255, 0.16);
+  border-radius: 14px;
+  background: rgba(8, 18, 36, 0.35);
+}
+.consult-domain-grid h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+.consult-domain-grid p {
+  margin: 0;
+  color: rgba(210, 228, 255, 0.82);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+.consult-service-list {
+  margin: 14px 0 18px 1.1rem;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.consult-service-cards {
+  display: grid;
+  gap: 16px;
+}
+.consult-service-card {
+  padding: 24px 26px;
+}
+.consult-service-card ul {
+  margin: 12px 0 14px 1.1rem;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.consult-outcome {
+  margin: 0;
+  color: rgba(210, 228, 255, 0.86);
+}
+.consult-split-table {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+.consult-split-table > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(140, 180, 255, 0.14);
+  border-radius: 12px;
+  background: rgba(8, 18, 36, 0.28);
+}
+.consult-split-head {
+  font-weight: 650;
+  color: rgba(230, 240, 255, 0.95);
+  background: rgba(40, 90, 180, 0.18) !important;
+}
+.consult-journey {
+  margin: 8px 0 0;
+  letter-spacing: 0.01em;
+}
+.consult-final-cta {
+  text-align: left;
+}
+.consult-insight-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 18px;
+}
+.consult-insight-topics span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 1px solid rgba(140, 180, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(12, 28, 52, 0.55);
+  color: rgba(210, 228, 255, 0.88);
+  font-size: 0.86rem;
+}
+.edmp-destination-frame {
+  padding: 22px 24px;
+  margin-bottom: 18px;
+}
+.edmp-destination-title {
+  margin: 8px 0 10px;
+}
+.edmp-back-link {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: rgba(160, 200, 255, 0.9);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.edmp-dest-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+.consult-contact-form-card {
+  padding: 26px 28px;
+}
+.consult-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 16px;
+}
+.consult-field-full {
+  grid-column: 1 / -1;
+}
+.consult-privacy-line {
+  margin: 16px 0 8px;
+  color: rgba(190, 210, 235, 0.78);
+  font-size: 0.9rem;
+}
+.consult-contact-form select {
+  width: 100%;
+  min-height: 44px;
+  border-radius: 10px;
+  border: 1px solid rgba(140, 180, 255, 0.22);
+  background: rgba(6, 14, 28, 0.72);
+  color: rgba(230, 240, 255, 0.95);
+  padding: 10px 12px;
+}
+@media (max-width: 1100px) {
+  .consult-domain-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 820px) {
+  .consult-domain-grid,
+  .consult-form-grid,
+  .consult-split-table > div {
+    grid-template-columns: 1fr;
+  }
+  .consult-block,
+  .consult-service-card,
+  .consult-contact-form-card,
+  .edmp-destination-frame {
+    padding: 20px 18px;
+  }
+  .main-nav {
+    flex-wrap: wrap !important;
+  }
+  .header-actions .btn-cta {
+    width: 100%;
+  }
+}
+@media (min-width: 821px) and (max-width: 1280px) {
+  .main-nav .nav-btn {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    font-size: 0.9rem;
+  }
+  .header-actions .btn-cta {
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 0.9rem;
+  }
+}
