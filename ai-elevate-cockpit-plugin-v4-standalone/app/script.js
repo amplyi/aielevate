@@ -652,8 +652,8 @@ const prefooterContent = {
   },
   partners: {
     kicker: 'Partners',
-    title: 'Independent advice that strengthens implementation',
-    text: 'AI Elevate does not replace implementation partners. We help clients define the organisational requirement and governed destination.',
+    title: 'A shared delivery architecture with clear responsibilities',
+    text: 'AI Elevate and implementation partners move on complementary tracks toward shared customer outcomes—not a handoff.',
     metrics: [['Compatibility','High'],['Competition','None'],['Scope','Organisational layer'],['Test','One customer case']],
     primaryLabel: 'Discuss a partnership opportunity',
     primaryIntake: 'contact',
@@ -1245,6 +1245,7 @@ function showView(viewId) {
   views.forEach(view => view.classList.toggle('active-view', view.id === viewId));
   if (viewId === 'services') requestAnimationFrame(() => updateServiceJourney());
   if (viewId === 'platform') requestAnimationFrame(() => initHomeHero(true));
+  if (viewId === 'partners') requestAnimationFrame(() => initPartnersPage(true));
   const edmpCluster = ['edmp', 'library', 'cases', 'engage', 'decision-room', 'edmp-assessment'];
   const insightsCluster = ['insights', 'insight-article'];
   navButtons.forEach(btn => {
@@ -2393,6 +2394,7 @@ window.addEventListener('load', () => {
   initConsultContactForm();
   initServiceJourney();
   initHomeHero();
+  initPartnersPage();
 });
 
 window.navigateToView = navigateToView;
@@ -2613,4 +2615,226 @@ function initHomeHero(replay) {
     });
   });
   setDomain('value');
+}
+
+const PARTNER_QUESTIONS = {
+  center: {
+    title: 'Shared customer outcome',
+    copy: 'Both partners contribute when these questions are answered with clear ownership—so delivery stays aligned to organisational value.'
+  },
+  1: {
+    title: 'Which use cases deserve enterprise investment?',
+    copy: 'Technical possibility is not the same as enterprise priority. Shared selection criteria keep platform work focused on opportunities with material organisational value.'
+  },
+  2: {
+    title: 'What must change in processes, roles and decision rights?',
+    copy: 'Implementation succeeds when the operating model moves with the technology. Clarifying process and role change gives delivery a usable organisational landing zone.'
+  },
+  3: {
+    title: 'How should human authority and AI support be divided?',
+    copy: 'Authority design protects accountability as AI assistance expands. Both partners need this boundary so technical features reinforce—not blur—human responsibility.'
+  },
+  4: {
+    title: 'What governance and assurance are proportionate?',
+    copy: 'Governance should match risk and consequence, not invent friction. Proportionate controls help delivery remain confident, inspectable and commercially sustainable.'
+  },
+  5: {
+    title: 'How will value and organisational capability be demonstrated?',
+    copy: 'Evidence turns delivery activity into organisational learning. Shared measures keep technical progress connected to capability outcomes the enterprise can defend.'
+  }
+};
+
+const PARTNER_STAGES = [
+  {
+    name: 'Orient',
+    ae: ['Executive intent', 'Business value logic', 'Organisational ambition', 'Leadership decisions'],
+    ip: ['Platform possibilities', 'Solution capabilities', 'Technical opportunities', 'Initial implementation perspective'],
+    outcome: 'A qualified opportunity with clear business relevance.'
+  },
+  {
+    name: 'Assess',
+    ae: ['Organisational readiness', 'Current-state capability', 'Operating constraints', 'Use-case priorities and dependencies'],
+    ip: ['Technology landscape', 'Platform readiness', 'Data and integration constraints', 'Technical feasibility'],
+    outcome: 'An evidence-based understanding of value, readiness and feasibility.'
+  },
+  {
+    name: 'Design',
+    ae: ['Target operating model', 'Decision rights', 'Governance and accountability', 'Vendor-neutral enterprise requirements'],
+    ip: ['Solution architecture', 'Platform configuration', 'Integration design', 'Technical delivery plan'],
+    outcome: 'One delivery blueprint connecting organisational requirements with technical design.'
+  },
+  {
+    name: 'Implement and adopt',
+    ae: ['Client-side programme advisory', 'Organisational alignment', 'Adoption and role development', 'Independent value and conformance assurance'],
+    ip: ['Build and configuration', 'Integration and testing', 'Technical deployment', 'Product and user enablement'],
+    outcome: 'Implementation that works technically and becomes usable organisational capability.'
+  },
+  {
+    name: 'Govern and learn',
+    ae: ['Outcome evidence', 'Decision accountability', 'Independent challenge', 'Organisational learning and capability development'],
+    ip: ['Technical monitoring', 'Engineering remediation', 'Platform optimisation', 'Ongoing enablement'],
+    outcome: 'A controlled capability that improves as technology, evidence and organisational needs change.'
+  }
+];
+
+function fillList(el, items) {
+  if (!el) return;
+  el.innerHTML = items.map((item) => `<li>${item}</li>`).join('');
+}
+
+function setPartnerStage(index, options = {}) {
+  const stage = PARTNER_STAGES[index];
+  if (!stage) return;
+  const root = document.querySelector('[data-partner-nav]');
+  const panel = document.getElementById('partnerNavPanel');
+  if (!root || !panel) return;
+
+  root.style.setProperty('--partner-stage', String(index));
+  root.querySelectorAll('.partner-nav-stage').forEach((btn) => {
+    const i = Number(btn.dataset.stage);
+    const active = i === index;
+    btn.classList.toggle('is-active', active);
+    btn.classList.toggle('is-complete', i < index);
+    btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    btn.tabIndex = active ? 0 : -1;
+  });
+
+  fillList(document.getElementById('partnerNavAeList'), stage.ae);
+  fillList(document.getElementById('partnerNavIpList'), stage.ip);
+  const outCopy = document.getElementById('partnerNavOutCopy');
+  const outTitle = document.getElementById('partnerNavOutTitle');
+  if (outTitle) outTitle.textContent = stage.name;
+  if (outCopy) outCopy.textContent = stage.outcome;
+  panel.setAttribute('aria-labelledby', `partner-stage-tab-${index}`);
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && !options.instant) {
+    panel.classList.add('is-entering');
+    void panel.offsetWidth;
+    requestAnimationFrame(() => panel.classList.remove('is-entering'));
+  }
+
+  if (options.focusPanel) panel.focus({ preventScroll: true });
+}
+
+function initPartnersPage(replay) {
+  const page = document.querySelector('.partner-page');
+  if (!page) return;
+
+  const hero = page.querySelector('.partner-hero');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (hero && !reduce) {
+    if (replay) hero.classList.remove('is-animated');
+    if (!hero.classList.contains('is-animated')) {
+      requestAnimationFrame(() => hero.classList.add('is-animated'));
+    }
+  } else if (hero && reduce) {
+    hero.classList.add('is-animated');
+  }
+
+  if (page.dataset.bound === '1') {
+    updatePartnerNavigator();
+    return;
+  }
+  page.dataset.bound = '1';
+
+  const field = page.querySelector('[data-partner-questions]');
+  if (field) {
+    const title = document.getElementById('partnerQDetailTitle');
+    const copy = document.getElementById('partnerQDetailCopy');
+    const detail = document.getElementById('partnerQDetail');
+    const setQuestion = (key, { focus } = {}) => {
+      const data = PARTNER_QUESTIONS[key] || PARTNER_QUESTIONS.center;
+      field.classList.toggle('is-linked', key !== 'center');
+      field.querySelectorAll('.partner-q-node, .partner-q-center').forEach((btn) => {
+        const active = btn.dataset.q === key;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      if (title) title.textContent = data.title;
+      if (copy) copy.textContent = data.copy;
+      if (focus && detail) detail.focus({ preventScroll: true });
+    };
+    field.querySelectorAll('.partner-q-node, .partner-q-center').forEach((btn) => {
+      btn.addEventListener('click', () => setQuestion(btn.dataset.q, { focus: true }));
+      btn.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        setQuestion(btn.dataset.q, { focus: true });
+      });
+    });
+    setQuestion('center');
+  }
+
+  const nav = page.querySelector('[data-partner-nav]');
+  if (nav) {
+    nav.querySelectorAll('.partner-nav-stage').forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        const sentinel = page.querySelector(`.partner-nav-sentinel[data-stage="${btn.dataset.stage}"]`);
+        if (sentinel) {
+          sentinel.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        }
+        setPartnerStage(Number(btn.dataset.stage), { focusPanel: true });
+      });
+      btn.addEventListener('keydown', (event) => {
+        const buttons = Array.from(nav.querySelectorAll('.partner-nav-stage'));
+        const current = buttons.indexOf(btn);
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+          event.preventDefault();
+          const next = buttons[(current + 1) % buttons.length];
+          next.focus();
+          next.click();
+        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+          event.preventDefault();
+          const prev = buttons[(current - 1 + buttons.length) % buttons.length];
+          prev.focus();
+          prev.click();
+        } else if (event.key === 'Home') {
+          event.preventDefault();
+          buttons[0].focus();
+          buttons[0].click();
+        } else if (event.key === 'End') {
+          event.preventDefault();
+          buttons[buttons.length - 1].focus();
+          buttons[buttons.length - 1].click();
+        }
+      });
+    });
+    setPartnerStage(0, { instant: true });
+  }
+
+  const mobile = page.querySelector('[data-partner-nav-mobile]');
+  if (mobile) {
+    mobile.querySelectorAll('.partner-nav-card').forEach((card) => {
+      card.addEventListener('toggle', () => {
+        if (!card.open) return;
+        mobile.querySelectorAll('.partner-nav-card').forEach((other) => {
+          if (other !== card) other.open = false;
+        });
+      });
+    });
+  }
+
+  window.addEventListener('scroll', updatePartnerNavigator, { passive: true });
+  window.addEventListener('resize', updatePartnerNavigator);
+  updatePartnerNavigator();
+}
+
+function updatePartnerNavigator() {
+  const page = document.querySelector('.partner-page');
+  const view = document.getElementById('partners');
+  if (!page || !view?.classList.contains('active-view')) return;
+  if (window.matchMedia('(max-width: 820px)').matches) return;
+
+  const sentinels = Array.from(page.querySelectorAll('.partner-nav-sentinel'));
+  if (!sentinels.length) return;
+  const marker = window.innerHeight * 0.35;
+  let active = 0;
+  sentinels.forEach((el, index) => {
+    const top = el.getBoundingClientRect().top;
+    if (top <= marker) active = index;
+  });
+  if (page.dataset.activeStage === String(active)) return;
+  page.dataset.activeStage = String(active);
+  setPartnerStage(active);
 }

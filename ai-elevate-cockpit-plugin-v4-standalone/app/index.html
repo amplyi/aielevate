@@ -16,6 +16,7 @@
   <link rel="preload" as="image" href="assets/hero/AI-Elevate-homepage-hero-capability-symbol-v2.webp" type="image/webp" imagesrcset="assets/hero/AI-Elevate-homepage-hero-capability-symbol-v2.webp" />
   <link rel="stylesheet" href="styles.css?v=20260903-hero1" />
   <link rel="stylesheet" href="home-hero.css?v=20260903-hero4" />
+  <link rel="stylesheet" href="partners-page.css?v=20260903-partners4" />
   <link rel="stylesheet" href="decision-room.css?v=20260903-phase1d" />
   <link rel="stylesheet" href="edmp-assessment.css?v=20260903-phase1d" />
 </head>
@@ -416,45 +417,315 @@
     </section>
 
     <section id="partners" class="view">
-      <div class="consult-page">
-        <div class="section-head glass">
-          <div>
-            <div class="section-kicker">Partners</div>
-            <h2>Extend AI implementation into organisational capability</h2>
+      <div class="partner-page">
+        <section class="partner-hero" aria-labelledby="partnerHeroTitle">
+          <div class="partner-hero-copy">
+            <div class="section-kicker">PARTNERING WITH IMPLEMENTATION SPECIALISTS</div>
+            <h1 id="partnerHeroTitle">Extend technical delivery into organisational capability</h1>
+            <p>AI Elevate works alongside implementation partners to connect technical delivery with the strategic, organisational and governance decisions that determine whether AI creates lasting value.</p>
+            <p class="partner-hero-tagline">Not a handoff. A shared delivery architecture with clear responsibilities.</p>
           </div>
-          <p>AI Elevate works alongside platform, adoption, training and implementation partners to address the strategic and organisational decisions surrounding technical delivery.</p>
-        </div>
-        <section class="consult-block glass">
+          <div class="partner-hero-visual" aria-hidden="true">
+            <svg class="partner-tracks-svg" viewBox="0 0 420 360" role="presentation">
+              <defs>
+                <linearGradient id="partnerSharedGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#5eead4"/>
+                  <stop offset="50%" stop-color="#93c5fd"/>
+                  <stop offset="100%" stop-color="#d4a574"/>
+                </linearGradient>
+              </defs>
+              <path class="partner-track partner-track-ae" pathLength="1" d="M48 42 C120 80, 120 140, 48 178 C120 216, 120 276, 48 318"/>
+              <path class="partner-track partner-track-ip" pathLength="1" d="M372 42 C300 80, 300 140, 372 178 C300 216, 300 276, 372 318"/>
+              <path class="partner-track partner-track-bridge" pathLength="1" d="M90 90 H330 M90 150 H330 M90 210 H330 M90 270 H330"/>
+              <circle class="partner-node partner-node-cross partner-node-c1" cx="210" cy="90" r="5"/>
+              <circle class="partner-node partner-node-cross partner-node-c2" cx="210" cy="150" r="5"/>
+              <circle class="partner-node partner-node-cross partner-node-c3" cx="210" cy="210" r="5"/>
+              <circle class="partner-node partner-node-cross partner-node-c4" cx="210" cy="270" r="5"/>
+              <circle class="partner-node partner-node-outcome" cx="210" cy="330" r="10"/>
+              <text class="partner-svg-label partner-svg-ae" x="28" y="28">AI Elevate</text>
+              <text class="partner-svg-label partner-svg-ip" x="392" y="28" text-anchor="end">Implementation partner</text>
+              <text class="partner-svg-label partner-svg-out" x="210" y="356" text-anchor="middle">Shared customer outcome</text>
+            </svg>
+            <div class="partner-hero-legend">
+              <span><i class="partner-leg-ae"></i> Organisational direction</span>
+              <span><i class="partner-leg-ip"></i> Technical delivery</span>
+              <span><i class="partner-leg-out"></i> Shared outcome</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="partner-questions" aria-labelledby="partnerQuestionsTitle">
           <div class="section-kicker">Why partner</div>
-          <h3>Questions that extend beyond the platform</h3>
-          <p>Customers often begin with a tool, training programme or implementation. As adoption develops, they encounter questions that extend beyond the platform:</p>
-          <ul>
-            <li>Which use cases deserve enterprise investment?</li>
-            <li>What must change in processes, roles and decision rights?</li>
-            <li>How should human authority and AI support be divided?</li>
-            <li>What governance and assurance are required?</li>
-            <li>How will value and organisational capability be demonstrated?</li>
-          </ul>
-          <p>AI Elevate can lead this layer without competing for platform delivery.</p>
+          <h2 id="partnerQuestionsTitle">The questions between strategy and implementation</h2>
+          <p class="partner-questions-intro">Customers often begin with a platform, implementation or adoption programme. As delivery develops, organisational questions emerge that cannot be answered by technology alone.</p>
+
+          <div class="partner-q-field" data-partner-questions>
+            <div class="partner-q-tracks" aria-hidden="true">
+              <span class="partner-q-track partner-q-track-ae"></span>
+              <span class="partner-q-track partner-q-track-ip"></span>
+              <span class="partner-q-link"></span>
+            </div>
+            <button type="button" class="partner-q-center is-active" id="partnerQCenter" aria-pressed="true" data-q="center">
+              <span class="partner-q-center-kicker">Shared customer outcome</span>
+              <span>Organisational questions that shape technical success</span>
+            </button>
+            <div class="partner-q-nodes" role="list">
+              <button type="button" class="partner-q-node" role="listitem" data-q="1" aria-pressed="false" aria-controls="partnerQDetail">
+                <span class="partner-q-num">1</span>
+                <span>Which use cases deserve enterprise investment?</span>
+              </button>
+              <button type="button" class="partner-q-node" role="listitem" data-q="2" aria-pressed="false" aria-controls="partnerQDetail">
+                <span class="partner-q-num">2</span>
+                <span>What must change in processes, roles and decision rights?</span>
+              </button>
+              <button type="button" class="partner-q-node" role="listitem" data-q="3" aria-pressed="false" aria-controls="partnerQDetail">
+                <span class="partner-q-num">3</span>
+                <span>How should human authority and AI support be divided?</span>
+              </button>
+              <button type="button" class="partner-q-node" role="listitem" data-q="4" aria-pressed="false" aria-controls="partnerQDetail">
+                <span class="partner-q-num">4</span>
+                <span>What governance and assurance are proportionate?</span>
+              </button>
+              <button type="button" class="partner-q-node" role="listitem" data-q="5" aria-pressed="false" aria-controls="partnerQDetail">
+                <span class="partner-q-num">5</span>
+                <span>How will value and organisational capability be demonstrated?</span>
+              </button>
+            </div>
+            <div class="partner-q-detail" id="partnerQDetail" tabindex="-1">
+              <h3 id="partnerQDetailTitle">Shared customer outcome</h3>
+              <p id="partnerQDetailCopy">Both partners contribute when these questions are answered with clear ownership—so delivery stays aligned to organisational value.</p>
+            </div>
+          </div>
+          <p class="partner-questions-close">AI Elevate can lead this organisational layer without competing for platform delivery.</p>
         </section>
-        <section class="consult-block glass">
-          <div class="section-kicker">Responsibility split</div>
-          <div class="consult-split-table" role="table">
-            <div class="consult-split-head" role="row"><span>AI Elevate</span><span>Implementation partner</span></div>
-            <div role="row"><span>Executive intent and value logic</span><span>Platform and solution delivery</span></div>
-            <div role="row"><span>Organisational readiness and target operating requirements</span><span>Configuration, integration and technical architecture</span></div>
-            <div role="row"><span>Decision rights, governance and accountability</span><span>Platform controls and implementation practices</span></div>
-            <div role="row"><span>Vendor-neutral enterprise requirements</span><span>Vendor-specific solution design</span></div>
-            <div role="row"><span>Independent assurance and organisational learning</span><span>Engineering remediation and enablement</span></div>
+
+        <section class="partner-navigator" id="partnerNavigator" aria-labelledby="partnerNavTitle">
+          <div class="partner-nav-head">
+            <div class="section-kicker">Joint Delivery Navigator</div>
+            <h2 id="partnerNavTitle">One journey. Two complementary tracks.</h2>
+            <p>AI Elevate and the implementation partner remain distinct. Shared customer outcomes keep the work connected.</p>
+          </div>
+
+          <div class="partner-nav-desktop" data-partner-nav>
+            <div class="partner-nav-sticky">
+              <div class="partner-nav-spine" role="tablist" aria-label="Joint delivery stages">
+                <button type="button" class="partner-nav-stage is-active" role="tab" id="partner-stage-tab-0" aria-selected="true" aria-controls="partnerNavPanel" data-stage="0">Orient</button>
+                <button type="button" class="partner-nav-stage" role="tab" id="partner-stage-tab-1" aria-selected="false" aria-controls="partnerNavPanel" data-stage="1">Assess</button>
+                <button type="button" class="partner-nav-stage" role="tab" id="partner-stage-tab-2" aria-selected="false" aria-controls="partnerNavPanel" data-stage="2">Design</button>
+                <button type="button" class="partner-nav-stage" role="tab" id="partner-stage-tab-3" aria-selected="false" aria-controls="partnerNavPanel" data-stage="3">Implement and adopt</button>
+                <button type="button" class="partner-nav-stage" role="tab" id="partner-stage-tab-4" aria-selected="false" aria-controls="partnerNavPanel" data-stage="4">Govern and learn</button>
+                <span class="partner-nav-spine-line" aria-hidden="true"></span>
+                <span class="partner-nav-spine-fill" aria-hidden="true"></span>
+              </div>
+              <div class="partner-nav-panel" id="partnerNavPanel" role="tabpanel" aria-labelledby="partner-stage-tab-0" tabindex="0">
+                <article class="partner-nav-side partner-nav-ae" data-side="ae">
+                  <h3>AI Elevate</h3>
+                  <ul id="partnerNavAeList">
+                    <li>Executive intent</li>
+                    <li>Business value logic</li>
+                    <li>Organisational ambition</li>
+                    <li>Leadership decisions</li>
+                  </ul>
+                </article>
+                <article class="partner-nav-side partner-nav-out" data-side="out">
+                  <div class="partner-nav-out-kicker">Shared outcome</div>
+                  <h3 id="partnerNavOutTitle">Orient</h3>
+                  <p id="partnerNavOutCopy">A qualified opportunity with clear business relevance.</p>
+                </article>
+                <article class="partner-nav-side partner-nav-ip" data-side="ip">
+                  <h3>Implementation partner</h3>
+                  <ul id="partnerNavIpList">
+                    <li>Platform possibilities</li>
+                    <li>Solution capabilities</li>
+                    <li>Technical opportunities</li>
+                    <li>Initial implementation perspective</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+            <div class="partner-nav-sentinels" aria-hidden="true">
+              <div class="partner-nav-sentinel" data-stage="0"></div>
+              <div class="partner-nav-sentinel" data-stage="1"></div>
+              <div class="partner-nav-sentinel" data-stage="2"></div>
+              <div class="partner-nav-sentinel" data-stage="3"></div>
+              <div class="partner-nav-sentinel" data-stage="4"></div>
+            </div>
+          </div>
+
+          <div class="partner-nav-mobile" data-partner-nav-mobile>
+            <details class="partner-nav-card" open data-stage="0">
+              <summary>1. Orient</summary>
+              <div class="partner-nav-card-body">
+                <div class="partner-nav-card-track" aria-hidden="true"></div>
+                <div>
+                  <h4>AI Elevate</h4>
+                  <ul>
+                    <li>Executive intent</li>
+                    <li>Business value logic</li>
+                    <li>Organisational ambition</li>
+                    <li>Leadership decisions</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Implementation partner</h4>
+                  <ul>
+                    <li>Platform possibilities</li>
+                    <li>Solution capabilities</li>
+                    <li>Technical opportunities</li>
+                    <li>Initial implementation perspective</li>
+                  </ul>
+                </div>
+                <div class="partner-nav-card-out">
+                  <strong>Shared outcome</strong>
+                  <p>A qualified opportunity with clear business relevance.</p>
+                </div>
+              </div>
+            </details>
+            <details class="partner-nav-card" data-stage="1">
+              <summary>2. Assess</summary>
+              <div class="partner-nav-card-body">
+                <div class="partner-nav-card-track" aria-hidden="true"></div>
+                <div>
+                  <h4>AI Elevate</h4>
+                  <ul>
+                    <li>Organisational readiness</li>
+                    <li>Current-state capability</li>
+                    <li>Operating constraints</li>
+                    <li>Use-case priorities and dependencies</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Implementation partner</h4>
+                  <ul>
+                    <li>Technology landscape</li>
+                    <li>Platform readiness</li>
+                    <li>Data and integration constraints</li>
+                    <li>Technical feasibility</li>
+                  </ul>
+                </div>
+                <div class="partner-nav-card-out">
+                  <strong>Shared outcome</strong>
+                  <p>An evidence-based understanding of value, readiness and feasibility.</p>
+                </div>
+              </div>
+            </details>
+            <details class="partner-nav-card" data-stage="2">
+              <summary>3. Design</summary>
+              <div class="partner-nav-card-body">
+                <div class="partner-nav-card-track" aria-hidden="true"></div>
+                <div>
+                  <h4>AI Elevate</h4>
+                  <ul>
+                    <li>Target operating model</li>
+                    <li>Decision rights</li>
+                    <li>Governance and accountability</li>
+                    <li>Vendor-neutral enterprise requirements</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Implementation partner</h4>
+                  <ul>
+                    <li>Solution architecture</li>
+                    <li>Platform configuration</li>
+                    <li>Integration design</li>
+                    <li>Technical delivery plan</li>
+                  </ul>
+                </div>
+                <div class="partner-nav-card-out">
+                  <strong>Shared outcome</strong>
+                  <p>One delivery blueprint connecting organisational requirements with technical design.</p>
+                </div>
+              </div>
+            </details>
+            <details class="partner-nav-card" data-stage="3">
+              <summary>4. Implement and adopt</summary>
+              <div class="partner-nav-card-body">
+                <div class="partner-nav-card-track" aria-hidden="true"></div>
+                <div>
+                  <h4>AI Elevate</h4>
+                  <ul>
+                    <li>Client-side programme advisory</li>
+                    <li>Organisational alignment</li>
+                    <li>Adoption and role development</li>
+                    <li>Independent value and conformance assurance</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Implementation partner</h4>
+                  <ul>
+                    <li>Build and configuration</li>
+                    <li>Integration and testing</li>
+                    <li>Technical deployment</li>
+                    <li>Product and user enablement</li>
+                  </ul>
+                </div>
+                <div class="partner-nav-card-out">
+                  <strong>Shared outcome</strong>
+                  <p>Implementation that works technically and becomes usable organisational capability.</p>
+                </div>
+              </div>
+            </details>
+            <details class="partner-nav-card" data-stage="4">
+              <summary>5. Govern and learn</summary>
+              <div class="partner-nav-card-body">
+                <div class="partner-nav-card-track" aria-hidden="true"></div>
+                <div>
+                  <h4>AI Elevate</h4>
+                  <ul>
+                    <li>Outcome evidence</li>
+                    <li>Decision accountability</li>
+                    <li>Independent challenge</li>
+                    <li>Organisational learning and capability development</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Implementation partner</h4>
+                  <ul>
+                    <li>Technical monitoring</li>
+                    <li>Engineering remediation</li>
+                    <li>Platform optimisation</li>
+                    <li>Ongoing enablement</li>
+                  </ul>
+                </div>
+                <div class="partner-nav-card-out">
+                  <strong>Shared outcome</strong>
+                  <p>A controlled capability that improves as technology, evidence and organisational needs change.</p>
+                </div>
+              </div>
+            </details>
           </div>
         </section>
-        <section class="consult-block glass">
-          <div class="section-kicker">Joint journey</div>
-          <p class="consult-journey">Orient → Assess → Design → Implement and adopt → Govern and learn</p>
+
+        <section class="partner-principles" aria-labelledby="partnerPrinciplesTitle">
+          <div class="section-kicker">Partnership principles</div>
+          <h2 id="partnerPrinciplesTitle">Complementary by design</h2>
+          <ol class="partner-principle-rail">
+            <li>
+              <h3>Independent where necessary</h3>
+              <p>AI Elevate retains the independence required to challenge assumptions, protect client authority and assess organisational outcomes.</p>
+            </li>
+            <li>
+              <h3>Integrated where valuable</h3>
+              <p>Planning, architecture, implementation and adoption are connected through shared customer objectives and explicit interfaces.</p>
+            </li>
+            <li>
+              <h3>Clear about responsibility</h3>
+              <p>Complementary roles prevent duplication, ambiguity and responsibility gaps without weakening either partner’s expertise.</p>
+            </li>
+          </ol>
         </section>
-        <section class="consult-block glass consult-final-cta">
-          <h2>Test the combined proposition on one real customer situation</h2>
-          <div class="hero-actions"><button class="btn btn-primary btn-cta" type="button" data-view="contact" data-contact-intent="partnership">Discuss a partnership opportunity</button></div>
+
+        <section class="partner-cta" aria-labelledby="partnerCtaTitle">
+          <div class="partner-cta-tracks" aria-hidden="true">
+            <span class="partner-cta-track partner-cta-ae"></span>
+            <span class="partner-cta-track partner-cta-ip"></span>
+            <span class="partner-cta-node"></span>
+          </div>
+          <h2 id="partnerCtaTitle">Test the combined proposition on one real customer situation</h2>
+          <p>Bring us a customer opportunity where technical delivery and organisational capability need to be connected. We will identify the complementary contribution, responsibilities and next step.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary btn-cta" type="button" data-view="contact" data-contact-intent="partnership">Discuss a partnership opportunity</button>
+          </div>
         </section>
       </div>
     </section>
@@ -1311,6 +1582,6 @@
   <script src="edmp-assessment-preview-config.js?v=20260903-phase1d"></script>
   <script src="decision-room.js?v=20260903-phase1d"></script>
   <script src="edmp-assessment.js?v=20260903-phase1d"></script>
-  <script src="script.js?v=20260903-hero4"></script>
+  <script src="script.js?v=20260903-partners2"></script>
 </body>
 </html>
