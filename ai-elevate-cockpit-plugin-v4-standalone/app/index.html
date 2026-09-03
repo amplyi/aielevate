@@ -13,7 +13,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <link rel="icon" href="assets/ae-logo-blue.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/ae-logo-blue.png" />
-  <link rel="stylesheet" href="styles.css?v=20260903-phase1d" />
+  <link rel="stylesheet" href="styles.css?v=20260903-insights" />
   <link rel="stylesheet" href="decision-room.css?v=20260903-phase1d" />
   <link rel="stylesheet" href="edmp-assessment.css?v=20260903-phase1d" />
 </head>
@@ -642,19 +642,37 @@
     <section id="insights" class="view">
       <div class="section-head glass">
         <div>
-          <div class="section-kicker">Insights</div>
-          <h2>Doctrine, field signals, and decision intelligence</h2>
+          <div class="section-kicker">INSIGHTS</div>
+          <h2>Governing AI as an organisational capability</h2>
         </div>
-        <p>Perspectives on organisational AI capability, authority, architecture, decision memory and learning.</p>
+        <p>Practical perspectives for leaders turning AI ambition into accountable execution, sustainable adoption and measurable business value.</p>
       </div>
-      <div class="consult-insight-topics" aria-label="Insight topics">
-        <span>Organisational AI capability</span>
-        <span>Human authority and accountability</span>
-        <span>AI architecture and governance</span>
-        <span>Decision memory</span>
-        <span>Implementation and organisational learning</span>
+      <div class="insight-filters" aria-label="Insight filters">
+        <button class="insight-filter active" data-filter="all">All insights</button>
+        <button class="insight-filter" data-filter="strategy-value">Strategy and value</button>
+        <button class="insight-filter" data-filter="operating-model">Operating model and adoption</button>
+        <button class="insight-filter" data-filter="architecture">Architecture and platforms</button>
+        <button class="insight-filter" data-filter="governance">Governance and accountability</button>
+        <button class="insight-filter" data-filter="partner">Partner delivery</button>
       </div>
-      <div id="insightGrid" class="card-grid insights-grid"></div>
+      <div id="insightGrid" class="insight-card-grid"></div>
+    </section>
+
+    <section id="insight-article" class="view">
+      <div class="insight-article-wrap">
+        <div class="insight-article-hero" id="insightArticleHero">
+          <div class="insight-article-hero-overlay">
+            <span class="insight-article-category" id="insightArticleCat"></span>
+            <h1 class="insight-article-title" id="insightArticleTitle"></h1>
+            <p class="insight-article-deck" id="insightArticleDeck"></p>
+          </div>
+        </div>
+        <article class="insight-article-body" id="insightArticleBody"></article>
+        <div class="insight-article-footer">
+          <button class="btn btn-primary btn-cta" type="button" data-view="contact">Discuss your AI capability</button>
+          <button class="btn btn-secondary" type="button" data-view="insights">Back to all insights</button>
+        </div>
+      </div>
     </section>
 
     <section id="decision-room" class="view">
@@ -1118,6 +1136,6 @@
   <script src="edmp-assessment-preview-config.js?v=20260903-phase1d"></script>
   <script src="decision-room.js?v=20260903-phase1d"></script>
   <script src="edmp-assessment.js?v=20260903-phase1d"></script>
-  <script src="script.js?v=20260903-phase1d"></script>
+  <script src="script.js?v=20260903-insights"></script>
 </body>
 </html>

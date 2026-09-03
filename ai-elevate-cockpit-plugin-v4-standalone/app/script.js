@@ -338,43 +338,82 @@ const caseDepth = {
 
 const insights = [
   {
-    id: 'story',
-    title: 'The Billion-Dollar Prompt',
-    tag: 'Category Note',
-    image: 'assets/1.png',
-    description: 'Who Really Controls the AI Economy?',
-    detail: 'AI is now embedded in finance, energy, governance, and defense. This briefing examines who truly controls the AI economy.',
-    type: 'story'
+    id: 'insight-1',
+    slug: 'ai-adoption-is-not-organisational-capability',
+    title: 'AI Adoption Is Not Organisational AI Capability',
+    category: 'Operating model and adoption',
+    filter: 'operating-model',
+    deck: 'Why widespread tool use can coexist with fragmented ownership, weak controls and little measurable value.',
+    summary: 'Adoption metrics show activity. Capability means the organisation can repeatedly select, govern, implement and improve valuable AI use cases.',
+    relevance: 'Helps leadership distinguish licences and experiments from a repeatable organisational capability.',
+    image: 'assets/insights/insight-01-organisational-capability.png',
+    alt: 'Initiative landscape and capability coherence',
+    focal: '50% 40%'
   },
   {
-    id: 'doctrine',
-    title: 'Why AI Increases Decision Drift',
-    tag: 'Doctrine',
-    image: 'assets/8.png',
-    description: 'AI increased decision velocity. It did not increase decision accountability.',
-    type: 'article',
-    body: `
-      <div class="overlay-meta"><span>Doctrine</span><span>EDMP</span></div>
-      <h2>Why AI Increases Decision Drift</h2>
-      <p>Organizations already preserve data, workflow, and AI output. They still do not preserve how meaningful decisions are formed, changed, and executed.</p>
-      <p>EDMP closes that gap. It preserves decision lineage, reasoning structure, ownership continuity, and accountable follow-through across AI-assisted and human-led environments.</p>
-      <p>Systems of record exist. Systems of decision memory do not. Reasoning should remain visible after execution begins.</p>
-    `
+    id: 'insight-2',
+    slug: 'why-ai-strategy-stalls-before-implementation',
+    title: 'Why AI Strategy Stalls Before Implementation',
+    category: 'Strategy and value',
+    filter: 'strategy-value',
+    deck: 'The missing translation from executive ambition to an executable organisational design.',
+    summary: 'AI strategies rarely fail for lack of ideas. They stall when priorities, decision rights, architecture, ownership and measures are not connected.',
+    relevance: 'Positions AI Elevate between boardroom intent and partner-led implementation.',
+    image: 'assets/insights/insight-02-strategy-to-execution.png',
+    alt: 'Strategy translated into a delivery map',
+    focal: '50% 35%'
   },
   {
-    id: 'architecture',
-    title: 'Why Decision Traceability Will Become a Board Requirement',
-    tag: 'Governance Thesis',
-    image: 'assets/7.png',
-    description: 'Decision traceability will become a board requirement across multiple enterprise environments.',
-    type: 'article',
-    body: `
-      <div class="overlay-meta"><span>Governance Thesis</span><span>EDMP</span></div>
-      <h2>Why Decision Traceability Will Become a Board Requirement</h2>
-      <p>A strong EDMP environment does not start from a different logic every time. It begins with one stable architecture: signal intake, PDE structure, decision memory, execution trace, and institutional memory.</p>
-      <p>That consistency is what makes EDMP valuable across domains. Teams do not need to relearn how decisions are preserved and inspected. They only need the domain-specific signals, thresholds, and outputs adjusted for their environment.</p>
-      <p>The result is a category-defining enterprise layer for preserving how organizations think.</p>
-    `
+    id: 'insight-3',
+    slug: 'who-remains-accountable-when-ai-advises',
+    title: 'Who Remains Accountable When AI Advises?',
+    category: 'Governance and accountability',
+    filter: 'governance',
+    deck: 'Human authority must be designed before consequential decisions are AI-assisted.',
+    summary: 'An AI recommendation does not remove accountability. Leaders need explicit decision ownership, escalation paths and evidence requirements.',
+    relevance: 'Makes governance practical without presenting AI Elevate as a legal or compliance firm.',
+    image: 'assets/insights/insight-03-human-accountability.png',
+    alt: 'Human decision ownership and evidence review',
+    focal: '50% 45%'
+  },
+  {
+    id: 'insight-4',
+    slug: 'platform-independence-is-strategic-control',
+    title: 'Platform Independence Is a Form of Strategic Control',
+    category: 'Architecture and platforms',
+    filter: 'architecture',
+    deck: 'Why enterprise AI architecture should begin with business requirements, not a vendor catalogue.',
+    summary: 'Microsoft, ERP, cloud, data and business-application ecosystems all matter. A durable AI capability connects them without allowing one product roadmap to define the organisation\u2019s choices.',
+    relevance: 'Expresses AI Elevate\u2019s cross-platform background and vendor-neutral advisory role.',
+    image: 'assets/insights/insight-04-platform-independence.png',
+    alt: 'Connected enterprise architecture',
+    focal: '50% 50%'
+  },
+  {
+    id: 'insight-5',
+    slug: 'ai-governance-cannot-be-added-after-deployment',
+    title: 'AI Governance Cannot Be Added After Deployment',
+    category: 'Governance and accountability',
+    filter: 'governance',
+    deck: 'Decision rights, evidence, oversight and escalation belong in the design.',
+    summary: 'Retrofitting governance creates friction and rework. The control model must develop alongside the use case, operating model and technical architecture.',
+    relevance: 'Connects governance to delivery rather than treating it as a policy exercise.',
+    image: 'assets/insights/insight-05-governance-by-design.png',
+    alt: 'Governance and process design before deployment',
+    focal: '50% 38%'
+  },
+  {
+    id: 'insight-6',
+    slug: 'why-implementation-partners-need-independent-organisational-layer',
+    title: 'Why Implementation Partners Need an Independent Organisational Layer',
+    category: 'Partner delivery',
+    filter: 'partner',
+    deck: 'Clear complementary roles create more client value without duplicating technical delivery.',
+    summary: 'Implementation partners build and integrate solutions. AI Elevate helps the client define priorities, readiness, decision rights, adoption and value realisation across the whole environment.',
+    relevance: 'Makes the partner-friendly consultancy model explicit and avoids implying that partners lack capability.',
+    image: 'assets/insights/insight-06-complementary-partners.png',
+    alt: 'Joint client and partner transformation planning',
+    focal: '50% 42%'
   }
 ];
 
@@ -383,11 +422,201 @@ const footerNavButtons = document.querySelectorAll('.nav-btn-link[data-view]');
 const jumpButtons = document.querySelectorAll('.jump-btn');
 const views = document.querySelectorAll('.view');
 
-const insightDepth = {
-  story: { priority: 'Category Note', why: 'Maps the power structures, paradoxes, and control points shaping the AI economy.' },
-  doctrine: { priority: 'Doctrine', why: 'Explains why AI increases decision drift when organizations do not preserve reasoning.' },
-  architecture: { priority: 'Governance Thesis', why: 'Shows why decision traceability will become a board requirement across domains.' }
+const insightArticles = {
+'insight-1': `
+<p class="insight-article-thesis">Every organisation with an AI budget can point to adoption metrics: licences provisioned, models deployed, copilots enabled, employees trained. Yet adoption alone does not mean the organisation can repeatedly identify where AI should create value, govern its use, implement it coherently, sustain the change or demonstrate measurable outcomes. That gap between tool uptake and organisational capability is where most enterprise AI programmes quietly stall.</p>
+
+<h2>The business problem</h2>
+<p>Organisations invest heavily in AI tools and enablement. Adoption dashboards show increasing usage: more prompts, more integrations, more teams experimenting. Leaders interpret these signals as progress. Meanwhile, the organisation may still lack a shared view of which use cases deserve enterprise investment, which risks require governance, how decision rights should be allocated, and what evidence constitutes value realisation.</p>
+<p>Without that structure, adoption produces activity — not capability. Teams pursue local experiments with local tooling. Governance is either absent or improvised retroactively. Success is anecdotal rather than evidenced. When a senior stakeholder asks whether AI is delivering business value, the honest answer is often that nobody can say with confidence, because nobody defined what value would look like or who would be accountable for it.</p>
+<p>This is not a technology failure. It is an organisational design failure. The tools work. The organisation around them does not yet operate as a capability.</p>
+<p>The distinction matters because it determines where leadership attention should go next. More licences, more models and more training will not close an organisational gap. What closes it is deliberate design: connecting AI investments to business priorities, assigning accountability, establishing governance, building evidence and creating the operating rhythm that turns experiments into a managed, improvable enterprise capability.</p>
+
+<h2>What leaders often miss</h2>
+<p>The most common oversight is treating adoption as a proxy for maturity. When a platform vendor reports that seventy percent of employees have used a copilot feature, that number describes access. It does not describe whether the organisation has prioritised its most valuable use cases, connected them to operational outcomes, established shared standards for responsible use, or built the feedback mechanisms needed to learn and improve.</p>
+<p>Leaders also frequently underestimate the organisational breadth of genuine AI capability. It is not only a technology conversation. Capability requires clarity across strategy, operating model, architecture, governance, workforce readiness and evidence. Each of these domains needs intentional design, and they must be connected. A governance framework that exists on paper but is disconnected from the architecture decisions and delivery practices remains performative.</p>
+<p>Another common gap is the absence of a portfolio view. Individual teams may be running capable experiments, but without a portfolio lens the organisation cannot compare, prioritise, sequence or coordinate. Duplication emerges. Conflicting assumptions go unresolved. Scarce resources — data engineering capacity, architecture oversight, change leadership — are consumed without strategic direction.</p>
+
+<h2>What a stronger organisational response looks like</h2>
+<p>Organisational AI capability begins with a deliberate view of where AI should create value, and why. That means defining a portfolio of use cases connected to business outcomes rather than technology curiosity. It means establishing decision rights: who approves new use cases, who governs risk, who owns the operating model, and who is accountable for measurable outcomes.</p>
+<p>It extends into shared standards for architecture and governance. Rather than allowing each team to adopt tools independently, the organisation establishes a coherent set of principles for how AI integrates with existing systems, how data is managed, how models are evaluated, and how human oversight is maintained. This is not centralised control for its own sake — it is the minimum structure that allows distributed teams to operate with confidence, consistency and accountability.</p>
+<p>Workforce development shifts from generic AI training to role-specific capability building that aligns with the organisation\u2019s actual use cases, processes and decision environment. Adoption becomes a managed change programme rather than a licence rollout. People need to understand not just how to use a tool, but how the tool connects to the processes, decisions and outcomes that matter in their domain.</p>
+<p>The operating rhythm includes regular review of the portfolio, evidence-based assessment of value delivery, honest evaluation of what is and is not working, and structured escalation when assumptions change. Over time, this rhythm produces an organisation that can learn, adapt and extend its AI capability \u2014 not one that merely consumes more AI features.</p>
+<p>Crucially, this capability must be visible. Leaders need to be able to see the current state of AI maturity across the enterprise, identify where progress is genuine and where it is performative, and make informed decisions about where to invest next. Without that visibility, AI strategy becomes a faith-based exercise rather than an evidence-based discipline.</p>
+
+<h2>Questions for the leadership team</h2>
+<ul>
+<li>Can you articulate the five most valuable AI use cases in your organisation today — and the evidence that supports that ranking?</li>
+<li>Who owns the operating model for AI across the enterprise, and what authority do they have over prioritisation, standards and governance?</li>
+<li>If a material AI-related risk emerged tomorrow, is the escalation path clear, documented and exercised?</li>
+<li>How does the organisation currently distinguish between AI adoption activity and measurable business capability?</li>
+</ul>
+
+<h2>How AI Elevate helps</h2>
+<p>AI Elevate works with leadership teams to assess the full breadth of organisational AI capability — not just technology deployment. Our AI Capability Opportunity Scan and readiness assessments examine strategy clarity, portfolio coherence, operating model maturity, governance effectiveness, workforce alignment and evidence discipline. The result is a structured baseline and a clear view of where the organisation needs to invest beyond tools. We help close the gap between what has been adopted and what the organisation can actually sustain, govern and improve.</p>
+`,
+
+'insight-2': `
+<p class="insight-article-thesis">Most AI strategies do not fail because the ideas are wrong. They stall because the distance between executive ambition and organisational execution is larger, more structural and more interdependent than the strategy document acknowledges. The translation from intent to implementable design — connecting priorities to decision rights, architecture constraints, organisational readiness and sequenced delivery — is where strategies quietly lose momentum.</p>
+
+<h2>The business problem</h2>
+<p>An executive team agrees that AI is strategically important. A strategy is written. It describes opportunities, outlines a vision, and may even identify priority domains. Yet three to six months later, little has changed operationally. Implementation partners are waiting for requirements that have not been defined. Architecture teams are uncertain which workloads to prioritise. Business units have competing expectations. And nobody has an actionable plan that connects the strategy to the organisation's real constraints, capabilities and decision structures.</p>
+<p>The strategy was not wrong — it was incomplete. It described the destination without designing the journey. It named opportunities without sequencing them against dependencies. It assumed that existing governance, decision rights and operating models would accommodate AI without deliberate adjustment. And it did not assign clear accountability for turning strategic intent into organisational action.</p>
+<p>This pattern is remarkably common. It is not caused by a lack of ambition, intelligence or investment. It is caused by a missing translation layer between what leadership wants and what the organisation can execute.</p>
+
+<h2>What leaders often miss</h2>
+<p>The first gap is the assumption that a strategy document is an implementation plan. Strategy articulates direction and priorities. Implementation requires an executable design: sequenced initiatives, defined dependencies, resource commitments, governance arrangements, architecture decisions and clear measures of progress. These are fundamentally different activities, and they require different skills.</p>
+<p>The second gap is underestimating organisational friction. Every enterprise carries constraints: legacy architecture, regulatory obligations, workforce readiness, procurement cycles, existing vendor relationships and cultural norms around decision-making. A strategy that does not account for these realities will stall against them. The most common outcome is not dramatic failure but gradual loss of momentum as pilot projects proliferate without connecting back to enterprise outcomes.</p>
+<p>The third gap is the absence of decision rights. AI strategy affects multiple business functions, technology domains and governance layers. When nobody has explicit authority to arbitrate competing priorities, resolve architectural trade-offs or enforce standards, the organisation defaults to consensus — which produces delay, compromise and fragmentation.</p>
+<p>Finally, leaders often miss the value definition problem. Strategy documents describe aspirations. Implementation requires observable, measurable outcomes that can be tracked, reported and used to justify continued investment. Without that definition, success remains subjective and progress is difficult to demonstrate.</p>
+
+<h2>What a stronger organisational response looks like</h2>
+<p>A robust approach treats the translation from strategy to execution as its own workstream, with dedicated attention, skilled facilitation and executive sponsorship. The output is not another strategy document but an organisational design that makes implementation possible.</p>
+<p>That design connects business outcomes to specific use cases, links use cases to architecture requirements, maps dependencies, sequences delivery against organisational readiness, defines decision rights and governance, and establishes clear, evidence-based measures of progress.</p>
+<p>It also considers change impact honestly. AI changes processes, roles, decision-making patterns and performance expectations. These changes need to be designed, communicated and managed — not assumed. Workforce implications, including skills, capacity and willingness, must be addressed as part of the design, not as an afterthought.</p>
+<p>The strongest organisations treat this translation as an iterative process. They begin with a bounded engagement \u2014 perhaps a single high-priority domain or a capability diagnosis \u2014 and use the results to refine the broader plan. This reduces risk, builds evidence and maintains organisational confidence.</p>
+<p>Importantly, the translation layer must remain active throughout delivery. Strategy does not stop when implementation begins. Assumptions change, new constraints emerge, business priorities shift and the organisation learns things during delivery that were not visible during planning. A living connection between strategy and execution \u2014 with clear ownership, regular review and explicit escalation \u2014 keeps the programme aligned with its original purpose while adapting to reality.</p>
+<p>Organisations that get this right find that their implementation partners are more effective, not less. When the strategic context is clear, requirements are well-defined and stakeholder alignment is maintained, delivery teams can focus on what they do best rather than navigating organisational ambiguity.</p>
+
+<h2>Questions for the leadership team</h2>
+<ul>
+<li>Can you describe the three most important organisational changes required to deliver your AI strategy \u2014 beyond technology deployment?</li>
+<li>Who has explicit authority to arbitrate competing AI priorities across business units and technology domains?</li>
+<li>What evidence will demonstrate that strategy execution is on track \u2014 and who is responsible for collecting it?</li>
+<li>If implementation stalls, what is the escalation path, and has it been tested?</li>
+</ul>
+
+<h2>How AI Elevate helps</h2>
+<p>AI Elevate specialises in the translation between executive AI ambition and organisational execution. We help leadership teams connect strategy to implementable design through capability diagnosis, use-case prioritisation, operating model design, architecture requirements and delivery sequencing. Our Fast Lane engagement provides one structured starting point: a bounded, evidence-based assessment that reveals where the real gaps exist between intent and readiness. The result is not another aspirational document but an organisational foundation that implementation partners can build upon.</p>
+`,
+
+'insight-3': `
+<p class="insight-article-thesis">When an AI model recommends, generates or ranks, a human being must remain accountable for the decision that follows. This is not a philosophical position — it is an operational requirement. Accountability cannot be delegated to a model, and it cannot be assumed to exist simply because a human was present when the output appeared. It must be designed into the decision process before consequential choices involve AI-generated input.</p>
+
+<h2>The business problem</h2>
+<p>Organisations are rapidly deploying AI capabilities that influence or directly support consequential decisions: credit assessments, recruitment screening, procurement recommendations, clinical prioritisation, investment analysis and operational planning. In many cases, the AI output is presented to a decision-maker who approves, adjusts or forwards it — but the decision process itself has not been redesigned to account for the AI involvement.</p>
+<p>The result is a growing set of decisions where accountability is unclear. If the AI recommendation is wrong, who is responsible? The person who approved it, the team that configured the model, the vendor who supplied it, or the governance function that allowed its deployment? If the decision later requires explanation — to a regulator, a board, an auditor or an affected party — can the organisation reconstruct not just what was decided but how, on what basis, what the AI contributed, what the human considered, and why the final judgement was made?</p>
+<p>For most organisations, the honest answer is no. Decision processes have not been updated. Ownership has not been explicitly assigned. Evidence requirements have not been defined. Escalation paths for uncertain or high-stakes AI-assisted decisions do not exist. The organisation has adopted the technology without redesigning the authority structure around it.</p>
+
+<h2>What leaders often miss</h2>
+<p>The most common oversight is assuming that human-in-the-loop means human-in-control. Placing a person at the end of an AI recommendation workflow does not automatically create meaningful oversight. If the person lacks the context, time, expertise or authority to meaningfully evaluate and challenge the AI output, approval becomes a rubber stamp. The human is present but not accountable in any substantive sense.</p>
+<p>Leaders also frequently underestimate the speed at which AI decision support becomes AI decision delegation. What begins as a helpful recommendation quickly becomes the default. Over time, overriding the AI becomes the exception rather than the routine, and the skills, judgement and information needed to exercise genuine oversight atrophy.</p>
+<p>Another gap is the absence of materiality thresholds. Not every AI-assisted decision requires the same level of human oversight. But without a deliberate classification of decision types by materiality, risk and consequence, organisations apply either too much oversight — creating bottlenecks — or too little, creating exposure.</p>
+<p>Finally, evidence requirements are often undefined. When a consequential decision is made with AI input, what evidence should be preserved? The model output, the human evaluation, the alternatives considered, the confidence level, the data quality, the exceptions noted? Without explicit requirements, the organisation cannot reconstruct or defend its decisions after the fact.</p>
+
+<h2>What a stronger organisational response looks like</h2>
+<p>A stronger approach begins with identifying every decision process where AI plays a consequential role and classifying those decisions by materiality and risk. For each material decision type, the organisation defines: named decision owners with explicit authority; minimum evidence requirements; confidence thresholds below which human review is mandatory; escalation paths for exceptions, disagreements and edge cases; and periodic review mechanisms to assess whether the oversight model remains effective.</p>
+<p>This is not bureaucracy. It is the minimum design required to maintain genuine human accountability in an environment where AI outputs are increasingly embedded in organisational workflows. The design should be proportionate — lightweight for low-risk operational decisions, rigorous for high-stakes strategic, financial, legal or people-related choices.</p>
+<p>Over time, organisations that take accountability seriously also invest in decision memory: the ability to reconstruct how a decision was formed, what the AI contributed, what the human considered, and how the outcome was monitored. This is where decision lineage becomes valuable — not as a compliance exercise but as an operational capability that supports learning, audit and continuous improvement.</p>
+
+<h2>Questions for the leadership team</h2>
+<ul>
+<li>For your five most consequential AI-assisted decision processes, can you name the accountable decision owner — and have they accepted that accountability?</li>
+<li>What evidence would you need to reconstruct and defend an AI-influenced decision six months after it was made?</li>
+<li>Are there decision processes where the AI recommendation has effectively become the decision — and is that intentional?</li>
+<li>What happens when a decision-maker disagrees with the AI output — is there a supported, documented path for that?</li>
+</ul>
+
+<h2>How AI Elevate helps</h2>
+<p>AI Elevate helps organisations design human accountability into AI-assisted decision processes. We work with leadership teams to map decision types, assign ownership, define evidence requirements, establish escalation paths and build proportionate oversight models. Where durable decision lineage is required \u2014 the ability to preserve how decisions were formed, how ownership changed and how execution aligned with intent \u2014 AI Elevate offers EDMP, our focused proposition for enterprise decision memory. The goal is not to slow decisions down but to ensure they remain accountable, defensible and improvable. Accountability is a design choice, and organisations that make it deliberately are better positioned to scale AI with confidence.</p>
+`,
+
+'insight-4': `
+<p class="insight-article-thesis">Enterprise AI architecture should begin with business requirements and organisational principles, not with the feature set of a preferred vendor. The organisations that maintain strategic control over their AI capability are those that define their own requirements — for interoperability, portability, security, data sovereignty and operating ownership — before committing to platform-specific implementations. This is not anti-vendor. It is pro-organisation.</p>
+
+<h2>The business problem</h2>
+<p>Most enterprises operate complex technology environments that span multiple vendors, platforms and generations of architecture. A typical large organisation relies on Microsoft for productivity and identity, one or more ERP platforms for core business processes, multiple database technologies for different workloads, cloud infrastructure from one or more hyperscalers, data platforms for analytics and AI, and a range of specialised business applications across functions.</p>
+<p>When AI enters this environment, it does not arrive in isolation. It connects to data, processes, identities, permissions, workflows and decisions that already exist across these systems. The architectural choices made about AI — where models run, how data flows, what integrates with what, and who controls the pipeline — have long-term consequences for cost, flexibility, risk and strategic independence.</p>
+<p>The risk is not that organisations choose the wrong vendor. It is that they allow a vendor relationship to become an architectural dependency that constrains future choices. When the AI strategy, the data architecture, the integration model and the governance framework are all optimised for a single platform, the organisation has gained convenience at the expense of control.</p>
+
+<h2>What leaders often miss</h2>
+<p>The first oversight is conflating vendor partnership with vendor dependence. Working with Microsoft, AWS, Google or any other major platform is entirely reasonable — they offer capabilities, scale and support that most organisations cannot replicate. The issue arises when the organisation's own requirements, principles and boundaries have not been defined before the platform-specific design begins. Without independent requirements, every architecture decision defaults to whatever the vendor recommends.</p>
+<p>The second gap is underestimating the breadth of the existing environment. AI does not operate only within the AI platform. It touches ERP data, CRM workflows, HR processes, financial controls, security boundaries and compliance frameworks. Architecture decisions that optimise for the AI layer alone may create problems in adjacent systems — or may require the organisation to migrate, duplicate or restructure data in ways that were not anticipated or budgeted.</p>
+<p>The third oversight is assuming portability will be easy later. Platform-specific integrations, proprietary model formats, closed API dependencies and vendor-managed data pipelines accumulate quickly. Each one increases the cost and complexity of change. By the time the organisation recognises the constraint, the switching cost may be prohibitive.</p>
+<p>Finally, leaders often delegate architecture decisions entirely to technology teams without ensuring that business, governance and operating-model requirements are represented. Architecture is not only a technology conversation. It determines what the organisation can do, how quickly it can change, and what it controls.</p>
+
+<h2>What a stronger organisational response looks like</h2>
+<p>A stronger approach starts with the organisation defining its own architectural principles for AI — before engaging in platform-specific design. These principles address questions such as: where must data remain under organisational control? What interoperability standards are required across business applications? How will models be evaluated, tested and replaced? What level of portability is necessary, and what is the acceptable cost of vendor transition? How are security, identity and access managed consistently across the AI and non-AI layers?</p>
+<p>These requirements do not replace vendor expertise. They frame it. Implementation partners continue to design, build and optimise platform-specific solutions — but they do so within a set of enterprise requirements that protect the organisation's strategic flexibility.</p>
+<p>The architecture governance model also matters. Someone in the organisation must be responsible for ensuring that individual platform decisions remain consistent with enterprise principles. Without that role, architecture coherence erodes incrementally as each project team optimises for its own scope.</p>
+<p>Organisations with mature practice also build review and adaptation into their architecture governance. Vendor capabilities evolve, business needs change, and regulatory requirements shift. The architecture must be a living framework, not a one-time deliverable.</p>
+
+<h2>Questions for the leadership team</h2>
+<ul>
+<li>Has your organisation defined its own architectural principles for AI, independent of any specific vendor recommendation?</li>
+<li>If you needed to replace or supplement your primary AI platform in eighteen months, what would it cost — and who knows?</li>
+<li>How are enterprise-wide requirements for interoperability, data sovereignty and security represented in individual AI project architecture decisions?</li>
+<li>Who is accountable for the coherence of AI architecture across the enterprise — and do they have the authority and visibility to exercise that role?</li>
+</ul>
+
+<h2>How AI Elevate helps</h2>
+<p>AI Elevate provides vendor-neutral enterprise AI architecture advisory. We help leadership teams define their own architectural principles, requirements and governance models before committing to platform-specific implementation. Our background spans Microsoft and Windows environments, ERP platforms, database landscapes, cloud infrastructure, data platforms and business applications — enabling us to address the full breadth of the enterprise technology estate. We work constructively with implementation partners, who remain responsible for platform-specific design, configuration and delivery. AI Elevate ensures that the organisation retains strategic control over its technology choices rather than inheriting them from a single vendor relationship.</p>
+`,
+
+'insight-5': `
+<p class="insight-article-thesis">Governance that arrives after AI has been deployed is governance that is already behind. Decision rights, evidence requirements, oversight mechanisms and escalation paths must be designed alongside the use case, the operating model and the technical architecture — not applied retrospectively as a control layer. Organisations that treat governance as a later-stage addition consistently find that retrofitting creates more friction, cost and risk than designing it in from the beginning.</p>
+
+<h2>The business problem</h2>
+<p>The typical pattern is familiar. A team identifies a promising AI use case. Technology selection and development proceed quickly because budget has been approved, the vendor relationship is in place and delivery pressure is high. Governance is acknowledged as important but deferred — either because the governance framework does not yet exist, because the governance team is not involved in delivery, or because governance is perceived as a blocker that should be addressed after the capability is proven.</p>
+<p>By the time governance attention arrives, the AI capability is operational. Decisions are being made, data is flowing, models are producing output and users are relying on the system. Introducing governance requirements at this point means changing live processes, redefining data flows, adding oversight steps that were not in the original design and renegotiating operating expectations with stakeholders who have already adapted to the ungoverned version.</p>
+<p>The result is predictable: governance becomes an adversarial experience. Delivery teams resist requirements that slow them down. Governance teams lack sufficient context to design proportionate controls. And the organisation ends up with either ineffective governance — policies on paper with little operational reality — or burdensome governance that undermines the AI capability's value.</p>
+
+<h2>What leaders often miss</h2>
+<p>The most consequential oversight is treating governance as a separate workstream rather than an integrated design activity. Governance is not something that happens to a project after it is delivered. It is part of the design: which data is used, how quality is assured, what decisions the AI influences, who approves model changes, what evidence is collected, how performance is monitored, who handles exceptions, and what happens when things go wrong.</p>
+<p>Leaders also frequently underestimate the variety of governance requirements. AI governance is not only about ethics or compliance. It encompasses use-case intake and prioritisation, risk assessment and tiering, data suitability evaluation, model selection and validation, testing and acceptance criteria, deployment approval, operational monitoring, incident detection and response, model retraining triggers, and eventual retirement. Each of these stages has governance implications, and neglecting any one creates an unmanaged gap.</p>
+<p>Another common gap is the absence of proportionality. Not every AI use case requires the same level of governance rigour. A low-risk internal productivity tool requires different oversight than a model that influences customer pricing, credit decisions or hiring outcomes. Without a tiering model that classifies use cases by risk and consequence, organisations apply either a single heavy-weight process to everything — creating bottlenecks — or no consistent process at all.</p>
+<p>Finally, many organisations confuse governance with documentation. Writing a policy does not govern anything. Governance requires operational mechanisms: intake workflows, review gates, evidence collection, monitoring dashboards, escalation procedures and periodic assurance reviews that are actually executed.</p>
+
+<h2>What a stronger organisational response looks like</h2>
+<p>Effective AI governance is designed as part of the delivery process, not added afterwards. From the earliest stages of use-case identification, governance questions are present: what is the materiality of this use case? What data does it require, and is that data suitable? What decisions will be influenced, and what are the consequences of error? Who will own the model in production, and how will it be monitored?</p>
+<p>A proportionate governance framework includes: a structured intake process that classifies use cases by risk and consequence; clear criteria for data suitability, model selection and validation; defined approval gates at development, testing and deployment stages; operational monitoring with explicit thresholds for intervention; incident response procedures; scheduled reviews of model performance, data quality and governance effectiveness; and a defined process for model retirement when a use case is no longer appropriate.</p>
+<p>The framework is commercially pragmatic. It protects the organisation without preventing innovation. The goal is to make it easier to deploy AI responsibly — not harder to deploy AI at all. Organisations that achieve this balance find that governance actually accelerates delivery by reducing uncertainty, preventing rework and building stakeholder confidence.</p>
+
+<h2>Questions for the leadership team</h2>
+<ul>
+<li>For each active AI use case, can you describe the governance arrangements — or are they still to be defined?</li>
+<li>When was the last time an AI use-case deployment was reviewed against its original risk assessment and intended outcomes?</li>
+<li>Does your governance framework distinguish between high-risk and low-risk AI use cases — and are the criteria documented?</li>
+<li>If an AI model in production began producing systematically biased or inaccurate output, how quickly would the organisation detect it, and who would own the response?</li>
+</ul>
+
+<h2>How AI Elevate helps</h2>
+<p>AI Elevate helps organisations design governance that is integrated, proportionate and operational — not retrospective or performative. We work with leadership and delivery teams to define use-case intake processes, risk tiering models, data and model governance requirements, oversight mechanisms and assurance rhythms. Our governance advisory connects directly to architecture and operating model design, ensuring that governance requirements are technically feasible and organisationally sustainable. The result is a control model that develops alongside the AI capability rather than being bolted on after the fact.</p>
+`,
+
+'insight-6': `
+<p class="insight-article-thesis">The value of an independent organisational AI advisory layer is not that implementation partners lack capability — it is that the organisational questions surrounding AI are growing faster than most delivery models are designed to address. Priorities, readiness, decision rights, governance, adoption and value realisation are increasingly the factors that determine whether an implementation succeeds or stalls. Addressing them requires a role that is complementary to technical delivery, not a replacement for it.</p>
+
+<h2>The business problem</h2>
+<p>Organisations typically engage implementation partners to design, configure, integrate and deploy technology solutions. These partners bring deep platform expertise, proven delivery methods, technical architecture skills and the capacity to execute at scale. The relationship is well understood and commercially established.</p>
+<p>As AI matures from experimentation to enterprise capability, a new layer of complexity emerges around the implementation. Questions of organisational readiness, strategic prioritisation, operating model design, decision rights, governance arrangements, workforce adaptation and cross-domain coordination become increasingly consequential. These are not technology questions. They are organisational design questions that must be answered before — or alongside — technical delivery in order for that delivery to produce lasting value.</p>
+<p>In practice, these questions often fall into a gap. The client's internal teams may lack the capacity or specialised expertise. The implementation partner's scope, commercial model and delivery timeline may not extend to organisational advisory. And without somebody explicitly owning this layer, the questions either go unaddressed or are answered implicitly through technology decisions that carry organisational consequences nobody fully anticipated.</p>
+
+<h2>What leaders often miss</h2>
+<p>The most important distinction is between building a solution and building the organisation's capability to absorb, govern, sustain and improve that solution. An implementation partner can deliver a technically sound AI platform. But if the organisation has not clarified its priorities, aligned its stakeholders, defined its governance, adapted its processes and prepared its workforce, the platform will underperform — not because the technology is wrong, but because the organisation is not ready for it.</p>
+<p>Leaders also sometimes assume that strategic and organisational advisory is embedded in the implementation engagement. In some cases it is, particularly for large-scale transformation programmes. But for many engagements, the partner's scope is defined by platform delivery, and organisational readiness is treated as the client's responsibility. This is not a deficiency — it is a scope boundary. The gap exists not because the partner is unwilling but because the work is genuinely different in nature, skills and accountability.</p>
+<p>Another common oversight is the timing. Organisational advisory is most valuable before and during implementation, not after. Defining requirements, decision rights, governance and change management after the platform is live creates the same retrofitting problems that characterise late-stage governance. The independent organisational layer must operate in parallel with, not after, technical delivery.</p>
+<p>Finally, leaders sometimes worry that introducing an independent advisory layer will create friction with the implementation partner. In practice, the opposite is more common. When the client arrives at implementation with clear priorities, defined requirements, explicit governance, aligned stakeholders and a managed change programme, the implementation partner can focus on what it does best — and delivery is faster, cleaner and more likely to succeed.</p>
+
+<h2>What a stronger organisational response looks like</h2>
+<p>A well-designed engagement model has three clearly defined roles: the client organisation, which owns the strategy, the priorities and the outcomes; the implementation partner, which designs, builds, integrates and deploys the technology; and the independent organisational advisory, which helps the client define requirements, establish governance, manage change and assure value realisation.</p>
+<p>The key is non-overlapping accountability. The independent advisory does not replicate technical delivery. The implementation partner does not carry organisational design responsibility. And the client retains ownership of both the strategic direction and the final decision authority. Hand-offs between the three roles are explicit, documented and governed.</p>
+<p>This model produces several practical benefits. The client receives independent advice that is not influenced by platform economics. The implementation partner receives clearer requirements and better-prepared stakeholders. And the programme as a whole benefits from shared outcomes, reduced ambiguity and a governance structure that spans both organisational and technical delivery.</p>
+
+<h2>Questions for the leadership team</h2>
+<ul>
+<li>For your current AI implementation, who is explicitly responsible for organisational readiness, governance design and value assurance — and is that role adequately resourced?</li>
+<li>Does your implementation partner's scope include strategic prioritisation, operating model design and cross-domain governance — or are those the client's responsibility?</li>
+<li>How are hand-offs between organisational advisory and technical delivery defined, documented and governed?</li>
+<li>If the implementation delivers a technically successful solution that the organisation struggles to adopt, govern or sustain, whose accountability is that?</li>
+</ul>
+
+<h2>How AI Elevate helps</h2>
+<p>AI Elevate operates as the independent organisational advisory layer alongside the client and their implementation partners. We help the client define priorities, assess readiness, establish decision rights, design governance, manage adoption and assure value realisation across the whole AI environment \u2014 not only the platform being implemented. We do not compete with implementation partners. We complement them by ensuring the organisational foundations are in place for technical delivery to succeed. The result is clearer scope, stronger executive sponsorship and implementation that remains connected to an organisational outcome.</p>
+<p>This model is not theoretical. It reflects a growing recognition across the market that organisational readiness, governance design and value assurance require dedicated, independent attention \u2014 and that providing that attention strengthens rather than undermines the implementation partnership.</p>
+`
 };
+
 
 const cockpitGrid = document.getElementById('cockpitGrid');
 const caseTabs = document.getElementById('caseTabs');
@@ -980,6 +1209,12 @@ function handleStaticRoute() {
     showView('edmp-assessment');
     return true;
   }
+  const insightMatch = insights.find(i => i.id === hash || i.slug === hash);
+  if (insightMatch) {
+    history.replaceState(null, '', '#' + insightMatch.id);
+    openInsightArticle(insightMatch.id);
+    return true;
+  }
   const consultancyHashes = ['services', 'partners', 'edmp', 'about', 'contact', 'home', 'insights', 'library', 'cases'];
   if (consultancyHashes.includes(hash)) {
     showView(hash === 'home' ? 'platform' : hash);
@@ -1009,11 +1244,14 @@ function showView(viewId) {
 
   views.forEach(view => view.classList.toggle('active-view', view.id === viewId));
   const edmpCluster = ['edmp', 'library', 'cases', 'engage', 'decision-room', 'edmp-assessment'];
+  const insightsCluster = ['insights', 'insight-article'];
   navButtons.forEach(btn => {
     if (btn.dataset.view === 'platform') {
       btn.classList.toggle('active', viewId === 'platform');
     } else if (btn.dataset.view === 'edmp') {
       btn.classList.toggle('active', edmpCluster.includes(viewId));
+    } else if (btn.dataset.view === 'insights') {
+      btn.classList.toggle('active', insightsCluster.includes(viewId));
     } else {
       btn.classList.toggle('active', btn.dataset.view === viewId);
     }
@@ -1032,7 +1270,7 @@ function showView(viewId) {
   }
   const prefooterShell = document.querySelector('.prefooter-shell');
   if (prefooterShell) {
-    prefooterShell.style.display = ['engage', 'privacy', 'terms', 'decision-room', 'edmp-assessment'].includes(viewId) ? 'none' : '';
+    prefooterShell.style.display = ['engage', 'privacy', 'terms', 'decision-room', 'edmp-assessment', 'insight-article'].includes(viewId) ? 'none' : '';
   }
 
   const target = document.getElementById(viewId);
@@ -1055,7 +1293,20 @@ function navigateToView(viewId) {
     'edmp-assessment': '#edmp-assessment',
     library: '#library',
     cases: '#cases',
+    'insight-1': '#insight-1',
+    'insight-2': '#insight-2',
+    'insight-3': '#insight-3',
+    'insight-4': '#insight-4',
+    'insight-5': '#insight-5',
+    'insight-6': '#insight-6',
   };
+  const insightItem = insights.find(i => i.id === viewId);
+  if (insightItem) {
+    history.pushState(null, '', '#' + insightItem.id);
+    openInsightArticle(insightItem.id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
   if (hashRoutes[viewId] === '#') {
     history.replaceState(null, '', window.location.pathname + window.location.search);
   } else if (hashRoutes[viewId]) {
@@ -1645,79 +1896,61 @@ function selectCase(caseId) {
 }
 
 function renderInsights() {
-  insightGrid.innerHTML = insights.map(item => {
-    const depth = insightDepth[item.id] || { priority: 'Insight', why: 'Strategic context.' };
-    return `
-    <article class="insight-card glass" data-insight="${item.id}">
-      <div class="card-media"><img src="${item.image}" alt="${item.title}"></div>
-      <div class="card-body">
-        <span class="card-tag">${item.tag}</span>
-        <div class="insight-priority">${depth.priority}</div>
+  const grid = document.getElementById('insightGrid');
+  if (!grid) return;
+  grid.innerHTML = insights.map(item => `
+    <article class="insight-card glass" data-insight="${item.id}" data-filter="${item.filter}">
+      <div class="insight-card-media"><img src="${item.image}" alt="${item.alt}" style="object-position:${item.focal}" loading="lazy" /></div>
+      <div class="insight-card-body">
+        <span class="insight-card-cat">${item.category}</span>
         <h3>${item.title}</h3>
-        <p>${item.id === 'story' ? (item.detail || item.description) : item.description}</p>
-        <div class="insight-why">Why it matters: ${depth.why}</div>
-        <button class="card-link">Open briefing</button>
+        <p>${item.summary}</p>
+        <span class="insight-card-relevance">${item.relevance}</span>
+        <button class="card-link" type="button">Read insight</button>
       </div>
     </article>
-  `}).join('');
+  `).join('');
 
-  insightGrid.querySelectorAll('[data-insight]').forEach(card => {
+  grid.querySelectorAll('[data-insight]').forEach(card => {
     card.addEventListener('click', () => {
-      const item = insights.find(entry => entry.id === card.dataset.insight);
-      if (!item) return;
+      const item = insights.find(e => e.id === card.dataset.insight);
+      if (item) navigateToView(item.id);
+    });
+  });
 
-      if (item.type === 'story') {
-        const localMode = window.location.protocol === 'file:';
-        openOverlay(`
-          <div class="overlay-meta"><span>Executive story</span><span>AI Elevate</span></div>
-          <h2>The Billion-Dollar Prompt</h2>
-          <p>Who Really Controls the AI Economy?</p><p>In 2026, the global economy is no longer defined by capital alone, but by the ability to deploy intelligence at scale. Artificial intelligence has moved beyond experimentation — it is now embedded in decision-making across finance, energy, governance, and defense. This story examines the forces, paradoxes, and power structures that will determine who truly controls the AI economy — and what is at stake for the rest of the world.</p>
-          <div class="embed-shell">
-            ${localMode ? `
-              <div class="local-fallback">
-                <h3>Host this site to view the embedded story</h3>
-                <p>You are opening this build from a local file path. To view the full embedded story, run it from a local server or hosted environment.</p>
-              </div>
-            ` : `<iframe src="https://gamma.app/embed/82magnbutrz9ak0" title="The Billion-Dollar Prompt" allowfullscreen loading="lazy"></iframe>`}
-          </div>
-          <div class="overlay-cta-row">
-            <button class="btn btn-primary btn-cta" data-open-intake="demo" data-source="insight-story" data-intake-context="Executive story walkthrough">See EDMP in your environment</button>
-            <button class="btn btn-secondary" data-open-intake="contact" data-source="insight-story" data-intake-context="Executive story discussion">Discuss a Use Case</button>
-            <span class="overlay-cta-note">Translate the story into a cockpit view, a use case, or a domain conversation.</span>
-          </div>
-        `);
-      } else {
-        openOverlay(`${item.body}
-          <div class="overlay-cta-row">
-            <button class="btn btn-primary btn-cta" data-open-intake="contact" data-source="insight-article" data-intake-context="${item.title} discussion">Discuss a Use Case</button>
-            <button class="btn btn-secondary" data-open-intake="demo" data-source="insight-article" data-intake-context="${item.title} translated into a cockpit">Review the Architecture</button>
-            <span class="overlay-cta-note">Use the structured intake to connect the narrative to your environment, domain, and next step.</span>
-          </div>`);
-      }
+  document.querySelectorAll('.insight-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.insight-filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      grid.querySelectorAll('.insight-card').forEach(c => {
+        c.style.display = (f === 'all' || c.dataset.filter === f) ? '' : 'none';
+      });
     });
   });
 }
 
+function openInsightArticle(insightId) {
+  const item = insights.find(e => e.id === insightId);
+  if (!item) return;
+  const article = insightArticles[insightId];
+  if (!article) return;
+  const hero = document.getElementById('insightArticleHero');
+  const cat = document.getElementById('insightArticleCat');
+  const titleEl = document.getElementById('insightArticleTitle');
+  const deckEl = document.getElementById('insightArticleDeck');
+  const body = document.getElementById('insightArticleBody');
+  if (hero) hero.style.backgroundImage = 'url(' + item.image + ')';
+  if (hero) hero.style.backgroundPosition = item.focal;
+  if (cat) cat.textContent = item.category;
+  if (titleEl) titleEl.textContent = item.title;
+  if (deckEl) deckEl.textContent = item.deck;
+  if (body) body.innerHTML = article;
+  showView('insight-article');
+}
+
 
 function applyHardDomFixes() {
-  const storyTitle = 'The Billion-Dollar Prompt';
-  const storyDesc = 'Who Really Controls the AI Economy?';
-  const storyDetail = 'AI is now embedded across finance, energy, governance, and defense.';
-  document.querySelectorAll('.insight-card[data-insight="story"]').forEach(card => {
-    const tag = card.querySelector('.card-tag');
-    const title = card.querySelector('h3');
-    const desc = card.querySelector('p');
-    const why = card.querySelector('.insight-why');
-    const link = card.querySelector('.card-link');
-    if (tag) tag.textContent = 'Category Note';
-    if (title) title.textContent = storyTitle;
-    if (desc) desc.textContent = `${storyDesc}`;
-    if (why) why.textContent = 'Why it matters: A board-level briefing on power, control, and the AI economy.';
-    if (link) link.textContent = 'Open briefing';
-    card.setAttribute('data-insight-title', storyTitle);
-    card.innerHTML = card.innerHTML.replace(/Gamma Story/gi, storyTitle).replace(/gamma story/gi, storyTitle).replace(/gamma/gi, storyTitle);
-  });
-
   document.querySelectorAll('.footer-cockpit-link[data-domain-jump]').forEach(btn => {
     btn.style.cursor = 'pointer';
     btn.setAttribute('role', 'link');
