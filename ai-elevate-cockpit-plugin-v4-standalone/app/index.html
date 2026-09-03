@@ -13,7 +13,9 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <link rel="icon" href="assets/ae-logo-blue.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/ae-logo-blue.png" />
-  <link rel="stylesheet" href="styles.css?v=20260903-svc2" />
+  <link rel="preload" as="image" href="assets/hero/AI-Elevate-homepage-hero-capability-symbol-v2.webp" type="image/webp" imagesrcset="assets/hero/AI-Elevate-homepage-hero-capability-symbol-v2.webp" />
+  <link rel="stylesheet" href="styles.css?v=20260903-hero1" />
+  <link rel="stylesheet" href="home-hero.css?v=20260903-hero4" />
   <link rel="stylesheet" href="decision-room.css?v=20260903-phase1d" />
   <link rel="stylesheet" href="edmp-assessment.css?v=20260903-phase1d" />
 </head>
@@ -86,38 +88,105 @@
 
   <main class="shell">
         <section id="platform" class="view active-view">
-      <div class="consult-home">
-        <article class="hero glass cinematic-panel consult-hero">
-          <div class="hero-content">
-            <div class="section-kicker">INDEPENDENT · VENDOR-NEUTRAL · ORGANISATIONAL AI CONSULTANCY</div>
-            <h1>Turn AI adoption into governed organisational capability</h1>
-            <p class="hero-copy">AI Elevate helps leadership teams connect AI strategy, organisational design, enterprise architecture, governance and human accountability—so implementation produces lasting business capability, not isolated technology adoption.</p>
-            <div class="hero-actions">
+      <div class="consult-home consult-home-cinematic">
+        <section class="home-hero" aria-labelledby="homeHeroTitle">
+          <div class="home-hero-media" aria-hidden="true">
+            <picture class="home-hero-picture">
+              <source srcset="assets/hero/AI-Elevate-homepage-hero-capability-symbol-v2.webp" type="image/webp" />
+              <img
+                class="home-hero-image"
+                src="assets/hero/AI-Elevate-homepage-hero-capability-symbol-v2.jpg"
+                alt=""
+                width="1024"
+                height="512"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
+            <div class="home-hero-fx" data-hero-fx>
+              <span class="home-hero-fx-frag"></span>
+              <span class="home-hero-fx-routes"></span>
+              <span class="home-hero-fx-layers"></span>
+              <span class="home-hero-fx-spine"></span>
+            </div>
+            <div class="home-hero-scrim"></div>
+          </div>
+
+          <div class="home-hero-content">
+            <div class="section-kicker home-hero-kicker">INDEPENDENT · VENDOR-NEUTRAL · ORGANISATIONAL AI CONSULTANCY</div>
+            <h1 id="homeHeroTitle"><span class="home-hero-line">Turn AI adoption into</span> <span class="home-hero-line">organisational capability</span></h1>
+            <p class="home-hero-copy">AI Elevate helps leadership teams connect AI strategy, organisational design, enterprise architecture, governance and human accountability—so implementation produces lasting business capability, not isolated technology adoption.</p>
+            <div class="hero-actions home-hero-actions">
               <button class="btn btn-primary btn-cta" type="button" data-view="contact">Discuss your AI capability</button>
               <button class="btn btn-secondary jump-btn" type="button" data-view="services">Explore our services</button>
-              <button class="btn btn-secondary jump-btn consult-tertiary" type="button" data-view="edmp">Discover EDMP</button>
             </div>
-            <p class="consult-proof-strip">Purpose before platform · Capability beyond adoption · Human authority by design</p>
+            <ul class="home-principles" aria-label="Strategic principles">
+              <li>
+                <button type="button" class="home-principle is-active" data-principle="purpose" aria-pressed="true">
+                  <span class="home-principle-dot" aria-hidden="true"></span>
+                  <span>Purpose before platform</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="home-principle" data-principle="capability" aria-pressed="false">
+                  <span class="home-principle-dot" aria-hidden="true"></span>
+                  <span>Capability beyond adoption</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="home-principle" data-principle="authority" aria-pressed="false">
+                  <span class="home-principle-dot" aria-hidden="true"></span>
+                  <span>Human authority by design</span>
+                </button>
+              </li>
+            </ul>
+            <p class="home-principle-note" id="homePrincipleNote" aria-live="polite">Begin with the organisational purpose AI must serve—before selecting a platform.</p>
           </div>
-        </article>
-
-        <section class="consult-block glass">
-          <div class="section-kicker">Adoption is only the beginning</div>
-          <h2>AI enters through tools. Its consequences enter the organisation.</h2>
-          <p>Organisations are introducing copilots, models and agents faster than they are redesigning decisions, roles, processes and accountability around them.</p>
-          <p>Training can increase usage. Implementation can deliver functioning technology. Neither alone determines where AI should create value, what authority it should have, how risks should be governed or what the organisation must become capable of.</p>
-          <p>AI Elevate addresses that missing organisational layer.</p>
         </section>
 
-        <section class="consult-block glass">
+        <section class="home-question-panel glass" aria-labelledby="homeQuestionTitle">
+          <div class="section-kicker">ADOPTION IS ONLY THE BEGINNING</div>
+          <h2 id="homeQuestionTitle">AI enters through technology. Its consequences enter the organisation.</h2>
+          <p>Organisations are introducing copilots, models and agents faster than they are redesigning the decisions, roles and accountabilities around them. AI Elevate addresses that organisational gap.</p>
+          <button class="home-text-link" type="button" data-scroll-target="homeConstellation">See what organisational capability requires →</button>
+        </section>
+
+        <section id="homeConstellation" class="home-constellation glass" aria-labelledby="homeConstellationTitle">
           <div class="section-kicker">What we connect</div>
-          <h2>One organisational proposition across five connected domains</h2>
-          <div class="consult-domain-grid">
-            <article><h3>Business value</h3><p>Clarify why AI matters, where it can create material value and which opportunities deserve investment.</p></article>
-            <article><h3>Organisation</h3><p>Translate AI ambition into processes, roles, decision rights, operating models and the capacity to change.</p></article>
-            <article><h3>Architecture</h3><p>Define vendor-neutral enterprise requirements that connect current capability, intended outcomes and implementation choices.</p></article>
-            <article><h3>Governance and accountability</h3><p>Make human authority, assurance, escalation and responsibility explicit before AI becomes embedded in consequential work.</p></article>
-            <article><h3>Evidence and learning</h3><p>Establish baselines, intended outcomes and observable evidence so the organisation can learn without losing control of change.</p></article>
+          <h2 id="homeConstellationTitle">One organisational proposition across five connected domains</h2>
+          <p class="home-constellation-intro">Business value, organisation, architecture, governance and evidence form one capability system—not five separate workstreams.</p>
+
+          <div class="home-constellation-shell" data-home-constellation>
+            <div class="home-constellation-track" aria-hidden="true">
+              <span class="home-constellation-line"></span>
+              <span class="home-constellation-fill"></span>
+            </div>
+            <div class="home-constellation-nodes" role="tablist" aria-label="Connected organisational domains">
+              <button type="button" class="home-domain-node is-active" role="tab" id="domain-tab-value" aria-selected="true" aria-controls="domain-panel" data-domain="value">
+                <span class="home-domain-mark">1</span>
+                <span class="home-domain-label">Business value</span>
+              </button>
+              <button type="button" class="home-domain-node" role="tab" id="domain-tab-org" aria-selected="false" aria-controls="domain-panel" data-domain="org">
+                <span class="home-domain-mark">2</span>
+                <span class="home-domain-label">Organisation</span>
+              </button>
+              <button type="button" class="home-domain-node" role="tab" id="domain-tab-arch" aria-selected="false" aria-controls="domain-panel" data-domain="arch">
+                <span class="home-domain-mark">3</span>
+                <span class="home-domain-label">Architecture</span>
+              </button>
+              <button type="button" class="home-domain-node" role="tab" id="domain-tab-gov" aria-selected="false" aria-controls="domain-panel" data-domain="gov">
+                <span class="home-domain-mark">4</span>
+                <span class="home-domain-label">Governance and accountability</span>
+              </button>
+              <button type="button" class="home-domain-node" role="tab" id="domain-tab-evidence" aria-selected="false" aria-controls="domain-panel" data-domain="evidence">
+                <span class="home-domain-mark">5</span>
+                <span class="home-domain-label">Evidence and learning</span>
+              </button>
+            </div>
+            <div class="home-domain-panel" id="domain-panel" role="tabpanel" aria-labelledby="domain-tab-value" tabindex="0">
+              <h3 id="domainPanelTitle">Business value</h3>
+              <p id="domainPanelCopy">Clarify why AI matters, where it can create material value and which opportunities deserve investment.</p>
+            </div>
           </div>
         </section>
 
@@ -1242,6 +1311,6 @@
   <script src="edmp-assessment-preview-config.js?v=20260903-phase1d"></script>
   <script src="decision-room.js?v=20260903-phase1d"></script>
   <script src="edmp-assessment.js?v=20260903-phase1d"></script>
-  <script src="script.js?v=20260903-svc2"></script>
+  <script src="script.js?v=20260903-hero4"></script>
 </body>
 </html>

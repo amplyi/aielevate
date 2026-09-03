@@ -1244,6 +1244,7 @@ function showView(viewId) {
 
   views.forEach(view => view.classList.toggle('active-view', view.id === viewId));
   if (viewId === 'services') requestAnimationFrame(() => updateServiceJourney());
+  if (viewId === 'platform') requestAnimationFrame(() => initHomeHero(true));
   const edmpCluster = ['edmp', 'library', 'cases', 'engage', 'decision-room', 'edmp-assessment'];
   const insightsCluster = ['insights', 'insight-article'];
   navButtons.forEach(btn => {
@@ -2003,10 +2004,17 @@ setInterval(() => {
 
 
 const startupSplash = document.getElementById('startupSplash');
+let homeHeroRevealPending = false;
+function hideStartupSplash() {
+  if (!startupSplash) return;
+  startupSplash.classList.add('is-hidden');
+  if (homeHeroRevealPending) {
+    homeHeroRevealPending = false;
+    requestAnimationFrame(() => initHomeHero(true));
+  }
+}
 if (startupSplash) {
-  window.setTimeout(() => {
-    startupSplash.classList.add('is-hidden');
-  }, 3000);
+  window.setTimeout(hideStartupSplash, 1200);
 }
 
 renderCases();
@@ -2384,6 +2392,7 @@ window.addEventListener('load', () => {
   initBrandHome();
   initConsultContactForm();
   initServiceJourney();
+  initHomeHero();
 });
 
 window.navigateToView = navigateToView;
@@ -2476,4 +2485,132 @@ function initServiceJourney() {
   window.addEventListener('scroll', updateServiceJourney, { passive: true });
   window.addEventListener('resize', updateServiceJourney);
   updateServiceJourney();
+}
+
+const HOME_PRINCIPLES = {
+  purpose: 'Begin with the organisational purpose AI must serve—before selecting a platform.',
+  capability: 'Adoption shows activity. Capability is the organisation\'s ability to select, govern and improve valuable AI use cases.',
+  authority: 'Human decision ownership must be designed in before consequential AI assistance becomes routine.'
+};
+
+const HOME_DOMAINS = {
+  value: {
+    title: 'Business value',
+    copy: 'Clarify why AI matters, where it can create material value and which opportunities deserve investment.',
+    tab: 'domain-tab-value',
+    index: 0
+  },
+  org: {
+    title: 'Organisation',
+    copy: 'Translate AI ambition into processes, roles, decision rights, operating models and the capacity to change.',
+    tab: 'domain-tab-org',
+    index: 1
+  },
+  arch: {
+    title: 'Architecture',
+    copy: 'Define vendor-neutral enterprise requirements that connect current capability, intended outcomes and implementation choices.',
+    tab: 'domain-tab-arch',
+    index: 2
+  },
+  gov: {
+    title: 'Governance and accountability',
+    copy: 'Make human authority, assurance, escalation and responsibility explicit before AI becomes embedded in consequential work.',
+    tab: 'domain-tab-gov',
+    index: 3
+  },
+  evidence: {
+    title: 'Evidence and learning',
+    copy: 'Establish baselines, intended outcomes and observable evidence so the organisation can learn without losing control of change.',
+    tab: 'domain-tab-evidence',
+    index: 4
+  }
+};
+
+function initHomeHero(replay) {
+  const hero = document.querySelector('.home-hero');
+  if (!hero) return;
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const splashVisible = startupSplash && !startupSplash.classList.contains('is-hidden');
+  if (!reduce) {
+    if (splashVisible && !replay) {
+      homeHeroRevealPending = true;
+    } else {
+      if (replay) hero.classList.remove('is-animated');
+      if (!hero.classList.contains('is-animated')) {
+        requestAnimationFrame(() => hero.classList.add('is-animated'));
+      }
+    }
+  }
+
+  if (hero.dataset.bound === '1') return;
+  hero.dataset.bound = '1';
+
+  const note = document.getElementById('homePrincipleNote');
+  document.querySelectorAll('.home-principle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.home-principle').forEach((b) => {
+        b.classList.toggle('is-active', b === btn);
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
+      if (note) note.textContent = HOME_PRINCIPLES[btn.dataset.principle] || '';
+    });
+  });
+
+  document.querySelectorAll('[data-scroll-target]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.scrollTarget);
+      if (!target) return;
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+
+  const shell = document.querySelector('[data-home-constellation]');
+  if (!shell) return;
+  const panel = document.getElementById('domain-panel');
+  const title = document.getElementById('domainPanelTitle');
+  const copy = document.getElementById('domainPanelCopy');
+  const setDomain = (key) => {
+    const domain = HOME_DOMAINS[key];
+    if (!domain) return;
+    shell.style.setProperty('--domain-active', String(domain.index));
+    shell.querySelectorAll('.home-domain-node').forEach((node) => {
+      const active = node.dataset.domain === key;
+      node.classList.toggle('is-active', active);
+      node.setAttribute('aria-selected', active ? 'true' : 'false');
+      node.tabIndex = active ? 0 : -1;
+    });
+    if (title) title.textContent = domain.title;
+    if (copy) copy.textContent = domain.copy;
+    if (panel) panel.setAttribute('aria-labelledby', domain.tab);
+  };
+
+  shell.querySelectorAll('.home-domain-node').forEach((node, index) => {
+    node.tabIndex = index === 0 ? 0 : -1;
+    node.addEventListener('click', () => setDomain(node.dataset.domain));
+    node.addEventListener('keydown', (event) => {
+      const nodes = Array.from(shell.querySelectorAll('.home-domain-node'));
+      const current = nodes.indexOf(node);
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+        event.preventDefault();
+        const next = nodes[(current + 1) % nodes.length];
+        next.focus();
+        setDomain(next.dataset.domain);
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        const prev = nodes[(current - 1 + nodes.length) % nodes.length];
+        prev.focus();
+        setDomain(prev.dataset.domain);
+      } else if (event.key === 'Home') {
+        event.preventDefault();
+        nodes[0].focus();
+        setDomain(nodes[0].dataset.domain);
+      } else if (event.key === 'End') {
+        event.preventDefault();
+        nodes[nodes.length - 1].focus();
+        setDomain(nodes[nodes.length - 1].dataset.domain);
+      }
+    });
+  });
+  setDomain('value');
 }
