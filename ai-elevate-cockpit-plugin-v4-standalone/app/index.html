@@ -13,7 +13,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <link rel="icon" href="assets/ae-logo-blue.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/ae-logo-blue.png" />
-  <link rel="stylesheet" href="styles.css?v=20260903-insights" />
+  <link rel="stylesheet" href="styles.css?v=20260903-svc2" />
   <link rel="stylesheet" href="decision-room.css?v=20260903-phase1d" />
   <link rel="stylesheet" href="edmp-assessment.css?v=20260903-phase1d" />
 </head>
@@ -172,67 +172,173 @@
           </div>
           <p>We help leadership teams move from AI interest and adoption to a coherent arrangement of value, organisation, architecture, governance and evidence.</p>
         </div>
-        <div class="consult-service-cards">
-          <article class="glass consult-service-card">
-            <div class="section-kicker">A · Executive orientation</div>
-            <h3>For leaders forming or resetting their AI agenda</h3>
-            <ul>
-              <li>Executive AI briefing</li>
-              <li>Board and leadership alignment session</li>
-              <li>AI ambition and authority workshop</li>
-              <li>Decision simulation and scenario exercise</li>
-            </ul>
-            <p class="consult-outcome"><strong>Outcome:</strong> a shared understanding of why AI matters, what must be decided and where human responsibility must remain explicit.</p>
-          </article>
-          <article class="glass consult-service-card">
-            <div class="section-kicker">B · AI capability diagnosis</div>
-            <h3>For organisations that need an evidence-based starting point</h3>
-            <ul>
-              <li>AI Capability Opportunity Scan</li>
-              <li>AI readiness and maturity assessment</li>
-              <li>Current-state capability baseline</li>
-              <li>Use-case and dependency portfolio assessment</li>
-            </ul>
-            <p class="consult-outcome"><strong>Outcome:</strong> a clear view of opportunities, constraints, dependencies and priority decisions.</p>
-          </article>
-          <article class="glass consult-service-card">
-            <div class="section-kicker">C · Strategy and organisational design</div>
-            <h3>For organisations moving from intent to an enterprise plan</h3>
-            <ul>
-              <li>Enterprise AI strategy</li>
-              <li>AI target operating model</li>
-              <li>Decision rights and accountability design</li>
-              <li>AI portfolio and investment roadmap</li>
-              <li>Workforce, role and capability implications</li>
-            </ul>
-            <p class="consult-outcome"><strong>Outcome:</strong> an organisation-level design that connects AI investment to business purpose and operating reality.</p>
-          </article>
-          <article class="glass consult-service-card">
-            <div class="section-kicker">D · Architecture and governance advisory</div>
-            <h3>For organisations that need coherent requirements and control</h3>
-            <ul>
-              <li>Vendor-neutral enterprise AI architecture advisory</li>
-              <li>AI governance and assurance model</li>
-              <li>Human–AI authority and escalation design</li>
-              <li>Evidence, traceability and decision-memory design</li>
-              <li>Implementation-partner requirements and independent challenge</li>
-            </ul>
-            <p class="consult-outcome"><strong>Outcome:</strong> a governed enterprise requirement that can be implemented without surrendering client authority to a platform or supplier.</p>
-          </article>
-          <article class="glass consult-service-card">
-            <div class="section-kicker">E · Transformation accompaniment</div>
-            <h3>For organisations implementing with internal or external delivery partners</h3>
-            <ul>
-              <li>Independent programme advisory</li>
-              <li>Client-side architecture and design-authority support</li>
-              <li>Value and conformance assurance</li>
-              <li>Executive decision support</li>
-              <li>Organisational learning and capability evolution</li>
-            </ul>
-            <p class="consult-outcome"><strong>Outcome:</strong> implementation that remains aligned with intent while the organisation learns and conditions change.</p>
-          </article>
+        <p class="svc-journey-statement">Follow the complete journey or enter wherever your organisation needs clarity.</p>
+
+        <div id="svcJourney" class="svc-journey" data-active="0">
+          <nav class="svc-route" aria-label="Service capability stages">
+            <div class="svc-route-line" aria-hidden="true">
+              <span class="svc-route-fill"></span>
+            </div>
+            <ol class="svc-route-nodes">
+              <li><button type="button" class="svc-node is-active" data-svc-goto="0" aria-current="true"><span>A</span><em>Orient</em></button></li>
+              <li><button type="button" class="svc-node" data-svc-goto="1"><span>B</span><em>Diagnose</em></button></li>
+              <li><button type="button" class="svc-node" data-svc-goto="2"><span>C</span><em>Design</em></button></li>
+              <li><button type="button" class="svc-node" data-svc-goto="3"><span>D</span><em>Govern</em></button></li>
+              <li><button type="button" class="svc-node" data-svc-goto="4"><span>E</span><em>Accompany</em></button></li>
+            </ol>
+          </nav>
+
+          <div class="svc-stack">
+            <article class="svc-step is-active" id="svc-orient" data-stage="0" style="--svc-rot:-1.2deg; --svc-z:1;">
+              <div class="svc-card glass svc-card-orient">
+                <div class="svc-deco" aria-hidden="true">
+                  <svg viewBox="0 0 640 360" preserveAspectRatio="none"><g fill="none" stroke="rgba(196,140,92,.38)" stroke-width="1.2"><path d="M20 240 C140 210 220 250 320 220 C420 190 500 230 620 200"/><path d="M20 268 C160 248 240 280 340 252 C450 220 530 258 620 236"/><path d="M40 80 L180 80"/><path d="M40 96 L120 96"/></g></svg>
+                </div>
+                <div class="svc-card-inner">
+                  <div class="svc-kicker"><span class="svc-letter">A</span> Executive orientation</div>
+                  <h3>For leaders forming or resetting their AI agenda</h3>
+                  <p class="svc-explainer">A focused leadership conversation that clarifies why AI matters now, which decisions cannot wait, and where human authority must remain explicit.</p>
+                  <ul class="svc-scope">
+                    <li>Executive AI briefing</li>
+                    <li>Board and leadership alignment session</li>
+                    <li>AI ambition and authority workshop</li>
+                  </ul>
+                  <div class="svc-extra" id="svc-extra-a" hidden>
+                    <ul class="svc-scope svc-scope-more">
+                      <li>Decision simulation and scenario exercise</li>
+                    </ul>
+                  </div>
+                  <button class="svc-toggle" type="button" aria-expanded="false" aria-controls="svc-extra-a">View full scope</button>
+                  <div class="svc-outcome"><strong>Outcome:</strong> a shared understanding of why AI matters, what must be decided and where human responsibility must remain explicit.</div>
+                  <button class="btn btn-primary btn-cta svc-explore" type="button" data-view="contact" data-contact-intent="orientation">Explore this service</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="svc-step" id="svc-diagnose" data-stage="1" style="--svc-rot:0.8deg; --svc-z:2;">
+              <div class="svc-card glass svc-card-diagnose">
+                <div class="svc-deco" aria-hidden="true">
+                  <svg viewBox="0 0 640 360" preserveAspectRatio="none"><g fill="none" stroke="rgba(143,211,255,.32)" stroke-width="1"><path d="M40 40 H600 V320 H40 Z"/><path d="M40 120 H600 M40 200 H600 M40 280 H600 M180 40 V320 M320 40 V320 M460 40 V320"/><circle cx="180" cy="120" r="5" fill="rgba(143,211,255,.45)" stroke="none"/><circle cx="320" cy="200" r="5" fill="rgba(143,211,255,.45)" stroke="none"/><circle cx="460" cy="280" r="5" fill="rgba(96,165,250,.5)" stroke="none"/><path d="M80 70 L560 70" stroke="rgba(94,234,212,.4)" stroke-width="1.4"/></g></svg>
+                </div>
+                <div class="svc-card-inner">
+                  <div class="svc-kicker"><span class="svc-letter">B</span> AI capability diagnosis</div>
+                  <h3>For organisations that need an evidence-based starting point</h3>
+                  <p class="svc-explainer">A structured reading of current capability so leadership can see opportunities, constraints, dependencies and the decisions that actually unlock progress.</p>
+                  <ul class="svc-scope">
+                    <li>AI Capability Opportunity Scan</li>
+                    <li>AI readiness and maturity assessment</li>
+                    <li>Current-state capability baseline</li>
+                  </ul>
+                  <div class="svc-extra" id="svc-extra-b" hidden>
+                    <ul class="svc-scope svc-scope-more">
+                      <li>Use-case and dependency portfolio assessment</li>
+                    </ul>
+                  </div>
+                  <button class="svc-toggle" type="button" aria-expanded="false" aria-controls="svc-extra-b">View full scope</button>
+                  <div class="svc-outcome"><strong>Outcome:</strong> a clear view of opportunities, constraints, dependencies and priority decisions.</div>
+                  <button class="btn btn-primary btn-cta svc-explore" type="button" data-view="contact" data-contact-intent="scan">Explore this service</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="svc-step" id="svc-design" data-stage="2" style="--svc-rot:-0.6deg; --svc-z:3;">
+              <div class="svc-card glass svc-card-design">
+                <div class="svc-deco" aria-hidden="true">
+                  <svg viewBox="0 0 640 360" preserveAspectRatio="none"><g fill="none" stroke="rgba(143,154,255,.36)" stroke-width="1.15"><path d="M80 280 L200 160 L320 220 L440 100 L560 180"/><circle cx="80" cy="280" r="6"/><circle cx="200" cy="160" r="6"/><circle cx="320" cy="220" r="6"/><circle cx="440" cy="100" r="6"/><circle cx="560" cy="180" r="6"/><path d="M200 160 L200 80 L320 80" stroke-dasharray="4 5"/><path d="M440 100 L520 40"/></g></svg>
+                </div>
+                <div class="svc-card-inner">
+                  <div class="svc-kicker"><span class="svc-letter">C</span> Strategy and organisational design</div>
+                  <h3>For organisations moving from intent to an enterprise plan</h3>
+                  <p class="svc-explainer">The translation from ambition into an organisation-level design: operating model, decision rights, portfolio logic and the capacity to change.</p>
+                  <ul class="svc-scope">
+                    <li>Enterprise AI strategy</li>
+                    <li>AI target operating model</li>
+                    <li>Decision rights and accountability design</li>
+                  </ul>
+                  <div class="svc-extra" id="svc-extra-c" hidden>
+                    <ul class="svc-scope svc-scope-more">
+                      <li>AI portfolio and investment roadmap</li>
+                      <li>Workforce, role and capability implications</li>
+                    </ul>
+                  </div>
+                  <button class="svc-toggle" type="button" aria-expanded="false" aria-controls="svc-extra-c">View full scope</button>
+                  <div class="svc-outcome"><strong>Outcome:</strong> an organisation-level design that connects AI investment to business purpose and operating reality.</div>
+                  <button class="btn btn-primary btn-cta svc-explore" type="button" data-view="contact" data-contact-intent="design">Explore this service</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="svc-step" id="svc-govern" data-stage="3" style="--svc-rot:1deg; --svc-z:4;">
+              <div class="svc-card glass svc-card-govern">
+                <div class="svc-deco" aria-hidden="true">
+                  <svg viewBox="0 0 640 360" preserveAspectRatio="none"><g fill="none" stroke="rgba(96,165,250,.34)" stroke-width="1.1"><rect x="70" y="70" width="500" height="220" rx="8"/><rect x="100" y="100" width="440" height="160" rx="6"/><rect x="130" y="128" width="380" height="104" rx="4"/><path d="M130 180 H510"/><rect x="300" y="164" width="48" height="32" rx="3" fill="rgba(96,165,250,.18)"/></g></svg>
+                </div>
+                <div class="svc-card-inner">
+                  <div class="svc-kicker"><span class="svc-letter">D</span> Architecture and governance advisory</div>
+                  <h3>For organisations that need coherent requirements and control</h3>
+                  <p class="svc-explainer">Vendor-neutral architecture and governance that keep implementation accountable to the organisation rather than to a platform or supplier.</p>
+                  <ul class="svc-scope">
+                    <li>Vendor-neutral enterprise AI architecture advisory</li>
+                    <li>AI governance and assurance model</li>
+                    <li>Human–AI authority and escalation design</li>
+                  </ul>
+                  <div class="svc-extra" id="svc-extra-d" hidden>
+                    <ul class="svc-scope svc-scope-more">
+                      <li>Evidence, traceability and decision-memory design</li>
+                      <li>Implementation-partner requirements and independent challenge</li>
+                    </ul>
+                  </div>
+                  <button class="svc-toggle" type="button" aria-expanded="false" aria-controls="svc-extra-d">View full scope</button>
+                  <div class="svc-outcome"><strong>Outcome:</strong> a governed enterprise requirement that can be implemented without surrendering client authority to a platform or supplier.</div>
+                  <button class="btn btn-primary btn-cta svc-explore" type="button" data-view="contact" data-contact-intent="govern">Explore this service</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="svc-step" id="svc-accompany" data-stage="4" style="--svc-rot:0deg; --svc-z:5;">
+              <div class="svc-card glass svc-card-accompany">
+                <div class="svc-deco" aria-hidden="true">
+                  <svg viewBox="0 0 640 360" preserveAspectRatio="none"><g fill="none" stroke="rgba(94,234,212,.34)" stroke-width="1.2"><path d="M70 220 C160 80 240 80 320 180 C400 280 480 280 570 140"/><path d="M320 180 C360 120 420 120 470 160 C510 190 540 170 570 140"/><circle cx="70" cy="220" r="5"/><circle cx="320" cy="180" r="5"/><circle cx="570" cy="140" r="5"/></g></svg>
+                </div>
+                <div class="svc-card-inner">
+                  <div class="svc-kicker"><span class="svc-letter">E</span> Transformation accompaniment</div>
+                  <h3>For organisations implementing with internal or external delivery partners</h3>
+                  <p class="svc-explainer">Independent accompaniment so delivery stays aligned with intent while the organisation learns, conditions change, and value remains observable.</p>
+                  <ul class="svc-scope">
+                    <li>Independent programme advisory</li>
+                    <li>Client-side architecture and design-authority support</li>
+                    <li>Value and conformance assurance</li>
+                  </ul>
+                  <div class="svc-extra" id="svc-extra-e" hidden>
+                    <ul class="svc-scope svc-scope-more">
+                      <li>Executive decision support</li>
+                      <li>Organisational learning and capability evolution</li>
+                    </ul>
+                  </div>
+                  <button class="svc-toggle" type="button" aria-expanded="false" aria-controls="svc-extra-e">View full scope</button>
+                  <div class="svc-outcome"><strong>Outcome:</strong> implementation that remains aligned with intent while the organisation learns and conditions change.</div>
+                  <button class="btn btn-primary btn-cta svc-explore" type="button" data-view="contact" data-contact-intent="accompany">Explore this service</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <aside class="svc-index" aria-label="Enter at any stage">
+            <p class="svc-index-label">Enter at any stage</p>
+            <button type="button" data-svc-goto="0">A Orient</button>
+            <button type="button" data-svc-goto="1">B Diagnose</button>
+            <button type="button" data-svc-goto="2">C Design</button>
+            <button type="button" data-svc-goto="3">D Govern</button>
+            <button type="button" data-svc-goto="4">E Accompany</button>
+          </aside>
         </div>
-        <section class="consult-block glass consult-final-cta">
+
+        <div class="svc-cta-bridge" aria-hidden="true">
+          <span class="svc-cta-bridge-line"></span>
+          <span class="svc-cta-bridge-node"></span>
+        </div>
+        <section class="consult-block glass consult-final-cta svc-cta-destination">
+          <div class="section-kicker">Where the journey can start</div>
           <h2>Start with a bounded question</h2>
           <p>You do not need another generic AI roadmap. Begin with the opportunity, constraint or implementation decision that currently lacks organisational clarity.</p>
           <div class="hero-actions"><button class="btn btn-primary btn-cta" type="button" data-view="contact">Discuss your AI capability</button></div>
@@ -1136,6 +1242,6 @@
   <script src="edmp-assessment-preview-config.js?v=20260903-phase1d"></script>
   <script src="decision-room.js?v=20260903-phase1d"></script>
   <script src="edmp-assessment.js?v=20260903-phase1d"></script>
-  <script src="script.js?v=20260903-insights"></script>
+  <script src="script.js?v=20260903-svc2"></script>
 </body>
 </html>

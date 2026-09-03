@@ -1243,6 +1243,7 @@ function showView(viewId) {
   }
 
   views.forEach(view => view.classList.toggle('active-view', view.id === viewId));
+  if (viewId === 'services') requestAnimationFrame(() => updateServiceJourney());
   const edmpCluster = ['edmp', 'library', 'cases', 'engage', 'decision-room', 'edmp-assessment'];
   const insightsCluster = ['insights', 'insight-article'];
   navButtons.forEach(btn => {
@@ -1319,6 +1320,10 @@ function navigateToView(viewId) {
     const intent = window.__aieContactIntent;
     const need = document.getElementById('consultNeed');
     if (intent === 'scan' && need) need.value = 'Capability diagnosis';
+    if (intent === 'orientation' && need) need.value = 'Executive orientation';
+    if (intent === 'design' && need) need.value = 'Strategy and operating model';
+    if (intent === 'govern' && need) need.value = 'Architecture and governance';
+    if (intent === 'accompany' && need) need.value = 'Implementation partnership';
     if (intent === 'partnership' && need) need.value = 'Implementation partnership';
     window.__aieContactIntent = '';
   }
@@ -2378,6 +2383,7 @@ window.addEventListener('load', () => {
   bindRouteIntegrity();
   initBrandHome();
   initConsultContactForm();
+  initServiceJourney();
 });
 
 window.navigateToView = navigateToView;
@@ -2412,4 +2418,62 @@ function initConsultContactForm() {
     );
     window.location.href = `mailto:info@aielevate.xyz?subject=${subject}&body=${body}`;
   });
+}
+
+function updateServiceJourney() {
+  const root = document.getElementById('svcJourney');
+  if (!root || !document.getElementById('services')?.classList.contains('active-view')) return;
+  const steps = Array.from(root.querySelectorAll('.svc-step'));
+  if (!steps.length) return;
+  const stickyTop = 120;
+  let active = 0;
+  steps.forEach((step, i) => {
+    if (step.getBoundingClientRect().top <= stickyTop) active = i;
+  });
+  root.style.setProperty('--svc-active', String(active));
+  root.dataset.active = String(active);
+  steps.forEach((step, i) => {
+    step.classList.toggle('is-active', i === active);
+    step.classList.toggle('is-behind', i < active);
+  });
+  root.querySelectorAll('.svc-node').forEach((node, i) => {
+    node.classList.toggle('is-active', i === active);
+    node.classList.toggle('is-complete', i < active);
+    if (i === active) node.setAttribute('aria-current', 'true');
+    else node.removeAttribute('aria-current');
+  });
+  root.querySelectorAll('.svc-index button').forEach((btn, i) => {
+    btn.classList.toggle('is-active', i === active);
+  });
+}
+
+function initServiceJourney() {
+  const root = document.getElementById('svcJourney');
+  if (!root || root.dataset.bound === '1') return;
+  root.dataset.bound = '1';
+
+  root.querySelectorAll('.svc-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const extra = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!extra) return;
+      const open = extra.hasAttribute('hidden');
+      extra.toggleAttribute('hidden', !open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? 'Hide full scope' : 'View full scope';
+    });
+  });
+
+  const goTo = (index) => {
+    const step = root.querySelector(`.svc-step[data-stage="${index}"]`);
+    if (!step) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    step.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  };
+  root.querySelectorAll('[data-svc-goto]').forEach((btn) => {
+    btn.addEventListener('click', () => goTo(btn.dataset.svcGoto));
+  });
+
+  window.addEventListener('scroll', updateServiceJourney, { passive: true });
+  window.addEventListener('resize', updateServiceJourney);
+  updateServiceJourney();
 }
