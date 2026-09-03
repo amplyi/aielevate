@@ -34,6 +34,7 @@
   object-fit: cover;
   object-position: 68% 48%;
   background: #070b14;
+  image-rendering: auto;
 }
 .home-hero-scrim {
   position: absolute;
