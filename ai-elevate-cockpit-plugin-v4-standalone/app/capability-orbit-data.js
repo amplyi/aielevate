@@ -39,7 +39,7 @@
  spinSpeed: 0.00011,
  tooltip: {
  title: 'Business Ready',
- body: 'Organisational AI capability starts with business readiness: priorities, decision rights, value measures and the operating conditions required for AI to create durable outcomes, not another disconnected initiative.'
+ body: 'Organizational AI capability begins with business readiness: clear priorities, defined decision rights, value measures, and operating conditions that enable AI to deliver lasting outcomes—not just another disconnected initiative.'
  },
  deepContent: {
  heroLead: 'AI capability starts with organisational readiness.',
@@ -180,7 +180,7 @@
  spinSpeed: -0.00009,
  tooltip: {
  title: 'User Adoption',
- body: 'Sustainable adoption requires skills, change, engagement and explicit human authority, not licences alone. AI Elevate helps organisations turn tool uptake into accountable, improvable practice.'
+ body: 'Sustainable AI adoption depends on developing skills, fostering engagement, and establishing clear human accountability—not just acquiring licenses. AI Elevate enables organizations to transform initial adoption into accountable, continuously improving practices.'
  },
  deepContent: {
  heroLead: 'Adoption becomes capability when people can work differently with AI.',
@@ -319,7 +319,7 @@
  spinSpeed: 0.00013,
  tooltip: {
  title: 'AI Technologies',
- body: 'Models, copilots, agents and platforms are means, not the capability itself. AI Elevate helps organisations select and govern technology choices from business requirements and organisational design.'
+ body: 'AI technologies—models, co-pilots, agents, and platforms—are tools, not the capability itself. AI Elevate guides organizations in selecting and governing technology choices aligned with business requirements and organizational design.'
  },
  deepContent: {
  heroLead: 'Technology enables organisational AI capability. It does not define it.',

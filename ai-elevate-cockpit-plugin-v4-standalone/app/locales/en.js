@@ -39,16 +39,16 @@
       },
       home: {
         kicker: 'INDEPENDENT · VENDOR NEUTRAL · ORGANISATIONAL AI CONSULTANCY',
-        heroLine1: 'Turn AI adoption into',
-        heroLine2: 'organisational capability',
-        heroCopy: 'AI Elevate helps leadership teams connect AI strategy, organisational design, enterprise architecture, governance and human accountability so implementation produces lasting business capability, not isolated technology adoption.',
+        heroLine1: 'Transform AI adoption into',
+        heroLine2: 'a strategic organizational capability',
+        heroCopy: 'AI Elevate enables leadership teams to integrate AI strategy, organizational design, enterprise architecture, governance, and human accountability—ensuring implementation delivers lasting business capability, not isolated technology adoption.',
         principlePurpose: 'Purpose before platform',
         principleCapability: 'Capability beyond adoption',
         principleAuthority: 'Human authority by design',
         principlesAria: 'Strategic principles',
         constellationLink: 'See what organisational capability requires →',
         constellationKicker: 'What we connect',
-        constellationTitle: 'One organisational proposition across five connected domains',
+        constellationTitle: 'One organizational proposition, integrated across five strategic domains',
         constellationIntro: 'Business value, organisation, architecture, governance and evidence form one capability system, not five separate workstreams.',
         domainsAria: 'Connected organisational domains',
         bridgeKicker: 'How we help · Ambition → Direction',
@@ -197,7 +197,7 @@
 
   /* Packs filled below so strings stay readable */
   EN.packs.homePrinciples = {
-    purpose: 'Begin with the organisational purpose AI must serve before selecting a platform.',
+    purpose: 'Define the organizational purpose AI must serve to ensure platform choices align with real business outcomes.',
     capability: "Adoption shows activity. Capability is the organisation's ability to select, govern and improve valuable AI use cases.",
     authority: 'Human decision ownership must be designed in before consequential AI assistance becomes routine.'
   };
@@ -317,7 +317,7 @@
         shortLabel: 'Business',
         tooltip: {
           title: 'Business Ready',
-          body: 'Organisational AI capability starts with business readiness: priorities, decision rights, value measures and the operating conditions required for AI to create durable outcomes, not another disconnected initiative.'
+          body: 'Organizational AI capability begins with business readiness: clear priorities, defined decision rights, value measures, and operating conditions that enable AI to deliver lasting outcomes—not just another disconnected initiative.'
         },
         satellites: {
           strategy: { label: 'Strategy', title: 'Strategy', body: 'AI strategy only becomes executable when ambition is translated into priorities, ownership and sequenced organisational design. AI Elevate helps leadership connect intent to an implementable capability model.' },
@@ -333,7 +333,7 @@
         shortLabel: 'Adoption',
         tooltip: {
           title: 'User Adoption',
-          body: 'Sustainable adoption requires skills, change, engagement and explicit human authority, not licences alone. AI Elevate helps organisations turn tool uptake into accountable, improvable practice.'
+          body: 'Sustainable AI adoption depends on developing skills, fostering engagement, and establishing clear human accountability—not just acquiring licenses. AI Elevate enables organizations to transform initial adoption into accountable, continuously improving practices.'
         },
         satellites: {
           enablement: { label: 'Enablement', title: 'Enablement', body: 'Enablement succeeds when people understand both the tools and the decisions those tools affect. AI Elevate helps design enablement that reinforces accountability and operating standards.' },
@@ -349,7 +349,7 @@
         shortLabel: 'Technologies',
         tooltip: {
           title: 'AI Technologies',
-          body: 'Models, copilots, agents and platforms are means, not the capability itself. AI Elevate helps organisations select and govern technology choices from business requirements and organisational design.'
+          body: 'AI technologies—models, co-pilots, agents, and platforms—are tools, not the capability itself. AI Elevate guides organizations in selecting and governing technology choices aligned with business requirements and organizational design.'
         },
         satellites: {
           models: { label: 'Models', title: 'Models', body: 'Model choice should follow use case requirements, data conditions and risk posture. AI Elevate helps keep model decisions connected to organisational priorities and governance.' },

@@ -3463,7 +3463,7 @@ function initServiceJourney() {
 }
 
 const HOME_PRINCIPLES = {
- purpose: 'Begin with the organisational purpose AI must serve before selecting a platform.',
+ purpose: 'Define the organizational purpose AI must serve to ensure platform choices align with real business outcomes.',
  capability: 'Adoption shows activity. Capability is the organisation\'s ability to select, govern and improve valuable AI use cases.',
  authority: 'Human decision ownership must be designed in before consequential AI assistance becomes routine.'
 };
