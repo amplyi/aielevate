@@ -1490,24 +1490,26 @@ function navigateToView(viewId) {
  history.replaceState(null, '', window.location.pathname + window.location.search);
  }
  if (viewId === 'privacy' || viewId === 'terms') applyLegalMerchantInfo();
+ showView(viewId);
+ closeOverlayPanel();
+ let skipTopScroll = false;
  if (viewId === 'contact') {
  const intent = window.__aieContactIntent || '';
  const hub = window.__aieEngagementHub || (typeof initEngagementHub === 'function' ? initEngagementHub() : null);
  if (hub && typeof hub.setIntentFromSite === 'function' && intent) {
  hub.setIntentFromSite(intent);
- } else if (hub && !intent) {
- // keep current hub state when opening Contact without an intent
  }
  if (hub && window.__aieCapabilityContext && typeof hub.applyCapabilityContext === 'function') {
  hub.applyCapabilityContext(window.__aieCapabilityContext);
  window.__aieCapabilityContext = null;
+ skipTopScroll = true;
  }
  window.__aieContactIntent = '';
+ // Contact is already brought into view by showView; a second smooth scroll fights it on mobile.
+ skipTopScroll = true;
  }
- showView(viewId);
- closeOverlayPanel();
  const restoreInsightsScroll = viewId === 'insights' && !!loadInsightsRailState()?.scrollY;
- if (!restoreInsightsScroll) {
+ if (!restoreInsightsScroll && !skipTopScroll) {
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }
 }

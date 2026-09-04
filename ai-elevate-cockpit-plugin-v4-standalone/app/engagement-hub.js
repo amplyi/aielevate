@@ -522,8 +522,12 @@
  if (this.formOpen) {
  this.markFormStarted();
  const first = document.getElementById('ehTopic');
- if (first) first.focus({ preventScroll: false });
- panel.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
+ if (first) first.focus({ preventScroll: true });
+ const mobile = global.matchMedia('(max-width: 820px)').matches;
+ panel.scrollIntoView({
+ behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+ block: mobile ? 'start' : 'nearest'
+ });
  }
  };
 
