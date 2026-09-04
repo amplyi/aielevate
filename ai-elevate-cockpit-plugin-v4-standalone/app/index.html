@@ -16,6 +16,9 @@
   <link rel="preload" as="image" href="assets/hero/AI-Elevate-homepage-hero-capability-symbol-v2.webp?v=20260903-hq1" type="image/webp" imagesrcset="assets/hero/AI-Elevate-homepage-hero-capability-symbol-v2.webp?v=20260903-hq1" />
   <link rel="stylesheet" href="styles.css?v=20260903-hero1" />
   <link rel="stylesheet" href="home-hero.css?v=20260903-hq1" />
+  <link rel="stylesheet" href="capability-pillars.css?v=20260904-cap1" />
+  <link rel="stylesheet" href="capability-deep.css?v=20260904-cap1" />
+  <link rel="stylesheet" href="engagement-hub.css?v=20260904-eh1" />
   <link rel="stylesheet" href="partners-page.css?v=20260903-partners4" />
   <link rel="stylesheet" href="decision-room.css?v=20260903-phase1d" />
   <link rel="stylesheet" href="edmp-assessment.css?v=20260903-phase1d" />
@@ -74,6 +77,15 @@
       <nav class="main-nav" aria-label="Primary">
         <button class="nav-btn active" data-view="platform">Home</button>
         <button class="nav-btn" data-view="services">Services</button>
+        <div class="nav-cap" data-cap-nav>
+          <button type="button" class="nav-btn nav-cap-toggle" data-cap-nav-toggle aria-expanded="false" aria-controls="capNavPanel" id="capNavToggle">Capability</button>
+          <div class="nav-cap-panel" id="capNavPanel" data-cap-nav-panel hidden role="region" aria-label="Organisational AI capability">
+            <div class="nav-cap-panel-kicker">Organisational AI capability</div>
+            <button type="button" class="nav-cap-link" data-cap-nav-link="business-ready">Business Ready</button>
+            <button type="button" class="nav-cap-link" data-cap-nav-link="user-adoption">User Adoption</button>
+            <button type="button" class="nav-cap-link" data-cap-nav-link="ai-technologies">AI Technologies</button>
+          </div>
+        </div>
         <button class="nav-btn" data-view="partners">Partners</button>
         <button class="nav-btn" data-view="edmp">EDMP</button>
         <button class="nav-btn" data-view="insights">Insights</button>
@@ -90,60 +102,43 @@
   <main class="shell">
         <section id="platform" class="view active-view">
       <div class="consult-home consult-home-cinematic">
-        <section class="home-hero" aria-labelledby="homeHeroTitle">
-          <div class="home-hero-media" aria-hidden="true">
-            <picture class="home-hero-picture">
-              <source srcset="assets/hero/AI-Elevate-homepage-hero-capability-symbol-v2.webp?v=20260903-hq1" type="image/webp" />
-              <img
-                class="home-hero-image"
-                src="assets/hero/AI-Elevate-homepage-hero-capability-symbol-v2.jpg?v=20260903-hq1"
-                alt=""
-                width="2560"
-                height="1280"
-                fetchpriority="high"
-                decoding="async"
-              />
-            </picture>
-            <div class="home-hero-fx" data-hero-fx>
-              <span class="home-hero-fx-frag"></span>
-              <span class="home-hero-fx-routes"></span>
-              <span class="home-hero-fx-layers"></span>
-              <span class="home-hero-fx-spine"></span>
-            </div>
-            <div class="home-hero-scrim"></div>
-          </div>
-
-          <div class="home-hero-content">
-            <div class="section-kicker home-hero-kicker">INDEPENDENT · VENDOR-NEUTRAL · ORGANISATIONAL AI CONSULTANCY</div>
-            <h1 id="homeHeroTitle"><span class="home-hero-line">Turn AI adoption into</span> <span class="home-hero-line">organisational capability</span></h1>
-            <p class="home-hero-copy">AI Elevate helps leadership teams connect AI strategy, organisational design, enterprise architecture, governance and human accountability—so implementation produces lasting business capability, not isolated technology adoption.</p>
-            <div class="hero-actions home-hero-actions">
-              <button class="btn btn-primary btn-cta" type="button" data-view="contact">Discuss your AI capability</button>
-              <button class="btn btn-secondary jump-btn" type="button" data-view="services">Explore our services</button>
-            </div>
-            <ul class="home-principles" aria-label="Strategic principles">
-              <li>
-                <button type="button" class="home-principle is-active" data-principle="purpose" aria-pressed="true">
-                  <span class="home-principle-dot" aria-hidden="true"></span>
-                  <span>Purpose before platform</span>
-                </button>
-              </li>
-              <li>
-                <button type="button" class="home-principle" data-principle="capability" aria-pressed="false">
-                  <span class="home-principle-dot" aria-hidden="true"></span>
-                  <span>Capability beyond adoption</span>
-                </button>
-              </li>
-              <li>
-                <button type="button" class="home-principle" data-principle="authority" aria-pressed="false">
-                  <span class="home-principle-dot" aria-hidden="true"></span>
-                  <span>Human authority by design</span>
-                </button>
-              </li>
-            </ul>
-            <p class="home-principle-note" id="homePrincipleNote" aria-live="polite">Begin with the organisational purpose AI must serve—before selecting a platform.</p>
-          </div>
-        </section>
+        <section class="home-hero home-hero--pillars" aria-labelledby="homeHeroTitle">
+ <div class="home-hero-scrim" aria-hidden="true"></div>
+ <div class="home-hero-layout">
+ <div class="home-hero-content">
+ <div class="section-kicker home-hero-kicker">INDEPENDENT · VENDOR NEUTRAL · ORGANISATIONAL AI CONSULTANCY</div>
+ <h1 id="homeHeroTitle"><span class="home-hero-line">Turn AI adoption into</span> <span class="home-hero-line">organisational capability</span></h1>
+ <p class="home-hero-copy">AI Elevate helps leadership teams connect AI strategy, organisational design, enterprise architecture, governance and human accountability so implementation produces lasting business capability, not isolated technology adoption.</p>
+ <div class="hero-actions home-hero-actions">
+ <button class="btn btn-primary btn-cta" type="button" data-view="contact">Discuss your AI capability</button>
+ <button class="btn btn-secondary jump-btn" type="button" data-view="services">Explore our services</button>
+ </div>
+ <ul class="home-principles" aria-label="Strategic principles">
+ <li>
+ <button type="button" class="home-principle is-active" data-principle="purpose" aria-pressed="true">
+ <span class="home-principle-dot" aria-hidden="true"></span>
+ <span>Purpose before platform</span>
+ </button>
+ </li>
+ <li>
+ <button type="button" class="home-principle" data-principle="capability" aria-pressed="false">
+ <span class="home-principle-dot" aria-hidden="true"></span>
+ <span>Capability beyond adoption</span>
+ </button>
+ </li>
+ <li>
+ <button type="button" class="home-principle" data-principle="authority" aria-pressed="false">
+ <span class="home-principle-dot" aria-hidden="true"></span>
+ <span>Human authority by design</span>
+ </button>
+ </li>
+ </ul>
+ <p class="home-principle-note" id="homePrincipleNote" aria-live="polite">Begin with the organisational purpose AI must serve before selecting a platform.</p>
+ <button class="home-text-link home-hero-constellation-link" type="button" data-scroll-target="homeConstellation">See what organisational capability requires →</button>
+ </div>
+ <div id="capabilityPillarRoot" class="home-pillar-shell" data-capability-pillars></div>
+ </div>
+ </section>
 
         <section class="home-question-panel glass" aria-labelledby="homeQuestionTitle">
           <div class="section-kicker">ADOPTION IS ONLY THE BEGINNING</div>
@@ -1365,45 +1360,14 @@
     </section>
 
         <section id="contact" class="view">
-      <div class="consult-page">
-        <div class="section-head glass">
-          <div>
-            <div class="section-kicker">Contact</div>
-            <h2>Discuss your AI capability</h2>
-          </div>
-          <p>Tell us where AI adoption, organisational readiness, governance or implementation is creating an unresolved decision.</p>
-        </div>
-        <article class="glass consult-contact-form-card">
-          <form id="consultContactForm" class="consult-contact-form" novalidate>
-            <div class="consult-form-grid">
-              <label class="edmp-assess-field consult-field"><span>Name</span><input id="consultName" name="name" type="text" required placeholder="Your name" autocomplete="name" /></label>
-              <label class="edmp-assess-field consult-field"><span>Organisation</span><input id="consultOrg" name="organisation" type="text" required placeholder="Organisation" autocomplete="organization" /></label>
-              <label class="edmp-assess-field consult-field"><span>Role</span><input id="consultRole" name="role" type="text" required placeholder="Role / function" autocomplete="organization-title" /></label>
-              <label class="edmp-assess-field consult-field"><span>Business email</span><input id="consultEmail" name="email" type="email" required placeholder="name@company.com" autocomplete="email" /></label>
-              <label class="edmp-assess-field consult-field consult-field-full"><span>Current situation</span><textarea id="consultSituation" name="situation" required placeholder="Describe the opportunity, constraint or decision that needs clarity"></textarea></label>
-              <label class="edmp-assess-field consult-field consult-field-full"><span>Primary need</span>
-                <select id="consultNeed" name="need" required>
-                  <option value="">Select a primary need</option>
-                  <option value="Executive orientation">Executive orientation</option>
-                  <option value="Capability diagnosis">Capability diagnosis</option>
-                  <option value="Strategy and operating model">Strategy and operating model</option>
-                  <option value="Architecture and governance">Architecture and governance</option>
-                  <option value="Implementation partnership">Implementation partnership</option>
-                  <option value="EDMP">EDMP</option>
-                  <option value="Other">Other</option>
-                </select>
-              </label>
-              <label class="edmp-assess-field consult-field consult-field-full"><span>Preferred next step</span><input id="consultNext" name="next" type="text" placeholder="e.g. Opportunity Scan discussion, briefing, partner conversation" /></label>
-            </div>
-            <p class="consult-privacy-line">Your information is used only to assess and respond to your enquiry. See our <button class="footer-link engage-inline-link" type="button" data-view="privacy">Privacy Policy</button>.</p>
-            <p id="consultContactError" class="edmp-assess-error" role="alert"></p>
-            <div class="hero-actions">
-              <button class="btn btn-primary btn-cta" type="submit">Request a focused conversation</button>
-            </div>
-          </form>
-        </article>
+      <div class="consult-page engagement-hub-shell">
+        <div id="engagementHubRoot" class="engagement-hub" data-engagement-hub></div>
       </div>
     </section>
+
+    <section id="business-ready" class="view" data-capability-deep-view="business-ready"></section>
+    <section id="user-adoption" class="view" data-capability-deep-view="user-adoption"></section>
+    <section id="ai-technologies" class="view" data-capability-deep-view="ai-technologies"></section>
 
   </main>
 
@@ -1582,6 +1546,11 @@
   <script src="edmp-assessment-preview-config.js?v=20260903-phase1d"></script>
   <script src="decision-room.js?v=20260903-phase1d"></script>
   <script src="edmp-assessment.js?v=20260903-phase1d"></script>
-  <script src="script.js?v=20260903-partners2"></script>
+  <script src="capability-orbit-data.js?v=20260904-cap1"></script>
+  <script src="capability-pillars.js?v=20260904-cap1"></script>
+  <script src="capability-deep.js?v=20260904-cap1"></script>
+  <script src="engagement-hub-data.js?v=20260904-cap1"></script>
+  <script src="engagement-hub.js?v=20260904-cap1"></script>
+  <script src="script.js?v=20260904-cap1"></script>
 </body>
 </html>

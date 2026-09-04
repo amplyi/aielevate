@@ -1220,6 +1220,11 @@ function handleStaticRoute() {
     showView(hash === 'home' ? 'platform' : hash);
     return true;
   }
+  const capabilityRoutes = (window.AIE_CAPABILITY_VIEWS || ['business-ready', 'user-adoption', 'ai-technologies']);
+  if (capabilityRoutes.includes(hash)) {
+    showView(hash);
+    return true;
+  }
   setEngageThankYouVisible(false);
   return false;
 }
@@ -1244,10 +1249,18 @@ function showView(viewId) {
 
   views.forEach(view => view.classList.toggle('active-view', view.id === viewId));
   if (viewId === 'services') requestAnimationFrame(() => updateServiceJourney());
-  if (viewId === 'platform') requestAnimationFrame(() => initHomeHero(true));
+  if (viewId === 'platform') requestAnimationFrame(() => {
+    initHomeHero(true);
+    if (typeof restoreCapabilityHomeState === 'function') restoreCapabilityHomeState({ soft: true });
+  });
   if (viewId === 'partners') requestAnimationFrame(() => initPartnersPage(true));
+  const capabilityRoutes = window.AIE_CAPABILITY_VIEWS || ['business-ready', 'user-adoption', 'ai-technologies'];
+  if (capabilityRoutes.includes(viewId) && typeof showCapabilityDeep === 'function') {
+    showCapabilityDeep(viewId);
+  }
   const edmpCluster = ['edmp', 'library', 'cases', 'engage', 'decision-room', 'edmp-assessment'];
   const insightsCluster = ['insights', 'insight-article'];
+  const capabilityCluster = capabilityRoutes;
   navButtons.forEach(btn => {
     if (btn.dataset.view === 'platform') {
       btn.classList.toggle('active', viewId === 'platform');
@@ -1258,6 +1271,12 @@ function showView(viewId) {
     } else {
       btn.classList.toggle('active', btn.dataset.view === viewId);
     }
+  });
+  document.querySelectorAll('.nav-cap-toggle').forEach((btn) => {
+    btn.classList.toggle('active', capabilityCluster.includes(viewId));
+  });
+  document.querySelectorAll('[data-cap-nav-link]').forEach((link) => {
+    link.classList.toggle('is-active', link.getAttribute('data-cap-nav-link') === viewId);
   });
   footerNavButtons.forEach(btn => btn.classList.toggle('active-link', btn.dataset.view === viewId));
   updatePrefooter(viewId);
@@ -1273,7 +1292,7 @@ function showView(viewId) {
   }
   const prefooterShell = document.querySelector('.prefooter-shell');
   if (prefooterShell) {
-    prefooterShell.style.display = ['engage', 'privacy', 'terms', 'decision-room', 'edmp-assessment', 'insight-article'].includes(viewId) ? 'none' : '';
+    prefooterShell.style.display = ['engage', 'privacy', 'terms', 'decision-room', 'edmp-assessment', 'insight-article', 'business-ready', 'user-adoption', 'ai-technologies'].includes(viewId) ? 'none' : '';
   }
 
   const target = document.getElementById(viewId);
@@ -1302,6 +1321,9 @@ function navigateToView(viewId) {
     'insight-4': '#insight-4',
     'insight-5': '#insight-5',
     'insight-6': '#insight-6',
+    'business-ready': '#business-ready',
+    'user-adoption': '#user-adoption',
+    'ai-technologies': '#ai-technologies',
   };
   const insightItem = insights.find(i => i.id === viewId);
   if (insightItem) {
@@ -1319,14 +1341,25 @@ function navigateToView(viewId) {
   }
   if (viewId === 'privacy' || viewId === 'terms') applyLegalMerchantInfo();
   if (viewId === 'contact') {
-    const intent = window.__aieContactIntent;
+    const intent = window.__aieContactIntent || '';
+    const hub = window.__aieEngagementHub || (typeof initEngagementHub === 'function' ? initEngagementHub() : null);
+    if (hub && typeof hub.setIntentFromSite === 'function' && intent) {
+      hub.setIntentFromSite(intent);
+    }
+    if (hub && window.__aieCapabilityContext && typeof hub.applyCapabilityContext === 'function') {
+      hub.applyCapabilityContext(window.__aieCapabilityContext);
+      window.__aieCapabilityContext = null;
+    }
+    // legacy form fallback if hub absent
     const need = document.getElementById('consultNeed');
-    if (intent === 'scan' && need) need.value = 'Capability diagnosis';
-    if (intent === 'orientation' && need) need.value = 'Executive orientation';
-    if (intent === 'design' && need) need.value = 'Strategy and operating model';
-    if (intent === 'govern' && need) need.value = 'Architecture and governance';
-    if (intent === 'accompany' && need) need.value = 'Implementation partnership';
-    if (intent === 'partnership' && need) need.value = 'Implementation partnership';
+    if (!hub && need) {
+      if (intent === 'scan') need.value = 'Capability diagnosis';
+      if (intent === 'orientation') need.value = 'Executive orientation';
+      if (intent === 'design') need.value = 'Strategy and operating model';
+      if (intent === 'govern') need.value = 'Architecture and governance';
+      if (intent === 'accompany') need.value = 'Implementation partnership';
+      if (intent === 'partnership') need.value = 'Implementation partnership';
+    }
     window.__aieContactIntent = '';
   }
   showView(viewId);
@@ -2528,9 +2561,114 @@ const HOME_DOMAINS = {
   }
 };
 
+function restoreCapabilityHomeState(opts) {
+ opts = opts || {};
+ const api = window.AIE_CAPABILITY;
+ const focus = api && api.loadFocus();
+ if (!focus || !focus.pillar) return false;
+
+ const run = () => {
+ const root = document.getElementById('capabilityPillarRoot');
+ let pillars = root && root._capabilityPillars;
+ if (!pillars && typeof initCapabilityPillars === 'function' && root) {
+ pillars = initCapabilityPillars(root);
+ }
+ if (!pillars || typeof pillars.setPillarById !== 'function') return false;
+ pillars.setPillarById(focus.pillar, focus.capability || null);
+ if (!opts.soft) {
+ root.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+ try {
+ const feature = root.querySelector('[data-pillar-feature]');
+ if (feature) feature.focus({ preventScroll: true });
+ } catch (_) { /* ignore */ }
+ }
+ return true;
+ };
+
+ if (opts.soft) {
+ return run();
+ }
+ requestAnimationFrame(() => requestAnimationFrame(run));
+ return true;
+}
+window.restoreCapabilityHomeState = restoreCapabilityHomeState;
+
+function initCapabilityNav() {
+ const groups = document.querySelectorAll('[data-cap-nav]');
+ if (!groups.length) return;
+
+ groups.forEach((group) => {
+ if (group.dataset.bound === '1') return;
+ group.dataset.bound = '1';
+ const toggle = group.querySelector('[data-cap-nav-toggle]');
+ const panel = group.querySelector('[data-cap-nav-panel]');
+ if (!toggle || !panel) return;
+
+ const close = () => {
+ toggle.setAttribute('aria-expanded', 'false');
+ panel.hidden = true;
+ group.classList.remove('is-open');
+ };
+
+ const open = () => {
+ toggle.setAttribute('aria-expanded', 'true');
+ panel.hidden = false;
+ group.classList.add('is-open');
+ };
+
+ toggle.addEventListener('click', (e) => {
+ e.preventDefault();
+ e.stopPropagation();
+ if (toggle.getAttribute('aria-expanded') === 'true') close();
+ else open();
+ });
+
+ toggle.addEventListener('keydown', (e) => {
+ if (e.key === 'Escape') {
+ close();
+ toggle.focus();
+ }
+ });
+
+ panel.addEventListener('keydown', (e) => {
+ if (e.key === 'Escape') {
+ close();
+ toggle.focus();
+ }
+ });
+
+ panel.querySelectorAll('[data-cap-nav-link]').forEach((link) => {
+ link.addEventListener('click', () => {
+ const route = link.getAttribute('data-cap-nav-link');
+ const domain = window.AIE_CAPABILITY && window.AIE_CAPABILITY.findDomainByRoute(route);
+ if (domain && window.AIE_CAPABILITY) window.AIE_CAPABILITY.saveFocus(domain.id, null);
+ close();
+ if (typeof navigateToView === 'function') navigateToView(route);
+ const drawer = document.getElementById('headerDrawer');
+ const topbar = document.querySelector('.topbar');
+ if (topbar) topbar.classList.remove('menu-open');
+ const menuToggle = document.getElementById('mobileMenuToggle');
+ if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+ });
+ });
+
+ document.addEventListener('click', (e) => {
+ if (!group.contains(e.target)) close();
+ });
+ });
+}
+
+
 function initHomeHero(replay) {
   const hero = document.querySelector('.home-hero');
   if (!hero) return;
+
+  if (typeof initCapabilityPillars === 'function') {
+    const pillarRoot = document.getElementById('capabilityPillarRoot') || document.querySelector('[data-capability-pillars]');
+    if (pillarRoot && (replay || !pillarRoot._capabilityPillars)) {
+      initCapabilityPillars(pillarRoot);
+    }
+  }
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const splashVisible = startupSplash && !startupSplash.classList.contains('is-hidden');
