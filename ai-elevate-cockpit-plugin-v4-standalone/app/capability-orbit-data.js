@@ -39,7 +39,7 @@
  spinSpeed: 0.00011,
  tooltip: {
  title: 'Business Ready',
- body: 'Organizational AI capability begins with business readiness: clear priorities, defined decision rights, value measures, and operating conditions that enable AI to deliver lasting outcomes—not just another disconnected initiative.'
+ body: 'Organisational AI capability begins with business readiness: clear priorities, defined decision rights, value measures and operating conditions that enable AI to deliver lasting outcomes, not just another disconnected initiative.'
  },
  deepContent: {
  heroLead: 'AI capability starts with organisational readiness.',
@@ -180,7 +180,7 @@
  spinSpeed: -0.00009,
  tooltip: {
  title: 'User Adoption',
- body: 'Sustainable AI adoption depends on developing skills, fostering engagement, and establishing clear human accountability—not just acquiring licenses. AI Elevate enables organizations to transform initial adoption into accountable, continuously improving practices.'
+ body: 'Sustainable AI adoption depends on developing skills, fostering engagement and establishing clear human accountability, not just acquiring licences. AI Elevate enables organisations to transform initial adoption into accountable, continuously improving practices.'
  },
  deepContent: {
  heroLead: 'Adoption becomes capability when people can work differently with AI.',
@@ -319,7 +319,7 @@
  spinSpeed: 0.00013,
  tooltip: {
  title: 'AI Technologies',
- body: 'AI technologies—models, co-pilots, agents, and platforms—are tools, not the capability itself. AI Elevate guides organizations in selecting and governing technology choices aligned with business requirements and organizational design.'
+ body: 'AI technologies such as models, copilots, agents and platforms are tools, not the capability itself. AI Elevate guides organisations in selecting and governing technology choices aligned with business requirements and organisational design.'
  },
  deepContent: {
  heroLead: 'Technology enables organisational AI capability. It does not define it.',
