@@ -665,7 +665,7 @@ const prefooterContent = {
  platform: {
  kicker: 'AI Elevate',
  title: 'Turn AI adoption into governed organisational capability',
- text: 'We work between executive ambition and technical implementation, connecting business value, organisational design, enterprise architecture, governance and human accountability.',
+ text: 'We operate at the intersection of executive ambition and technical implementation, orchestrating business value, organisational design, enterprise architecture, governance and human accountability to embed sustainable AI capability.',
  metrics: [['Stance','Vendor neutral'],['Focus','Organisational capability'],['Role','Independent advice'],['Legal seller','AvL Consultancy']],
  primaryLabel: 'Discuss your AI capability',
  primaryIntake: 'contact',

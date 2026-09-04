@@ -60,8 +60,8 @@
         bridgeStagesAria: 'Capability bridge stages',
         bridgeCta: 'View services',
         partnerKicker: 'Partner compatible · Delivery',
-        partnerTitle: 'Independent advice that strengthens implementation',
-        partnerCopy: 'AI Elevate works alongside technology vendors, adoption specialists and implementation partners. We define the organisational conditions for success while partners retain responsibility for platform specific design and technical delivery.',
+        partnerTitle: 'Objective advice driving stronger implementation.',
+        partnerCopy: 'AI Elevate partners with technology vendors and implementation specialists to establish the leadership alignment, governance frameworks and organisational capabilities essential for successful AI adoption, while partners focus on platform design and technical delivery.',
         dualAeTitle: 'AI Elevate',
         dualAe1: 'Intent',
         dualAe2: 'Organisational requirements',
@@ -82,7 +82,7 @@
         edmpP3: 'EDMP is one specialised expression of our broader work on governed organisational AI capability.',
         edmpElementsAria: 'Decision memory elements',
         edmpSequenceAria: 'Decision memory sequence',
-        gatewayTitle: "Where is AI adoption exceeding your organisation's ability to direct it?",
+        gatewayTitle: "Where is AI adoption advancing beyond your organisation's control?",
         gatewayCopy: 'Begin with a focused conversation about the opportunity, the present capability and the decisions preventing responsible progress.',
         gatewayAria: 'Starting point',
         gatewayDirection: 'We need direction',
@@ -230,7 +230,7 @@
     platform: {
       kicker: 'AI Elevate',
       title: 'Turn AI adoption into governed organisational capability',
-      text: 'We work between executive ambition and technical implementation, connecting business value, organisational design, enterprise architecture, governance and human accountability.',
+      text: 'We operate at the intersection of executive ambition and technical implementation, orchestrating business value, organisational design, enterprise architecture, governance and human accountability to embed sustainable AI capability.',
       metrics: [['Stance', 'Vendor neutral'], ['Focus', 'Organisational capability'], ['Role', 'Independent advice'], ['Legal seller', 'AvL Consultancy']],
       primaryLabel: 'Discuss your AI capability',
       secondaryLabel: 'Explore our services'
