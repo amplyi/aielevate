@@ -1,0 +1,109 @@
+/* Subtle desktop section rail (right edge) */
+.section-rail {
+  position: fixed;
+  top: 50%;
+  right: max(12px, calc((100vw - var(--max, 1180px)) / 2 - 28px));
+  transform: translateY(-50%);
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.section-rail.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.section-rail-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 10px 6px;
+}
+
+.section-rail-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(186, 214, 255, 0.72);
+  cursor: pointer;
+  padding: 2px 0;
+  pointer-events: auto;
+}
+
+.section-rail-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid rgba(143, 180, 230, 0.35);
+  background: rgba(8, 16, 30, 0.55);
+  box-shadow: 0 0 0 1px rgba(5, 10, 20, 0.35);
+  transition: transform 0.28s ease, background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.section-rail-label {
+  position: absolute;
+  right: 18px;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(210, 228, 255, 0.78);
+  background: rgba(7, 12, 22, 0.72);
+  border: 1px solid rgba(140, 180, 255, 0.12);
+  border-radius: 999px;
+  padding: 4px 9px;
+  opacity: 0;
+  transform: translateX(6px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.section-rail-item:hover .section-rail-label,
+.section-rail-item:focus-visible .section-rail-label,
+.section-rail-item.is-active .section-rail-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.section-rail-item:hover .section-rail-dot,
+.section-rail-item:focus-visible .section-rail-dot {
+  border-color: rgba(143, 211, 255, 0.7);
+  background: rgba(143, 211, 255, 0.35);
+  transform: scale(1.15);
+  outline: none;
+}
+
+.section-rail-item.is-active .section-rail-dot {
+  border-color: rgba(143, 211, 255, 0.85);
+  background: #8fd3ff;
+  box-shadow: 0 0 0 3px rgba(143, 211, 255, 0.14);
+  transform: scale(1.2);
+}
+
+.section-rail-item:focus-visible {
+  outline: none;
+}
+
+@media (max-width: 1100px) {
+  .section-rail {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-rail,
+  .section-rail-dot,
+  .section-rail-label {
+    transition: none;
+  }
+}

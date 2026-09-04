@@ -1,421 +1,455 @@
 
 const topDomainProfiles = {
-  finance: {title:'Executive Capital Decisions',copy:'Choose the enterprise environment where reasoning, ownership, and accountability must remain visible under capital pressure.',liveLabel:'Discuss this cockpit',chip:'Executive Capital Decisions',stateLabel:'Capital decision environment',stateTitle:'Make capital reasoning, ownership continuity, and intervention thresholds visible before exposure escalates.',stateCopy:'EDMP helps finance teams preserve how capital decisions, scenario shifts, and ownership changes evolve over time.',pills:['Capital logic preserved','Scenario shifts linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['CFO','Finance Director','FP&A Lead','Treasury Owner'],insight:'Relevant to capital allocation, forecast discipline, scenario pressure, and board defensibility.'},
-  sales: {title:'Commercial Decision Flow',copy:'Choose the enterprise environment where commercial reasoning, sponsor movement, and accountable next-step logic must remain visible under pressure.',liveLabel:'Discuss this cockpit',chip:'Commercial Decision Flow',stateLabel:'Commercial decision environment',stateTitle:'Make stalled deals, sponsor gaps, and next-step ownership visible before revenue slips.',stateCopy:'EDMP helps commercial teams preserve how account pressure, intervention decisions, and ownership shifts evolve over time.',pills:['Commercial logic preserved','Stakeholder movement linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['CRO','VP Sales','Commercial Director','Strategic Account Owner'],insight:'Relevant to pipeline discipline, sponsor pressure, intervention timing, and revenue accountability.'},
-  governance: {title:'AI Decision Oversight',copy:'Choose the enterprise environment where reasoning, ownership, and accountability must remain visible under pressure.',liveLabel:'Discuss this cockpit',chip:'AI Decision Oversight',stateLabel:'Oversight environment',stateTitle:'Make decision logic, ownership, and control trace visible before failure.',stateCopy:'EDMP allows governance teams to preserve how policy exceptions, evidence gaps, control issues, and remediation paths evolve over time.',pills:['Control logic preserved','Evidence linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['AI Governance Lead','Risk Owner','Control Owner','Compliance Sponsor'],insight:'AI oversight, control traceability, evidence posture, board defensibility, intervention logic, and decision accountability.'},
-  recruitment: {title:'Talent & Hiring Decisions',copy:'Choose the enterprise environment where hiring reasoning, ownership, and accountability must remain visible under pressure.',liveLabel:'Discuss this cockpit',chip:'Talent & Hiring Decisions',stateLabel:'Talent decision environment',stateTitle:'Make role urgency, candidate flow, and hiring ownership visible before critical roles stall.',stateCopy:'EDMP helps hiring teams preserve how role pressure, interview decisions, and ownership shifts evolve over time.',pills:['Hiring logic preserved','Candidate movement linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['Talent Lead','Head of Recruitment','Hiring Manager','People Operations Sponsor'],insight:'Relevant to hiring leadership, candidate movement, decision speed, and accountability.'},
-  legal: {title:'Legal Decision Defensibility',copy:'Choose the enterprise environment where legal reasoning, ownership, and defensibility must remain visible under pressure.',liveLabel:'Discuss this cockpit',chip:'Legal Decision Defensibility',stateLabel:'Legal decision environment',stateTitle:'Make matter pressure, deadline risk, and remediation ownership visible before issues escalate.',stateCopy:'EDMP helps legal teams preserve how matters, due dates, ownership, and intervention paths evolve over time.',pills:['Legal logic preserved','Evidence linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['General Counsel','Legal Operations Lead','Senior Counsel','Risk Owner'],insight:'Relevant to legal operations, matter visibility, deadline discipline, and board defensibility.'},
-  procurement: {title:'Procurement & Vendor Decisions',copy:'Choose the enterprise environment where sourcing reasoning, ownership, and continuity accountability must remain visible under pressure.',liveLabel:'Discuss this cockpit',chip:'Procurement & Vendor Decisions',stateLabel:'Procurement decision environment',stateTitle:'Make supplier risk, sourcing pressure, and continuity ownership visible before disruption escalates.',stateCopy:'EDMP helps procurement teams preserve how supplier exposure, mitigation logic, and ownership shifts evolve over time.',pills:['Vendor logic preserved','Evidence linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['CPO','Procurement Director','Sourcing Lead','Supply Continuity Owner'],insight:'Relevant to supplier continuity, sourcing pressure, mitigation logic, and accountability.'}
+ finance: {title:'Executive Capital Decisions',copy:'Choose the enterprise environment where reasoning, ownership, and accountability must remain visible under capital pressure.',liveLabel:'Discuss this cockpit',chip:'Executive Capital Decisions',stateLabel:'Capital decision environment',stateTitle:'Make capital reasoning, ownership continuity, and intervention thresholds visible before exposure escalates.',stateCopy:'EDMP helps finance teams preserve how capital decisions, scenario shifts, and ownership changes evolve over time.',pills:['Capital logic preserved','Scenario shifts linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['CFO','Finance Director','FP&A Lead','Treasury Owner'],insight:'Relevant to capital allocation, forecast discipline, scenario pressure, and board defensibility.'},
+ sales: {title:'Commercial Decision Flow',copy:'Choose the enterprise environment where commercial reasoning, sponsor movement, and accountable next step logic must remain visible under pressure.',liveLabel:'Discuss this cockpit',chip:'Commercial Decision Flow',stateLabel:'Commercial decision environment',stateTitle:'Make stalled deals, sponsor gaps, and next step ownership visible before revenue slips.',stateCopy:'EDMP helps commercial teams preserve how account pressure, intervention decisions, and ownership shifts evolve over time.',pills:['Commercial logic preserved','Stakeholder movement linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['CRO','VP Sales','Commercial Director','Strategic Account Owner'],insight:'Relevant to pipeline discipline, sponsor pressure, intervention timing, and revenue accountability.'},
+ governance: {title:'AI Decision Oversight',copy:'Choose the enterprise environment where reasoning, ownership, and accountability must remain visible under pressure.',liveLabel:'Discuss this cockpit',chip:'AI Decision Oversight',stateLabel:'Oversight environment',stateTitle:'Make decision logic, ownership, and control trace visible before failure.',stateCopy:'EDMP allows governance teams to preserve how policy exceptions, evidence gaps, control issues, and remediation paths evolve over time.',pills:['Control logic preserved','Evidence linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['AI Governance Lead','Risk Owner','Control Owner','Compliance Sponsor'],insight:'AI oversight, control traceability, evidence posture, board defensibility, intervention logic, and decision accountability.'},
+ recruitment: {title:'Talent & Hiring Decisions',copy:'Choose the enterprise environment where hiring reasoning, ownership, and accountability must remain visible under pressure.',liveLabel:'Discuss this cockpit',chip:'Talent & Hiring Decisions',stateLabel:'Talent decision environment',stateTitle:'Make role urgency, candidate flow, and hiring ownership visible before critical roles stall.',stateCopy:'EDMP helps hiring teams preserve how role pressure, interview decisions, and ownership shifts evolve over time.',pills:['Hiring logic preserved','Candidate movement linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['Talent Lead','Head of Recruitment','Hiring Manager','People Operations Sponsor'],insight:'Relevant to hiring leadership, candidate movement, decision speed, and accountability.'},
+ legal: {title:'Legal Decision Defensibility',copy:'Choose the enterprise environment where legal reasoning, ownership, and defensibility must remain visible under pressure.',liveLabel:'Discuss this cockpit',chip:'Legal Decision Defensibility',stateLabel:'Legal decision environment',stateTitle:'Make matter pressure, deadline risk, and remediation ownership visible before issues escalate.',stateCopy:'EDMP helps legal teams preserve how matters, due dates, ownership, and intervention paths evolve over time.',pills:['Legal logic preserved','Evidence linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['General Counsel','Legal Operations Lead','Senior Counsel','Risk Owner'],insight:'Relevant to legal operations, matter visibility, deadline discipline, and board defensibility.'},
+ procurement: {title:'Procurement & Vendor Decisions',copy:'Choose the enterprise environment where sourcing reasoning, ownership, and continuity accountability must remain visible under pressure.',liveLabel:'Discuss this cockpit',chip:'Procurement & Vendor Decisions',stateLabel:'Procurement decision environment',stateTitle:'Make supplier risk, sourcing pressure, and continuity ownership visible before disruption escalates.',stateCopy:'EDMP helps procurement teams preserve how supplier exposure, mitigation logic, and ownership shifts evolve over time.',pills:['Vendor logic preserved','Evidence linked to decision state','Ownership continuity visible','Intervention history retained'],fit:['CPO','Procurement Director','Sourcing Lead','Supply Continuity Owner'],insight:'Relevant to supplier continuity, sourcing pressure, mitigation logic, and accountability.'}
 };
 
 function renderTopDomainState(domainKey) {
-  const data = topDomainProfiles[domainKey];
-  if (!data) return;
-  const byId = (id) => document.getElementById(id);
-  if (byId('domainEntryTitle')) byId('domainEntryTitle').textContent = data.title;
-  if (byId('domainEntryCopy')) byId('domainEntryCopy').textContent = data.copy;
-  if (byId('domainLiveBtn')) byId('domainLiveBtn').textContent = data.liveLabel;
-  if (byId('domainChip')) byId('domainChip').textContent = data.chip;
-  if (byId('domainStateLabel')) byId('domainStateLabel').textContent = data.stateLabel;
-  if (byId('domainStateTitle')) byId('domainStateTitle').textContent = data.stateTitle;
-  if (byId('domainStateCopy')) byId('domainStateCopy').textContent = data.stateCopy;
-  if (byId('domainStatePills')) byId('domainStatePills').innerHTML = data.pills.map(item => '<span class="state-pill">'+item+'</span>').join('');
-  if (byId('domainFitChips')) byId('domainFitChips').innerHTML = data.fit.map(item => '<span class="fit-chip">'+item+'</span>').join('');
-  if (byId('domainInsightCopy')) byId('domainInsightCopy').textContent = data.insight;
-  document.querySelectorAll('.domain-switch-card[data-domain]').forEach(function(btn){
-    btn.classList.toggle('is-active', btn.dataset.domain === domainKey);
-  });
+ const data = topDomainProfiles[domainKey];
+ if (!data) return;
+ const byId = (id) => document.getElementById(id);
+ if (byId('domainEntryTitle')) byId('domainEntryTitle').textContent = data.title;
+ if (byId('domainEntryCopy')) byId('domainEntryCopy').textContent = data.copy;
+ if (byId('domainLiveBtn')) byId('domainLiveBtn').textContent = data.liveLabel;
+ if (byId('domainChip')) byId('domainChip').textContent = data.chip;
+ if (byId('domainStateLabel')) byId('domainStateLabel').textContent = data.stateLabel;
+ if (byId('domainStateTitle')) byId('domainStateTitle').textContent = data.stateTitle;
+ if (byId('domainStateCopy')) byId('domainStateCopy').textContent = data.stateCopy;
+ if (byId('domainStatePills')) byId('domainStatePills').innerHTML = data.pills.map(item => '<span class="state-pill">'+item+'</span>').join('');
+ if (byId('domainFitChips')) byId('domainFitChips').innerHTML = data.fit.map(item => '<span class="fit-chip">'+item+'</span>').join('');
+ if (byId('domainInsightCopy')) byId('domainInsightCopy').textContent = data.insight;
+ document.querySelectorAll('.domain-switch-card[data-domain]').forEach(function(btn){
+ btn.classList.toggle('is-active', btn.dataset.domain === domainKey);
+ });
 }
 
 
 const cockpitData = [
-  {
-    id: 'finance',
-    title: 'Executive Capital Decisions',
-    domain: 'Executive Capital Decisions',
-    image: 'assets/4.png',
-    badge: 'FIN',
-    description: 'An EDMP environment for preserving capital reasoning, ownership continuity, and accountable execution under financial pressure.',
-    summary: 'A decision memory environment designed to preserve reasoning, ownership, and accountable follow-through under capital pressure.',
-    facts: [
-      ['Signal flow', 'Live'],
-      ['Scenario views', '8'],
-      ['Board framing', 'Ready'],
-      ['Action pace', 'Fast']
-    ],
-    blocks: {
-      signals: ['Cash exposure and forecast shifts', 'Margin compression and spend anomalies', 'Capital allocation pressure by scenario'],
-      structure: ['KPI strip, scenario stack, risk posture, owner trail', 'Decision windows linked to thresholds', 'Outcome memory for board reviews'],
-      actions: ['Escalate critical deviations', 'Launch finance-led action packages', 'Preserve decision history and rationale']
-    }
-  },
-  {
-    id: 'sales',
-    title: 'Commercial Decision Flow',
-    domain: 'Commercial Decision Flow',
-    image: 'assets/2.png',
-    badge: 'REV',
-    description: 'An EDMP environment for preserving commercial reasoning, sponsor movement, and next-step accountability under revenue pressure.',
-    summary: 'A decision memory environment designed to preserve reasoning, ownership, and accountable follow-through under commercial pressure.',
-    facts: [
-      ['Deal motion', 'Active'],
-      ['Scenario views', '14'],
-      ['Exec framing', 'Ready'],
-      ['Next move', 'Queued']
-    ],
-    blocks: {
-      signals: ['Stage stagnation and outreach silence', 'Executive sponsor gaps', 'Account momentum and meeting conversion'],
-      structure: ['Pipeline board by pressure and likelihood', 'Relationship map with ownership', 'Next-action engine per stage'],
-      actions: ['Prioritize executive intervention', 'Sequence follow-up plans', 'Track movement from signal to meeting to deal']
-    }
-  },
-  {
-    id: 'governance',
-    title: 'AI Decision Oversight',
-    domain: 'AI Decision Oversight',
-    image: 'assets/1.png',
-    badge: 'GOV',
-    description: 'An EDMP environment for preserving AI oversight logic, evidence posture, and accountable remediation over time.',
-    summary: 'A decision memory environment designed to preserve reasoning, ownership, and accountable follow-through under oversight pressure.',
-    facts: [
-      ['Control state', 'Tracked'],
-      ['Evidence packs', '12'],
-      ['Risk posture', 'Visible'],
-      ['Review pace', 'Weekly']
-    ],
-    blocks: {
-      signals: ['Model usage anomalies and policy exceptions', 'Control gaps and evidence shortfalls', 'Risk scoring by domain and owner'],
-      structure: ['Control mapping and responsibility grid', 'Threshold-led escalation design', 'Board-safe evidence pack'],
-      actions: ['Trigger reviews and attestations', 'Assign remediation owners', 'Keep unresolved governance matters visible']
-    }
-  },
-  {
-    id: 'recruitment',
-    title: 'Talent & Hiring Decisions',
-    domain: 'Talent & Hiring Decisions',
-    image: 'assets/3.png',
-    badge: 'TAL',
-    description: 'An EDMP environment for preserving hiring reasoning, ownership continuity, and accountable follow-through under talent pressure.',
-    summary: 'A decision memory environment designed to preserve reasoning, ownership, and accountable follow-through under hiring pressure.',
-    facts: [
-      ['Candidate flow', 'Live'],
-      ['Shortlists', '6'],
-      ['Hiring frame', 'Ready'],
-      ['Response pace', '2.1d']
-    ],
-    blocks: {
-      signals: ['Role urgency and pipeline gaps', 'Candidate quality and drop-off risk', 'Interview friction and response delays'],
-      structure: ['Demand-supply board by urgency', 'Decision cues by stage', 'Ownership across recruiter and hiring lead'],
-      actions: ['Prioritize outreach and interviews', 'Escalate stalled roles', 'Create visible next-step ownership']
-    }
-  },
-  {
-    id: 'legal',
-    title: 'Legal Decision Defensibility',
-    domain: 'Legal Decision Defensibility',
-    image: 'assets/6.png',
-    badge: 'LEG',
-    description: 'An EDMP environment for preserving legal reasoning, precedent use, ownership continuity, and defensible follow-through.',
-    summary: 'A decision memory environment designed to preserve reasoning, ownership, and accountable follow-through under legal pressure.',
-    facts: [
-      ['Matter intake', 'Live'],
-      ['Scenario views', '5'],
-      ['Counsel frame', 'Ready'],
-      ['Deadline pace', 'Tight']
-    ],
-    blocks: {
-      signals: ['Matter intake and deadline pressure', 'Priority shifts and unresolved obligations', 'Lessons learned and precedent relevance'],
-      structure: ['Matter board with risk and due-date logic', 'History, lessons, team, and detail drawers', 'Escalation paths without clutter'],
-      actions: ['Assign interventions and owners', 'Track updates against due dates', 'Export and preserve resolution history']
-    }
-  },
-  {
-    id: 'procurement',
-    title: 'Procurement & Vendor Decisions',
-    domain: 'Procurement & Vendor Decisions',
-    image: 'assets/5.png',
-    badge: 'SUP',
-    description: 'For procurement leaders that need supplier pressure, sourcing options, contract timing, and continuity risk in one place.',
-    summary: 'A procurement cockpit that makes supplier friction, continuity risk, and sourcing actions visible early enough to act.',
-    facts: [
-      ['Supplier pulse', 'Live'],
-      ['Alternate paths', '9'],
-      ['Risk framing', 'Ready'],
-      ['Action pace', 'Fast']
-    ],
-    blocks: {
-      signals: ['Supplier dependency and contract expiry', 'Lead-time risk and cost volatility', 'Single-point failures in sourcing'],
-      structure: ['Supplier board by continuity risk', 'Scenario view across alternatives', 'Action queue with owners and dates'],
-      actions: ['Renegotiate or reroute sourcing', 'Escalate continuity threats', 'Protect savings and delivery continuity']
-    }
-  }
+ {
+ id: 'finance',
+ title: 'Executive Capital Decisions',
+ domain: 'Executive Capital Decisions',
+ image: 'assets/4.png',
+ badge: 'FIN',
+ description: 'An EDMP environment for preserving capital reasoning, ownership continuity, and accountable execution under financial pressure.',
+ summary: 'A decision memory environment designed to preserve reasoning, ownership, and accountable follow through under capital pressure.',
+ facts: [
+ ['Signal flow', 'Live'],
+ ['Scenario views', '8'],
+ ['Board framing', 'Ready'],
+ ['Action pace', 'Fast']
+ ],
+ blocks: {
+ signals: ['Cash exposure and forecast shifts', 'Margin compression and spend anomalies', 'Capital allocation pressure by scenario'],
+ structure: ['KPI strip, scenario stack, risk posture, owner trail', 'Decision windows linked to thresholds', 'Outcome memory for board reviews'],
+ actions: ['Escalate critical deviations', 'Launch finance led action packages', 'Preserve decision history and rationale']
+ }
+ },
+ {
+ id: 'sales',
+ title: 'Commercial Decision Flow',
+ domain: 'Commercial Decision Flow',
+ image: 'assets/2.png',
+ badge: 'REV',
+ description: 'An EDMP environment for preserving commercial reasoning, sponsor movement, and next step accountability under revenue pressure.',
+ summary: 'A decision memory environment designed to preserve reasoning, ownership, and accountable follow through under commercial pressure.',
+ facts: [
+ ['Deal motion', 'Active'],
+ ['Scenario views', '14'],
+ ['Exec framing', 'Ready'],
+ ['Next move', 'Queued']
+ ],
+ blocks: {
+ signals: ['Stage stagnation and outreach silence', 'Executive sponsor gaps', 'Account momentum and meeting conversion'],
+ structure: ['Pipeline board by pressure and likelihood', 'Relationship map with ownership', 'Next action engine per stage'],
+ actions: ['Prioritise executive intervention', 'Sequence follow up plans', 'Track movement from signal to meeting to deal']
+ }
+ },
+ {
+ id: 'governance',
+ title: 'AI Decision Oversight',
+ domain: 'AI Decision Oversight',
+ image: 'assets/1.png',
+ badge: 'GOV',
+ description: 'An EDMP environment for preserving AI oversight logic, evidence posture, and accountable remediation over time.',
+ summary: 'A decision memory environment designed to preserve reasoning, ownership, and accountable follow through under oversight pressure.',
+ facts: [
+ ['Control state', 'Tracked'],
+ ['Evidence packs', '12'],
+ ['Risk posture', 'Visible'],
+ ['Review pace', 'Weekly']
+ ],
+ blocks: {
+ signals: ['Model usage anomalies and policy exceptions', 'Control gaps and evidence shortfalls', 'Risk scoring by domain and owner'],
+ structure: ['Control mapping and responsibility grid', 'Threshold led escalation design', 'Board safe evidence pack'],
+ actions: ['Trigger reviews and attestations', 'Assign remediation owners', 'Keep unresolved governance matters visible']
+ }
+ },
+ {
+ id: 'recruitment',
+ title: 'Talent & Hiring Decisions',
+ domain: 'Talent & Hiring Decisions',
+ image: 'assets/3.png',
+ badge: 'TAL',
+ description: 'An EDMP environment for preserving hiring reasoning, ownership continuity, and accountable follow through under talent pressure.',
+ summary: 'A decision memory environment designed to preserve reasoning, ownership, and accountable follow through under hiring pressure.',
+ facts: [
+ ['Candidate flow', 'Live'],
+ ['Shortlists', '6'],
+ ['Hiring frame', 'Ready'],
+ ['Response pace', '2.1d']
+ ],
+ blocks: {
+ signals: ['Role urgency and pipeline gaps', 'Candidate quality and drop off risk', 'Interview friction and response delays'],
+ structure: ['Demand and supply board by urgency', 'Decision cues by stage', 'Ownership across recruiter and hiring lead'],
+ actions: ['Prioritise outreach and interviews', 'Escalate stalled roles', 'Create visible next step ownership']
+ }
+ },
+ {
+ id: 'legal',
+ title: 'Legal Decision Defensibility',
+ domain: 'Legal Decision Defensibility',
+ image: 'assets/6.png',
+ badge: 'LEG',
+ description: 'An EDMP environment for preserving legal reasoning, precedent use, ownership continuity, and defensible follow through.',
+ summary: 'A decision memory environment designed to preserve reasoning, ownership, and accountable follow through under legal pressure.',
+ facts: [
+ ['Matter intake', 'Live'],
+ ['Scenario views', '5'],
+ ['Counsel frame', 'Ready'],
+ ['Deadline pace', 'Tight']
+ ],
+ blocks: {
+ signals: ['Matter intake and deadline pressure', 'Priority shifts and unresolved obligations', 'Lessons learned and precedent relevance'],
+ structure: ['Matter board with risk and due date logic', 'History, lessons, team, and detail drawers', 'Escalation paths without clutter'],
+ actions: ['Assign interventions and owners', 'Track updates against due dates', 'Export and preserve resolution history']
+ }
+ },
+ {
+ id: 'procurement',
+ title: 'Procurement & Vendor Decisions',
+ domain: 'Procurement & Vendor Decisions',
+ image: 'assets/5.png',
+ badge: 'SUP',
+ description: 'For procurement leaders that need supplier pressure, sourcing options, contract timing, and continuity risk in one place.',
+ summary: 'A procurement cockpit that makes supplier friction, continuity risk, and sourcing actions visible early enough to act.',
+ facts: [
+ ['Supplier pulse', 'Live'],
+ ['Alternate paths', '9'],
+ ['Risk framing', 'Ready'],
+ ['Action pace', 'Fast']
+ ],
+ blocks: {
+ signals: ['Supplier dependency and contract expiry', 'Lead time risk and cost volatility', 'Single point failures in sourcing'],
+ structure: ['Supplier board by continuity risk', 'Scenario view across alternatives', 'Action queue with owners and dates'],
+ actions: ['Renegotiate or reroute sourcing', 'Escalate continuity threats', 'Protect savings and delivery continuity']
+ }
+ }
 ];
 
 const caseData = {
-  finance: {
-    image: 'assets/4.png',
-    summary: 'Finance leaders use the cockpit to structure exposure movement, forecast variance, and capital trade-offs into one stable decision stance.',
-    metrics: [
-      ['Scenario recovery', '+14%'],
-      ['Liquidity clarity', '97%'],
-      ['Board turnaround', '36h'],
-      ['Capital actions', '11']
-    ],
-    steps: [
-      ['📡', 'Decision trigger captured', 'Forecast deviations, liquidity pressure, and spend anomalies enter one qualified queue.'],
-      ['🧱', 'Reasoning structured (PDE)', 'Signals are translated into thresholds, scenario options, cash implications, and owner-ready finance context.'],
-      ['🧠', 'Decision memory created', 'Leadership chooses the financial stance, trade-off, and execution path with explicit board-ready trade-offs.'],
-      ['⚙️', 'Execution trace monitored', 'Actions move into budget adjustment, controls, stakeholder communication, and monitoring.'],
-      ['✅', 'Institutional memory retained', 'Finance gains faster response, cleaner ownership, and stronger board readiness.']
-    ]
-  },
-  sales: {
-    image: 'assets/2.png',
-    summary: 'Commercial teams use the cockpit to track account pressure, relationship movement, and stalled opportunities before drift hardens into lost revenue.',
-    metrics: [
-      ['Pipeline regained', '28%'],
-      ['Executive interventions', '17'],
-      ['Stakeholders mapped', '49'],
-      ['Cycle time reduced', '31%']
-    ],
-    steps: [
-      ['📡', 'Decision trigger captured', 'Silence, stage delays, sponsor gaps, and account shifts surface as commercial signals.'],
-      ['🧱', 'Reasoning structured (PDE)', 'The team maps pressure, stakeholder gaps, buying intent, and executive access by account.'],
-      ['🧠', 'Decision memory created', 'Sales decides where to intervene, which leaders should engage, and what commercial posture to take.'],
-      ['⚙️', 'Execution trace monitored', 'Outreach, follow-up, and account actions move forward with ownership.'],
-      ['✅', 'Institutional memory retained', 'Priority deals regain movement and commercial focus becomes measurable.']
-    ]
-  },
-  governance: {
-    image: 'assets/1.png',
-    summary: 'Governance teams use the cockpit to make AI control pressure visible and link risk to named ownership, evidence, and remediation action.',
-    metrics: [
-      ['Controls linked', '36'],
-      ['Policy drift', '-42%'],
-      ['Review speed', '+39%'],
-      ['Traceability', '96%']
-    ],
-    steps: [
-      ['📡', 'Decision trigger captured', 'Usage exceptions, policy events, evidence gaps, and unresolved control issues are captured as governance signals.'],
-      ['🧱', 'Reasoning structured (PDE)', 'Signals are grouped by model, owner, risk type, evidence status, and control need.'],
-      ['🧠', 'Decision memory created', 'Leaders determine control posture, remediation sequence, and escalation logic before drift spreads.'],
-      ['⚙️', 'Execution trace monitored', 'Reviews, attestations, and remediation actions move through accountable owners.'],
-      ['✅', 'Institutional memory retained', 'Governance becomes visible, calmer, and easier to defend at board level.']
-    ]
-  },
-  recruitment: {
-    image: 'assets/3.png',
-    summary: 'Recruitment teams use the cockpit to align role pressure, candidate flow, and hiring action inside one execution view.',
-    metrics: [
-      ['Time to shortlist', '-34%'],
-      ['Drop-off reduced', '21%'],
-      ['Critical roles', '12'],
-      ['Decision latency', '2.1d']
-    ],
-    steps: [
-      ['📡', 'Decision trigger captured', 'Role demand, candidate fit, response lag, and interview friction are surfaced in one queue.'],
-      ['🧱', 'Reasoning structured (PDE)', 'Supply and demand are organized by urgency, fit, hiring owner, and blocker type.'],
-      ['🧠', 'Decision memory created', 'Recruiters and hiring leaders choose who to fast-track and where to intervene.'],
-      ['⚙️', 'Execution trace monitored', 'Interviews, outreach, and assignments move with named owners and dates.'],
-      ['✅', 'Institutional memory retained', 'Hiring flow becomes faster, more transparent, and more reliable.']
-    ]
-  },
-  legal: {
-    image: 'assets/8.png',
-    summary: 'Legal operations use the cockpit to keep matters visible, deadlines protected, and responsibility connected from intake to closure.',
-    metrics: [
-      ['Matters resolved', '83'],
-      ['Due misses', '-57%'],
-      ['Lessons captured', '24'],
-      ['Cycle time', '6.8d']
-    ],
-    steps: [
-      ['📡', 'Decision trigger captured', 'New matters, escalations, and deadline-sensitive work enter one visible legal queue.'],
-      ['🧱', 'Reasoning structured (PDE)', 'Context, precedent, owner logic, due dates, and priority posture are organized clearly.'],
-      ['🧠', 'Decision memory created', 'Counsel or operations define stance, action package, and ownership.'],
-      ['⚙️', 'Execution trace monitored', 'Tasks, updates, and communication proceed against visible obligation pressure.'],
-      ['✅', 'Institutional memory retained', 'Resolution history improves and future handling gets stronger through memory.']
-    ]
-  },
-  procurement: {
-    image: 'assets/5.png',
-    summary: 'Procurement leaders use the cockpit to act earlier on supplier risk, sourcing pressure, and continuity threats.',
-    metrics: [
-      ['Issues averted', '14'],
-      ['Savings protected', '€1.1M'],
-      ['Lead-time risk', '-26%'],
-      ['Contract actions', '33']
-    ],
-    steps: [
-      ['📡', 'Decision trigger captured', 'Supplier issues, contract deadlines, lead-time risk, and cost volatility enter the system.'],
-      ['🧱', 'Reasoning structured (PDE)', 'Teams map continuity risk, sourcing alternatives, contract timing, and operational dependency.'],
-      ['🧠', 'Decision memory created', 'Procurement chooses mitigation, renegotiation, or alternate sourcing routes.'],
-      ['⚙️', 'Execution trace monitored', 'Supplier actions move forward through owners, dates, and communication paths.'],
-      ['✅', 'Institutional memory retained', 'Continuity improves while cost and dependency pressure stay controlled.']
-    ]
-  }
+ finance: {
+ image: 'assets/4.png',
+ summary: 'Finance leaders use the cockpit to structure exposure movement, forecast variance, and capital trade offs into one stable decision stance.',
+ metrics: [
+ ['Scenario recovery', '+14%'],
+ ['Liquidity clarity', '97%'],
+ ['Board turnaround', '36h'],
+ ['Capital actions', '11']
+ ],
+ steps: [
+ ['📡', 'Decision trigger captured', 'Forecast deviations, liquidity pressure, and spend anomalies enter one qualified queue.'],
+ ['🧱', 'Reasoning structured (PDE)', 'Signals are translated into thresholds, scenario options, cash implications, and owner ready finance context.'],
+ ['🧠', 'Decision memory created', 'Leadership chooses the financial stance, trade off, and execution path with explicit board ready trade offs.'],
+ ['⚙️', 'Execution trace monitored', 'Actions move into budget adjustment, controls, stakeholder communication, and monitoring.'],
+ ['✅', 'Institutional memory retained', 'Finance gains faster response, cleaner ownership, and stronger board readiness.']
+ ]
+ },
+ sales: {
+ image: 'assets/2.png',
+ summary: 'Commercial teams use the cockpit to track account pressure, relationship movement, and stalled opportunities before drift hardens into lost revenue.',
+ metrics: [
+ ['Pipeline regained', '28%'],
+ ['Executive interventions', '17'],
+ ['Stakeholders mapped', '49'],
+ ['Cycle time reduced', '31%']
+ ],
+ steps: [
+ ['📡', 'Decision trigger captured', 'Silence, stage delays, sponsor gaps, and account shifts surface as commercial signals.'],
+ ['🧱', 'Reasoning structured (PDE)', 'The team maps pressure, stakeholder gaps, buying intent, and executive access by account.'],
+ ['🧠', 'Decision memory created', 'Sales decides where to intervene, which leaders should engage, and what commercial posture to take.'],
+ ['⚙️', 'Execution trace monitored', 'Outreach, follow up, and account actions move forward with ownership.'],
+ ['✅', 'Institutional memory retained', 'Priority deals regain movement and commercial focus becomes measurable.']
+ ]
+ },
+ governance: {
+ image: 'assets/1.png',
+ summary: 'Governance teams use the cockpit to make AI control pressure visible and link risk to named ownership, evidence, and remediation action.',
+ metrics: [
+ ['Controls linked', '36'],
+ ['Policy drift', '-42%'],
+ ['Review speed', '+39%'],
+ ['Traceability', '96%']
+ ],
+ steps: [
+ ['📡', 'Decision trigger captured', 'Usage exceptions, policy events, evidence gaps, and unresolved control issues are captured as governance signals.'],
+ ['🧱', 'Reasoning structured (PDE)', 'Signals are grouped by model, owner, risk type, evidence status, and control need.'],
+ ['🧠', 'Decision memory created', 'Leaders determine control posture, remediation sequence, and escalation logic before drift spreads.'],
+ ['⚙️', 'Execution trace monitored', 'Reviews, attestations, and remediation actions move through accountable owners.'],
+ ['✅', 'Institutional memory retained', 'Governance becomes visible, calmer, and easier to defend at board level.']
+ ]
+ },
+ recruitment: {
+ image: 'assets/3.png',
+ summary: 'Recruitment teams use the cockpit to align role pressure, candidate flow, and hiring action inside one execution view.',
+ metrics: [
+ ['Time to shortlist', '-34%'],
+ ['Drop off reduced', '21%'],
+ ['Critical roles', '12'],
+ ['Decision latency', '2.1d']
+ ],
+ steps: [
+ ['📡', 'Decision trigger captured', 'Role demand, candidate fit, response lag, and interview friction are surfaced in one queue.'],
+ ['🧱', 'Reasoning structured (PDE)', 'Supply and demand are organised by urgency, fit, hiring owner, and blocker type.'],
+ ['🧠', 'Decision memory created', 'Recruiters and hiring leaders choose who to fast track and where to intervene.'],
+ ['⚙️', 'Execution trace monitored', 'Interviews, outreach, and assignments move with named owners and dates.'],
+ ['✅', 'Institutional memory retained', 'Hiring flow becomes faster, more transparent, and more reliable.']
+ ]
+ },
+ legal: {
+ image: 'assets/8.png',
+ summary: 'Legal operations use the cockpit to keep matters visible, deadlines protected, and responsibility connected from intake to closure.',
+ metrics: [
+ ['Matters resolved', '83'],
+ ['Due misses', '-57%'],
+ ['Lessons captured', '24'],
+ ['Cycle time', '6.8d']
+ ],
+ steps: [
+ ['📡', 'Decision trigger captured', 'New matters, escalations, and deadline sensitive work enter one visible legal queue.'],
+ ['🧱', 'Reasoning structured (PDE)', 'Context, precedent, owner logic, due dates, and priority posture are organised clearly.'],
+ ['🧠', 'Decision memory created', 'Counsel or operations define stance, action package, and ownership.'],
+ ['⚙️', 'Execution trace monitored', 'Tasks, updates, and communication proceed against visible obligation pressure.'],
+ ['✅', 'Institutional memory retained', 'Resolution history improves and future handling gets stronger through memory.']
+ ]
+ },
+ procurement: {
+ image: 'assets/5.png',
+ summary: 'Procurement leaders use the cockpit to act earlier on supplier risk, sourcing pressure, and continuity threats.',
+ metrics: [
+ ['Issues averted', '14'],
+ ['Savings protected', '€1.1M'],
+ ['Lead time risk', '-26%'],
+ ['Contract actions', '33']
+ ],
+ steps: [
+ ['📡', 'Decision trigger captured', 'Supplier issues, contract deadlines, lead time risk, and cost volatility enter the system.'],
+ ['🧱', 'Reasoning structured (PDE)', 'Teams map continuity risk, sourcing alternatives, contract timing, and operational dependency.'],
+ ['🧠', 'Decision memory created', 'Procurement chooses mitigation, renegotiation, or alternate sourcing routes.'],
+ ['⚙️', 'Execution trace monitored', 'Supplier actions move forward through owners, dates, and communication paths.'],
+ ['✅', 'Institutional memory retained', 'Continuity improves while cost and dependency pressure stay controlled.']
+ ]
+ }
 };
 
 
 const cockpitDepth = {
-  finance: {
-    overview: [['Primary pressure','Liquidity, forecast, capital posture'],['Ownership layer','CFO, FP&A, treasury'],['Execution horizon','24h to 90d'],['Escalation mode','Threshold-led']],
-    metrics: [['Pressure index','72'],['Decision readiness','91%'],['Scenario count','08'],['Drift watch','Low']],
-    activity: ['Forecast variance breached board threshold','Treasury owner confirmed contingency stance','Scenario pack refreshed for Monday board view'],
-    chart: [58, 64, 61, 74, 68, 79],
-    relevance: 'Built for finance leaders who need one operating surface for exposure, scenario movement, owner accountability, and board framing.'
-  },
-  sales: {
-    overview: [['Primary pressure','Pipeline drag, stakeholder drift'],['Ownership layer','Revenue leadership, account owners'],['Execution horizon','Same week to quarter'],['Escalation mode','Deal-stage led']],
-    metrics: [['Pressure index','67'],['Decision readiness','86%'],['Scenario count','14'],['Drift watch','Medium']],
-    activity: ['Executive sponsor gap flagged on top account','Next action sequence updated across 3 stalled deals','Commercial posture shifted to intervention mode'],
-    chart: [41, 53, 49, 57, 65, 71],
-    relevance: 'Designed for revenue teams that need to make silence, relationship movement, and next-action discipline visible before revenue slips.'
-  },
-  governance: {
-    overview: [['Primary pressure','Control gaps, evidence posture'],['Ownership layer','Risk, control owners, AI governance'],['Execution horizon','Weekly to quarterly'],['Escalation mode','Policy-led']],
-    metrics: [['Pressure index','76'],['Decision readiness','89%'],['Scenario count','12'],['Drift watch','Elevated']],
-    activity: ['Evidence trail refreshed for high-risk model use','Control exception linked to named remediation owner','Policy review queue reprioritized by risk tier'],
-    chart: [62, 66, 71, 69, 74, 82],
-    relevance: 'For organizations that need AI control pressure, evidence integrity, and remediation ownership visible without governance theatre.'
-  },
-  recruitment: {
-    overview: [['Primary pressure','Role urgency, drop-off risk'],['Ownership layer','Talent lead, hiring manager'],['Execution horizon','2d to 6w'],['Escalation mode','Role criticality-led']],
-    metrics: [['Pressure index','63'],['Decision readiness','88%'],['Scenario count','06'],['Drift watch','Low']],
-    activity: ['Critical role moved into fast-track lane','Candidate quality signal improved after panel reset','Hiring manager response delay escalated'],
-    chart: [49, 55, 52, 60, 57, 69],
-    relevance: 'Created for hiring environments that need demand, candidate quality, and human judgment connected inside one accountable flow.'
-  },
-  legal: {
-    overview: [['Primary pressure','Matter load, due-date risk'],['Ownership layer','Counsel, legal ops'],['Execution horizon','Same day to 30d'],['Escalation mode','Deadline-led']],
-    metrics: [['Pressure index','70'],['Decision readiness','92%'],['Scenario count','05'],['Drift watch','Medium']],
-    activity: ['Matter queue reprioritized by due-date exposure','Precedent note attached to high-risk item','Escalation owner confirmed for contract dispute'],
-    chart: [54, 59, 65, 61, 73, 77],
-    relevance: 'For legal teams that need matters, deadlines, precedents, and owner responsibility linked in one visible system.'
-  },
-  procurement: {
-    overview: [['Primary pressure','Supplier continuity, cost volatility'],['Ownership layer','Procurement lead, supplier owner'],['Execution horizon','48h to 120d'],['Escalation mode','Continuity-led']],
-    metrics: [['Pressure index','69'],['Decision readiness','87%'],['Scenario count','09'],['Drift watch','Medium']],
-    activity: ['Alternate supplier path moved to ready state','Contract timing alert escalated to sourcing lead','Continuity watch shifted for single-source category'],
-    chart: [46, 52, 58, 63, 60, 72],
-    relevance: 'Helps procurement leaders act earlier on supplier friction, sourcing options, and continuity threats before they hit operations.'
-  }
+ finance: {
+ overview: [['Primary pressure','Liquidity, forecast, capital posture'],['Ownership layer','CFO, FP&A, treasury'],['Execution horizon','24h to 90d'],['Escalation mode','Threshold led']],
+ metrics: [['Pressure index','72'],['Decision readiness','91%'],['Scenario count','08'],['Drift watch','Low']],
+ activity: ['Forecast variance breached board threshold','Treasury owner confirmed contingency stance','Scenario pack refreshed for Monday board view'],
+ chart: [58, 64, 61, 74, 68, 79],
+ relevance: 'Built for finance leaders who need one operating surface for exposure, scenario movement, owner accountability, and board framing.'
+ },
+ sales: {
+ overview: [['Primary pressure','Pipeline drag, stakeholder drift'],['Ownership layer','Revenue leadership, account owners'],['Execution horizon','Same week to quarter'],['Escalation mode','Deal stage led']],
+ metrics: [['Pressure index','67'],['Decision readiness','86%'],['Scenario count','14'],['Drift watch','Medium']],
+ activity: ['Executive sponsor gap flagged on top account','Next action sequence updated across 3 stalled deals','Commercial posture shifted to intervention mode'],
+ chart: [41, 53, 49, 57, 65, 71],
+ relevance: 'Designed for revenue teams that need to make silence, relationship movement, and next action discipline visible before revenue slips.'
+ },
+ governance: {
+ overview: [['Primary pressure','Control gaps, evidence posture'],['Ownership layer','Risk, control owners, AI governance'],['Execution horizon','Weekly to quarterly'],['Escalation mode','Policy led']],
+ metrics: [['Pressure index','76'],['Decision readiness','89%'],['Scenario count','12'],['Drift watch','Elevated']],
+ activity: ['Evidence trail refreshed for high risk model use','Control exception linked to named remediation owner','Policy review queue reprioritised by risk tier'],
+ chart: [62, 66, 71, 69, 74, 82],
+ relevance: 'For organisations that need AI control pressure, evidence integrity, and remediation ownership visible without governance theatre.'
+ },
+ recruitment: {
+ overview: [['Primary pressure','Role urgency, drop off risk'],['Ownership layer','Talent lead, hiring manager'],['Execution horizon','2d to 6w'],['Escalation mode','Role criticality led']],
+ metrics: [['Pressure index','63'],['Decision readiness','88%'],['Scenario count','06'],['Drift watch','Low']],
+ activity: ['Critical role moved into fast track lane','Candidate quality signal improved after panel reset','Hiring manager response delay escalated'],
+ chart: [49, 55, 52, 60, 57, 69],
+ relevance: 'Created for hiring environments that need demand, candidate quality, and human judgment connected inside one accountable flow.'
+ },
+ legal: {
+ overview: [['Primary pressure','Matter load, due date risk'],['Ownership layer','Counsel, legal ops'],['Execution horizon','Same day to 30d'],['Escalation mode','Deadline led']],
+ metrics: [['Pressure index','70'],['Decision readiness','92%'],['Scenario count','05'],['Drift watch','Medium']],
+ activity: ['Matter queue reprioritised by due date exposure','Precedent note attached to high risk item','Escalation owner confirmed for contract dispute'],
+ chart: [54, 59, 65, 61, 73, 77],
+ relevance: 'For legal teams that need matters, deadlines, precedents, and owner responsibility linked in one visible system.'
+ },
+ procurement: {
+ overview: [['Primary pressure','Supplier continuity, cost volatility'],['Ownership layer','Procurement lead, supplier owner'],['Execution horizon','48h to 120d'],['Escalation mode','Continuity led']],
+ metrics: [['Pressure index','69'],['Decision readiness','87%'],['Scenario count','09'],['Drift watch','Medium']],
+ activity: ['Alternate supplier path moved to ready state','Contract timing alert escalated to sourcing lead','Continuity watch shifted for single source category'],
+ chart: [46, 52, 58, 63, 60, 72],
+ relevance: 'Helps procurement leaders act earlier on supplier friction, sourcing options, and continuity threats before they hit operations.'
+ }
 };
 
 const caseDepth = {
-  finance: {
-    context: 'Forecast volatility above baseline across liquidity and margin views.',
-    status: [['System confidence','High'],['Operational visibility','97%'],['Action maturity','Board-ready']],
-    annotation: 'Capital posture review anchored to explicit trade-off framing.'
-  },
-  sales: {
-    context: 'Stakeholder momentum is fragmenting across strategic accounts.',
-    status: [['System confidence','Medium-high'],['Operational visibility','93%'],['Action maturity','Intervention active']],
-    annotation: 'Executive sponsor paths reopened before opportunity stall hardened.'
-  },
-  governance: {
-    context: 'Control pressure is rising where evidence trails remain incomplete.',
-    status: [['System confidence','High'],['Operational visibility','96%'],['Action maturity','Remediation live']],
-    annotation: 'Ownership and evidence remain linked through every remediation step.'
-  },
-  recruitment: {
-    context: 'Critical roles are exposed to response lag and panel friction.',
-    status: [['System confidence','High'],['Operational visibility','94%'],['Action maturity','Fast-track ready']],
-    annotation: 'Hiring urgency stays visible without losing human judgment.'
-  },
-  legal: {
-    context: 'Deadline-sensitive matters require tighter precedent-aware handling.',
-    status: [['System confidence','High'],['Operational visibility','95%'],['Action maturity','Counsel aligned']],
-    annotation: 'Matter history, responsibility, and due-date pressure remain connected.'
-  },
-  procurement: {
-    context: 'Supplier dependency and continuity risk are rising across key categories.',
-    status: [['System confidence','Medium-high'],['Operational visibility','92%'],['Action maturity','Mitigation running']],
-    annotation: 'Alternative paths are visible before operational continuity slips.'
-  }
+ finance: {
+ context: 'Forecast volatility above baseline across liquidity and margin views.',
+ status: [['System confidence','High'],['Operational visibility','97%'],['Action maturity','Board ready']],
+ annotation: 'Capital posture review anchored to explicit trade off framing.'
+ },
+ sales: {
+ context: 'Stakeholder momentum is fragmenting across strategic accounts.',
+ status: [['System confidence','Medium high'],['Operational visibility','93%'],['Action maturity','Intervention active']],
+ annotation: 'Executive sponsor paths reopened before opportunity stall hardened.'
+ },
+ governance: {
+ context: 'Control pressure is rising where evidence trails remain incomplete.',
+ status: [['System confidence','High'],['Operational visibility','96%'],['Action maturity','Remediation live']],
+ annotation: 'Ownership and evidence remain linked through every remediation step.'
+ },
+ recruitment: {
+ context: 'Critical roles are exposed to response lag and panel friction.',
+ status: [['System confidence','High'],['Operational visibility','94%'],['Action maturity','Fast track ready']],
+ annotation: 'Hiring urgency stays visible without losing human judgment.'
+ },
+ legal: {
+ context: 'Deadline sensitive matters require tighter precedent aware handling.',
+ status: [['System confidence','High'],['Operational visibility','95%'],['Action maturity','Counsel aligned']],
+ annotation: 'Matter history, responsibility, and due date pressure remain connected.'
+ },
+ procurement: {
+ context: 'Supplier dependency and continuity risk are rising across key categories.',
+ status: [['System confidence','Medium high'],['Operational visibility','92%'],['Action maturity','Mitigation running']],
+ annotation: 'Alternative paths are visible before operational continuity slips.'
+ }
 };
 
 
 const insights = [
-  {
-    id: 'insight-1',
-    slug: 'ai-adoption-is-not-organisational-capability',
-    title: 'AI Adoption Is Not Organisational AI Capability',
-    category: 'Operating model and adoption',
-    filter: 'operating-model',
-    deck: 'Why widespread tool use can coexist with fragmented ownership, weak controls and little measurable value.',
-    summary: 'Adoption metrics show activity. Capability means the organisation can repeatedly select, govern, implement and improve valuable AI use cases.',
-    relevance: 'Helps leadership distinguish licences and experiments from a repeatable organisational capability.',
-    image: 'assets/insights/insight-01-organisational-capability.png',
-    alt: 'Initiative landscape and capability coherence',
-    focal: '50% 40%'
-  },
-  {
-    id: 'insight-2',
-    slug: 'why-ai-strategy-stalls-before-implementation',
-    title: 'Why AI Strategy Stalls Before Implementation',
-    category: 'Strategy and value',
-    filter: 'strategy-value',
-    deck: 'The missing translation from executive ambition to an executable organisational design.',
-    summary: 'AI strategies rarely fail for lack of ideas. They stall when priorities, decision rights, architecture, ownership and measures are not connected.',
-    relevance: 'Positions AI Elevate between boardroom intent and partner-led implementation.',
-    image: 'assets/insights/insight-02-strategy-to-execution.png',
-    alt: 'Strategy translated into a delivery map',
-    focal: '50% 35%'
-  },
-  {
-    id: 'insight-3',
-    slug: 'who-remains-accountable-when-ai-advises',
-    title: 'Who Remains Accountable When AI Advises?',
-    category: 'Governance and accountability',
-    filter: 'governance',
-    deck: 'Human authority must be designed before consequential decisions are AI-assisted.',
-    summary: 'An AI recommendation does not remove accountability. Leaders need explicit decision ownership, escalation paths and evidence requirements.',
-    relevance: 'Makes governance practical without presenting AI Elevate as a legal or compliance firm.',
-    image: 'assets/insights/insight-03-human-accountability.png',
-    alt: 'Human decision ownership and evidence review',
-    focal: '50% 45%'
-  },
-  {
-    id: 'insight-4',
-    slug: 'platform-independence-is-strategic-control',
-    title: 'Platform Independence Is a Form of Strategic Control',
-    category: 'Architecture and platforms',
-    filter: 'architecture',
-    deck: 'Why enterprise AI architecture should begin with business requirements, not a vendor catalogue.',
-    summary: 'Microsoft, ERP, cloud, data and business-application ecosystems all matter. A durable AI capability connects them without allowing one product roadmap to define the organisation\u2019s choices.',
-    relevance: 'Expresses AI Elevate\u2019s cross-platform background and vendor-neutral advisory role.',
-    image: 'assets/insights/insight-04-platform-independence.png',
-    alt: 'Connected enterprise architecture',
-    focal: '50% 50%'
-  },
-  {
-    id: 'insight-5',
-    slug: 'ai-governance-cannot-be-added-after-deployment',
-    title: 'AI Governance Cannot Be Added After Deployment',
-    category: 'Governance and accountability',
-    filter: 'governance',
-    deck: 'Decision rights, evidence, oversight and escalation belong in the design.',
-    summary: 'Retrofitting governance creates friction and rework. The control model must develop alongside the use case, operating model and technical architecture.',
-    relevance: 'Connects governance to delivery rather than treating it as a policy exercise.',
-    image: 'assets/insights/insight-05-governance-by-design.png',
-    alt: 'Governance and process design before deployment',
-    focal: '50% 38%'
-  },
-  {
-    id: 'insight-6',
-    slug: 'why-implementation-partners-need-independent-organisational-layer',
-    title: 'Why Implementation Partners Need an Independent Organisational Layer',
-    category: 'Partner delivery',
-    filter: 'partner',
-    deck: 'Clear complementary roles create more client value without duplicating technical delivery.',
-    summary: 'Implementation partners build and integrate solutions. AI Elevate helps the client define priorities, readiness, decision rights, adoption and value realisation across the whole environment.',
-    relevance: 'Makes the partner-friendly consultancy model explicit and avoids implying that partners lack capability.',
-    image: 'assets/insights/insight-06-complementary-partners.png',
-    alt: 'Joint client and partner transformation planning',
-    focal: '50% 42%'
-  }
+ {
+ id: 'insight-1',
+ slug: 'ai-adoption-is-not-organisational-capability',
+ title: 'AI Adoption Is Not Organisational AI Capability',
+ category: 'Operating model and adoption',
+ filter: 'operating-model',
+ deck: 'Why widespread tool use can coexist with fragmented ownership, weak controls and little measurable value.',
+ whyItMatters: 'Adoption shows activity. Capability means the organisation can repeatedly select, govern, implement and improve valuable AI use cases.',
+ summary: 'Adoption metrics show activity. Capability means the organisation can repeatedly select, govern, implement and improve valuable AI use cases.',
+ relevance: 'Helps leadership distinguish licences and experiments from a repeatable organisational capability.',
+ image: 'assets/insights/insight-01-organisational-capability.jpg',
+ imageWebp: 'assets/insights/insight-01-organisational-capability.webp',
+ cardWebp: 'assets/insights/insight-01-organisational-capability-card.webp',
+ alt: 'Dispersed metallic liquid droplets suggesting fragmented AI adoption across an organisation',
+ focal: '48% 46%',
+ accent: '#8fd3ff'
+ },
+ {
+ id: 'insight-2',
+ slug: 'why-ai-strategy-stalls-before-implementation',
+ title: 'Why AI Strategy Stalls Before Implementation',
+ category: 'Strategy and value',
+ filter: 'strategy-value',
+ deck: 'The missing translation from executive ambition to an executable organisational design.',
+ whyItMatters: 'AI strategies stall when priorities, architecture, ownership, decision rights and value measures are not connected.',
+ summary: 'AI strategies rarely fail for lack of ideas. They stall when priorities, decision rights, architecture, ownership and measures are not connected.',
+ relevance: 'Positions AI Elevate between boardroom intent and partner led implementation.',
+ image: 'assets/insights/insight-02-strategy-to-execution.jpg',
+ imageWebp: 'assets/insights/insight-02-strategy-to-execution.webp',
+ cardWebp: 'assets/insights/insight-02-strategy-to-execution-card.webp',
+ alt: 'Central liquid-metal cluster forming from orbiting droplets, suggesting ambition taking structured form',
+ focal: '50% 48%',
+ accent: '#7ec8e8'
+ },
+ {
+ id: 'insight-3',
+ slug: 'who-remains-accountable-when-ai-advises',
+ title: 'Who Remains Accountable When AI Advises?',
+ category: 'Governance and accountability',
+ filter: 'governance',
+ deck: 'Human authority must be designed before consequential decisions become AI assisted.',
+ whyItMatters: 'An AI recommendation does not remove accountability. Leaders need named decision owners, escalation paths and evidence requirements.',
+ summary: 'An AI recommendation does not remove accountability. Leaders need explicit decision ownership, escalation paths and evidence requirements.',
+ relevance: 'Makes governance practical without presenting AI Elevate as a legal or compliance firm.',
+ image: 'assets/insights/insight-03-human-accountability.jpg',
+ imageWebp: 'assets/insights/insight-03-human-accountability.webp',
+ cardWebp: 'assets/insights/insight-03-human-accountability-card.webp',
+ alt: 'Interconnected metallic and teal forms linked by fine filaments, suggesting decision ownership and consequence',
+ focal: '42% 48%',
+ accent: '#5eb8c8'
+ },
+ {
+ id: 'insight-4',
+ slug: 'platform-independence-is-strategic-control',
+ title: 'Platform Independence Is a Form of Strategic Control',
+ category: 'Architecture and platforms',
+ filter: 'architecture',
+ deck: 'Why enterprise AI architecture should begin with business requirements, not a vendor catalogue.',
+ whyItMatters: 'A durable capability connects Microsoft, ERP, cloud, data and business application environments without allowing one product roadmap to determine every organisational choice.',
+ summary: 'Microsoft, ERP, cloud, data and business application ecosystems all matter. A durable AI capability connects them without allowing one product roadmap to define the organisation\u2019s choices.',
+ relevance: 'Expresses AI Elevate\u2019s cross platform background and vendor neutral advisory role.',
+ image: 'assets/insights/insight-04-platform-independence.jpg',
+ imageWebp: 'assets/insights/insight-04-platform-independence.webp',
+ cardWebp: 'assets/insights/insight-04-platform-independence-card.webp',
+ alt: 'Parallel fluid streams of dark chrome and teal light suggesting distinct technology ecosystems in motion',
+ focal: '58% 50%',
+ accent: '#4db8c9'
+ },
+ {
+ id: 'insight-5',
+ slug: 'ai-governance-cannot-be-added-after-deployment',
+ title: 'AI Governance Cannot Be Added After Deployment',
+ category: 'Governance and accountability',
+ filter: 'governance',
+ deck: 'Decision rights, evidence, oversight and escalation belong in the design.',
+ whyItMatters: 'Retrofitted governance creates friction and rework. Controls must develop alongside the use case, operating model and technical architecture.',
+ summary: 'Retrofitting governance creates friction and rework. The control model must develop alongside the use case, operating model and technical architecture.',
+ relevance: 'Connects governance to delivery rather than treating it as a policy exercise.',
+ image: 'assets/insights/insight-05-governance-by-design.jpg',
+ imageWebp: 'assets/insights/insight-05-governance-by-design.webp',
+ cardWebp: 'assets/insights/insight-05-governance-by-design-card.webp',
+ alt: 'Translucent bounded droplet forms in deep navy space suggesting designed controls and operating boundaries',
+ focal: '50% 48%',
+ accent: '#9bb8d4'
+ },
+ {
+ id: 'insight-6',
+ slug: 'why-implementation-partners-need-independent-organisational-layer',
+ title: 'Why Implementation Partners Need an Independent Organisational Layer',
+ category: 'Partner delivery',
+ filter: 'partner',
+ deck: 'Clear complementary roles create more customer value without duplicating technical delivery.',
+ whyItMatters: 'Implementation partners build and integrate solutions. AI Elevate helps the client connect priorities, readiness, accountability, adoption and value realisation across the organisation.',
+ summary: 'Implementation partners build and integrate solutions. AI Elevate helps the client define priorities, readiness, decision rights, adoption and value realisation across the whole environment.',
+ relevance: 'Makes the partner friendly consultancy model explicit and avoids implying that partners lack capability.',
+ image: 'assets/insights/insight-06-complementary-partners.jpg',
+ imageWebp: 'assets/insights/insight-06-complementary-partners.webp',
+ cardWebp: 'assets/insights/insight-06-complementary-partners-card.webp',
+ alt: 'Cohesive liquid-metal structure of fused forms suggesting complementary capabilities creating one stronger outcome',
+ focal: '50% 46%',
+ accent: '#b8a090'
+ }
 ];
+window.insights = insights;
+const INSIGHTS_BASE = insights.map((item) => ({
+ title: item.title,
+ category: item.category,
+ deck: item.deck,
+ whyItMatters: item.whyItMatters,
+ summary: item.summary,
+ relevance: item.relevance,
+ alt: item.alt
+}));
 
 const navButtons = document.querySelectorAll('.nav-btn[data-view]');
 const footerNavButtons = document.querySelectorAll('.nav-btn-link[data-view]');
@@ -428,192 +462,192 @@ const insightArticles = {
 
 <h2>The business problem</h2>
 <p>Organisations invest heavily in AI tools and enablement. Adoption dashboards show increasing usage: more prompts, more integrations, more teams experimenting. Leaders interpret these signals as progress. Meanwhile, the organisation may still lack a shared view of which use cases deserve enterprise investment, which risks require governance, how decision rights should be allocated, and what evidence constitutes value realisation.</p>
-<p>Without that structure, adoption produces activity — not capability. Teams pursue local experiments with local tooling. Governance is either absent or improvised retroactively. Success is anecdotal rather than evidenced. When a senior stakeholder asks whether AI is delivering business value, the honest answer is often that nobody can say with confidence, because nobody defined what value would look like or who would be accountable for it.</p>
+<p>Without that structure, adoption produces activity, not capability. Teams pursue local experiments with local tooling. Governance is either absent or improvised retroactively. Success is anecdotal rather than evidenced. When a senior stakeholder asks whether AI is delivering business value, the honest answer is often that nobody can say with confidence, because nobody defined what value would look like or who would be accountable for it.</p>
 <p>This is not a technology failure. It is an organisational design failure. The tools work. The organisation around them does not yet operate as a capability.</p>
 <p>The distinction matters because it determines where leadership attention should go next. More licences, more models and more training will not close an organisational gap. What closes it is deliberate design: connecting AI investments to business priorities, assigning accountability, establishing governance, building evidence and creating the operating rhythm that turns experiments into a managed, improvable enterprise capability.</p>
 
 <h2>What leaders often miss</h2>
 <p>The most common oversight is treating adoption as a proxy for maturity. When a platform vendor reports that seventy percent of employees have used a copilot feature, that number describes access. It does not describe whether the organisation has prioritised its most valuable use cases, connected them to operational outcomes, established shared standards for responsible use, or built the feedback mechanisms needed to learn and improve.</p>
 <p>Leaders also frequently underestimate the organisational breadth of genuine AI capability. It is not only a technology conversation. Capability requires clarity across strategy, operating model, architecture, governance, workforce readiness and evidence. Each of these domains needs intentional design, and they must be connected. A governance framework that exists on paper but is disconnected from the architecture decisions and delivery practices remains performative.</p>
-<p>Another common gap is the absence of a portfolio view. Individual teams may be running capable experiments, but without a portfolio lens the organisation cannot compare, prioritise, sequence or coordinate. Duplication emerges. Conflicting assumptions go unresolved. Scarce resources — data engineering capacity, architecture oversight, change leadership — are consumed without strategic direction.</p>
+<p>Another common gap is the absence of a portfolio view. Individual teams may be running capable experiments, but without a portfolio lens the organisation cannot compare, prioritise, sequence or coordinate. Duplication emerges. Conflicting assumptions go unresolved. Scarce resources (data engineering capacity, architecture oversight, change leadership) are consumed without strategic direction.</p>
 
 <h2>What a stronger organisational response looks like</h2>
 <p>Organisational AI capability begins with a deliberate view of where AI should create value, and why. That means defining a portfolio of use cases connected to business outcomes rather than technology curiosity. It means establishing decision rights: who approves new use cases, who governs risk, who owns the operating model, and who is accountable for measurable outcomes.</p>
-<p>It extends into shared standards for architecture and governance. Rather than allowing each team to adopt tools independently, the organisation establishes a coherent set of principles for how AI integrates with existing systems, how data is managed, how models are evaluated, and how human oversight is maintained. This is not centralised control for its own sake — it is the minimum structure that allows distributed teams to operate with confidence, consistency and accountability.</p>
-<p>Workforce development shifts from generic AI training to role-specific capability building that aligns with the organisation\u2019s actual use cases, processes and decision environment. Adoption becomes a managed change programme rather than a licence rollout. People need to understand not just how to use a tool, but how the tool connects to the processes, decisions and outcomes that matter in their domain.</p>
-<p>The operating rhythm includes regular review of the portfolio, evidence-based assessment of value delivery, honest evaluation of what is and is not working, and structured escalation when assumptions change. Over time, this rhythm produces an organisation that can learn, adapt and extend its AI capability \u2014 not one that merely consumes more AI features.</p>
-<p>Crucially, this capability must be visible. Leaders need to be able to see the current state of AI maturity across the enterprise, identify where progress is genuine and where it is performative, and make informed decisions about where to invest next. Without that visibility, AI strategy becomes a faith-based exercise rather than an evidence-based discipline.</p>
+<p>It extends into shared standards for architecture and governance. Rather than allowing each team to adopt tools independently, the organisation establishes a coherent set of principles for how AI integrates with existing systems, how data is managed, how models are evaluated, and how human oversight is maintained. This is not centralised control for its own sake. It is the minimum structure that allows distributed teams to operate with confidence, consistency and accountability.</p>
+<p>Workforce development shifts from generic AI training to role specific capability building that aligns with the organisation\u2019s actual use cases, processes and decision environment. Adoption becomes a managed change programme rather than a licence rollout. People need to understand not just how to use a tool, but how the tool connects to the processes, decisions and outcomes that matter in their domain.</p>
+<p>The operating rhythm includes regular review of the portfolio, evidence based assessment of value delivery, honest evaluation of what is and is not working, and structured escalation when assumptions change. Over time, this rhythm produces an organisation that can learn, adapt and extend its AI capability, not one that merely consumes more AI features.</p>
+<p>Crucially, this capability must be visible. Leaders need to be able to see the current state of AI maturity across the enterprise, identify where progress is genuine and where it is performative, and make informed decisions about where to invest next. Without that visibility, AI strategy becomes a faith based exercise rather than an evidence based discipline.</p>
 
 <h2>Questions for the leadership team</h2>
 <ul>
-<li>Can you articulate the five most valuable AI use cases in your organisation today — and the evidence that supports that ranking?</li>
+<li>Can you articulate the five most valuable AI use cases in your organisation today, and the evidence that supports that ranking?</li>
 <li>Who owns the operating model for AI across the enterprise, and what authority do they have over prioritisation, standards and governance?</li>
-<li>If a material AI-related risk emerged tomorrow, is the escalation path clear, documented and exercised?</li>
+<li>If a material AI related risk emerged tomorrow, is the escalation path clear, documented and exercised?</li>
 <li>How does the organisation currently distinguish between AI adoption activity and measurable business capability?</li>
 </ul>
 
 <h2>How AI Elevate helps</h2>
-<p>AI Elevate works with leadership teams to assess the full breadth of organisational AI capability — not just technology deployment. Our AI Capability Opportunity Scan and readiness assessments examine strategy clarity, portfolio coherence, operating model maturity, governance effectiveness, workforce alignment and evidence discipline. The result is a structured baseline and a clear view of where the organisation needs to invest beyond tools. We help close the gap between what has been adopted and what the organisation can actually sustain, govern and improve.</p>
+<p>AI Elevate works with leadership teams to assess the full breadth of organisational AI capability, not just technology deployment. Our AI Capability Opportunity Scan and readiness assessments examine strategy clarity, portfolio coherence, operating model maturity, governance effectiveness, workforce alignment and evidence discipline. The result is a structured baseline and a clear view of where the organisation needs to invest beyond tools. We help close the gap between what has been adopted and what the organisation can actually sustain, govern and improve.</p>
 `,
 
 'insight-2': `
-<p class="insight-article-thesis">Most AI strategies do not fail because the ideas are wrong. They stall because the distance between executive ambition and organisational execution is larger, more structural and more interdependent than the strategy document acknowledges. The translation from intent to implementable design — connecting priorities to decision rights, architecture constraints, organisational readiness and sequenced delivery — is where strategies quietly lose momentum.</p>
+<p class="insight-article-thesis">Most AI strategies do not fail because the ideas are wrong. They stall because the distance between executive ambition and organisational execution is larger, more structural and more interdependent than the strategy document acknowledges. The translation from intent to implementable design (connecting priorities to decision rights, architecture constraints, organisational readiness and sequenced delivery) is where strategies quietly lose momentum.</p>
 
 <h2>The business problem</h2>
 <p>An executive team agrees that AI is strategically important. A strategy is written. It describes opportunities, outlines a vision, and may even identify priority domains. Yet three to six months later, little has changed operationally. Implementation partners are waiting for requirements that have not been defined. Architecture teams are uncertain which workloads to prioritise. Business units have competing expectations. And nobody has an actionable plan that connects the strategy to the organisation's real constraints, capabilities and decision structures.</p>
-<p>The strategy was not wrong — it was incomplete. It described the destination without designing the journey. It named opportunities without sequencing them against dependencies. It assumed that existing governance, decision rights and operating models would accommodate AI without deliberate adjustment. And it did not assign clear accountability for turning strategic intent into organisational action.</p>
+<p>The strategy was not wrong. It was incomplete. It described the destination without designing the journey. It named opportunities without sequencing them against dependencies. It assumed that existing governance, decision rights and operating models would accommodate AI without deliberate adjustment. And it did not assign clear accountability for turning strategic intent into organisational action.</p>
 <p>This pattern is remarkably common. It is not caused by a lack of ambition, intelligence or investment. It is caused by a missing translation layer between what leadership wants and what the organisation can execute.</p>
 
 <h2>What leaders often miss</h2>
 <p>The first gap is the assumption that a strategy document is an implementation plan. Strategy articulates direction and priorities. Implementation requires an executable design: sequenced initiatives, defined dependencies, resource commitments, governance arrangements, architecture decisions and clear measures of progress. These are fundamentally different activities, and they require different skills.</p>
-<p>The second gap is underestimating organisational friction. Every enterprise carries constraints: legacy architecture, regulatory obligations, workforce readiness, procurement cycles, existing vendor relationships and cultural norms around decision-making. A strategy that does not account for these realities will stall against them. The most common outcome is not dramatic failure but gradual loss of momentum as pilot projects proliferate without connecting back to enterprise outcomes.</p>
-<p>The third gap is the absence of decision rights. AI strategy affects multiple business functions, technology domains and governance layers. When nobody has explicit authority to arbitrate competing priorities, resolve architectural trade-offs or enforce standards, the organisation defaults to consensus — which produces delay, compromise and fragmentation.</p>
+<p>The second gap is underestimating organisational friction. Every enterprise carries constraints: legacy architecture, regulatory obligations, workforce readiness, procurement cycles, existing vendor relationships and cultural norms around decision making. A strategy that does not account for these realities will stall against them. The most common outcome is not dramatic failure but gradual loss of momentum as pilot projects proliferate without connecting back to enterprise outcomes.</p>
+<p>The third gap is the absence of decision rights. AI strategy affects multiple business functions, technology domains and governance layers. When nobody has explicit authority to arbitrate competing priorities, resolve architectural trade offs or enforce standards, the organisation defaults to consensus, which produces delay, compromise and fragmentation.</p>
 <p>Finally, leaders often miss the value definition problem. Strategy documents describe aspirations. Implementation requires observable, measurable outcomes that can be tracked, reported and used to justify continued investment. Without that definition, success remains subjective and progress is difficult to demonstrate.</p>
 
 <h2>What a stronger organisational response looks like</h2>
 <p>A robust approach treats the translation from strategy to execution as its own workstream, with dedicated attention, skilled facilitation and executive sponsorship. The output is not another strategy document but an organisational design that makes implementation possible.</p>
-<p>That design connects business outcomes to specific use cases, links use cases to architecture requirements, maps dependencies, sequences delivery against organisational readiness, defines decision rights and governance, and establishes clear, evidence-based measures of progress.</p>
-<p>It also considers change impact honestly. AI changes processes, roles, decision-making patterns and performance expectations. These changes need to be designed, communicated and managed — not assumed. Workforce implications, including skills, capacity and willingness, must be addressed as part of the design, not as an afterthought.</p>
-<p>The strongest organisations treat this translation as an iterative process. They begin with a bounded engagement \u2014 perhaps a single high-priority domain or a capability diagnosis \u2014 and use the results to refine the broader plan. This reduces risk, builds evidence and maintains organisational confidence.</p>
-<p>Importantly, the translation layer must remain active throughout delivery. Strategy does not stop when implementation begins. Assumptions change, new constraints emerge, business priorities shift and the organisation learns things during delivery that were not visible during planning. A living connection between strategy and execution \u2014 with clear ownership, regular review and explicit escalation \u2014 keeps the programme aligned with its original purpose while adapting to reality.</p>
-<p>Organisations that get this right find that their implementation partners are more effective, not less. When the strategic context is clear, requirements are well-defined and stakeholder alignment is maintained, delivery teams can focus on what they do best rather than navigating organisational ambiguity.</p>
+<p>That design connects business outcomes to specific use cases, links use cases to architecture requirements, maps dependencies, sequences delivery against organisational readiness, defines decision rights and governance, and establishes clear, evidence based measures of progress.</p>
+<p>It also considers change impact honestly. AI changes processes, roles, decision making patterns and performance expectations. These changes need to be designed, communicated and managed, not assumed. Workforce implications, including skills, capacity and willingness, must be addressed as part of the design, not as an afterthought.</p>
+<p>The strongest organisations treat this translation as an iterative process. They begin with a bounded engagement, perhaps a single high priority domain or a capability diagnosis, and use the results to refine the broader plan. This reduces risk, builds evidence and maintains organisational confidence.</p>
+<p>Importantly, the translation layer must remain active throughout delivery. Strategy does not stop when implementation begins. Assumptions change, new constraints emerge, business priorities shift and the organisation learns things during delivery that were not visible during planning. A living connection between strategy and execution, with clear ownership, regular review and explicit escalation, keeps the programme aligned with its original purpose while adapting to reality.</p>
+<p>Organisations that get this right find that their implementation partners are more effective, not less. When the strategic context is clear, requirements are defined clearly and stakeholder alignment is maintained, delivery teams can focus on what they do best rather than navigating organisational ambiguity.</p>
 
 <h2>Questions for the leadership team</h2>
 <ul>
-<li>Can you describe the three most important organisational changes required to deliver your AI strategy \u2014 beyond technology deployment?</li>
+<li>Can you describe the three most important organisational changes required to deliver your AI strategy, beyond technology deployment?</li>
 <li>Who has explicit authority to arbitrate competing AI priorities across business units and technology domains?</li>
-<li>What evidence will demonstrate that strategy execution is on track \u2014 and who is responsible for collecting it?</li>
+<li>What evidence will demonstrate that strategy execution is on track, and who is responsible for collecting it?</li>
 <li>If implementation stalls, what is the escalation path, and has it been tested?</li>
 </ul>
 
 <h2>How AI Elevate helps</h2>
-<p>AI Elevate specialises in the translation between executive AI ambition and organisational execution. We help leadership teams connect strategy to implementable design through capability diagnosis, use-case prioritisation, operating model design, architecture requirements and delivery sequencing. Our Fast Lane engagement provides one structured starting point: a bounded, evidence-based assessment that reveals where the real gaps exist between intent and readiness. The result is not another aspirational document but an organisational foundation that implementation partners can build upon.</p>
+<p>AI Elevate specialises in the translation between executive AI ambition and organisational execution. We help leadership teams connect strategy to implementable design through capability diagnosis, use case prioritisation, operating model design, architecture requirements and delivery sequencing. Our Fast Lane engagement provides one structured starting point: a bounded, evidence based assessment that reveals where the real gaps exist between intent and readiness. The result is not another aspirational document but an organisational foundation that implementation partners can build upon.</p>
 `,
 
 'insight-3': `
-<p class="insight-article-thesis">When an AI model recommends, generates or ranks, a human being must remain accountable for the decision that follows. This is not a philosophical position — it is an operational requirement. Accountability cannot be delegated to a model, and it cannot be assumed to exist simply because a human was present when the output appeared. It must be designed into the decision process before consequential choices involve AI-generated input.</p>
+<p class="insight-article-thesis">When an AI model recommends, generates or ranks, a human being must remain accountable for the decision that follows. This is not a philosophical position. It is an operational requirement. Accountability cannot be delegated to a model, and it cannot be assumed to exist simply because a human was present when the output appeared. It must be designed into the decision process before consequential choices involve AI generated input.</p>
 
 <h2>The business problem</h2>
-<p>Organisations are rapidly deploying AI capabilities that influence or directly support consequential decisions: credit assessments, recruitment screening, procurement recommendations, clinical prioritisation, investment analysis and operational planning. In many cases, the AI output is presented to a decision-maker who approves, adjusts or forwards it — but the decision process itself has not been redesigned to account for the AI involvement.</p>
-<p>The result is a growing set of decisions where accountability is unclear. If the AI recommendation is wrong, who is responsible? The person who approved it, the team that configured the model, the vendor who supplied it, or the governance function that allowed its deployment? If the decision later requires explanation — to a regulator, a board, an auditor or an affected party — can the organisation reconstruct not just what was decided but how, on what basis, what the AI contributed, what the human considered, and why the final judgement was made?</p>
-<p>For most organisations, the honest answer is no. Decision processes have not been updated. Ownership has not been explicitly assigned. Evidence requirements have not been defined. Escalation paths for uncertain or high-stakes AI-assisted decisions do not exist. The organisation has adopted the technology without redesigning the authority structure around it.</p>
+<p>Organisations are rapidly deploying AI capabilities that influence or directly support consequential decisions: credit assessments, recruitment screening, procurement recommendations, clinical prioritisation, investment analysis and operational planning. In many cases, the AI output is presented to a decision maker who approves, adjusts or forwards it, but the decision process itself has not been redesigned to account for the AI involvement.</p>
+<p>The result is a growing set of decisions where accountability is unclear. If the AI recommendation is wrong, who is responsible? The person who approved it, the team that configured the model, the vendor who supplied it, or the governance function that allowed its deployment? If the decision later requires explanation to a regulator, a board, an auditor or an affected party, can the organisation reconstruct not just what was decided but how, on what basis, what the AI contributed, what the human considered, and why the final judgement was made?</p>
+<p>For most organisations, the honest answer is no. Decision processes have not been updated. Ownership has not been explicitly assigned. Evidence requirements have not been defined. Escalation paths for uncertain or high stakes AI assisted decisions do not exist. The organisation has adopted the technology without redesigning the authority structure around it.</p>
 
 <h2>What leaders often miss</h2>
-<p>The most common oversight is assuming that human-in-the-loop means human-in-control. Placing a person at the end of an AI recommendation workflow does not automatically create meaningful oversight. If the person lacks the context, time, expertise or authority to meaningfully evaluate and challenge the AI output, approval becomes a rubber stamp. The human is present but not accountable in any substantive sense.</p>
+<p>The most common oversight is assuming that human in the loop means human in control. Placing a person at the end of an AI recommendation workflow does not automatically create meaningful oversight. If the person lacks the context, time, expertise or authority to meaningfully evaluate and challenge the AI output, approval becomes a rubber stamp. The human is present but not accountable in any substantive sense.</p>
 <p>Leaders also frequently underestimate the speed at which AI decision support becomes AI decision delegation. What begins as a helpful recommendation quickly becomes the default. Over time, overriding the AI becomes the exception rather than the routine, and the skills, judgement and information needed to exercise genuine oversight atrophy.</p>
-<p>Another gap is the absence of materiality thresholds. Not every AI-assisted decision requires the same level of human oversight. But without a deliberate classification of decision types by materiality, risk and consequence, organisations apply either too much oversight — creating bottlenecks — or too little, creating exposure.</p>
+<p>Another gap is the absence of materiality thresholds. Not every AI assisted decision requires the same level of human oversight. But without a deliberate classification of decision types by materiality, risk and consequence, organisations apply either too much oversight, creating bottlenecks, or too little, creating exposure.</p>
 <p>Finally, evidence requirements are often undefined. When a consequential decision is made with AI input, what evidence should be preserved? The model output, the human evaluation, the alternatives considered, the confidence level, the data quality, the exceptions noted? Without explicit requirements, the organisation cannot reconstruct or defend its decisions after the fact.</p>
 
 <h2>What a stronger organisational response looks like</h2>
 <p>A stronger approach begins with identifying every decision process where AI plays a consequential role and classifying those decisions by materiality and risk. For each material decision type, the organisation defines: named decision owners with explicit authority; minimum evidence requirements; confidence thresholds below which human review is mandatory; escalation paths for exceptions, disagreements and edge cases; and periodic review mechanisms to assess whether the oversight model remains effective.</p>
-<p>This is not bureaucracy. It is the minimum design required to maintain genuine human accountability in an environment where AI outputs are increasingly embedded in organisational workflows. The design should be proportionate — lightweight for low-risk operational decisions, rigorous for high-stakes strategic, financial, legal or people-related choices.</p>
-<p>Over time, organisations that take accountability seriously also invest in decision memory: the ability to reconstruct how a decision was formed, what the AI contributed, what the human considered, and how the outcome was monitored. This is where decision lineage becomes valuable — not as a compliance exercise but as an operational capability that supports learning, audit and continuous improvement.</p>
+<p>This is not bureaucracy. It is the minimum design required to maintain genuine human accountability in an environment where AI outputs are increasingly embedded in organisational workflows. The design should be proportionate: lightweight for low risk operational decisions, rigorous for high stakes strategic, financial, legal or people related choices.</p>
+<p>Over time, organisations that take accountability seriously also invest in decision memory: the ability to reconstruct how a decision was formed, what the AI contributed, what the human considered, and how the outcome was monitored. This is where decision lineage becomes valuable, not as a compliance exercise but as an operational capability that supports learning, audit and continuous improvement.</p>
 
 <h2>Questions for the leadership team</h2>
 <ul>
-<li>For your five most consequential AI-assisted decision processes, can you name the accountable decision owner — and have they accepted that accountability?</li>
-<li>What evidence would you need to reconstruct and defend an AI-influenced decision six months after it was made?</li>
-<li>Are there decision processes where the AI recommendation has effectively become the decision — and is that intentional?</li>
-<li>What happens when a decision-maker disagrees with the AI output — is there a supported, documented path for that?</li>
+<li>For your five most consequential AI assisted decision processes, can you name the accountable decision owner, and have they accepted that accountability?</li>
+<li>What evidence would you need to reconstruct and defend an AI influenced decision six months after it was made?</li>
+<li>Are there decision processes where the AI recommendation has effectively become the decision, and is that intentional?</li>
+<li>What happens when a decision maker disagrees with the AI output? Is there a supported, documented path for that?</li>
 </ul>
 
 <h2>How AI Elevate helps</h2>
-<p>AI Elevate helps organisations design human accountability into AI-assisted decision processes. We work with leadership teams to map decision types, assign ownership, define evidence requirements, establish escalation paths and build proportionate oversight models. Where durable decision lineage is required \u2014 the ability to preserve how decisions were formed, how ownership changed and how execution aligned with intent \u2014 AI Elevate offers EDMP, our focused proposition for enterprise decision memory. The goal is not to slow decisions down but to ensure they remain accountable, defensible and improvable. Accountability is a design choice, and organisations that make it deliberately are better positioned to scale AI with confidence.</p>
+<p>AI Elevate helps organisations design human accountability into AI assisted decision processes. We work with leadership teams to map decision types, assign ownership, define evidence requirements, establish escalation paths and build proportionate oversight models. Where durable decision lineage is required (the ability to preserve how decisions were formed, how ownership changed and how execution aligned with intent), AI Elevate offers EDMP, our focused proposition for enterprise decision memory. The goal is not to slow decisions down but to ensure they remain accountable, defensible and improvable. Accountability is a design choice, and organisations that make it deliberately are better positioned to scale AI with confidence.</p>
 `,
 
 'insight-4': `
-<p class="insight-article-thesis">Enterprise AI architecture should begin with business requirements and organisational principles, not with the feature set of a preferred vendor. The organisations that maintain strategic control over their AI capability are those that define their own requirements — for interoperability, portability, security, data sovereignty and operating ownership — before committing to platform-specific implementations. This is not anti-vendor. It is pro-organisation.</p>
+<p class="insight-article-thesis">Enterprise AI architecture should begin with business requirements and organisational principles, not with the feature set of a preferred vendor. The organisations that maintain strategic control over their AI capability are those that define their own requirements for interoperability, portability, security, data sovereignty and operating ownership before committing to platform specific implementations. This is not anti vendor. It is pro organisation.</p>
 
 <h2>The business problem</h2>
 <p>Most enterprises operate complex technology environments that span multiple vendors, platforms and generations of architecture. A typical large organisation relies on Microsoft for productivity and identity, one or more ERP platforms for core business processes, multiple database technologies for different workloads, cloud infrastructure from one or more hyperscalers, data platforms for analytics and AI, and a range of specialised business applications across functions.</p>
-<p>When AI enters this environment, it does not arrive in isolation. It connects to data, processes, identities, permissions, workflows and decisions that already exist across these systems. The architectural choices made about AI — where models run, how data flows, what integrates with what, and who controls the pipeline — have long-term consequences for cost, flexibility, risk and strategic independence.</p>
+<p>When AI enters this environment, it does not arrive in isolation. It connects to data, processes, identities, permissions, workflows and decisions that already exist across these systems. The architectural choices made about AI (where models run, how data flows, what integrates with what, and who controls the pipeline) have long term consequences for cost, flexibility, risk and strategic independence.</p>
 <p>The risk is not that organisations choose the wrong vendor. It is that they allow a vendor relationship to become an architectural dependency that constrains future choices. When the AI strategy, the data architecture, the integration model and the governance framework are all optimised for a single platform, the organisation has gained convenience at the expense of control.</p>
 
 <h2>What leaders often miss</h2>
-<p>The first oversight is conflating vendor partnership with vendor dependence. Working with Microsoft, AWS, Google or any other major platform is entirely reasonable — they offer capabilities, scale and support that most organisations cannot replicate. The issue arises when the organisation's own requirements, principles and boundaries have not been defined before the platform-specific design begins. Without independent requirements, every architecture decision defaults to whatever the vendor recommends.</p>
-<p>The second gap is underestimating the breadth of the existing environment. AI does not operate only within the AI platform. It touches ERP data, CRM workflows, HR processes, financial controls, security boundaries and compliance frameworks. Architecture decisions that optimise for the AI layer alone may create problems in adjacent systems — or may require the organisation to migrate, duplicate or restructure data in ways that were not anticipated or budgeted.</p>
-<p>The third oversight is assuming portability will be easy later. Platform-specific integrations, proprietary model formats, closed API dependencies and vendor-managed data pipelines accumulate quickly. Each one increases the cost and complexity of change. By the time the organisation recognises the constraint, the switching cost may be prohibitive.</p>
-<p>Finally, leaders often delegate architecture decisions entirely to technology teams without ensuring that business, governance and operating-model requirements are represented. Architecture is not only a technology conversation. It determines what the organisation can do, how quickly it can change, and what it controls.</p>
+<p>The first oversight is conflating vendor partnership with vendor dependence. Working with Microsoft, AWS, Google or any other major platform is entirely reasonable. They offer capabilities, scale and support that most organisations cannot replicate. The issue arises when the organisation's own requirements, principles and boundaries have not been defined before the platform specific design begins. Without independent requirements, every architecture decision defaults to whatever the vendor recommends.</p>
+<p>The second gap is underestimating the breadth of the existing environment. AI does not operate only within the AI platform. It touches ERP data, CRM workflows, HR processes, financial controls, security boundaries and compliance frameworks. Architecture decisions that optimise for the AI layer alone may create problems in adjacent systems, or may require the organisation to migrate, duplicate or restructure data in ways that were not anticipated or budgeted.</p>
+<p>The third oversight is assuming portability will be easy later. Platform specific integrations, proprietary model formats, closed API dependencies and vendor managed data pipelines accumulate quickly. Each one increases the cost and complexity of change. By the time the organisation recognises the constraint, the switching cost may be prohibitive.</p>
+<p>Finally, leaders often delegate architecture decisions entirely to technology teams without ensuring that business, governance and operating model requirements are represented. Architecture is not only a technology conversation. It determines what the organisation can do, how quickly it can change, and what it controls.</p>
 
 <h2>What a stronger organisational response looks like</h2>
-<p>A stronger approach starts with the organisation defining its own architectural principles for AI — before engaging in platform-specific design. These principles address questions such as: where must data remain under organisational control? What interoperability standards are required across business applications? How will models be evaluated, tested and replaced? What level of portability is necessary, and what is the acceptable cost of vendor transition? How are security, identity and access managed consistently across the AI and non-AI layers?</p>
-<p>These requirements do not replace vendor expertise. They frame it. Implementation partners continue to design, build and optimise platform-specific solutions — but they do so within a set of enterprise requirements that protect the organisation's strategic flexibility.</p>
+<p>A stronger approach starts with the organisation defining its own architectural principles for AI before engaging in platform specific design. These principles address questions such as: where must data remain under organisational control? What interoperability standards are required across business applications? How will models be evaluated, tested and replaced? What level of portability is necessary, and what is the acceptable cost of vendor transition? How are security, identity and access managed consistently across the AI and non AI layers?</p>
+<p>These requirements do not replace vendor expertise. They frame it. Implementation partners continue to design, build and optimise platform specific solutions, but they do so within a set of enterprise requirements that protect the organisation's strategic flexibility.</p>
 <p>The architecture governance model also matters. Someone in the organisation must be responsible for ensuring that individual platform decisions remain consistent with enterprise principles. Without that role, architecture coherence erodes incrementally as each project team optimises for its own scope.</p>
-<p>Organisations with mature practice also build review and adaptation into their architecture governance. Vendor capabilities evolve, business needs change, and regulatory requirements shift. The architecture must be a living framework, not a one-time deliverable.</p>
+<p>Organisations with mature practice also build review and adaptation into their architecture governance. Vendor capabilities evolve, business needs change, and regulatory requirements shift. The architecture must be a living framework, not a one time deliverable.</p>
 
 <h2>Questions for the leadership team</h2>
 <ul>
 <li>Has your organisation defined its own architectural principles for AI, independent of any specific vendor recommendation?</li>
-<li>If you needed to replace or supplement your primary AI platform in eighteen months, what would it cost — and who knows?</li>
-<li>How are enterprise-wide requirements for interoperability, data sovereignty and security represented in individual AI project architecture decisions?</li>
-<li>Who is accountable for the coherence of AI architecture across the enterprise — and do they have the authority and visibility to exercise that role?</li>
+<li>If you needed to replace or supplement your primary AI platform in eighteen months, what would it cost, and who knows?</li>
+<li>How are enterprise wide requirements for interoperability, data sovereignty and security represented in individual AI project architecture decisions?</li>
+<li>Who is accountable for the coherence of AI architecture across the enterprise, and do they have the authority and visibility to exercise that role?</li>
 </ul>
 
 <h2>How AI Elevate helps</h2>
-<p>AI Elevate provides vendor-neutral enterprise AI architecture advisory. We help leadership teams define their own architectural principles, requirements and governance models before committing to platform-specific implementation. Our background spans Microsoft and Windows environments, ERP platforms, database landscapes, cloud infrastructure, data platforms and business applications — enabling us to address the full breadth of the enterprise technology estate. We work constructively with implementation partners, who remain responsible for platform-specific design, configuration and delivery. AI Elevate ensures that the organisation retains strategic control over its technology choices rather than inheriting them from a single vendor relationship.</p>
+<p>AI Elevate provides vendor neutral enterprise AI architecture advisory. We help leadership teams define their own architectural principles, requirements and governance models before committing to platform specific implementation. Our background spans Microsoft and Windows environments, ERP platforms, database landscapes, cloud infrastructure, data platforms and business applications, enabling us to address the full breadth of the enterprise technology estate. We work constructively with implementation partners, who remain responsible for platform specific design, configuration and delivery. AI Elevate ensures that the organisation retains strategic control over its technology choices rather than inheriting them from a single vendor relationship.</p>
 `,
 
 'insight-5': `
-<p class="insight-article-thesis">Governance that arrives after AI has been deployed is governance that is already behind. Decision rights, evidence requirements, oversight mechanisms and escalation paths must be designed alongside the use case, the operating model and the technical architecture — not applied retrospectively as a control layer. Organisations that treat governance as a later-stage addition consistently find that retrofitting creates more friction, cost and risk than designing it in from the beginning.</p>
+<p class="insight-article-thesis">Governance that arrives after AI has been deployed is governance that is already behind. Decision rights, evidence requirements, oversight mechanisms and escalation paths must be designed alongside the use case, the operating model and the technical architecture, not applied retrospectively as a control layer. Organisations that treat governance as a later stage addition consistently find that retrofitting creates more friction, cost and risk than designing it in from the beginning.</p>
 
 <h2>The business problem</h2>
-<p>The typical pattern is familiar. A team identifies a promising AI use case. Technology selection and development proceed quickly because budget has been approved, the vendor relationship is in place and delivery pressure is high. Governance is acknowledged as important but deferred — either because the governance framework does not yet exist, because the governance team is not involved in delivery, or because governance is perceived as a blocker that should be addressed after the capability is proven.</p>
+<p>The typical pattern is familiar. A team identifies a promising AI use case. Technology selection and development proceed quickly because budget has been approved, the vendor relationship is in place and delivery pressure is high. Governance is acknowledged as important but deferred, either because the governance framework does not yet exist, because the governance team is not involved in delivery, or because governance is perceived as a blocker that should be addressed after the capability is proven.</p>
 <p>By the time governance attention arrives, the AI capability is operational. Decisions are being made, data is flowing, models are producing output and users are relying on the system. Introducing governance requirements at this point means changing live processes, redefining data flows, adding oversight steps that were not in the original design and renegotiating operating expectations with stakeholders who have already adapted to the ungoverned version.</p>
-<p>The result is predictable: governance becomes an adversarial experience. Delivery teams resist requirements that slow them down. Governance teams lack sufficient context to design proportionate controls. And the organisation ends up with either ineffective governance — policies on paper with little operational reality — or burdensome governance that undermines the AI capability's value.</p>
+<p>The result is predictable: governance becomes an adversarial experience. Delivery teams resist requirements that slow them down. Governance teams lack sufficient context to design proportionate controls. And the organisation ends up with either ineffective governance (policies on paper with little operational reality) or burdensome governance that undermines the AI capability's value.</p>
 
 <h2>What leaders often miss</h2>
 <p>The most consequential oversight is treating governance as a separate workstream rather than an integrated design activity. Governance is not something that happens to a project after it is delivered. It is part of the design: which data is used, how quality is assured, what decisions the AI influences, who approves model changes, what evidence is collected, how performance is monitored, who handles exceptions, and what happens when things go wrong.</p>
-<p>Leaders also frequently underestimate the variety of governance requirements. AI governance is not only about ethics or compliance. It encompasses use-case intake and prioritisation, risk assessment and tiering, data suitability evaluation, model selection and validation, testing and acceptance criteria, deployment approval, operational monitoring, incident detection and response, model retraining triggers, and eventual retirement. Each of these stages has governance implications, and neglecting any one creates an unmanaged gap.</p>
-<p>Another common gap is the absence of proportionality. Not every AI use case requires the same level of governance rigour. A low-risk internal productivity tool requires different oversight than a model that influences customer pricing, credit decisions or hiring outcomes. Without a tiering model that classifies use cases by risk and consequence, organisations apply either a single heavy-weight process to everything — creating bottlenecks — or no consistent process at all.</p>
+<p>Leaders also frequently underestimate the variety of governance requirements. AI governance is not only about ethics or compliance. It encompasses use case intake and prioritisation, risk assessment and tiering, data suitability evaluation, model selection and validation, testing and acceptance criteria, deployment approval, operational monitoring, incident detection and response, model retraining triggers, and eventual retirement. Each of these stages has governance implications, and neglecting any one creates an unmanaged gap.</p>
+<p>Another common gap is the absence of proportionality. Not every AI use case requires the same level of governance rigour. A low risk internal productivity tool requires different oversight than a model that influences customer pricing, credit decisions or hiring outcomes. Without a tiering model that classifies use cases by risk and consequence, organisations apply either a single heavyweight process to everything, creating bottlenecks, or no consistent process at all.</p>
 <p>Finally, many organisations confuse governance with documentation. Writing a policy does not govern anything. Governance requires operational mechanisms: intake workflows, review gates, evidence collection, monitoring dashboards, escalation procedures and periodic assurance reviews that are actually executed.</p>
 
 <h2>What a stronger organisational response looks like</h2>
-<p>Effective AI governance is designed as part of the delivery process, not added afterwards. From the earliest stages of use-case identification, governance questions are present: what is the materiality of this use case? What data does it require, and is that data suitable? What decisions will be influenced, and what are the consequences of error? Who will own the model in production, and how will it be monitored?</p>
+<p>Effective AI governance is designed as part of the delivery process, not added afterwards. From the earliest stages of use case identification, governance questions are present: what is the materiality of this use case? What data does it require, and is that data suitable? What decisions will be influenced, and what are the consequences of error? Who will own the model in production, and how will it be monitored?</p>
 <p>A proportionate governance framework includes: a structured intake process that classifies use cases by risk and consequence; clear criteria for data suitability, model selection and validation; defined approval gates at development, testing and deployment stages; operational monitoring with explicit thresholds for intervention; incident response procedures; scheduled reviews of model performance, data quality and governance effectiveness; and a defined process for model retirement when a use case is no longer appropriate.</p>
-<p>The framework is commercially pragmatic. It protects the organisation without preventing innovation. The goal is to make it easier to deploy AI responsibly — not harder to deploy AI at all. Organisations that achieve this balance find that governance actually accelerates delivery by reducing uncertainty, preventing rework and building stakeholder confidence.</p>
+<p>The framework is commercially pragmatic. It protects the organisation without preventing innovation. The goal is to make it easier to deploy AI responsibly, not harder to deploy AI at all. Organisations that achieve this balance find that governance actually accelerates delivery by reducing uncertainty, preventing rework and building stakeholder confidence.</p>
 
 <h2>Questions for the leadership team</h2>
 <ul>
-<li>For each active AI use case, can you describe the governance arrangements — or are they still to be defined?</li>
-<li>When was the last time an AI use-case deployment was reviewed against its original risk assessment and intended outcomes?</li>
-<li>Does your governance framework distinguish between high-risk and low-risk AI use cases — and are the criteria documented?</li>
+<li>For each active AI use case, can you describe the governance arrangements, or are they still to be defined?</li>
+<li>When was the last time an AI use case deployment was reviewed against its original risk assessment and intended outcomes?</li>
+<li>Does your governance framework distinguish between high risk and low risk AI use cases, and are the criteria documented?</li>
 <li>If an AI model in production began producing systematically biased or inaccurate output, how quickly would the organisation detect it, and who would own the response?</li>
 </ul>
 
 <h2>How AI Elevate helps</h2>
-<p>AI Elevate helps organisations design governance that is integrated, proportionate and operational — not retrospective or performative. We work with leadership and delivery teams to define use-case intake processes, risk tiering models, data and model governance requirements, oversight mechanisms and assurance rhythms. Our governance advisory connects directly to architecture and operating model design, ensuring that governance requirements are technically feasible and organisationally sustainable. The result is a control model that develops alongside the AI capability rather than being bolted on after the fact.</p>
+<p>AI Elevate helps organisations design governance that is integrated, proportionate and operational, not retrospective or performative. We work with leadership and delivery teams to define use case intake processes, risk tiering models, data and model governance requirements, oversight mechanisms and assurance rhythms. Our governance advisory connects directly to architecture and operating model design, ensuring that governance requirements are technically feasible and organisationally sustainable. The result is a control model that develops alongside the AI capability rather than being bolted on after the fact.</p>
 `,
 
 'insight-6': `
-<p class="insight-article-thesis">The value of an independent organisational AI advisory layer is not that implementation partners lack capability — it is that the organisational questions surrounding AI are growing faster than most delivery models are designed to address. Priorities, readiness, decision rights, governance, adoption and value realisation are increasingly the factors that determine whether an implementation succeeds or stalls. Addressing them requires a role that is complementary to technical delivery, not a replacement for it.</p>
+<p class="insight-article-thesis">The value of an independent organisational AI advisory layer is not that implementation partners lack capability. It is that the organisational questions surrounding AI are growing faster than most delivery models are designed to address. Priorities, readiness, decision rights, governance, adoption and value realisation are increasingly the factors that determine whether an implementation succeeds or stalls. Addressing them requires a role that is complementary to technical delivery, not a replacement for it.</p>
 
 <h2>The business problem</h2>
 <p>Organisations typically engage implementation partners to design, configure, integrate and deploy technology solutions. These partners bring deep platform expertise, proven delivery methods, technical architecture skills and the capacity to execute at scale. The relationship is well understood and commercially established.</p>
-<p>As AI matures from experimentation to enterprise capability, a new layer of complexity emerges around the implementation. Questions of organisational readiness, strategic prioritisation, operating model design, decision rights, governance arrangements, workforce adaptation and cross-domain coordination become increasingly consequential. These are not technology questions. They are organisational design questions that must be answered before — or alongside — technical delivery in order for that delivery to produce lasting value.</p>
+<p>As AI matures from experimentation to enterprise capability, a new layer of complexity emerges around the implementation. Questions of organisational readiness, strategic prioritisation, operating model design, decision rights, governance arrangements, workforce adaptation and cross domain coordination become increasingly consequential. These are not technology questions. They are organisational design questions that must be answered before, or alongside, technical delivery in order for that delivery to produce lasting value.</p>
 <p>In practice, these questions often fall into a gap. The client's internal teams may lack the capacity or specialised expertise. The implementation partner's scope, commercial model and delivery timeline may not extend to organisational advisory. And without somebody explicitly owning this layer, the questions either go unaddressed or are answered implicitly through technology decisions that carry organisational consequences nobody fully anticipated.</p>
 
 <h2>What leaders often miss</h2>
-<p>The most important distinction is between building a solution and building the organisation's capability to absorb, govern, sustain and improve that solution. An implementation partner can deliver a technically sound AI platform. But if the organisation has not clarified its priorities, aligned its stakeholders, defined its governance, adapted its processes and prepared its workforce, the platform will underperform — not because the technology is wrong, but because the organisation is not ready for it.</p>
-<p>Leaders also sometimes assume that strategic and organisational advisory is embedded in the implementation engagement. In some cases it is, particularly for large-scale transformation programmes. But for many engagements, the partner's scope is defined by platform delivery, and organisational readiness is treated as the client's responsibility. This is not a deficiency — it is a scope boundary. The gap exists not because the partner is unwilling but because the work is genuinely different in nature, skills and accountability.</p>
-<p>Another common oversight is the timing. Organisational advisory is most valuable before and during implementation, not after. Defining requirements, decision rights, governance and change management after the platform is live creates the same retrofitting problems that characterise late-stage governance. The independent organisational layer must operate in parallel with, not after, technical delivery.</p>
-<p>Finally, leaders sometimes worry that introducing an independent advisory layer will create friction with the implementation partner. In practice, the opposite is more common. When the client arrives at implementation with clear priorities, defined requirements, explicit governance, aligned stakeholders and a managed change programme, the implementation partner can focus on what it does best — and delivery is faster, cleaner and more likely to succeed.</p>
+<p>The most important distinction is between building a solution and building the organisation's capability to absorb, govern, sustain and improve that solution. An implementation partner can deliver a technically sound AI platform. But if the organisation has not clarified its priorities, aligned its stakeholders, defined its governance, adapted its processes and prepared its workforce, the platform will underperform, not because the technology is wrong, but because the organisation is not ready for it.</p>
+<p>Leaders also sometimes assume that strategic and organisational advisory is embedded in the implementation engagement. In some cases it is, particularly for large scale transformation programmes. But for many engagements, the partner's scope is defined by platform delivery, and organisational readiness is treated as the client's responsibility. This is not a deficiency. It is a scope boundary. The gap exists not because the partner is unwilling but because the work is genuinely different in nature, skills and accountability.</p>
+<p>Another common oversight is the timing. Organisational advisory is most valuable before and during implementation, not after. Defining requirements, decision rights, governance and change management after the platform is live creates the same retrofitting problems that characterise late stage governance. The independent organisational layer must operate in parallel with, not after, technical delivery.</p>
+<p>Finally, leaders sometimes worry that introducing an independent advisory layer will create friction with the implementation partner. In practice, the opposite is more common. When the client arrives at implementation with clear priorities, defined requirements, explicit governance, aligned stakeholders and a managed change programme, the implementation partner can focus on what it does best, and delivery is faster, cleaner and more likely to succeed.</p>
 
 <h2>What a stronger organisational response looks like</h2>
-<p>A well-designed engagement model has three clearly defined roles: the client organisation, which owns the strategy, the priorities and the outcomes; the implementation partner, which designs, builds, integrates and deploys the technology; and the independent organisational advisory, which helps the client define requirements, establish governance, manage change and assure value realisation.</p>
-<p>The key is non-overlapping accountability. The independent advisory does not replicate technical delivery. The implementation partner does not carry organisational design responsibility. And the client retains ownership of both the strategic direction and the final decision authority. Hand-offs between the three roles are explicit, documented and governed.</p>
-<p>This model produces several practical benefits. The client receives independent advice that is not influenced by platform economics. The implementation partner receives clearer requirements and better-prepared stakeholders. And the programme as a whole benefits from shared outcomes, reduced ambiguity and a governance structure that spans both organisational and technical delivery.</p>
+<p>A carefully designed engagement model has three clearly defined roles: the client organisation, which owns the strategy, the priorities and the outcomes; the implementation partner, which designs, builds, integrates and deploys the technology; and the independent organisational advisory, which helps the client define requirements, establish governance, manage change and assure value realisation.</p>
+<p>The key is non overlapping accountability. The independent advisory does not replicate technical delivery. The implementation partner does not carry organisational design responsibility. And the client retains ownership of both the strategic direction and the final decision authority. Handoffs between the three roles are explicit, documented and governed.</p>
+<p>This model produces several practical benefits. The client receives independent advice that is not influenced by platform economics. The implementation partner receives clearer requirements and better prepared stakeholders. And the programme as a whole benefits from shared outcomes, reduced ambiguity and a governance structure that spans both organisational and technical delivery.</p>
 
 <h2>Questions for the leadership team</h2>
 <ul>
-<li>For your current AI implementation, who is explicitly responsible for organisational readiness, governance design and value assurance — and is that role adequately resourced?</li>
-<li>Does your implementation partner's scope include strategic prioritisation, operating model design and cross-domain governance — or are those the client's responsibility?</li>
-<li>How are hand-offs between organisational advisory and technical delivery defined, documented and governed?</li>
+<li>For your current AI implementation, who is explicitly responsible for organisational readiness, governance design and value assurance, and is that role adequately resourced?</li>
+<li>Does your implementation partner's scope include strategic prioritisation, operating model design and cross domain governance, or are those the client's responsibility?</li>
+<li>How are handoffs between organisational advisory and technical delivery defined, documented and governed?</li>
 <li>If the implementation delivers a technically successful solution that the organisation struggles to adopt, govern or sustain, whose accountability is that?</li>
 </ul>
 
 <h2>How AI Elevate helps</h2>
-<p>AI Elevate operates as the independent organisational advisory layer alongside the client and their implementation partners. We help the client define priorities, assess readiness, establish decision rights, design governance, manage adoption and assure value realisation across the whole AI environment \u2014 not only the platform being implemented. We do not compete with implementation partners. We complement them by ensuring the organisational foundations are in place for technical delivery to succeed. The result is clearer scope, stronger executive sponsorship and implementation that remains connected to an organisational outcome.</p>
-<p>This model is not theoretical. It reflects a growing recognition across the market that organisational readiness, governance design and value assurance require dedicated, independent attention \u2014 and that providing that attention strengthens rather than undermines the implementation partnership.</p>
+<p>AI Elevate operates as the independent organisational advisory layer alongside the client and their implementation partners. We help the client define priorities, assess readiness, establish decision rights, design governance, manage adoption and assure value realisation across the whole AI environment, not only the platform being implemented. We do not compete with implementation partners. We complement them by ensuring the organisational foundations are in place for technical delivery to succeed. The result is clearer scope, stronger executive sponsorship and implementation that remains connected to an organisational outcome.</p>
+<p>This model is not theoretical. It reflects a growing recognition across the market that organisational readiness, governance design and value assurance require dedicated, independent attention, and that providing that attention strengthens rather than undermines the implementation partnership.</p>
 `
 };
 
@@ -628,189 +662,190 @@ const closeOverlay = document.getElementById('closeOverlay');
 
 
 const prefooterContent = {
-  platform: {
-    kicker: 'AI Elevate',
-    title: 'Turn AI adoption into governed organisational capability',
-    text: 'We work between executive ambition and technical implementation—connecting business value, organisational design, enterprise architecture, governance and human accountability.',
-    metrics: [['Stance','Vendor-neutral'],['Focus','Organisational capability'],['Role','Independent advice'],['Legal seller','AvL Consultancy']],
-    primaryLabel: 'Discuss your AI capability',
-    primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A%0AName%3A%0AOrganisation%3A%0A',
-    secondaryLabel: 'Explore our services',
-    secondaryView: 'services'
-  },
-  services: {
-    kicker: 'Services',
-    title: 'Start with a bounded question',
-    text: 'Begin with the opportunity, constraint or implementation decision that currently lacks organisational clarity.',
-    metrics: [['Orientation','Executive'],['Diagnosis','Capability'],['Design','Operating model'],['Assurance','Independent']],
-    primaryLabel: 'Discuss your AI capability',
-    primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A%0AName%3A%0AOrganisation%3A%0A',
-    secondaryLabel: 'Contact',
-    secondaryView: 'contact'
-  },
-  partners: {
-    kicker: 'Partners',
-    title: 'A shared delivery architecture with clear responsibilities',
-    text: 'AI Elevate and implementation partners move on complementary tracks toward shared customer outcomes—not a handoff.',
-    metrics: [['Compatibility','High'],['Competition','None'],['Scope','Organisational layer'],['Test','One customer case']],
-    primaryLabel: 'Discuss a partnership opportunity',
-    primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Partnership%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20a%20partnership%20opportunity.%0A%0AName%3A%0AOrganisation%3A%0A',
-    secondaryLabel: 'View services',
-    secondaryView: 'services'
-  },
-  edmp: {
-    kicker: 'Specialised solution',
-    title: 'Enterprise Decision Memory',
-    text: 'EDMP preserves how important decisions were formed, how ownership changed, and whether execution remained aligned with intent.',
-    metrics: [['Programs','Live'],['Decision Room','Token-gated'],['Assessment','Preview + paid'],['Seller','AvL Consultancy']],
-    primaryLabel: 'Explore EDMP programs',
-    primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20EDMP%20Inquiry&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20EDMP.%0A%0AName%3A%0AOrganisation%3A%0A',
-    secondaryLabel: 'Engage',
-    secondaryView: 'engage'
-  },
-  library: {
-    kicker: 'EDMP environments',
-    title: 'Use environments for decision memory',
-    text: 'Explore domain environments that make reasoning, ownership and control trace visible under pressure.',
-    metrics: [['Domains','06'],['Cockpits','Live'],['Activation','Local'],['Return','EDMP']],
-    primaryLabel: 'Discuss EDMP',
-    primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20EDMP%20Inquiry&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20EDMP.%0A',
-    secondaryLabel: 'EDMP destination',
-    secondaryView: 'edmp'
-  },
-  cases: {
-    kicker: 'EDMP cases',
-    title: 'Where decision lineage becomes visible',
-    text: 'Inspect reasoning, monitor drift, track precedent, assign accountability, and preserve decision continuity over time.',
-    metrics: [['Decision triggers','05'],['Environments','06'],['Execution trace','Live'],['Return','EDMP']],
-    primaryLabel: 'Discuss EDMP',
-    primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20EDMP%20Inquiry&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20EDMP.%0A',
-    secondaryLabel: 'EDMP destination',
-    secondaryView: 'edmp'
-  },
-  insights: {
-    kicker: 'Insights',
-    title: 'Thinking that supports organisational AI capability',
-    text: 'Retain decision-memory doctrine while situating it within broader organisational AI, authority, architecture and learning.',
-    metrics: [['Capability','Organisational'],['Authority','Human'],['Architecture','Governance'],['Memory','Decision']],
-    primaryLabel: 'Discuss your AI capability',
-    primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A',
-    secondaryLabel: 'About AI Elevate',
-    secondaryView: 'about'
-  },
-  about: {
-    kicker: 'About',
-    title: 'Built for organisational questions technology alone cannot answer',
-    text: 'AI Elevate is an independent, vendor-neutral consultancy founded by Anthony van Lobbrecht.',
-    metrics: [['Experience','25+ years'],['Stance','Vendor-neutral'],['Focus','Capability'],['Legal','AvL Consultancy']],
-    primaryLabel: 'Discuss your AI capability',
-    primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A',
-    secondaryLabel: 'Services',
-    secondaryView: 'services'
-  },
-  contact: {
-    kicker: 'Contact',
-    title: 'Discuss your AI capability',
-    text: 'Tell us where AI adoption, organisational readiness, governance or implementation is creating an unresolved decision.',
-    metrics: [['Response','Human'],['Entry','Conversation'],['Scan','Enquiry-based'],['Seller','AvL Consultancy']],
-    primaryLabel: 'Request a focused conversation',
-    primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A',
-    secondaryLabel: 'Services',
-    secondaryView: 'services'
-  },
-  engage: {
-    kicker: 'EDMP programs',
-    title: 'Talk to us about scope, timing, or enterprise rollout',
-    text: 'Self-serve EDMP programs cover briefing, assessment, and board pack. Larger deployments need a scoped conversation first.',
-    metrics: [['Response','1 business day'],['Channel','Email'],['Seller','AvL Consultancy'],['Programs','Live']],
-    primaryLabel: 'Contact us',
-    primaryIntake: 'contact',
-    primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Program%20Question&body=Hi%20AI%20Elevate%2C%0A%0AI%20have%20a%20question%20before%20checkout.%0A',
-    secondaryLabel: 'EDMP destination',
-    secondaryView: 'edmp'
-  }
+ platform: {
+ kicker: 'AI Elevate',
+ title: 'Turn AI adoption into governed organisational capability',
+ text: 'We work between executive ambition and technical implementation, connecting business value, organisational design, enterprise architecture, governance and human accountability.',
+ metrics: [['Stance','Vendor neutral'],['Focus','Organisational capability'],['Role','Independent advice'],['Legal seller','AvL Consultancy']],
+ primaryLabel: 'Discuss your AI capability',
+ primaryIntake: 'contact',
+ primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A%0AName%3A%0AOrganisation%3A%0A',
+ secondaryLabel: 'Explore our services',
+ secondaryView: 'services'
+ },
+ services: {
+ kicker: 'Services',
+ title: 'Start with a bounded question',
+ text: 'Begin with the opportunity, constraint or implementation decision that currently lacks organisational clarity.',
+ metrics: [['Orientation','Executive'],['Diagnosis','Capability'],['Design','Operating model'],['Assurance','Independent']],
+ primaryLabel: 'Discuss your AI capability',
+ primaryIntake: 'contact',
+ primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A%0AName%3A%0AOrganisation%3A%0A',
+ secondaryLabel: 'Contact',
+ secondaryView: 'contact'
+ },
+ partners: {
+ kicker: 'Partners',
+ title: 'A shared delivery architecture with clear responsibilities',
+ text: 'AI Elevate and implementation partners move on complementary tracks toward shared customer outcomes, not a handoff.',
+ metrics: [['Compatibility','High'],['Competition','None'],['Scope','Organisational layer'],['Test','One customer case']],
+ primaryLabel: 'Discuss a partnership opportunity',
+ primaryIntake: 'contact',
+ primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Partnership%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20a%20partnership%20opportunity.%0A%0AName%3A%0AOrganisation%3A%0A',
+ secondaryLabel: 'View services',
+ secondaryView: 'services'
+ },
+ edmp: {
+ kicker: 'Specialised solution',
+ title: 'Enterprise Decision Memory',
+ text: 'EDMP preserves how important decisions were formed, how ownership changed, and whether execution remained aligned with intent.',
+ metrics: [['Programs','Live'],['Decision Room','Token gated'],['Assessment','Preview + paid'],['Seller','AvL Consultancy']],
+ primaryLabel: 'Explore EDMP programmes',
+ primaryIntake: 'contact',
+ primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20EDMP%20Inquiry&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20EDMP.%0A%0AName%3A%0AOrganisation%3A%0A',
+ secondaryLabel: 'Engage',
+ secondaryView: 'engage'
+ },
+ library: {
+ kicker: 'EDMP environments',
+ title: 'Use environments for decision memory',
+ text: 'Explore domain environments that make reasoning, ownership and control trace visible under pressure.',
+ metrics: [['Domains','06'],['Cockpits','Live'],['Activation','Local'],['Return','EDMP']],
+ primaryLabel: 'Discuss EDMP',
+ primaryIntake: 'contact',
+ primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20EDMP%20Inquiry&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20EDMP.%0A',
+ secondaryLabel: 'EDMP destination',
+ secondaryView: 'edmp'
+ },
+ cases: {
+ kicker: 'EDMP cases',
+ title: 'Where decision lineage becomes visible',
+ text: 'Inspect reasoning, monitor drift, track precedent, assign accountability, and preserve decision continuity over time.',
+ metrics: [['Decision triggers','05'],['Environments','06'],['Execution trace','Live'],['Return','EDMP']],
+ primaryLabel: 'Discuss EDMP',
+ primaryIntake: 'contact',
+ primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20EDMP%20Inquiry&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20EDMP.%0A',
+ secondaryLabel: 'EDMP destination',
+ secondaryView: 'edmp'
+ },
+ insights: {
+ kicker: 'Insights',
+ title: 'Thinking that supports organisational AI capability',
+ text: 'Retain decision memory doctrine while situating it within broader organisational AI, authority, architecture and learning.',
+ metrics: [['Capability','Organisational'],['Authority','Human'],['Architecture','Governance'],['Memory','Decision']],
+ primaryLabel: 'Discuss your AI capability',
+ primaryIntake: 'contact',
+ primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A',
+ secondaryLabel: 'About AI Elevate',
+ secondaryView: 'about'
+ },
+ about: {
+ kicker: 'About',
+ title: 'One journey. Multiple operating realities. One coherent proposition.',
+ text: 'AI Elevate brings strategic, organisational, architectural and delivery experience together to help leadership teams turn AI adoption into governed organisational capability.',
+ metrics: [['Experience','25+ years'],['Stance','Vendor neutral'],['Focus','Capability'],['Legal','AvL Consultancy']],
+ primaryLabel: 'Discuss your AI capability',
+ primaryIntake: 'contact',
+ primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A',
+ secondaryLabel: 'Explore our services',
+ secondaryView: 'services'
+ },
+ contact: {
+ kicker: 'Contact',
+ title: 'Discuss your AI capability',
+ text: 'Tell us where AI adoption, organisational readiness, governance or implementation is creating an unresolved decision.',
+ metrics: [['Response','Human'],['Entry','Conversation'],['Scan','Enquiry based'],['Seller','AvL Consultancy']],
+ primaryLabel: 'Request a focused conversation',
+ primaryIntake: 'contact',
+ primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Capability%20Conversation&body=Hi%20AI%20Elevate%2C%0A%0AI%20would%20like%20to%20discuss%20our%20AI%20capability.%0A',
+ secondaryLabel: 'Services',
+ secondaryView: 'services'
+ },
+ engage: {
+ kicker: 'EDMP programmes',
+ title: 'Talk to us about scope, timing, or enterprise rollout',
+ text: 'Self serve EDMP programmes cover briefing, assessment, and board pack. Larger deployments need a scoped conversation first.',
+ metrics: [['Response','1 business day'],['Channel','Email'],['Seller','AvL Consultancy'],['Programs','Live']],
+ primaryLabel: 'Contact us',
+ primaryIntake: 'contact',
+ primaryHref: 'mailto:info@aielevate.xyz?subject=AI%20Elevate%20Program%20Question&body=Hi%20AI%20Elevate%2C%0A%0AI%20have%20a%20question%20before%20checkout.%0A',
+ secondaryLabel: 'EDMP destination',
+ secondaryView: 'edmp'
+ }
 };
+const PREFOOTER_BASE = JSON.parse(JSON.stringify(prefooterContent));
 
 function updatePrefooter(viewId) {
-  const data = prefooterContent[viewId] || prefooterContent.platform;
-  const kicker = document.getElementById('prefooterKicker');
-  const title = document.getElementById('prefooterTitle');
-  const text = document.getElementById('prefooterText');
-  const metrics = document.getElementById('prefooterMetrics');
-  const primary = document.getElementById('prefooterPrimary');
-  const secondary = document.getElementById('prefooterSecondary');
-  if (!kicker || !title || !text || !metrics || !primary || !secondary) return;
-  kicker.textContent = data.kicker;
-  title.textContent = data.title;
-  text.textContent = data.text;
-  metrics.innerHTML = data.metrics.map(([label, value]) => `
-    <div class="prefooter-metric"><span>${label}</span><strong>${value}</strong></div>
-  `).join('');
-  primary.textContent = data.primaryLabel;
-  primary.href = data.primaryHref;
-  primary.dataset.source = `prefooter-${viewId}`;
-  primary.dataset.intakeContext = data.title;
-  const consultViews = ['platform', 'services', 'partners', 'about', 'contact', 'insights'];
-  if (consultViews.includes(viewId)) {
-    primary.removeAttribute('data-open-intake');
-    primary.dataset.view = 'contact';
-  } else {
-    primary.dataset.openIntake = data.primaryIntake || 'demo';
-    delete primary.dataset.view;
-  }
-  secondary.textContent = data.secondaryLabel;
-  secondary.dataset.view = data.secondaryView;
+ const data = prefooterContent[viewId] || prefooterContent.platform;
+ const kicker = document.getElementById('prefooterKicker');
+ const title = document.getElementById('prefooterTitle');
+ const text = document.getElementById('prefooterText');
+ const metrics = document.getElementById('prefooterMetrics');
+ const primary = document.getElementById('prefooterPrimary');
+ const secondary = document.getElementById('prefooterSecondary');
+ if (!kicker || !title || !text || !metrics || !primary || !secondary) return;
+ kicker.textContent = data.kicker;
+ title.textContent = data.title;
+ text.textContent = data.text;
+ metrics.innerHTML = data.metrics.map(([label, value]) => `
+ <div class="prefooter-metric"><span>${label}</span><strong>${value}</strong></div>
+ `).join('');
+ primary.textContent = data.primaryLabel;
+ primary.href = data.primaryHref;
+ primary.dataset.source = `prefooter-${viewId}`;
+ primary.dataset.intakeContext = data.title;
+ const consultViews = ['platform', 'services', 'partners', 'about', 'contact', 'insights'];
+ if (consultViews.includes(viewId)) {
+ primary.removeAttribute('data-open-intake');
+ primary.dataset.view = 'contact';
+ } else {
+ primary.dataset.openIntake = data.primaryIntake || 'demo';
+ delete primary.dataset.view;
+ }
+ secondary.textContent = data.secondaryLabel;
+ secondary.dataset.view = data.secondaryView;
 }
 
 function moveLibraryOnlyBlocks() {
-  return;
+ return;
 }
 
 function getCockpitDomainLabel(domainKey) {
-  const item = cockpitData.find(entry => entry.id === domainKey);
-  if (item && item.domain) return item.domain;
-  const profile = topDomainProfiles[domainKey];
-  return profile ? profile.chip : '';
+ const item = cockpitData.find(entry => entry.id === domainKey);
+ if (item && item.domain) return item.domain;
+ const profile = topDomainProfiles[domainKey];
+ return profile ? profile.chip : '';
 }
 
 function navigateToDomain(domainKey) {
-  if (!domainKey) return;
-  showView('library');
-  renderTopDomainState(domainKey);
-  if (typeof selectCase === 'function') {
-    selectCase(domainKey);
-  }
-  const switchCard = document.querySelector(`.domain-switch-card[data-domain="${domainKey}"]`);
-  const cockpitCard = document.querySelector(`[data-cockpit="${domainKey}"]`);
-  const target = cockpitCard || switchCard || document.getElementById('library');
-  if (switchCard) {
-    switchCard.classList.add('jump-focus');
-    window.setTimeout(() => switchCard.classList.remove('jump-focus'), 1800);
-  }
-  if (target) {
-    window.setTimeout(() => {
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      target.classList.add('jump-focus');
-      window.setTimeout(() => target.classList.remove('jump-focus'), 1800);
-    }, 60);
-  }
-  window.location.hash = 'library';
+ if (!domainKey) return;
+ showView('library');
+ renderTopDomainState(domainKey);
+ if (typeof selectCase === 'function') {
+ selectCase(domainKey);
+ }
+ const switchCard = document.querySelector(`.domain-switch-card[data-domain="${domainKey}"]`);
+ const cockpitCard = document.querySelector(`[data-cockpit="${domainKey}"]`);
+ const target = cockpitCard || switchCard || document.getElementById('library');
+ if (switchCard) {
+ switchCard.classList.add('jump-focus');
+ window.setTimeout(() => switchCard.classList.remove('jump-focus'), 1800);
+ }
+ if (target) {
+ window.setTimeout(() => {
+ target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+ target.classList.add('jump-focus');
+ window.setTimeout(() => target.classList.remove('jump-focus'), 1800);
+ }, 60);
+ }
+ window.location.hash = 'library';
 }
 window.navigateToDomain = navigateToDomain;
 
 function openDomainContactIntake(domainKey, source = 'library', context = 'Cockpit discussion') {
-  const domain = getCockpitDomainLabel(domainKey);
-  openOverlay(intakeFormHTML({ type: 'contact', domain, context, source }));
-  window.setTimeout(() => enforceSelectContrast(overlayContent), 0);
+ const domain = getCockpitDomainLabel(domainKey);
+ openOverlay(intakeFormHTML({ type: 'contact', domain, context, source }));
+ window.setTimeout(() => enforceSelectContrast(overlayContent), 0);
 }
 
 let libraryRendered = false;
@@ -820,551 +855,661 @@ let engageSelfCheckRendered = false;
 const ENGAGE_PROGRAM_IDS = ['briefing', 'assessment', 'briefing-pack'];
 
 const ENGAGE_PROGRAM_DISPLAY = {
-  briefing: {
-    positioning: '90-minute executive session to understand the decision-memory gap, AI accountability paradox, and where your organization may be exposed.',
-    cta: 'Request Executive Briefing',
-    bullets: [
-      'Live executive session (NL or EN)',
-      'Pre-read on the decision-formation gap',
-      'Post-session findings report',
-    ],
-  },
-  assessment: {
-    positioning: 'Structured diagnostic across six decision memory dimensions, resulting in a scored report and 90-day intervention map.',
-    cta: 'Request Assessment',
-    bullets: [
-      'Full questionnaire across six dimensions',
-      'Scored report with gap analysis',
-      '30-minute readout call',
-    ],
-  },
-  'briefing-pack': {
-    positioning: 'Board-ready PDF, slide deck, and one-pager explaining the EDMP business case for internal discussion.',
-    cta: 'Request Board Pack',
-    bullets: [
-      'Full board briefing PDF',
-      'Slide deck with speaker notes',
-      'Executive one-pager for forwarding',
-    ],
-  },
+ briefing: {
+ positioning: '90 minute executive session to understand the decision memory gap, AI accountability paradox, and where your organisation may be exposed.',
+ cta: 'Request Executive Briefing',
+ bullets: [
+ 'Live executive session (NL or EN)',
+ 'Pre read on the decision formation gap',
+ 'Post session findings report',
+ ],
+ },
+ assessment: {
+ positioning: 'Structured diagnostic across six decision memory dimensions, resulting in a scored report and 90 day intervention map.',
+ cta: 'Request Assessment',
+ bullets: [
+ 'Full questionnaire across six dimensions',
+ 'Scored report with gap analysis',
+ '30 minute readout call',
+ ],
+ },
+ 'briefing-pack': {
+ positioning: 'Board ready PDF, slide deck, and one pager explaining the EDMP business case for internal discussion.',
+ cta: 'Request Board Pack',
+ bullets: [
+ 'Full board briefing PDF',
+ 'Slide deck with speaker notes',
+ 'Executive one pager for forwarding',
+ ],
+ },
 };
 
 const ENGAGE_INTAKE_META = {
-  briefing: {
-    label: 'Executive Briefing',
-    subject: 'AI Elevate — Executive Briefing Request',
-    intro: 'Request a 90-minute executive briefing on Enterprise Decision Memory. We will follow up by email to confirm scope, attendees, and scheduling.',
-    button: 'Send briefing request',
-    reason: 'Executive Briefing',
-  },
-  assessment: {
-    label: 'EDMP Readiness Assessment',
-    subject: 'AI Elevate — EDMP Readiness Assessment Request',
-    intro: 'Request the full EDMP Readiness Assessment. We will follow up with intake steps, questionnaire access, and readout scheduling.',
-    button: 'Send assessment request',
-    reason: 'EDMP Readiness Assessment',
-  },
-  'briefing-pack': {
-    label: 'Board Briefing Pack',
-    subject: 'AI Elevate — Board Briefing Pack Request',
-    intro: 'Request the Board Briefing Pack for board or investor discussion. We will follow up with delivery and optional customization intake.',
-    button: 'Send board pack request',
-    reason: 'Board Briefing Pack',
-  },
-  'one-pager': {
-    label: 'Executive One-Pager',
-    subject: 'AI Elevate — Executive One-Pager Request',
-    intro: 'Request the free executive one-pager — a short internal explainer on Enterprise Decision Memory. We will send it to your work email.',
-    button: 'Request one-pager',
-    reason: 'Executive One-Pager (free)',
-  },
+ briefing: {
+ label: 'Executive Briefing',
+ subject: 'AI Elevate. Executive Briefing Request',
+ intro: 'Request a 90 minute executive briefing on Enterprise Decision Memory. We will follow up by email to confirm scope, attendees, and scheduling.',
+ button: 'Send briefing request',
+ reason: 'Executive Briefing',
+ },
+ assessment: {
+ label: 'EDMP Readiness Assessment',
+ subject: 'AI Elevate. EDMP Readiness Assessment Request',
+ intro: 'Request the full EDMP Readiness Assessment. We will follow up with intake steps, questionnaire access, and readout scheduling.',
+ button: 'Send assessment request',
+ reason: 'EDMP Readiness Assessment',
+ },
+ 'briefing-pack': {
+ label: 'Board Briefing Pack',
+ subject: 'AI Elevate. Board Briefing Pack Request',
+ intro: 'Request the Board Briefing Pack for board or investor discussion. We will follow up with delivery and optional customization intake.',
+ button: 'Send board pack request',
+ reason: 'Board Briefing Pack',
+ },
+ 'one pager': {
+ label: 'Executive One Pager',
+ subject: 'AI Elevate. Executive One Pager Request',
+ intro: 'Request the free executive one pager. A short internal explainer on Enterprise Decision Memory. We will send it to your work email.',
+ button: 'Request one pager',
+ reason: 'Executive One Pager (free)',
+ },
 };
+const ENGAGE_PROGRAM_DISPLAY_BASE = JSON.parse(JSON.stringify(ENGAGE_PROGRAM_DISPLAY));
+const ENGAGE_INTAKE_META_BASE = JSON.parse(JSON.stringify(ENGAGE_INTAKE_META));
 
 function ensureLibraryRendered() {
-  if (libraryRendered) return;
-  libraryRendered = true;
-  renderLibrary();
+ if (libraryRendered) return;
+ libraryRendered = true;
+ renderLibrary();
 }
 
 function getEngageConfig() {
-  return window.AIE_ENGAGE_CONFIG || { merchant: {}, products: [] };
+ const base = window.AIE_ENGAGE_CONFIG || { merchant: {}, products: [] };
+ const i18n = window.AIE_I18N;
+ if (!i18n || i18n.getLocale() !== 'nl') return base;
+
+ const cfg = JSON.parse(JSON.stringify(base));
+ const merchantPack = i18n.getPack('engageMerchant');
+ if (merchantPack && cfg.merchant) Object.assign(cfg.merchant, merchantPack);
+
+ const doctrinePack = i18n.getPack('engageDoctrine');
+ if (doctrinePack && cfg.doctrine) {
+ if (doctrinePack.coreInsight) cfg.doctrine.coreInsight = doctrinePack.coreInsight;
+ if (doctrinePack.investorPitch) cfg.doctrine.investorPitch = doctrinePack.investorPitch;
+ if (Array.isArray(doctrinePack.valueChain)) cfg.doctrine.valueChain = doctrinePack.valueChain.slice();
+ if (Array.isArray(doctrinePack.financialPillars)) cfg.doctrine.financialPillars = doctrinePack.financialPillars.slice();
+ if (doctrinePack.funnel) cfg.doctrine.funnel = doctrinePack.funnel;
+ }
+
+ const freePack = i18n.getPack('engageFreeResources');
+ if (freePack && cfg.freeResources) {
+ Object.keys(freePack).forEach((key) => {
+ if (!cfg.freeResources[key]) return;
+ const src = freePack[key];
+ const dest = cfg.freeResources[key];
+ Object.keys(src).forEach((field) => {
+ if (field === 'dimensions' && Array.isArray(src.dimensions) && Array.isArray(dest.dimensions)) {
+ dest.dimensions = dest.dimensions.map((dim, index) => Object.assign({}, dim, src.dimensions[index] || {}));
+ } else if (src[field] != null) {
+ dest[field] = src[field];
+ }
+ });
+ });
+ }
+
+ const productPack = i18n.getPack('engageProducts');
+ if (productPack && Array.isArray(cfg.products)) {
+ cfg.products = cfg.products.map((product) => {
+ const overlay = productPack[product.id];
+ if (!overlay) return product;
+ const next = Object.assign({}, product, overlay);
+ if (Array.isArray(overlay.youReceive)) next.youReceive = overlay.youReceive.slice();
+ if (Array.isArray(overlay.intake)) next.intake = overlay.intake.slice();
+ return next;
+ });
+ }
+ return cfg;
+}
+
+function applyEngageLocaleData(i18n) {
+ Object.keys(ENGAGE_PROGRAM_DISPLAY_BASE).forEach((key) => {
+ ENGAGE_PROGRAM_DISPLAY[key] = JSON.parse(JSON.stringify(ENGAGE_PROGRAM_DISPLAY_BASE[key]));
+ });
+ Object.keys(ENGAGE_INTAKE_META_BASE).forEach((key) => {
+ ENGAGE_INTAKE_META[key] = Object.assign({}, ENGAGE_INTAKE_META_BASE[key]);
+ });
+ if (!i18n || i18n.getLocale() !== 'nl') return;
+
+ const displayPack = i18n.getPack('engageProgramDisplay');
+ if (displayPack) {
+ Object.keys(displayPack).forEach((key) => {
+ if (!ENGAGE_PROGRAM_DISPLAY[key]) return;
+ ENGAGE_PROGRAM_DISPLAY[key] = Object.assign(
+ {},
+ ENGAGE_PROGRAM_DISPLAY[key],
+ displayPack[key],
+ Array.isArray(displayPack[key].bullets) ? { bullets: displayPack[key].bullets.slice() } : {}
+ );
+ });
+ }
+ const intakePack = i18n.getPack('engageIntakeMeta');
+ if (intakePack) {
+ Object.keys(intakePack).forEach((key) => {
+ const destKey = ENGAGE_INTAKE_META[key] ? key : (key === 'one-pager' ? 'one pager' : key);
+ if (!ENGAGE_INTAKE_META[destKey]) return;
+ ENGAGE_INTAKE_META[destKey] = Object.assign({}, ENGAGE_INTAKE_META[destKey], intakePack[key]);
+ });
+ }
+}
+
+function refreshEngageLocale() {
+ applyEngageLocaleData(window.AIE_I18N);
+ engageSelfCheckRendered = false;
+ engageRendered = false;
+ const selfCheck = document.getElementById('engageSelfCheck');
+ if (selfCheck) selfCheck.innerHTML = '';
+ const grid = document.getElementById('engageGrid');
+ if (grid) grid.innerHTML = '';
+ const secondary = document.getElementById('engageSecondaryLinks');
+ if (secondary) secondary.innerHTML = '';
+ renderEngage();
 }
 
 let legalApplied = false;
 
 function applyLegalMerchantInfo() {
-  if (legalApplied) return;
-  legalApplied = true;
-  const merchant = getEngageConfig().merchant || {};
-  const setText = (id, value) => {
-    const el = document.getElementById(id);
-    if (el && value) el.textContent = value;
-  };
-  const setEmail = (id, value) => {
-    const el = document.getElementById(id);
-    if (!el || !value) return;
-    el.textContent = value;
-    el.href = `mailto:${value}`;
-  };
-  const setPhone = (id, value) => {
-    const el = document.getElementById(id);
-    if (!el || !value) return;
-    el.textContent = value;
-    el.href = `tel:${value.replace(/\s/g, '')}`;
-  };
-  setText('legalTermsBrand', merchant.brand);
-  setText('legalTermsSeller', merchant.legalName);
-  setText('legalPrivacyBrand', merchant.brand);
-  setText('legalPrivacySeller', merchant.legalName);
-  setEmail('legalTermsEmail', merchant.email);
-  setEmail('legalTermsEmailFooter', merchant.email);
-  setEmail('legalPrivacyEmail', merchant.email);
-  setEmail('legalPrivacyEmailRights', merchant.email);
-  setPhone('legalTermsPhone', merchant.phone);
-  setPhone('legalPrivacyPhone', merchant.phone);
-  const methods = document.getElementById('legalTermsPaymentMethods');
-  if (methods && merchant.paymentMethods) {
-    methods.textContent = merchant.paymentMethods.replace(/ · /g, ', ').replace(/ ·/g, ',');
-  }
+ if (legalApplied) return;
+ legalApplied = true;
+ const merchant = getEngageConfig().merchant || {};
+ const setText = (id, value) => {
+ const el = document.getElementById(id);
+ if (el && value) el.textContent = value;
+ };
+ const setEmail = (id, value) => {
+ const el = document.getElementById(id);
+ if (!el || !value) return;
+ el.textContent = value;
+ el.href = `mailto:${value}`;
+ };
+ const setPhone = (id, value) => {
+ const el = document.getElementById(id);
+ if (!el || !value) return;
+ el.textContent = value;
+ el.href = `tel:${value.replace(/\s/g, '')}`;
+ };
+ setText('legalTermsBrand', merchant.brand);
+ setText('legalTermsSeller', merchant.legalName);
+ setText('legalPrivacyBrand', merchant.brand);
+ setText('legalPrivacySeller', merchant.legalName);
+ setEmail('legalTermsEmail', merchant.email);
+ setEmail('legalTermsEmailFooter', merchant.email);
+ setEmail('legalPrivacyEmail', merchant.email);
+ setEmail('legalPrivacyEmailRights', merchant.email);
+ setPhone('legalTermsPhone', merchant.phone);
+ setPhone('legalPrivacyPhone', merchant.phone);
+ const methods = document.getElementById('legalTermsPaymentMethods');
+ if (methods && merchant.paymentMethods) {
+ methods.textContent = merchant.paymentMethods.replace(/ · /g, ', ').replace(/ ·/g, ',');
+ }
 }
 
 function scrollToEngageSelfCheck() {
-  const block = document.getElementById('engageSelfCheck');
-  if (block) block.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ const block = document.getElementById('engageSelfCheck');
+ if (block) block.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function interpretQuickScore(score) {
-  if (score <= 39) {
-    return { band: 'High exposure', detail: 'Decision memory gaps are likely creating governance, continuity, or rework risk.' };
-  }
-  if (score <= 69) {
-    return { band: 'Moderate exposure', detail: 'Some decision memory capability exists, but critical domains may still be fragile.' };
-  }
-  return { band: 'Lower exposure', detail: 'Still review critical domains — this is a directional check, not a full maturity assessment.' };
+ const i18n = window.AIE_I18N;
+ const bands = i18n && i18n.getLocale() === 'nl' ? (i18n.getPack('engageUi') || {}).bands : null;
+ if (score <= 39) {
+ return bands?.high || { band: 'High exposure', detail: 'Decision memory gaps are likely creating governance, continuity, or rework risk.' };
+ }
+ if (score <= 69) {
+ return bands?.moderate || { band: 'Moderate exposure', detail: 'Some decision memory capability exists, but critical domains may still be fragile.' };
+ }
+ return bands?.lower || { band: 'Lower exposure', detail: 'Still review critical domains. This is a directional check, not a full maturity assessment.' };
 }
 
 function openEngageIntake(productId, source = 'engage') {
-  const meta = ENGAGE_INTAKE_META[productId];
-  if (!meta) return;
-  openOverlay(intakeFormHTML({
-    type: 'contact',
-    engageProduct: productId,
-    source,
-    context: meta.reason,
-  }));
-  window.setTimeout(() => enforceSelectContrast(overlayContent), 0);
+ const meta = ENGAGE_INTAKE_META[productId];
+ if (!meta) return;
+ openOverlay(intakeFormHTML({
+ type: 'contact',
+ engageProduct: productId,
+ source,
+ context: meta.reason,
+ }));
+ window.setTimeout(() => enforceSelectContrast(overlayContent), 0);
 }
 window.openEngageIntake = openEngageIntake;
 
 function renderEngageSelfCheck() {
-  if (engageSelfCheckRendered) return;
-  engageSelfCheckRendered = true;
+ if (engageSelfCheckRendered) return;
+ engageSelfCheckRendered = true;
 
-  const mount = document.getElementById('engageSelfCheck');
-  const quick = getEngageConfig().freeResources?.quickAssessment || {};
-  const dims = quick.dimensions || [];
-  if (!mount || !dims.length) return;
+ const mount = document.getElementById('engageSelfCheck');
+ const quick = getEngageConfig().freeResources?.quickAssessment || {};
+ const dims = quick.dimensions || [];
+ if (!mount || !dims.length) return;
+ const ui = (window.AIE_I18N && window.AIE_I18N.getLocale() === 'nl')
+ ? (window.AIE_I18N.getPack('engageUi') || {})
+ : {};
 
-  const quickQuestions = dims.map((dim, index) => `
-    <fieldset class="engage-quick-q" data-quick-q="${dim.id}">
-      <legend><span class="engage-quick-num">${index + 1}</span> ${dim.name}</legend>
-      <p>${dim.question}</p>
-      <div class="engage-quick-scale" role="radiogroup" aria-label="${dim.name}">
-        ${[1, 2, 3, 4, 5].map((n) => `
-          <label class="engage-quick-opt">
-            <input type="radio" name="quick-${dim.id}" value="${n}" />
-            <span>${n}</span>
-          </label>`).join('')}
-      </div>
-      <div class="engage-quick-scale-labels"><span>Low exposure</span><span>High exposure</span></div>
-    </fieldset>
-  `).join('');
+ const quickQuestions = dims.map((dim, index) => `
+ <fieldset class="engage-quick-q" data-quick-q="${dim.id}">
+ <legend><span class="engage-quick-num">${index + 1}</span> ${dim.name}</legend>
+ <p>${dim.question}</p>
+ <div class="engage-quick-scale" role="radiogroup" aria-label="${dim.name}">
+ ${[1, 2, 3, 4, 5].map((n) => `
+ <label class="engage-quick-opt">
+ <input type="radio" name="quick-${dim.id}" value="${n}" />
+ <span>${n}</span>
+ </label>`).join('')}
+ </div>
+ <div class="engage-quick-scale-labels"><span>${ui.lowExposure || 'Low exposure'}</span><span>${ui.highExposure || 'High exposure'}</span></div>
+ </fieldset>
+ `).join('');
 
-  mount.innerHTML = `
-    <div class="engage-check-shell glass">
-      <div class="section-kicker">Quick self-check</div>
-      <h3>${quick.title || 'EDMP Quick Self-Check'}</h3>
-      <p class="engage-check-lead">Five questions across decision memory dimensions. This is a directional self-check only — not the full EDMP maturity model.</p>
-      <form id="engageQuickForm" class="engage-quick-form">${quickQuestions}</form>
-      <div class="engage-quick-actions">
-        <button type="button" class="btn btn-secondary" id="engageQuickScoreBtn">See my score</button>
-      </div>
-      <div id="engageQuickResult" class="engage-quick-result hidden" aria-live="polite"></div>
-    </div>
-  `;
+ mount.innerHTML = `
+ <div class="engage-check-shell glass">
+ <div class="section-kicker">${ui.selfCheckKicker || 'Quick self check'}</div>
+ <h3>${quick.title || 'EDMP Quick Self Check'}</h3>
+ <p class="engage-check-lead">${ui.selfCheckLead || 'Five questions across decision memory dimensions. This is a directional self check only, not the full EDMP maturity model.'}</p>
+ <form id="engageQuickForm" class="engage-quick-form">${quickQuestions}</form>
+ <div class="engage-quick-actions">
+ <button type="button" class="btn btn-secondary" id="engageQuickScoreBtn">${ui.seeScore || 'See my score'}</button>
+ </div>
+ <div id="engageQuickResult" class="engage-quick-result hidden" aria-live="polite"></div>
+ </div>
+ `;
 
-  document.getElementById('engageQuickScoreBtn')?.addEventListener('click', () => {
-    let sum = 0;
-    let answered = 0;
-    for (const dim of dims) {
-      const picked = mount.querySelector(`input[name="quick-${dim.id}"]:checked`);
-      if (!picked) continue;
-      sum += Number(picked.value);
-      answered += 1;
-    }
-    const result = document.getElementById('engageQuickResult');
-    if (!result) return;
-    if (answered < dims.length) {
-      result.classList.remove('hidden');
-      result.innerHTML = '<p class="engage-quick-warning">Please answer all five questions.</p>';
-      return;
-    }
-    const score = Math.round((sum / (dims.length * 5)) * 100);
-    const interp = interpretQuickScore(score);
-    result.classList.remove('hidden');
-    result.innerHTML = `
-      <p class="engage-quick-score">Your organization scored: <strong>${score}/100</strong></p>
-      <p class="engage-quick-band"><strong>${interp.band}</strong> — ${interp.detail}</p>
-      <p class="engage-quick-score-note">Directional self-check only. Not the full scoring rubric, recommendations, or intervention roadmap.</p>
-      <button type="button" class="btn btn-primary btn-cta" data-engage-product="assessment" data-source="engage-self-check">${quick.ctaLabel || 'Request full EDMP Readiness Assessment'}</button>
-    `;
-    result.querySelector('[data-engage-product]')?.addEventListener('click', (e) => {
-      openEngageIntake(e.currentTarget.dataset.engageProduct, e.currentTarget.dataset.source);
-    });
-  });
+ document.getElementById('engageQuickScoreBtn')?.addEventListener('click', () => {
+ let sum = 0;
+ let answered = 0;
+ for (const dim of dims) {
+ const picked = mount.querySelector(`input[name="quick-${dim.id}"]:checked`);
+ if (!picked) continue;
+ sum += Number(picked.value);
+ answered += 1;
+ }
+ const result = document.getElementById('engageQuickResult');
+ if (!result) return;
+ if (answered < dims.length) {
+ result.classList.remove('hidden');
+ result.innerHTML = `<p class="engage-quick-warning">${ui.answerAll || 'Please answer all five questions.'}</p>`;
+ return;
+ }
+ const score = Math.round((sum / (dims.length * 5)) * 100);
+ const interp = interpretQuickScore(score);
+ result.classList.remove('hidden');
+ result.innerHTML = `
+ <p class="engage-quick-score">${ui.scoredPrefix || 'Your organisation scored:'} <strong>${score}/100</strong></p>
+ <p class="engage-quick-band"><strong>${interp.band}</strong>: ${interp.detail}</p>
+ <p class="engage-quick-score-note">${ui.scoreNote || 'Directional self check only. Not the full scoring rubric, recommendations, or intervention roadmap.'}</p>
+ <button type="button" class="btn btn-primary btn-cta" data-engage-product="assessment" data-source="engage-self-check">${quick.ctaLabel || 'Request full EDMP Readiness Assessment'}</button>
+ `;
+ result.querySelector('[data-engage-product]')?.addEventListener('click', (e) => {
+ openEngageIntake(e.currentTarget.dataset.engageProduct, e.currentTarget.dataset.source);
+ });
+ });
 }
 
 function renderEngageSecondaryLinks() {
-  const mount = document.getElementById('engageSecondaryLinks');
-  const free = getEngageConfig().freeResources || {};
-  if (!mount) return;
-  const previewUrl = free.boardPackPreview?.downloadUrl || '#';
-  mount.innerHTML = `
-    <span>Need a short internal explainer? <button type="button" class="engage-secondary-link" data-engage-product="one-pager" data-source="engage-secondary">Request the executive one-pager</button>.</span>
-    <span><a class="engage-secondary-link" href="${previewUrl}" download>Board Pack preview (PDF)</a></span>
-    <span class="engage-secondary-muted">Decision Room experiential sessions available after executive briefing.</span>
-    <span><button type="button" class="engage-secondary-link" data-open-assessment-preview>EDMP assessment preview</button></span>
-  `;
-  mount.querySelector('[data-open-assessment-preview]')?.addEventListener('click', () => navigateToView('edmp-assessment'));
-  mount.querySelectorAll('[data-engage-product]').forEach((btn) => {
-    btn.addEventListener('click', () => openEngageIntake(btn.dataset.engageProduct, btn.dataset.source));
-  });
+ const mount = document.getElementById('engageSecondaryLinks');
+ const free = getEngageConfig().freeResources || {};
+ if (!mount) return;
+ const previewUrl = free.boardPackPreview?.downloadUrl || '#';
+ const ui = (window.AIE_I18N && window.AIE_I18N.getLocale() === 'nl')
+ ? (window.AIE_I18N.getPack('engageUi') || {})
+ : {};
+ mount.innerHTML = `
+ <span>${ui.secondaryNeedExplainer || 'Need a short internal explainer?'} <button type="button" class="engage-secondary-link" data-engage-product="one-pager" data-source="engage-secondary">${ui.secondaryOnePager || 'Request the executive one pager'}</button>.</span>
+ <span><a class="engage-secondary-link" href="${previewUrl}" download>${ui.secondaryBoardPreview || 'Board Pack preview (PDF)'}</a></span>
+ <span class="engage-secondary-muted">${ui.secondaryDecisionRoom || 'Decision Room experiential sessions available after executive briefing.'}</span>
+ <span><button type="button" class="engage-secondary-link" data-open-assessment-preview>${ui.secondaryAssessment || 'EDMP assessment preview'}</button></span>
+ `;
+ mount.querySelector('[data-open-assessment-preview]')?.addEventListener('click', () => navigateToView('edmp-assessment'));
+ mount.querySelectorAll('[data-engage-product]').forEach((btn) => {
+ btn.addEventListener('click', () => openEngageIntake(btn.dataset.engageProduct, btn.dataset.source));
+ });
 }
 
 function renderEngage() {
-  renderEngageSelfCheck();
-  if (engageRendered) return;
-  engageRendered = true;
-  applyLegalMerchantInfo();
+ renderEngageSelfCheck();
+ if (engageRendered) return;
+ engageRendered = true;
+ applyLegalMerchantInfo();
 
-  const config = getEngageConfig();
-  const grid = document.getElementById('engageGrid');
-  if (!grid) return;
+ const config = getEngageConfig();
+ const grid = document.getElementById('engageGrid');
+ if (!grid) return;
 
-  const productsById = Object.fromEntries((config.products || []).map((p) => [p.id, p]));
-  const programs = ENGAGE_PROGRAM_IDS.map((id) => productsById[id]).filter(Boolean);
+ const productsById = Object.fromEntries((config.products || []).map((p) => [p.id, p]));
+ const programs = ENGAGE_PROGRAM_IDS.map((id) => productsById[id]).filter(Boolean);
 
-  grid.innerHTML = programs.map((product) => {
-    const display = ENGAGE_PROGRAM_DISPLAY[product.id] || {};
-    const bullets = (display.bullets || (product.youReceive || []).slice(0, 3))
-      .map((item) => `<li>${item}</li>`).join('');
-    const intakeDetails = (product.intake || [])
-      .map((item, index) => `<li><span class="engage-step-num">${index + 1}</span>${item}</li>`).join('');
-    const audience = product.audience
-      ? `<p class="engage-product-audience">${product.audience}</p>` : '';
-    const positioning = display.positioning || product.subtitle;
-    const cta = display.cta || 'Request program';
-    const notIncluded = product.notIncluded
-      ? `<p class="engage-product-scope-note">${product.notIncluded.split('.')[0]}.</p>` : '';
-    return `
-      <article class="engage-product-card glass engage-product-card-clean" data-engage-product-card="${product.id}">
-        <div class="engage-product-head">
-          <h3>${product.title}</h3>
-          <p class="engage-product-positioning">${positioning}</p>
-          ${audience}
-        </div>
-        <div class="engage-product-price">
-          <strong>${product.priceLabel}</strong>
-          <span>${product.priceNote}</span>
-        </div>
-        <ul class="engage-product-list engage-product-list-compact">${bullets}</ul>
-        <p class="engage-product-timeline"><span>Timeline</span> ${product.timeline}</p>
-        ${notIncluded}
-        <details class="engage-product-details">
-          <summary>Delivery details</summary>
-          <ol class="engage-intake-list">${intakeDetails}</ol>
-        </details>
-        <div class="engage-product-actions">
-          <button type="button" class="btn btn-primary btn-cta" data-engage-product="${product.id}" data-source="engage-program">${cta}</button>
-        </div>
-      </article>
-    `;
-  }).join('');
+ grid.innerHTML = programs.map((product) => {
+ const display = ENGAGE_PROGRAM_DISPLAY[product.id] || {};
+ const bullets = (display.bullets || (product.youReceive || []).slice(0, 3))
+ .map((item) => `<li>${item}</li>`).join('');
+ const intakeDetails = (product.intake || [])
+ .map((item, index) => `<li><span class="engage-step-num">${index + 1}</span>${item}</li>`).join('');
+ const audience = product.audience
+ ? `<p class="engage-product-audience">${product.audience}</p>` : '';
+ const positioning = display.positioning || product.subtitle;
+ const ui = (window.AIE_I18N && window.AIE_I18N.getLocale() === 'nl')
+ ? (window.AIE_I18N.getPack('engageUi') || {})
+ : {};
+ const cta = display.cta || ui.requestProgram || 'Request program';
+ const notIncluded = product.notIncluded
+ ? `<p class="engage-product-scope-note">${product.notIncluded.split('.')[0]}.</p>` : '';
+ return `
+ <article class="engage-product-card glass engage-product-card-clean" data-engage-product-card="${product.id}">
+ <div class="engage-product-head">
+ <h3>${product.title}</h3>
+ <p class="engage-product-positioning">${positioning}</p>
+ ${audience}
+ </div>
+ <div class="engage-product-price">
+ <strong>${product.priceLabel}</strong>
+ <span>${product.priceNote}</span>
+ </div>
+ <ul class="engage-product-list engage-product-list-compact">${bullets}</ul>
+ <p class="engage-product-timeline"><span>${ui.timeline || 'Timeline'}</span> ${product.timeline}</p>
+ ${notIncluded}
+ <details class="engage-product-details">
+ <summary>${ui.deliveryDetails || 'Delivery details'}</summary>
+ <ol class="engage-intake-list">${intakeDetails}</ol>
+ </details>
+ <div class="engage-product-actions">
+ <button type="button" class="btn btn-primary btn-cta" data-engage-product="${product.id}" data-source="engage-program">${cta}</button>
+ </div>
+ </article>
+ `;
+ }).join('');
 
-  grid.querySelectorAll('[data-engage-product]').forEach((btn) => {
-    btn.addEventListener('click', () => openEngageIntake(btn.dataset.engageProduct, btn.dataset.source));
-  });
+ grid.querySelectorAll('[data-engage-product]').forEach((btn) => {
+ btn.addEventListener('click', () => openEngageIntake(btn.dataset.engageProduct, btn.dataset.source));
+ });
 
-  renderEngageSecondaryLinks();
+ renderEngageSecondaryLinks();
 
-  document.querySelectorAll('[data-scroll-engage-check]').forEach((btn) => {
-    btn.addEventListener('click', scrollToEngageSelfCheck);
-  });
-  document.querySelectorAll('#engageFinalCta [data-engage-product]').forEach((btn) => {
-    btn.addEventListener('click', () => openEngageIntake(btn.dataset.engageProduct, btn.dataset.source));
-  });
+ document.querySelectorAll('[data-scroll-engage-check]').forEach((btn) => {
+ btn.addEventListener('click', scrollToEngageSelfCheck);
+ });
+ document.querySelectorAll('#engageFinalCta [data-engage-product]').forEach((btn) => {
+ btn.addEventListener('click', () => openEngageIntake(btn.dataset.engageProduct, btn.dataset.source));
+ });
 }
 
 function getPaidProductId() {
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('payment') !== 'success') return null;
-  return params.get('product') || null;
+ const params = new URLSearchParams(window.location.search);
+ if (params.get('payment') !== 'success') return null;
+ return params.get('product') || null;
 }
 
 function updateEngageThankYou() {
-  const productId = getPaidProductId();
-  const config = getEngageConfig();
-  const product = productId ? (config.products || []).find(p => p.id === productId) : null;
+ const productId = getPaidProductId();
+ const config = getEngageConfig();
+ const product = productId ? (config.products || []).find(p => p.id === productId) : null;
 
-  const title = document.getElementById('engageThankYouTitle');
-  const body = document.getElementById('engageThankYouBody');
-  const intakeBtn = document.getElementById('engageThankYouIntake');
-  const emailLink = document.getElementById('engageThankYouEmail');
-  const merchantEmail = config.merchant?.email || 'info@aielevate.xyz';
+ const title = document.getElementById('engageThankYouTitle');
+ const body = document.getElementById('engageThankYouBody');
+ const intakeBtn = document.getElementById('engageThankYouIntake');
+ const emailLink = document.getElementById('engageThankYouEmail');
+ const merchantEmail = config.merchant?.email || 'info@aielevate.xyz';
 
-  if (emailLink) {
-    emailLink.href = `mailto:${merchantEmail}`;
-    emailLink.textContent = merchantEmail;
-  }
+ if (emailLink) {
+ emailLink.href = `mailto:${merchantEmail}`;
+ emailLink.textContent = merchantEmail;
+ }
 
-  if (product && title) {
-    title.textContent = `Thank you — ${product.title} is being activated`;
-  } else if (title) {
-    title.textContent = 'Thank you — your program is being activated';
-  }
+ if (product && title) {
+ title.textContent = `Thank you: ${product.title} is being activated`;
+ } else if (title) {
+ title.textContent = 'Thank you. Your program is being activated';
+ }
 
-  if (product && body) {
-    if (product.id === 'decision-room') {
-      const params = new URLSearchParams(window.location.search);
-      const token = params.get('token');
-      body.textContent = token
-        ? `Payment confirmed for ${product.title}. Your access token is ready — enter the Decision Room below.`
-        : `Payment confirmed for ${product.title}. Your session access token will be emailed within 1 business day. ${product.timeline}.`;
-    } else {
-      body.textContent = `Payment confirmed for ${product.title}. Complete the intake form to start delivery. ${product.timeline}.`;
-    }
-  } else if (body) {
-    body.textContent = `We received your payment. You will hear from ${merchantEmail} within one business day.`;
-  }
+ if (product && body) {
+ if (product.id === 'decision-room') {
+ const params = new URLSearchParams(window.location.search);
+ const token = params.get('token');
+ body.textContent = token
+ ? `Payment confirmed for ${product.title}. Your access token is ready. Enter the Decision Room below.`
+ : `Payment confirmed for ${product.title}. Your session access token will be emailed within 1 business day. ${product.timeline}.`;
+ } else {
+ body.textContent = `Payment confirmed for ${product.title}. Complete the intake form to start delivery. ${product.timeline}.`;
+ }
+ } else if (body) {
+ body.textContent = `We received your payment. You will hear from ${merchantEmail} within one business day.`;
+ }
 
-  if (intakeBtn) {
-    const params = new URLSearchParams(window.location.search);
-    const roomToken = params.get('token');
-    if (product?.id === 'decision-room' && roomToken) {
-      intakeBtn.href = `${window.location.pathname}?token=${encodeURIComponent(roomToken)}#decision-room`;
-      intakeBtn.classList.remove('hidden');
-      intakeBtn.textContent = 'Enter Decision Room';
-    } else if (product?.id === 'assessment' && roomToken) {
-      intakeBtn.href = `${window.location.pathname}?token=${encodeURIComponent(roomToken)}#edmp-assessment`;
-      intakeBtn.classList.remove('hidden');
-      intakeBtn.textContent = 'Enter EDMP Assessment';
-    } else if (product?.intakeFormUrl) {
-      intakeBtn.href = product.intakeFormUrl;
-      intakeBtn.classList.remove('hidden');
-      intakeBtn.textContent = 'Complete intake form';
-    } else {
-      intakeBtn.classList.add('hidden');
-      intakeBtn.removeAttribute('href');
-      if (product && product.id !== 'decision-room' && body) {
-        body.textContent += ` Intake form link will be emailed from ${merchantEmail} within 1 business day (Typeform URL not configured yet).`;
-      }
-    }
-  }
+ if (intakeBtn) {
+ const params = new URLSearchParams(window.location.search);
+ const roomToken = params.get('token');
+ if (product?.id === 'decision-room' && roomToken) {
+ intakeBtn.href = `${window.location.pathname}?token=${encodeURIComponent(roomToken)}#decision-room`;
+ intakeBtn.classList.remove('hidden');
+ intakeBtn.textContent = 'Enter Decision Room';
+ } else if (product?.id === 'assessment' && roomToken) {
+ intakeBtn.href = `${window.location.pathname}?token=${encodeURIComponent(roomToken)}#edmp-assessment`;
+ intakeBtn.classList.remove('hidden');
+ intakeBtn.textContent = 'Enter EDMP Assessment';
+ } else if (product?.intakeFormUrl) {
+ intakeBtn.href = product.intakeFormUrl;
+ intakeBtn.classList.remove('hidden');
+ intakeBtn.textContent = 'Complete intake form';
+ } else {
+ intakeBtn.classList.add('hidden');
+ intakeBtn.removeAttribute('href');
+ if (product && product.id !== 'decision-room' && body) {
+ body.textContent += ` Intake form link will be emailed from ${merchantEmail} within 1 business day (Typeform URL not configured yet).`;
+ }
+ }
+ }
 }
 
 function setEngageThankYouVisible(show) {
-  const banner = document.getElementById('engageThankYou');
-  if (!banner) return;
-  if (show) updateEngageThankYou();
-  banner.classList.toggle('hidden', !show);
+ const banner = document.getElementById('engageThankYou');
+ if (!banner) return;
+ if (show) updateEngageThankYou();
+ banner.classList.toggle('hidden', !show);
 }
 
 function isEngageThankYouRoute() {
-  const hash = (window.location.hash || '').replace('#', '').toLowerCase();
-  if (hash === 'engage-thanks') return true;
-  const params = new URLSearchParams(window.location.search);
-  return params.get('payment') === 'success';
+ const hash = (window.location.hash || '').replace('#', '').toLowerCase();
+ if (hash === 'engage-thanks') return true;
+ const params = new URLSearchParams(window.location.search);
+ return params.get('payment') === 'success';
 }
 
 function handleStaticRoute() {
-  const hash = (window.location.hash || '').replace('#', '').toLowerCase();
-  const thankYou = isEngageThankYouRoute();
-  if (hash === 'engage' || hash === 'engage-thanks' || thankYou) {
-    renderEngage();
-    showView('engage');
-    setEngageThankYouVisible(thankYou);
-    if (thankYou) window.scrollTo({ top: 0, behavior: 'smooth' });
-    return true;
-  }
-  if (hash === 'privacy' || hash === 'terms') {
-    applyLegalMerchantInfo();
-    showView(hash);
-    return true;
-  }
-  if (hash === 'decision-room') {
-    showView('decision-room');
-    return true;
-  }
-  if (hash === 'edmp-assessment') {
-    showView('edmp-assessment');
-    return true;
-  }
-  const insightMatch = insights.find(i => i.id === hash || i.slug === hash);
-  if (insightMatch) {
-    history.replaceState(null, '', '#' + insightMatch.id);
-    openInsightArticle(insightMatch.id);
-    return true;
-  }
-  const consultancyHashes = ['services', 'partners', 'edmp', 'about', 'contact', 'home', 'insights', 'library', 'cases'];
-  if (consultancyHashes.includes(hash)) {
-    showView(hash === 'home' ? 'platform' : hash);
-    return true;
-  }
-  const capabilityRoutes = (window.AIE_CAPABILITY_VIEWS || ['business-ready', 'user-adoption', 'ai-technologies']);
-  if (capabilityRoutes.includes(hash)) {
-    showView(hash);
-    return true;
-  }
-  setEngageThankYouVisible(false);
-  return false;
+ const hash = (window.location.hash || '').replace('#', '').toLowerCase();
+ const thankYou = isEngageThankYouRoute();
+ if (hash === 'engage' || hash === 'engage-thanks' || thankYou) {
+ renderEngage();
+ showView('engage');
+ setEngageThankYouVisible(thankYou);
+ if (thankYou) window.scrollTo({ top: 0, behavior: 'smooth' });
+ return true;
+ }
+ if (hash === 'privacy' || hash === 'terms') {
+ applyLegalMerchantInfo();
+ showView(hash);
+ return true;
+ }
+ if (hash === 'decision-room') {
+ showView('decision-room');
+ return true;
+ }
+ if (hash === 'edmp-assessment') {
+ showView('edmp-assessment');
+ return true;
+ }
+ const insightMatch = insights.find(i => i.id === hash || i.slug === hash);
+ if (insightMatch) {
+ history.replaceState(null, '', '#' + insightMatch.id);
+ openInsightArticle(insightMatch.id);
+ return true;
+ }
+ const consultancyHashes = ['services', 'partners', 'edmp', 'about', 'contact', 'home', 'insights', 'library', 'cases'];
+ if (consultancyHashes.includes(hash)) {
+ showView(hash === 'home' ? 'platform' : hash);
+ return true;
+ }
+ const capabilityRoutes = (window.AIE_CAPABILITY_VIEWS || ['business-ready', 'user-adoption', 'ai-technologies']);
+ if (capabilityRoutes.includes(hash)) {
+ showView(hash);
+ return true;
+ }
+ setEngageThankYouVisible(false);
+ return false;
 }
 
 function showView(viewId) {
-  if (viewId === 'library') ensureLibraryRendered();
-  if (viewId === 'engage') {
-    renderEngage();
-    if (!isEngageThankYouRoute()) setEngageThankYouVisible(false);
-  } else {
-    setEngageThankYouVisible(false);
-  }
+ if (viewId === 'library') ensureLibraryRendered();
+ if (viewId === 'engage') {
+ renderEngage();
+ if (!isEngageThankYouRoute()) setEngageThankYouVisible(false);
+ } else {
+ setEngageThankYouVisible(false);
+ }
 
-  document.body.classList.toggle('decision-room-mode', viewId === 'decision-room');
-  document.body.classList.toggle('edmp-assessment-mode', viewId === 'edmp-assessment');
-  if (viewId === 'decision-room' && window.DecisionRoom) {
-    window.DecisionRoom.onViewActive();
-  }
-  if (viewId === 'edmp-assessment' && window.EdmpAssessment) {
-    window.EdmpAssessment.onViewActive();
-  }
+ document.body.classList.toggle('decision-room-mode', viewId === 'decision-room');
+ document.body.classList.toggle('edmp-assessment-mode', viewId === 'edmp-assessment');
+ if (viewId === 'decision-room' && window.DecisionRoom) {
+ window.DecisionRoom.onViewActive();
+ }
+ if (viewId === 'edmp-assessment' && window.EdmpAssessment) {
+ window.EdmpAssessment.onViewActive();
+ }
 
-  views.forEach(view => view.classList.toggle('active-view', view.id === viewId));
-  if (viewId === 'services') requestAnimationFrame(() => updateServiceJourney());
-  if (viewId === 'platform') requestAnimationFrame(() => {
-    initHomeHero(true);
-    if (typeof restoreCapabilityHomeState === 'function') restoreCapabilityHomeState({ soft: true });
-  });
-  if (viewId === 'partners') requestAnimationFrame(() => initPartnersPage(true));
-  const capabilityRoutes = window.AIE_CAPABILITY_VIEWS || ['business-ready', 'user-adoption', 'ai-technologies'];
-  if (capabilityRoutes.includes(viewId) && typeof showCapabilityDeep === 'function') {
-    showCapabilityDeep(viewId);
-  }
-  const edmpCluster = ['edmp', 'library', 'cases', 'engage', 'decision-room', 'edmp-assessment'];
-  const insightsCluster = ['insights', 'insight-article'];
-  const capabilityCluster = capabilityRoutes;
-  navButtons.forEach(btn => {
-    if (btn.dataset.view === 'platform') {
-      btn.classList.toggle('active', viewId === 'platform');
-    } else if (btn.dataset.view === 'edmp') {
-      btn.classList.toggle('active', edmpCluster.includes(viewId));
-    } else if (btn.dataset.view === 'insights') {
-      btn.classList.toggle('active', insightsCluster.includes(viewId));
-    } else {
-      btn.classList.toggle('active', btn.dataset.view === viewId);
-    }
-  });
-  document.querySelectorAll('.nav-cap-toggle').forEach((btn) => {
-    btn.classList.toggle('active', capabilityCluster.includes(viewId));
-  });
-  document.querySelectorAll('[data-cap-nav-link]').forEach((link) => {
-    link.classList.toggle('is-active', link.getAttribute('data-cap-nav-link') === viewId);
-  });
-  footerNavButtons.forEach(btn => btn.classList.toggle('active-link', btn.dataset.view === viewId));
-  updatePrefooter(viewId);
+ views.forEach(view => view.classList.toggle('active-view', view.id === viewId));
+ if (typeof refreshSectionRail === 'function') {
+ requestAnimationFrame(() => refreshSectionRail());
+ }
+ initHomeHeroParallax();
+ if (viewId === 'services') requestAnimationFrame(() => updateServiceJourney());
+ if (viewId === 'platform') requestAnimationFrame(() => {
+ initHomeHero(true);
+ initHomeJourney();
+ if (typeof restoreCapabilityHomeState === 'function') {
+ restoreCapabilityHomeState({ soft: true });
+ }
+ });
+ if (viewId === 'partners') requestAnimationFrame(() => initPartnersPage(true));
+ if (viewId === 'about') requestAnimationFrame(() => initAboutPage(true));
+ if (viewId === 'insights') {
+ requestAnimationFrame(() => {
+ if (typeof restoreInsightsRailContext === 'function') restoreInsightsRailContext();
+ });
+ }
+ const capabilityRoutes = window.AIE_CAPABILITY_VIEWS || ['business-ready', 'user-adoption', 'ai-technologies'];
+ if (capabilityRoutes.includes(viewId) && typeof showCapabilityDeep === 'function') {
+ showCapabilityDeep(viewId);
+ }
+ const edmpCluster = ['edmp', 'library', 'cases', 'engage', 'decision-room', 'edmp-assessment'];
+ const insightsCluster = ['insights', 'insight-article'];
+ const capabilityCluster = capabilityRoutes;
+ navButtons.forEach(btn => {
+ if (btn.dataset.view === 'platform') {
+ btn.classList.toggle('active', viewId === 'platform');
+ } else if (btn.dataset.view === 'edmp') {
+ btn.classList.toggle('active', edmpCluster.includes(viewId));
+ } else if (btn.dataset.view === 'insights') {
+ btn.classList.toggle('active', insightsCluster.includes(viewId));
+ } else {
+ btn.classList.toggle('active', btn.dataset.view === viewId);
+ }
+ });
+ document.querySelectorAll('.nav-cap-toggle').forEach((btn) => {
+ btn.classList.toggle('active', capabilityCluster.includes(viewId));
+ });
+ document.querySelectorAll('[data-cap-nav-link]').forEach((link) => {
+ link.classList.toggle('is-active', link.getAttribute('data-cap-nav-link') === viewId);
+ });
+ footerNavButtons.forEach(btn => btn.classList.toggle('active-link', btn.dataset.view === viewId));
+ updatePrefooter(viewId);
 
-  moveLibraryOnlyBlocks();
-  const decisionActivationShell = document.querySelector('.decision-activation-shell');
-  if (decisionActivationShell) {
-    decisionActivationShell.style.display = viewId === 'library' ? '' : 'none';
-  }
-  const trustStrip = document.querySelector('.trust-strip');
-  if (trustStrip) {
-    trustStrip.style.display = viewId === 'library' ? '' : 'none';
-  }
-  const prefooterShell = document.querySelector('.prefooter-shell');
-  if (prefooterShell) {
-    prefooterShell.style.display = ['engage', 'privacy', 'terms', 'decision-room', 'edmp-assessment', 'insight-article', 'business-ready', 'user-adoption', 'ai-technologies'].includes(viewId) ? 'none' : '';
-  }
+ moveLibraryOnlyBlocks();
+ const decisionActivationShell = document.querySelector('.decision-activation-shell');
+ if (decisionActivationShell) {
+ decisionActivationShell.style.display = viewId === 'library' ? '' : 'none';
+ }
+ const trustStrip = document.querySelector('.trust-strip');
+ if (trustStrip) {
+ trustStrip.style.display = viewId === 'library' ? '' : 'none';
+ }
+ const prefooterShell = document.querySelector('.prefooter-shell');
+ if (prefooterShell) {
+ prefooterShell.style.display = ['engage', 'privacy', 'terms', 'decision-room', 'edmp-assessment', 'insight-article', 'business-ready', 'user-adoption', 'ai-technologies'].includes(viewId) ? 'none' : '';
+ }
 
-  const target = document.getElementById(viewId);
-  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ const target = document.getElementById(viewId);
+ const restoringInsights = viewId === 'insights' && !!loadInsightsRailState()?.scrollY;
+ if (target && !restoringInsights) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function navigateToView(viewId) {
-  const hashRoutes = {
-    platform: '#',
-    services: '#services',
-    partners: '#partners',
-    edmp: '#edmp',
-    about: '#about',
-    contact: '#contact',
-    insights: '#insights',
-    engage: '#engage',
-    privacy: '#privacy',
-    terms: '#terms',
-    'decision-room': '#decision-room',
-    'edmp-assessment': '#edmp-assessment',
-    library: '#library',
-    cases: '#cases',
-    'insight-1': '#insight-1',
-    'insight-2': '#insight-2',
-    'insight-3': '#insight-3',
-    'insight-4': '#insight-4',
-    'insight-5': '#insight-5',
-    'insight-6': '#insight-6',
-    'business-ready': '#business-ready',
-    'user-adoption': '#user-adoption',
-    'ai-technologies': '#ai-technologies',
-  };
-  const insightItem = insights.find(i => i.id === viewId);
-  if (insightItem) {
-    history.pushState(null, '', '#' + insightItem.id);
-    openInsightArticle(insightItem.id);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    return;
-  }
-  if (hashRoutes[viewId] === '#') {
-    history.replaceState(null, '', window.location.pathname + window.location.search);
-  } else if (hashRoutes[viewId]) {
-    history.replaceState(null, '', hashRoutes[viewId]);
-  } else if (window.location.hash) {
-    history.replaceState(null, '', window.location.pathname + window.location.search);
-  }
-  if (viewId === 'privacy' || viewId === 'terms') applyLegalMerchantInfo();
-  if (viewId === 'contact') {
-    const intent = window.__aieContactIntent || '';
-    const hub = window.__aieEngagementHub || (typeof initEngagementHub === 'function' ? initEngagementHub() : null);
-    if (hub && typeof hub.setIntentFromSite === 'function' && intent) {
-      hub.setIntentFromSite(intent);
-    }
-    if (hub && window.__aieCapabilityContext && typeof hub.applyCapabilityContext === 'function') {
-      hub.applyCapabilityContext(window.__aieCapabilityContext);
-      window.__aieCapabilityContext = null;
-    }
-    // legacy form fallback if hub absent
-    const need = document.getElementById('consultNeed');
-    if (!hub && need) {
-      if (intent === 'scan') need.value = 'Capability diagnosis';
-      if (intent === 'orientation') need.value = 'Executive orientation';
-      if (intent === 'design') need.value = 'Strategy and operating model';
-      if (intent === 'govern') need.value = 'Architecture and governance';
-      if (intent === 'accompany') need.value = 'Implementation partnership';
-      if (intent === 'partnership') need.value = 'Implementation partnership';
-    }
-    window.__aieContactIntent = '';
-  }
-  showView(viewId);
-  closeOverlayPanel();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+ const hashRoutes = {
+ platform: '#',
+ services: '#services',
+ partners: '#partners',
+ edmp: '#edmp',
+ about: '#about',
+ contact: '#contact',
+ insights: '#insights',
+ engage: '#engage',
+ privacy: '#privacy',
+ terms: '#terms',
+ 'decision-room': '#decision-room',
+ 'edmp-assessment': '#edmp-assessment',
+ library: '#library',
+ cases: '#cases',
+ 'business-ready': '#business-ready',
+ 'user-adoption': '#user-adoption',
+ 'ai-technologies': '#ai-technologies',
+ 'insight-1': '#insight-1',
+ 'insight-2': '#insight-2',
+ 'insight-3': '#insight-3',
+ 'insight-4': '#insight-4',
+ 'insight-5': '#insight-5',
+ 'insight-6': '#insight-6',
+ };
+ const insightItem = insights.find(i => i.id === viewId);
+ if (insightItem) {
+ history.pushState(null, '', '#' + insightItem.id);
+ openInsightArticle(insightItem.id);
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ return;
+ }
+ if (hashRoutes[viewId] === '#') {
+ history.replaceState(null, '', window.location.pathname + window.location.search);
+ } else if (hashRoutes[viewId]) {
+ history.replaceState(null, '', hashRoutes[viewId]);
+ } else if (window.location.hash) {
+ history.replaceState(null, '', window.location.pathname + window.location.search);
+ }
+ if (viewId === 'privacy' || viewId === 'terms') applyLegalMerchantInfo();
+ if (viewId === 'contact') {
+ const intent = window.__aieContactIntent || '';
+ const hub = window.__aieEngagementHub || (typeof initEngagementHub === 'function' ? initEngagementHub() : null);
+ if (hub && typeof hub.setIntentFromSite === 'function' && intent) {
+ hub.setIntentFromSite(intent);
+ } else if (hub && !intent) {
+ // keep current hub state when opening Contact without an intent
+ }
+ if (hub && window.__aieCapabilityContext && typeof hub.applyCapabilityContext === 'function') {
+ hub.applyCapabilityContext(window.__aieCapabilityContext);
+ window.__aieCapabilityContext = null;
+ }
+ window.__aieContactIntent = '';
+ }
+ showView(viewId);
+ closeOverlayPanel();
+ const restoreInsightsScroll = viewId === 'insights' && !!loadInsightsRailState()?.scrollY;
+ if (!restoreInsightsScroll) {
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ }
 }
 
 window.navigateToView = navigateToView;
@@ -1373,682 +1518,1209 @@ footerNavButtons.forEach(btn => btn.addEventListener('click', () => navigateToVi
 jumpButtons.forEach(btn => btn.addEventListener('click', () => navigateToView(btn.dataset.view)));
 
 document.addEventListener('click', (event) => {
-  const intentBtn = event.target.closest('[data-contact-intent]');
-  if (intentBtn) {
-    window.__aieContactIntent = intentBtn.dataset.contactIntent || '';
-  }
-  const btn = event.target.closest('[data-view]');
-  if (!btn) return;
-  if (btn.matches('.nav-btn, .jump-btn, .nav-btn-link')) return;
-  const viewId = btn.dataset.view;
-  if (!viewId) return;
-  event.preventDefault();
-  navigateToView(viewId);
+ const intentBtn = event.target.closest('[data-contact-intent]');
+ if (intentBtn) {
+ window.__aieContactIntent = intentBtn.dataset.contactIntent || '';
+ }
+ const btn = event.target.closest('[data-view]');
+ if (!btn) return;
+ if (btn.matches('.nav-btn,.jump-btn,.nav-btn-link')) return;
+ const viewId = btn.dataset.view;
+ if (!viewId) return;
+ event.preventDefault();
+ navigateToView(viewId);
 });
 
 document.querySelectorAll('[data-domain-jump]').forEach(btn => {
-  btn.addEventListener('click', () => navigateToDomain(btn.dataset.domainJump));
+ btn.addEventListener('click', () => navigateToDomain(btn.dataset.domainJump));
 });
 
 document.addEventListener('click', (event) => {
-  const jump = event.target.closest('[data-domain-jump]');
-  if (!jump) return;
-  event.preventDefault();
-  navigateToDomain(jump.dataset.domainJump);
+ const jump = event.target.closest('[data-domain-jump]');
+ if (!jump) return;
+ event.preventDefault();
+ navigateToDomain(jump.dataset.domainJump);
 });
 
 enforceSelectContrast(document);
 
 function openOverlay(html) {
-  overlayContent.innerHTML = html;
-  overlay.classList.remove('hidden');
-  overlay.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
+ overlayContent.innerHTML = html;
+ overlay.classList.remove('hidden');
+ overlay.setAttribute('aria-hidden', 'false');
+ document.body.style.overflow = 'hidden';
 }
 
 function closeOverlayPanel() {
-  if (!overlay) return;
-  overlay.classList.add('hidden');
-  overlay.setAttribute('aria-hidden', 'true');
-  if (overlayContent) overlayContent.innerHTML = '';
-  document.body.style.overflow = '';
+ if (!overlay) return;
+ overlay.classList.add('hidden');
+ overlay.setAttribute('aria-hidden', 'true');
+ if (overlayContent) overlayContent.innerHTML = '';
+ document.body.style.overflow = '';
 }
 
 let currentCaseId = 'governance';
 
 const intakeTypeMeta = {
-  demo: {
-    label: 'Request Executive Briefing',
-    subject: 'AI Elevate Demo Request',
-    intro: 'Use the structured demo request below so AI Elevate can start from your operating pressure, domain, and timing.',
-    button: 'Send executive briefing request'
-  },
-  contact: {
-    label: 'Explore EDMP',
-    subject: 'AI Elevate Inquiry',
-    intro: 'Use the inquiry intake to describe the domain, operating challenge, and conversation you want to have with AI Elevate.',
-    button: 'Send EDMP inquiry'
-  }
+ demo: {
+ label: 'Request Executive Briefing',
+ subject: 'AI Elevate Demo Request',
+ intro: 'Use the structured demo request below so AI Elevate can start from your operating pressure, domain, and timing.',
+ button: 'Send executive briefing request'
+ },
+ contact: {
+ label: 'Explore EDMP',
+ subject: 'AI Elevate Inquiry',
+ intro: 'Use the inquiry intake to describe the domain, operating challenge, and conversation you want to have with AI Elevate.',
+ button: 'Send EDMP inquiry'
+ }
 };
 
 
 function enforceSelectContrast(root = document) {
-  const selects = root.querySelectorAll('select');
-  selects.forEach(select => {
-    const apply = () => {
-      select.style.appearance = 'auto';
-      select.style.opacity = '1';
-      select.style.background = '#ffffff';
-      select.style.backgroundColor = '#ffffff';
-      select.style.color = '#0b1120';
-      select.style.webkitTextFillColor = '#0b1120';
-      select.style.border = '1px solid rgba(120,150,190,0.42)';
-      select.style.colorScheme = 'light';
-      select.style.fontWeight = '600';
-      Array.from(select.options || []).forEach(option => {
-        option.style.backgroundColor = '#0b1120';
-        option.style.background = '#ffffff';
-        option.style.color = '#0b1120';
-        option.style.webkitTextFillColor = '#0b1120';
-        option.style.fontWeight = '600';
-        option.disabled = false;
-      });
-    };
-    apply();
-    ['focus','mousedown','click','change','input','mouseenter'].forEach(evt => select.addEventListener(evt, apply));
-  });
+ const selects = root.querySelectorAll('select');
+ selects.forEach(select => {
+ const apply = () => {
+ select.style.appearance = 'auto';
+ select.style.opacity = '1';
+ select.style.background = '#ffffff';
+ select.style.backgroundColor = '#ffffff';
+ select.style.color = '#0b1120';
+ select.style.webkitTextFillColor = '#0b1120';
+ select.style.border = '1px solid rgba(120,150,190,0.42)';
+ select.style.colorScheme = 'light';
+ select.style.fontWeight = '600';
+ Array.from(select.options || []).forEach(option => {
+ option.style.backgroundColor = '#0b1120';
+ option.style.background = '#ffffff';
+ option.style.color = '#0b1120';
+ option.style.webkitTextFillColor = '#0b1120';
+ option.style.fontWeight = '600';
+ option.disabled = false;
+ });
+ };
+ apply();
+ ['focus','mousedown','click','change','input','mouseenter'].forEach(evt => select.addEventListener(evt, apply));
+ });
 }
 
 
 function escapeHtml(value) {
-  return String(value ?? '').replace(/[&<>"']/g, chr => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  }[chr]));
+ return String(value ?? '').replace(/[&<>"']/g, chr => ({
+ '&': '&amp;',
+ '<': '&lt;',
+ '>': '&gt;',
+ '"': '&quot;',
+ "'": '&#39;'
+ }[chr]));
 }
 
 function buildDirectMailto(subject, body) {
-  return `mailto:info@aielevate.xyz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+ return `mailto:info@aielevate.xyz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 function intakeFormHTML(options = {}) {
-  const type = options.type || 'contact';
-  const engageProduct = options.engageProduct || '';
-  const engageMeta = engageProduct ? ENGAGE_INTAKE_META[engageProduct] : null;
-  const meta = engageMeta
-    ? {
-      label: engageMeta.label,
-      subject: engageMeta.subject,
-      intro: engageMeta.intro,
-      button: engageMeta.button,
-    }
-    : (intakeTypeMeta[type] || intakeTypeMeta.contact);
-  const domain = options.domain || '';
-  const context = options.context || engageMeta?.reason || '';
-  const source = options.source || 'site';
-  const challengePlaceholder = type === 'demo'
-    ? 'Describe the operating pressure, decision bottleneck, or cockpit you want to see live.'
-    : 'Describe the challenge, cockpit interest, or reason for contacting AI Elevate.';
-  const heading = engageMeta
-    ? `Request ${engageMeta.label}`
-    : (type === 'demo' ? 'Request an executive briefing' : 'Start an EDMP conversation');
-  const reasonOptions = engageMeta
-    ? `<option value="${escapeHtml(engageMeta.reason)}" selected>${escapeHtml(engageMeta.reason)}</option>`
-    : (type === 'demo' ? `
-                <option value="Live cockpit walkthrough">Live cockpit walkthrough</option>
-                <option value="Use-case specific demo">Use-case specific demo</option>
-                <option value="Case journey review">Case journey review</option>
-                <option value="Executive operating model review">Executive operating model review</option>
-              ` : `
-                <option value="Discuss a cockpit">Discuss a cockpit</option>
-                <option value="Explore a use case">Explore a use case</option>
-                <option value="Partnership / design inquiry">Partnership / design inquiry</option>
-                <option value="General inquiry">General inquiry</option>
-              `);
-  return `
-    <div class="intake-form-shell">
-      <div class="form-meta">${meta.label} · EDMP intake</div>
-      <h2>${heading}</h2>
-      <p>${meta.intro}</p>
-      <div class="intake-helper">The form stays local and opens a prefilled email draft to <strong>info@aielevate.xyz</strong>. This keeps the experience usable today and ready for future backend or CRM connection.</div>
-      <form id="intakeForm" data-intake-form="${type}" data-source="${escapeHtml(source)}" data-context="${escapeHtml(context)}"${engageProduct ? ` data-engage-product="${escapeHtml(engageProduct)}"` : ''}>
-        <div class="form-grid">
-          <div class="field">
-            <label for="intakeName">Name</label>
-            <input id="intakeName" name="name" type="text" placeholder="Your name" required>
-          </div>
-          <div class="field">
-            <label for="intakeCompany">Company</label>
-            <input id="intakeCompany" name="company" type="text" placeholder="Company name" required>
-          </div>
-          <div class="field">
-            <label for="intakeEmail">Work email</label>
-            <input id="intakeEmail" name="email" type="email" placeholder="name@company.com" required>
-          </div>
-          <div class="field">
-            <label for="intakeRole">Role / function</label>
-            <input id="intakeRole" name="role" type="text" placeholder="CFO, COO, Governance Lead..." required>
-          </div>
-          <div class="field">
-            <label for="intakeDomain">Primary domain of interest</label>
-            <select id="intakeDomain" name="domain" required>
-              <option value="">Select a domain</option>
-              ${cockpitData.map(item => `<option value="${item.domain}" ${item.domain === domain ? 'selected' : ''}>${item.domain}</option>`).join('')}
-              <option value="Cross-domain">Cross-domain / multiple functions</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="intakeReason">${type === 'demo' ? 'What do you want to see?' : 'Reason for contacting'}</label>
-            <select id="intakeReason" name="reason" required>
-              ${reasonOptions}
-            </select>
-          </div>
-          <div class="field field-full">
-            <label for="intakeChallenge">Main challenge / use case</label>
-            <textarea id="intakeChallenge" name="challenge" placeholder="${escapeHtml(challengePlaceholder)}" required></textarea>
-          </div>
-          <div class="field">
-            <label for="intakeTiming">Timing</label>
-            <select id="intakeTiming" name="timing">
-              <option value="As soon as possible">As soon as possible</option>
-              <option value="Within 30 days">Within 30 days</option>
-              <option value="This quarter">This quarter</option>
-              <option value="Exploring / no fixed timing">Exploring / no fixed timing</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="intakeVisibility">Who needs visibility?</label>
-            <input id="intakeVisibility" name="visibility" type="text" placeholder="Board, leadership team, operators, risk owners...">
-          </div>
-        </div>
-        <div class="inline-form-actions">
-          <button class="btn btn-primary btn-cta" type="submit">${meta.button}</button>
-          <a class="btn btn-secondary" href="${buildDirectMailto(meta.subject, 'Hi AI Elevate,\n\nI would like to continue the conversation.\n')}">Use direct email instead</a>
-        </div>
-        <div class="form-disclaimer">Source: ${escapeHtml(source)}${engageProduct ? ` · Product: ${escapeHtml(engageProduct)}` : ''}${context ? ` · Context: ${escapeHtml(context)}` : ''}</div>
-      </form>
-    </div>
-  `;
+ const type = options.type || 'contact';
+ const engageProduct = options.engageProduct || '';
+ const engageMeta = engageProduct ? ENGAGE_INTAKE_META[engageProduct] : null;
+ const meta = engageMeta
+ ? {
+ label: engageMeta.label,
+ subject: engageMeta.subject,
+ intro: engageMeta.intro,
+ button: engageMeta.button,
+ }
+ : (intakeTypeMeta[type] || intakeTypeMeta.contact);
+ const domain = options.domain || '';
+ const context = options.context || engageMeta?.reason || '';
+ const source = options.source || 'site';
+ const challengePlaceholder = type === 'demo'
+ ? 'Describe the operating pressure, decision bottleneck, or cockpit you want to see live.'
+ : 'Describe the challenge, cockpit interest, or reason for contacting AI Elevate.';
+ const heading = engageMeta
+ ? `Request ${engageMeta.label}`
+ : (type === 'demo' ? 'Request an executive briefing' : 'Start an EDMP conversation');
+ const reasonOptions = engageMeta
+ ? `<option value="${escapeHtml(engageMeta.reason)}" selected>${escapeHtml(engageMeta.reason)}</option>`
+ : (type === 'demo' ? `
+ <option value="Live cockpit walkthrough">Live cockpit walkthrough</option>
+ <option value="Use case specific demo">Use case specific demo</option>
+ <option value="Case journey review">Case journey review</option>
+ <option value="Executive operating model review">Executive operating model review</option>
+ ` : `
+ <option value="Discuss a cockpit">Discuss a cockpit</option>
+ <option value="Explore a use case">Explore a use case</option>
+ <option value="Partnership / design inquiry">Partnership / design inquiry</option>
+ <option value="General inquiry">General inquiry</option>
+ `);
+ return `
+ <div class="intake-form-shell">
+ <div class="form-meta">${meta.label} · EDMP intake</div>
+ <h2>${heading}</h2>
+ <p>${meta.intro}</p>
+ <div class="intake-helper">The form stays local and opens a prefilled email draft to <strong>info@aielevate.xyz</strong>. This keeps the experience usable today and ready for future backend or CRM connection.</div>
+ <form id="intakeForm" data-intake-form="${type}" data-source="${escapeHtml(source)}" data-context="${escapeHtml(context)}"${engageProduct ? ` data-engage-product="${escapeHtml(engageProduct)}"` : ''}>
+ <div class="form-grid">
+ <div class="field">
+ <label for="intakeName">Name</label>
+ <input id="intakeName" name="name" type="text" placeholder="Your name" required>
+ </div>
+ <div class="field">
+ <label for="intakeCompany">Company</label>
+ <input id="intakeCompany" name="company" type="text" placeholder="Company name" required>
+ </div>
+ <div class="field">
+ <label for="intakeEmail">Work email</label>
+ <input id="intakeEmail" name="email" type="email" placeholder="name@company.com" required>
+ </div>
+ <div class="field">
+ <label for="intakeRole">Role / function</label>
+ <input id="intakeRole" name="role" type="text" placeholder="CFO, COO, Governance Lead.." required>
+ </div>
+ <div class="field">
+ <label for="intakeDomain">Primary domain of interest</label>
+ <select id="intakeDomain" name="domain" required>
+ <option value="">Select a domain</option>
+ ${cockpitData.map(item => `<option value="${item.domain}" ${item.domain === domain ? 'selected' : ''}>${item.domain}</option>`).join('')}
+ <option value="Cross domain">Cross domain / multiple functions</option>
+ </select>
+ </div>
+ <div class="field">
+ <label for="intakeReason">${type === 'demo' ? 'What do you want to see?' : 'Reason for contacting'}</label>
+ <select id="intakeReason" name="reason" required>
+ ${reasonOptions}
+ </select>
+ </div>
+ <div class="field field-full">
+ <label for="intakeChallenge">Main challenge / use case</label>
+ <textarea id="intakeChallenge" name="challenge" placeholder="${escapeHtml(challengePlaceholder)}" required></textarea>
+ </div>
+ <div class="field">
+ <label for="intakeTiming">Timing</label>
+ <select id="intakeTiming" name="timing">
+ <option value="As soon as possible">As soon as possible</option>
+ <option value="Within 30 days">Within 30 days</option>
+ <option value="This quarter">This quarter</option>
+ <option value="Exploring / no fixed timing">Exploring / no fixed timing</option>
+ </select>
+ </div>
+ <div class="field">
+ <label for="intakeVisibility">Who needs visibility?</label>
+ <input id="intakeVisibility" name="visibility" type="text" placeholder="Board, leadership team, operators, risk owners..">
+ </div>
+ </div>
+ <div class="inline-form-actions">
+ <button class="btn btn-primary btn-cta" type="submit">${meta.button}</button>
+ <a class="btn btn-secondary" href="${buildDirectMailto(meta.subject, 'Hi AI Elevate,\n\nI would like to continue the conversation.\n')}">Use direct email instead</a>
+ </div>
+ <div class="form-disclaimer">Source: ${escapeHtml(source)}${engageProduct ? ` · Product: ${escapeHtml(engageProduct)}` : ''}${context ? ` · Context: ${escapeHtml(context)}` : ''}</div>
+ </form>
+ </div>
+ `;
 }
 
 function resolveDomainLabel(domainAttr) {
-  if (!domainAttr) return '';
-  const byId = cockpitData.find(entry => entry.id === domainAttr);
-  if (byId) return byId.domain;
-  return domainAttr;
+ if (!domainAttr) return '';
+ const byId = cockpitData.find(entry => entry.id === domainAttr);
+ if (byId) return byId.domain;
+ return domainAttr;
 }
 
 function resolveDomainKey(domainAttr) {
-  if (!domainAttr) {
-    return typeof getCurrentTopDomainKey === 'function' ? getCurrentTopDomainKey() : 'governance';
-  }
-  const byId = cockpitData.find(entry => entry.id === domainAttr);
-  if (byId) return byId.id;
-  const byLabel = cockpitData.find(entry => entry.domain === domainAttr);
-  if (byLabel) return byLabel.id;
-  return 'governance';
+ if (!domainAttr) {
+ return typeof getCurrentTopDomainKey === 'function' ? getCurrentTopDomainKey() : 'governance';
+ }
+ const byId = cockpitData.find(entry => entry.id === domainAttr);
+ if (byId) return byId.id;
+ const byLabel = cockpitData.find(entry => entry.domain === domainAttr);
+ if (byLabel) return byLabel.id;
+ return 'governance';
 }
 
 function getNavLabel(el) {
-  return (el.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
+ return (el.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
 function goToCases(domainKey) {
-  const key = domainKey || resolveDomainKey();
-  navigateToView('cases');
-  if (typeof selectCase === 'function') selectCase(key);
-  const journey = document.querySelector('.journey-panel') || document.getElementById('cases');
-  if (journey) {
-    window.setTimeout(() => journey.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
-  }
+ const key = domainKey || resolveDomainKey();
+ navigateToView('cases');
+ if (typeof selectCase === 'function') selectCase(key);
+ const journey = document.querySelector('.journey-panel') || document.getElementById('cases');
+ if (journey) {
+ window.setTimeout(() => journey.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+ }
 }
 
 function goToLibrary(domainKey) {
-  if (domainKey) {
-    navigateToDomain(domainKey);
-    return;
-  }
-  navigateToView('library');
-  const grid = document.getElementById('cockpitGrid') || document.getElementById('library');
-  if (grid) window.setTimeout(() => grid.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+ if (domainKey) {
+ navigateToDomain(domainKey);
+ return;
+ }
+ navigateToView('library');
+ const grid = document.getElementById('cockpitGrid') || document.getElementById('library');
+ if (grid) window.setTimeout(() => grid.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
 }
 
 function initNavigationIntegrity() {
-  document.addEventListener('click', (event) => {
-    const el = event.target.closest('a, button');
-    if (!el || el.closest('#engage')) return;
+ document.addEventListener('click', (event) => {
+ const el = event.target.closest('a, button');
+ if (!el || el.closest('#engage')) return;
 
-    const label = getNavLabel(el);
+ const label = getNavLabel(el);
 
-    if (label === 'explore edmp') {
-      event.preventDefault();
-      event.stopPropagation();
-      if (el.dataset.view === 'edmp') navigateToView('edmp');
-      else goToLibrary();
-      return;
-    }
+ if (label === 'explore edmp') {
+ event.preventDefault();
+ event.stopPropagation();
+ if (el.dataset.view === 'edmp') navigateToView('edmp');
+ else goToLibrary();
+ return;
+ }
 
-    if (label === 'see use environments') {
-      event.preventDefault();
-      event.stopPropagation();
-      const domainKey = el.id === 'domainLiveBtn' ? getCurrentTopDomainKey() : null;
-      goToLibrary(domainKey);
-      return;
-    }
+ if (label === 'see use environments') {
+ event.preventDefault();
+ event.stopPropagation();
+ const domainKey = el.id === 'domainLiveBtn' ? getCurrentTopDomainKey() : null;
+ goToLibrary(domainKey);
+ return;
+ }
 
-    if (label === 'review the architecture' || label === 'review architecture') {
-      event.preventDefault();
-      event.stopPropagation();
-      goToCases(resolveDomainKey(el.dataset.domain));
-      return;
-    }
-  }, true);
+ if (label === 'review the architecture' || label === 'review architecture') {
+ event.preventDefault();
+ event.stopPropagation();
+ goToCases(resolveDomainKey(el.dataset.domain));
+ return;
+ }
+ }, true);
 
-  document.querySelectorAll('a.btn-primary.btn-cta, a.btn-primary#conceptDemoBtn').forEach(el => {
-    if (getNavLabel(el) === 'request executive briefing' && !el.dataset.openIntake) {
-      el.dataset.openIntake = 'demo';
-      if (!el.dataset.source) el.dataset.source = 'site';
-    }
-  });
+ document.querySelectorAll('a.btn-primary.btn-cta, a.btn-primary#conceptDemoBtn').forEach(el => {
+ if (getNavLabel(el) === 'request executive briefing' && !el.dataset.openIntake) {
+ el.dataset.openIntake = 'demo';
+ if (!el.dataset.source) el.dataset.source = 'site';
+ }
+ });
 }
 
 function openIntakeFromTrigger(trigger) {
-  const type = trigger.dataset.openIntake || 'contact';
-  const domain = resolveDomainLabel(trigger.dataset.domain || '');
-  const context = trigger.dataset.intakeContext || trigger.textContent.trim();
-  const source = trigger.dataset.source || 'site';
-  openOverlay(intakeFormHTML({ type, domain, context, source }));
-  window.setTimeout(() => enforceSelectContrast(overlayContent), 0);
+ const type = trigger.dataset.openIntake || 'contact';
+ const domain = resolveDomainLabel(trigger.dataset.domain || '');
+ const context = trigger.dataset.intakeContext || trigger.textContent.trim();
+ const source = trigger.dataset.source || 'site';
+ openOverlay(intakeFormHTML({ type, domain, context, source }));
+ window.setTimeout(() => enforceSelectContrast(overlayContent), 0);
 }
 
 function submitIntakeForm(form) {
-  const data = Object.fromEntries(new FormData(form).entries());
-  const type = form.dataset.intakeForm || 'contact';
-  const engageProduct = form.dataset.engageProduct || '';
-  const engageMeta = engageProduct ? ENGAGE_INTAKE_META[engageProduct] : null;
-  const meta = engageMeta
-    ? { subject: engageMeta.subject }
-    : (intakeTypeMeta[type] || intakeTypeMeta.contact);
-  const lines = [
-    'Hi AI Elevate,',
-    '',
-    engageMeta
-      ? `I would like to request: ${engageMeta.label}.`
-      : (type === 'demo' ? 'I would like to request a demo.' : 'I would like to get in touch.'),
-    '',
-    ...(engageProduct ? [`Product: ${engageProduct}`, `Program: ${engageMeta?.label || engageProduct}`, ''] : []),
-    `Name: ${data.name || ''}`,
-    `Company: ${data.company || ''}`,
-    `Work email: ${data.email || ''}`,
-    `Role / function: ${data.role || ''}`,
-    `Primary domain: ${data.domain || ''}`,
-    `${type === 'demo' ? 'What I want to see' : 'Reason for contacting'}: ${data.reason || ''}`,
-    `Main challenge / use case: ${data.challenge || ''}`,
-    `Timing: ${data.timing || ''}`,
-    `Who needs visibility: ${data.visibility || ''}`,
-    `Source: ${form.dataset.source || ''}`,
-    `Context: ${form.dataset.context || ''}`
-  ];
-  window.location.href = buildDirectMailto(meta.subject, lines.join('\n'));
+ const data = Object.fromEntries(new FormData(form).entries());
+ const type = form.dataset.intakeForm || 'contact';
+ const engageProduct = form.dataset.engageProduct || '';
+ const engageMeta = engageProduct ? ENGAGE_INTAKE_META[engageProduct] : null;
+ const meta = engageMeta
+ ? { subject: engageMeta.subject }
+ : (intakeTypeMeta[type] || intakeTypeMeta.contact);
+ const lines = [
+ 'Hi AI Elevate,',
+ '',
+ engageMeta
+ ? `I would like to request: ${engageMeta.label}.`
+ : (type === 'demo' ? 'I would like to request a demo.' : 'I would like to get in touch.'),
+ '',
+ ...(engageProduct ? [`Product: ${engageProduct}`, `Program: ${engageMeta?.label || engageProduct}`, ''] : []),
+ `Name: ${data.name || ''}`,
+ `Company: ${data.company || ''}`,
+ `Work email: ${data.email || ''}`,
+ `Role / function: ${data.role || ''}`,
+ `Primary domain: ${data.domain || ''}`,
+ `${type === 'demo' ? 'What I want to see' : 'Reason for contacting'}: ${data.reason || ''}`,
+ `Main challenge / use case: ${data.challenge || ''}`,
+ `Timing: ${data.timing || ''}`,
+ `Who needs visibility: ${data.visibility || ''}`,
+ `Source: ${form.dataset.source || ''}`,
+ `Context: ${form.dataset.context || ''}`
+ ];
+ window.location.href = buildDirectMailto(meta.subject, lines.join('\n'));
 }
 
 if (closeOverlay) closeOverlay.addEventListener('click', closeOverlayPanel);
 if (overlay) overlay.addEventListener('click', (event) => {
-  if (event.target.dataset.close === 'true') closeOverlayPanel();
+ if (event.target.dataset.close === 'true') closeOverlayPanel();
 });
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && !overlay.classList.contains('hidden')) closeOverlayPanel();
+ if (event.key === 'Escape' && !overlay.classList.contains('hidden')) closeOverlayPanel();
 });
 
 document.addEventListener('click', (event) => {
-  const trigger = event.target.closest('[data-open-intake]');
-  if (!trigger) return;
-  event.preventDefault();
-  openIntakeFromTrigger(trigger);
+ const trigger = event.target.closest('[data-open-intake]');
+ if (!trigger) return;
+ event.preventDefault();
+ openIntakeFromTrigger(trigger);
 });
 
 if (overlayContent) overlayContent.addEventListener('submit', (event) => {
-  const form = event.target.closest('[data-intake-form]');
-  if (!form) return;
-  event.preventDefault();
-  submitIntakeForm(form);
+ const form = event.target.closest('[data-intake-form]');
+ if (!form) return;
+ event.preventDefault();
+ submitIntakeForm(form);
 });
 
 function miniBars(values) {
-  const max = Math.max(...values, 1);
-  return values.map((value, index) => `
-    <div class="mini-bar-row">
-      <span>W${index + 1}</span>
-      <em><i style="width:${Math.max(14, (value / max) * 100)}%"></i></em>
-      <strong>${value}</strong>
-    </div>
-  `).join('');
+ const max = Math.max(...values, 1);
+ return values.map((value, index) => `
+ <div class="mini-bar-row">
+ <span>W${index + 1}</span>
+ <em><i style="width:${Math.max(14, (value / max) * 100)}%"></i></em>
+ <strong>${value}</strong>
+ </div>
+ `).join('');
 }
 
 function cockpitOverlay(item) {
-  const depth = cockpitDepth[item.id];
-  return `
-    <div class="overlay-meta"><span>Domain</span><span>EDMP environment</span><span>Monitoring active</span></div>
-    <h2>${item.title}</h2>
-    <p>${item.summary}</p>
-    <div class="embed-shell overlay-hero-image" style="margin-top:16px;"><img src="${item.image}" alt="${item.title}" style="width:100%;max-height:320px;object-fit:cover;display:block;"></div>
-    <div class="overlay-depth-shell">
-      <div class="overlay-block overlay-overview-block">
-        <div class="overlay-block-kicker">System overview</div>
-        <div class="overlay-overview-grid">
-          ${depth.overview.map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join('')}
-        </div>
-      </div>
-      <div class="overlay-metrics-strip">
-        ${depth.metrics.map(([label, value]) => `<div class="overlay-metric-pill"><span>${label}</span><strong>${value}</strong></div>`).join('')}
-      </div>
-      <div class="overlay-grid overlay-grid-v4">
-        <div class="overlay-block">
-          <div class="overlay-block-kicker">System overview</div>
-          <h3>What enters this environment</h3>
-          <ul>${item.blocks.signals.map(v => `<li>${v}</li>`).join('')}</ul>
-        </div>
-        <div class="overlay-block">
-          <div class="overlay-block-kicker">Trace posture</div>
-          <h3>How pressure is organized</h3>
-          <ul>${item.blocks.structure.map(v => `<li>${v}</li>`).join('')}</ul>
-        </div>
-        <div class="overlay-block">
-          <div class="overlay-block-kicker">Governance posture</div>
-          <h3>What moves next</h3>
-          <ul>${item.blocks.actions.map(v => `<li>${v}</li>`).join('')}</ul>
-        </div>
-        <div class="overlay-block overlay-feed-block">
-          <div class="overlay-block-kicker">Mini activity feed</div>
-          <h3>Live system movement</h3>
-          <div class="overlay-activity-feed">
-            ${depth.activity.map((entry, index) => `<div><span>0${index + 1}</span><strong>${entry}</strong></div>`).join('')}
-          </div>
-        </div>
-        <div class="overlay-block overlay-chart-block">
-          <div class="overlay-block-kicker">Mini visualization</div>
-          <h3>Pressure movement preview</h3>
-          <div class="mini-bars">${miniBars(depth.chart)}</div>
-        </div>
-        <div class="overlay-block overlay-relevance-block">
-          <div class="overlay-block-kicker">Domain relevance</div>
-          <h3>Where this cockpit fits</h3>
-          <p>${depth.relevance}</p>
-        </div>
-      </div>
-      <div class="overlay-cta-row">
-        <button class="btn btn-primary btn-cta" data-open-intake="demo" data-source="cockpit-overlay" data-domain="${item.domain}" data-intake-context="${item.title} demo">See the system live</button>
-        <button class="btn btn-secondary" data-open-intake="contact" data-source="cockpit-overlay" data-domain="${item.domain}" data-intake-context="${item.title} discussion">Discuss this cockpit</button>
-        <span class="overlay-cta-note">Use a structured intake to carry the domain, challenge, and timing into the next conversation.</span>
-      </div>
-    </div>
-  `;
+ const depth = cockpitDepth[item.id];
+ return `
+ <div class="overlay-meta"><span>Domain</span><span>EDMP environment</span><span>Monitoring active</span></div>
+ <h2>${item.title}</h2>
+ <p>${item.summary}</p>
+ <div class="embed-shell overlay-hero-image" style="margin-top:16px;"><img src="${item.image}" alt="${item.title}" style="width:100%;max-height:320px;object-fit:cover;display:block;"></div>
+ <div class="overlay-depth-shell">
+ <div class="overlay-block overlay-overview-block">
+ <div class="overlay-block-kicker">System overview</div>
+ <div class="overlay-overview-grid">
+ ${depth.overview.map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join('')}
+ </div>
+ </div>
+ <div class="overlay-metrics-strip">
+ ${depth.metrics.map(([label, value]) => `<div class="overlay-metric-pill"><span>${label}</span><strong>${value}</strong></div>`).join('')}
+ </div>
+ <div class="overlay-grid overlay-grid-v4">
+ <div class="overlay-block">
+ <div class="overlay-block-kicker">System overview</div>
+ <h3>What enters this environment</h3>
+ <ul>${item.blocks.signals.map(v => `<li>${v}</li>`).join('')}</ul>
+ </div>
+ <div class="overlay-block">
+ <div class="overlay-block-kicker">Trace posture</div>
+ <h3>How pressure is organised</h3>
+ <ul>${item.blocks.structure.map(v => `<li>${v}</li>`).join('')}</ul>
+ </div>
+ <div class="overlay-block">
+ <div class="overlay-block-kicker">Governance posture</div>
+ <h3>What moves next</h3>
+ <ul>${item.blocks.actions.map(v => `<li>${v}</li>`).join('')}</ul>
+ </div>
+ <div class="overlay-block overlay-feed-block">
+ <div class="overlay-block-kicker">Mini activity feed</div>
+ <h3>Live system movement</h3>
+ <div class="overlay-activity-feed">
+ ${depth.activity.map((entry, index) => `<div><span>0${index + 1}</span><strong>${entry}</strong></div>`).join('')}
+ </div>
+ </div>
+ <div class="overlay-block overlay-chart-block">
+ <div class="overlay-block-kicker">Mini visualization</div>
+ <h3>Pressure movement preview</h3>
+ <div class="mini-bars">${miniBars(depth.chart)}</div>
+ </div>
+ <div class="overlay-block overlay-relevance-block">
+ <div class="overlay-block-kicker">Domain relevance</div>
+ <h3>Where this cockpit fits</h3>
+ <p>${depth.relevance}</p>
+ </div>
+ </div>
+ <div class="overlay-cta-row">
+ <button class="btn btn-primary btn-cta" data-open-intake="demo" data-source="cockpit-overlay" data-domain="${item.domain}" data-intake-context="${item.title} demo">See the system live</button>
+ <button class="btn btn-secondary" data-open-intake="contact" data-source="cockpit-overlay" data-domain="${item.domain}" data-intake-context="${item.title} discussion">Discuss this cockpit</button>
+ <span class="overlay-cta-note">Use a structured intake to carry the domain, challenge, and timing into the next conversation.</span>
+ </div>
+ </div>
+ `;
 }
 
 function renderLibrary() {
-  cockpitGrid.innerHTML = cockpitData.map((item, index) => `
-    <article class="domain-card glass" data-cockpit="${item.id}">
-      <div class="domain-visual">
-        <img src="${item.image}" alt="${item.title}" loading="lazy" decoding="async">
-        <div class="holo-icon"><span>${item.badge}</span></div>
-      </div>
-      <div class="domain-content">
-        <div class="domain-header">
-          <span class="card-tag">${item.domain}</span>
-          <h3>${item.title}</h3>
-          <p>${item.description}</p>
-        </div>
-        <div class="domain-stats">
-          ${item.facts.map(([label, value]) => `
-            <div class="domain-stat">
-              <span>${label}</span>
-              <strong>${value}</strong>
-            </div>
-          `).join('')}
-        </div>
-        <div class="domain-actions">
-          <span class="domain-index">0${index + 1} / 06</span>
-          <button class="card-link" data-cockpit-open="${item.id}">View cockpit logic</button>
-        </div>
-      </div>
-    </article>
-  `).join('');
+ cockpitGrid.innerHTML = cockpitData.map((item, index) => `
+ <article class="domain-card glass" data-cockpit="${item.id}">
+ <div class="domain-visual">
+ <img src="${item.image}" alt="${item.title}" loading="lazy" decoding="async">
+ <div class="holo-icon"><span>${item.badge}</span></div>
+ </div>
+ <div class="domain-content">
+ <div class="domain-header">
+ <span class="card-tag">${item.domain}</span>
+ <h3>${item.title}</h3>
+ <p>${item.description}</p>
+ </div>
+ <div class="domain-stats">
+ ${item.facts.map(([label, value]) => `
+ <div class="domain-stat">
+ <span>${label}</span>
+ <strong>${value}</strong>
+ </div>
+ `).join('')}
+ </div>
+ <div class="domain-actions">
+ <span class="domain-index">0${index + 1} / 06</span>
+ <button class="card-link" data-cockpit-open="${item.id}">View cockpit logic</button>
+ </div>
+ </div>
+ </article>
+ `).join('');
 
-  cockpitGrid.querySelectorAll('.domain-card').forEach(card => {
-    const item = cockpitData.find(c => c.id === card.dataset.cockpit);
-    if (!item) return;
-    card.addEventListener('click', (event) => {
-      if (event.target.closest('button')) return;
-      openOverlay(cockpitOverlay(item));
-    });
-  });
+ cockpitGrid.querySelectorAll('.domain-card').forEach(card => {
+ const item = cockpitData.find(c => c.id === card.dataset.cockpit);
+ if (!item) return;
+ card.addEventListener('click', (event) => {
+ if (event.target.closest('button')) return;
+ openOverlay(cockpitOverlay(item));
+ });
+ });
 
-  cockpitGrid.querySelectorAll('[data-cockpit-open]').forEach(button => {
-    button.addEventListener('click', (event) => {
-      event.stopPropagation();
-      const item = cockpitData.find(c => c.id === button.dataset.cockpitOpen);
-      if (!item) return;
-      openOverlay(cockpitOverlay(item));
-    });
-  });
+ cockpitGrid.querySelectorAll('[data-cockpit-open]').forEach(button => {
+ button.addEventListener('click', (event) => {
+ event.stopPropagation();
+ const item = cockpitData.find(c => c.id === button.dataset.cockpitOpen);
+ if (!item) return;
+ openOverlay(cockpitOverlay(item));
+ });
+ });
 }
 
 function renderCases() {
-  caseTabs.innerHTML = cockpitData.map((item, index) => `
-    <button class="case-tab" role="tab" aria-selected="false" data-case-tab="${item.id}">
-      <span class="case-tab-index">0${index + 1}</span>
-      <span class="case-tab-copy">
-        <strong>${item.domain}</strong>
-        <small>${item.title}</small>
-      </span>
-    </button>
-  `).join('');
+ caseTabs.innerHTML = cockpitData.map((item, index) => `
+ <button class="case-tab" role="tab" aria-selected="false" data-case-tab="${item.id}">
+ <span class="case-tab-index">0${index + 1}</span>
+ <span class="case-tab-copy">
+ <strong>${item.domain}</strong>
+ <small>${item.title}</small>
+ </span>
+ </button>
+ `).join('');
 
-  if (caseMobilePicker) {
-    caseMobilePicker.innerHTML = cockpitData.map(item => `<option value="${item.id}">${item.domain}</option>`).join('');
-    enforceSelectContrast(document);
-    caseMobilePicker.addEventListener('change', () => selectCase(caseMobilePicker.value));
-  }
+ if (caseMobilePicker) {
+ caseMobilePicker.innerHTML = cockpitData.map(item => `<option value="${item.id}">${item.domain}</option>`).join('');
+ enforceSelectContrast(document);
+ caseMobilePicker.addEventListener('change', () => selectCase(caseMobilePicker.value));
+ }
 
-  caseTabs.querySelectorAll('[data-case-tab]').forEach(button => {
-    button.addEventListener('click', () => selectCase(button.dataset.caseTab));
-  });
+ caseTabs.querySelectorAll('[data-case-tab]').forEach(button => {
+ button.addEventListener('click', () => selectCase(button.dataset.caseTab));
+ });
 
-  selectCase('governance');
+ selectCase('governance');
 }
 
 let caseStageInterval;
 function selectCase(caseId) {
-  const data = caseData[caseId];
-  const depth = caseDepth[caseId];
-  if (!data) return;
-  currentCaseId = caseId;
+ const data = caseData[caseId];
+ const depth = caseDepth[caseId];
+ if (!data) return;
+ currentCaseId = caseId;
 
-  if (caseMobilePicker) caseMobilePicker.value = caseId;
+ if (caseMobilePicker) caseMobilePicker.value = caseId;
 
-  document.querySelectorAll('.case-tab').forEach(tab => {
-    const active = tab.dataset.caseTab === caseId;
-    tab.classList.toggle('is-selected', active);
-    tab.setAttribute('aria-selected', active ? 'true' : 'false');
-  });
+ document.querySelectorAll('.case-tab').forEach(tab => {
+ const active = tab.dataset.caseTab === caseId;
+ tab.classList.toggle('is-selected', active);
+ tab.setAttribute('aria-selected', active ? 'true' : 'false');
+ });
 
-  document.getElementById('journeyTitle').textContent = cockpitData.find(c => c.id === caseId)?.title || caseId;
-  document.getElementById('journeySummary').textContent = data.summary;
-  const imageEl = document.getElementById('journeyImage');
-  imageEl.src = data.image;
-  imageEl.alt = `${caseId} journey visual`;
+ document.getElementById('journeyTitle').textContent = cockpitData.find(c => c.id === caseId)?.title || caseId;
+ document.getElementById('journeySummary').textContent = data.summary;
+ const imageEl = document.getElementById('journeyImage');
+ imageEl.src = data.image;
+ imageEl.alt = `${caseId} journey visual`;
 
-  document.getElementById('journeyMetrics').innerHTML = data.metrics.map(([label, value]) => `
-    <div class="metric-box">
-      <span>${label}</span>
-      <strong>${value}</strong>
-    </div>
-  `).join('');
+ document.getElementById('journeyMetrics').innerHTML = data.metrics.map(([label, value]) => `
+ <div class="metric-box">
+ <span>${label}</span>
+ <strong>${value}</strong>
+ </div>
+ `).join('');
 
-  const journeyContext = document.getElementById('journeyContext');
-  if (journeyContext) {
-    journeyContext.innerHTML = `
-      <span class="journey-context-kicker">Decision context note</span>
-      <strong>${depth.context}</strong>
-      <small>${depth.annotation}</small>
-    `;
-  }
+ const journeyContext = document.getElementById('journeyContext');
+ if (journeyContext) {
+ journeyContext.innerHTML = `
+ <span class="journey-context-kicker">Decision context note</span>
+ <strong>${depth.context}</strong>
+ <small>${depth.annotation}</small>
+ `;
+ }
 
-  const journeyStatus = document.getElementById('journeyStatus');
-  if (journeyStatus) {
-    journeyStatus.innerHTML = depth.status.map(([label, value]) => `
-      <div class="journey-status-pill"><span>${label}</span><strong>${value}</strong></div>
-    `).join('');
-  }
+ const journeyStatus = document.getElementById('journeyStatus');
+ if (journeyStatus) {
+ journeyStatus.innerHTML = depth.status.map(([label, value]) => `
+ <div class="journey-status-pill"><span>${label}</span><strong>${value}</strong></div>
+ `).join('');
+ }
 
-  document.getElementById('flowchartSteps').innerHTML = data.steps.map(([icon, title, description], index) => `
-    <div class="flow-step ${index === 0 ? 'is-live' : ''}">
-      <div class="step-icon">${icon}</div>
-      <span class="card-tag">${index < 4 ? 'Signal arrow active' : 'Outcome locked'}</span>
-      <h4>${title}</h4>
-      <p>${description}</p>
-      <div class="step-state">${index === 2 ? 'Decision confidence visible' : index === 3 ? 'Owner actions running' : 'State monitored'}</div>
-    </div>
-  `).join('');
+ document.getElementById('flowchartSteps').innerHTML = data.steps.map(([icon, title, description], index) => `
+ <div class="flow-step ${index === 0 ? 'is-live' : ''}">
+ <div class="step-icon">${icon}</div>
+ <span class="card-tag">${index < 4 ? 'Signal arrow active' : 'Outcome locked'}</span>
+ <h4>${title}</h4>
+ <p>${description}</p>
+ <div class="step-state">${index === 2 ? 'Decision confidence visible' : index === 3 ? 'Owner actions running' : 'State monitored'}</div>
+ </div>
+ `).join('');
 
-  const currentDomain = cockpitData.find(c => c.id === caseId)?.domain || caseId;
-  const caseDemoBtn = document.getElementById('caseDemoBtn');
-  const caseInquiryBtn = document.getElementById('caseInquiryBtn');
-  if (caseDemoBtn) {
-    caseDemoBtn.dataset.domain = currentDomain;
-    caseDemoBtn.dataset.intakeContext = `${currentDomain} case journey demo`;
-  }
-  if (caseInquiryBtn) {
-    caseInquiryBtn.dataset.domain = currentDomain;
-    caseInquiryBtn.dataset.intakeContext = `${currentDomain} case journey inquiry`;
-  }
+ const currentDomain = cockpitData.find(c => c.id === caseId)?.domain || caseId;
+ const caseDemoBtn = document.getElementById('caseDemoBtn');
+ const caseInquiryBtn = document.getElementById('caseInquiryBtn');
+ if (caseDemoBtn) {
+ caseDemoBtn.dataset.domain = currentDomain;
+ caseDemoBtn.dataset.intakeContext = `${currentDomain} case journey demo`;
+ }
+ if (caseInquiryBtn) {
+ caseInquiryBtn.dataset.domain = currentDomain;
+ caseInquiryBtn.dataset.intakeContext = `${currentDomain} case journey enquiry`;
+ }
 
-  if (caseStageInterval) clearInterval(caseStageInterval);
-  const steps = Array.from(document.querySelectorAll('#flowchartSteps .flow-step'));
-  let activeIndex = 0;
-  caseStageInterval = setInterval(() => {
-    steps.forEach((step, index) => step.classList.toggle('is-live', index === activeIndex));
-    activeIndex = (activeIndex + 1) % steps.length;
-  }, 2200);
+ if (caseStageInterval) clearInterval(caseStageInterval);
+ const steps = Array.from(document.querySelectorAll('#flowchartSteps.flow-step'));
+ let activeIndex = 0;
+ caseStageInterval = setInterval(() => {
+ steps.forEach((step, index) => step.classList.toggle('is-live', index === activeIndex));
+ activeIndex = (activeIndex + 1) % steps.length;
+ }, 2200);
+}
+
+const INSIGHTS_RAIL_STATE_KEY = 'aielevate-insights-rail-v1';
+
+function estimateInsightReadingMinutes(insightId) {
+ const html = insightArticles[insightId] || '';
+ const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+ const words = text ? text.split(' ').length : 0;
+ return Math.max(1, Math.round(words / 220));
+}
+
+function saveInsightsRailState(extra = {}) {
+ try {
+ const state = {
+ filter: insightRailState.filter,
+ activeId: insightRailState.activeId,
+ scrollY: window.scrollY || 0,
+ ...extra
+ };
+ sessionStorage.setItem(INSIGHTS_RAIL_STATE_KEY, JSON.stringify(state));
+ } catch (_) { /* ignore */ }
+}
+
+function loadInsightsRailState() {
+ try {
+ const raw = sessionStorage.getItem(INSIGHTS_RAIL_STATE_KEY);
+ return raw ? JSON.parse(raw) : null;
+ } catch (_) {
+ return null;
+ }
+}
+
+const insightRailState = {
+ filter: 'all',
+ activeId: insights[0]?.id || 'insight-1',
+ index: 0,
+ autoEnabled: false,
+ autoPausedByUser: false,
+ autoStoppedByManual: false,
+ autoTimer: null,
+ reducedMotion: false,
+ inView: false,
+ pointerOver: false,
+ focusInside: false,
+ listenersBound: false,
+ maxVisitedIndex: 0,
+ pendingRestore: null
+};
+
+function getFilteredInsights() {
+ if (insightRailState.filter === 'all') return insights.slice();
+ return insights.filter(item => item.filter === insightRailState.filter);
+}
+
+function insightPictureMarkup(item, { eager = false, card = false } = {}) {
+ const webp = card ? item.cardWebp : item.imageWebp;
+ const loading = eager ? 'eager' : 'lazy';
+ const fetchPriority = eager ? ' fetchpriority="high"' : '';
+ return `
+ <picture>
+ <source type="image/webp" srcset="${webp}" />
+ <img src="${item.image}" alt="${item.alt}" width="960" height="640" style="object-position:${item.focal}" loading="${loading}" decoding="async"${fetchPriority} />
+ </picture>`;
+}
+
+function syncInsightFeature(item, filtered) {
+ const shell = document.getElementById('insightRailShell');
+ const img = document.getElementById('insightFeatureImg');
+ const cat = document.getElementById('insightFeatureCat');
+ const num = document.getElementById('insightFeatureNum');
+ const title = document.getElementById('insightFeatureTitle');
+ const deck = document.getElementById('insightFeatureDeck');
+ const why = document.getElementById('insightFeatureWhy');
+ const time = document.getElementById('insightFeatureTime');
+ if (!item) return;
+
+ if (shell) shell.style.setProperty('--insight-accent', item.accent || '#8fd3ff');
+ if (img) {
+ img.src = item.image;
+ img.alt = item.alt;
+ img.style.objectPosition = item.focal;
+ img.loading = 'eager';
+ img.width = 1100;
+ img.height = 738;
+ }
+ // Prefer webp when browser supports it via sibling picture if present
+ const media = img?.parentElement;
+ if (media && media.tagName === 'DIV') {
+ let picture = media.querySelector('picture');
+ if (!picture) {
+ picture = document.createElement('picture');
+ const source = document.createElement('source');
+ source.type = 'image/webp';
+ picture.appendChild(source);
+ img.replaceWith(picture);
+ picture.appendChild(img);
+ }
+ const source = picture.querySelector('source');
+ if (source) source.srcset = item.imageWebp;
+ img.src = item.image;
+ img.alt = item.alt;
+ img.style.objectPosition = item.focal;
+ }
+
+ const ordinal = filtered.findIndex(i => i.id === item.id);
+ const total = filtered.length;
+ if (cat) cat.textContent = item.category;
+ if (num) num.textContent = `${String(ordinal + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+ if (title) title.textContent = item.title;
+ if (deck) deck.textContent = item.deck;
+ if (why) why.textContent = item.whyItMatters || item.summary;
+ if (time) {
+ const mins = estimateInsightReadingMinutes(item.id);
+ const i18n = window.AIE_I18N;
+ const tpl = i18n && i18n.getLocale() === 'nl'
+ ? ((i18n.getPack('insightsUi') || {}).readTime || 'Ongeveer {n} min leestijd')
+ : 'Approximately {n} min read';
+ time.textContent = tpl.replace('{n}', String(mins));
+ }
+}
+
+function announceInsightSelection(item, filtered) {
+ const live = document.getElementById('insightRailLive');
+ if (!live || !item) return;
+ const ordinal = filtered.findIndex(i => i.id === item.id) + 1;
+ const i18n = window.AIE_I18N;
+ const tpl = i18n && i18n.getLocale() === 'nl'
+ ? ((i18n.getPack('insightsUi') || {}).selected || 'Geselecteerd inzicht {ordinal} van {total}: {title}')
+ : 'Selected insight {ordinal} of {total}: {title}';
+ live.textContent = tpl
+ .replace('{ordinal}', String(ordinal))
+ .replace('{total}', String(filtered.length))
+ .replace('{title}', item.title);
+}
+
+function updateInsightFilterStatus(filtered) {
+ const status = document.getElementById('insightsFilterStatus');
+ if (!status) return;
+ const i18n = window.AIE_I18N;
+ const phrase = (en) => (i18n && typeof i18n.phrase === 'function' ? i18n.phrase(en) : en);
+ const label = insightRailState.filter === 'all'
+ ? phrase('all categories')
+ : (document.querySelector(`.insight-filter[data-filter="${insightRailState.filter}"]`)?.textContent || phrase('this category'));
+ const ui = i18n && i18n.getLocale() === 'nl' ? (i18n.getPack('insightsUi') || {}) : null;
+ if (filtered.length === 1) {
+ status.textContent = (ui?.showingOne || 'Showing 1 insight in {label}.').replace('{label}', label);
+ } else {
+ status.textContent = (ui?.showingMany || 'Showing {n} insights in {label}.')
+ .replace('{n}', String(filtered.length))
+ .replace('{label}', label);
+ }
+}
+
+function renderInsightProgress(filtered) {
+ const progress = document.getElementById('insightRailProgress');
+ if (!progress) return;
+ progress.innerHTML = filtered.map((item, index) => {
+ const active = item.id === insightRailState.activeId;
+ const traversed = index <= insightRailState.maxVisitedIndex || active;
+ return `<button type="button" class="insight-rail-dot${active ? ' is-active' : ''}${traversed && !active ? ' is-traversed' : ''}" role="tab" aria-selected="${active ? 'true' : 'false'}" aria-label="Insight ${index + 1}: ${item.title}" data-insight-id="${item.id}"></button>`;
+ }).join('');
+}
+
+function renderInsightRailCards(filtered) {
+ const stage = document.getElementById('insightRailStage');
+ const prevBtn = document.getElementById('insightRailPrev');
+ const nextBtn = document.getElementById('insightRailNext');
+ if (!stage) return;
+
+ const count = filtered.length;
+ let index = filtered.findIndex(i => i.id === insightRailState.activeId);
+ if (index < 0) index = 0;
+ insightRailState.index = index;
+ insightRailState.activeId = filtered[index]?.id || insightRailState.activeId;
+ insightRailState.maxVisitedIndex = Math.max(insightRailState.maxVisitedIndex, index);
+
+ const canNav = count > 1;
+ if (prevBtn) prevBtn.disabled = !canNav;
+ if (nextBtn) nextBtn.disabled = !canNav;
+
+ if (!count) {
+ const empty = window.AIE_I18N && typeof window.AIE_I18N.phrase === 'function'
+ ? window.AIE_I18N.phrase('No insights match this filter.')
+ : 'No insights match this filter.';
+ stage.innerHTML = `<p class="insights-filter-status">${empty}</p>`;
+ syncInsightFeature(null, filtered);
+ renderInsightProgress(filtered);
+ updateInsightFilterStatus(filtered);
+ return;
+ }
+
+ const roles = new Map();
+ roles.set(filtered[index].id, 'active');
+ if (count === 2) {
+ // Avoid assigning prev+next to the same card
+ roles.set(filtered[(index + 1) % count].id, 'next');
+ } else if (count > 2) {
+ roles.set(filtered[(index - 1 + count) % count].id, 'prev');
+ roles.set(filtered[(index + 1) % count].id, 'next');
+ }
+
+ const wantedIds = new Set(filtered.map(i => i.id));
+ [...stage.querySelectorAll('.insight-rail-card')].forEach(card => {
+ if (!wantedIds.has(card.dataset.insightId)) card.remove();
+ });
+
+ filtered.forEach((item, i) => {
+ let card = stage.querySelector(`.insight-rail-card[data-insight-id="${item.id}"]`);
+ const role = roles.get(item.id) || 'hidden';
+ const phrase = (en) => (window.AIE_I18N && typeof window.AIE_I18N.phrase === 'function' ? window.AIE_I18N.phrase(en) : en);
+ if (!card) {
+ card = document.createElement('button');
+ card.type = 'button';
+ card.className = 'insight-rail-card';
+ card.dataset.insightId = item.id;
+ card.innerHTML = `
+ <div class="insight-rail-card-media">
+ ${insightPictureMarkup(item, { eager: role === 'active' || i === 0, card: true })}
+ <div class="insight-rail-card-scrim" aria-hidden="true"></div>
+ </div>
+ <div class="insight-rail-card-copy">
+ <span class="insight-rail-card-cat"></span>
+ <h3></h3>
+ <p class="insight-rail-card-deck"></p>
+ </div>`;
+ stage.appendChild(card);
+ }
+ const catEl = card.querySelector('.insight-rail-card-cat');
+ const titleEl = card.querySelector('h3');
+ const deckEl = card.querySelector('.insight-rail-card-deck');
+ if (catEl) catEl.textContent = item.category;
+ if (titleEl) titleEl.textContent = item.title;
+ if (deckEl) deckEl.textContent = item.deck;
+ card.classList.remove('is-prev', 'is-next', 'is-active', 'is-hidden', 'is-enter-left', 'is-enter-right', 'is-exit-left', 'is-exit-right');
+ card.classList.add(`is-${role}`);
+ card.setAttribute('aria-current', role === 'active' ? 'true' : 'false');
+ card.setAttribute('aria-label', `${role === 'active' ? phrase('Selected insight: ') : phrase('Select insight: ')}${item.title}`);
+ card.tabIndex = role === 'active' ? 0 : -1;
+ card.setAttribute('aria-hidden', role === 'hidden' ? 'true' : 'false');
+ });
+
+ const activeItem = filtered[index];
+ syncInsightFeature(activeItem, filtered);
+ renderInsightProgress(filtered);
+ updateInsightFilterStatus(filtered);
+ announceInsightSelection(activeItem, filtered);
+ preloadInsightImage(activeItem);
+}
+
+function preloadInsightImage(item) {
+ if (!item) return;
+ const id = 'insight-preload-active';
+ let link = document.getElementById(id);
+ if (!link) {
+ link = document.createElement('link');
+ link.id = id;
+ link.rel = 'preload';
+ link.as = 'image';
+ document.head.appendChild(link);
+ }
+ link.href = item.imageWebp || item.image;
+ if (item.imageWebp) link.type = 'image/webp';
+}
+
+function setInsightActiveById(insightId, { manual = false, announce = true } = {}) {
+ const filtered = getFilteredInsights();
+ const index = filtered.findIndex(i => i.id === insightId);
+ if (index < 0) return;
+ insightRailState.activeId = insightId;
+ insightRailState.index = index;
+ insightRailState.maxVisitedIndex = Math.max(insightRailState.maxVisitedIndex, index);
+ if (manual) {
+ insightRailState.autoStoppedByManual = true;
+ stopInsightAutoplay();
+ updateInsightAutoBtn();
+ }
+ renderInsightRailCards(filtered);
+ if (!announce) {
+ const live = document.getElementById('insightRailLive');
+ if (live) live.textContent = '';
+ }
+ saveInsightsRailState();
+}
+
+function stepInsightRail(delta, manual = true) {
+ const filtered = getFilteredInsights();
+ if (filtered.length < 2) return;
+ const next = (insightRailState.index + delta + filtered.length) % filtered.length;
+ setInsightActiveById(filtered[next].id, { manual, announce: true });
+}
+
+function stopInsightAutoplay() {
+ if (insightRailState.autoTimer) {
+ clearInterval(insightRailState.autoTimer);
+ insightRailState.autoTimer = null;
+ }
+}
+
+function insightAutoplayAllowed() {
+ if (insightRailState.reducedMotion) return false;
+ if (insightRailState.autoStoppedByManual && !insightRailState.autoEnabled) return false;
+ if (!insightRailState.autoEnabled) return false;
+ if (!insightRailState.inView) return false;
+ if (document.hidden) return false;
+ if (insightRailState.pointerOver) return false;
+ if (insightRailState.focusInside) return false;
+ if (insightRailState.autoPausedByUser) return false;
+ const filtered = getFilteredInsights();
+ return filtered.length > 1;
+}
+
+function tickInsightAutoplay() {
+ if (!insightAutoplayAllowed()) return;
+ stepInsightRail(1, false);
+}
+
+function startInsightAutoplay() {
+ stopInsightAutoplay();
+ if (!insightAutoplayAllowed()) return;
+ insightRailState.autoTimer = setInterval(tickInsightAutoplay, 7000);
+}
+
+function updateInsightAutoBtn() {
+ const btn = document.getElementById('insightRailAutoBtn');
+ if (!btn) return;
+ if (insightRailState.reducedMotion) {
+ btn.hidden = true;
+ return;
+ }
+ btn.hidden = false;
+ const paused = insightRailState.autoPausedByUser || !insightRailState.autoEnabled || insightRailState.autoStoppedByManual;
+ if (!insightRailState.autoEnabled || insightRailState.autoStoppedByManual) {
+ btn.textContent = 'Resume';
+ btn.setAttribute('aria-label', 'Resume automatic progression');
+ btn.setAttribute('aria-pressed', 'false');
+ } else if (insightRailState.autoPausedByUser) {
+ btn.textContent = 'Resume';
+ btn.setAttribute('aria-label', 'Resume automatic progression');
+ btn.setAttribute('aria-pressed', 'false');
+ } else {
+ btn.textContent = 'Pause';
+ btn.setAttribute('aria-label', 'Pause automatic progression');
+ btn.setAttribute('aria-pressed', 'true');
+ }
+ // Keep paused variable referenced for clarity in future tuning
+ void paused;
+ if (insightRailState.autoEnabled && !insightRailState.autoStoppedByManual && !insightRailState.autoPausedByUser) {
+ startInsightAutoplay();
+ } else {
+ stopInsightAutoplay();
+ }
+}
+
+function bindInsightRailListeners() {
+ if (insightRailState.listenersBound) return;
+ insightRailState.listenersBound = true;
+
+ const shell = document.getElementById('insightRailShell');
+ const stage = document.getElementById('insightRailStage');
+ const prevBtn = document.getElementById('insightRailPrev');
+ const nextBtn = document.getElementById('insightRailNext');
+ const autoBtn = document.getElementById('insightRailAutoBtn');
+ const readBtn = document.getElementById('insightFeatureRead');
+
+ insightRailState.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
+ insightRailState.reducedMotion = e.matches;
+ if (e.matches) {
+ insightRailState.autoEnabled = false;
+ stopInsightAutoplay();
+ }
+ updateInsightAutoBtn();
+ renderInsightRailCards(getFilteredInsights());
+ });
+
+ prevBtn?.addEventListener('click', () => stepInsightRail(-1, true));
+ nextBtn?.addEventListener('click', () => stepInsightRail(1, true));
+
+ stage?.addEventListener('click', (event) => {
+ const card = event.target.closest('.insight-rail-card');
+ if (!card) return;
+ const id = card.dataset.insightId;
+ if (!id) return;
+ if (id === insightRailState.activeId) {
+ saveInsightsRailState({ focusInsightId: id });
+ navigateToView(id);
+ return;
+ }
+ setInsightActiveById(id, { manual: true });
+ });
+
+ document.getElementById('insightRailProgress')?.addEventListener('click', (event) => {
+ const dot = event.target.closest('.insight-rail-dot');
+ if (!dot) return;
+ setInsightActiveById(dot.dataset.insightId, { manual: true });
+ });
+
+ stage?.addEventListener('keydown', (event) => {
+ if (event.key === 'ArrowLeft') {
+ event.preventDefault();
+ stepInsightRail(-1, true);
+ } else if (event.key === 'ArrowRight') {
+ event.preventDefault();
+ stepInsightRail(1, true);
+ } else if (event.key === 'Enter') {
+ event.preventDefault();
+ saveInsightsRailState({ focusInsightId: insightRailState.activeId });
+ navigateToView(insightRailState.activeId);
+ }
+ });
+
+ let touchX = null;
+ stage?.addEventListener('touchstart', (event) => {
+ touchX = event.changedTouches[0]?.clientX ?? null;
+ }, { passive: true });
+ stage?.addEventListener('touchend', (event) => {
+ if (touchX == null) return;
+ const endX = event.changedTouches[0]?.clientX ?? touchX;
+ const delta = endX - touchX;
+ touchX = null;
+ if (Math.abs(delta) < 40) return;
+ stepInsightRail(delta < 0 ? 1 : -1, true);
+ }, { passive: true });
+
+ shell?.addEventListener('pointerenter', () => {
+ insightRailState.pointerOver = true;
+ stopInsightAutoplay();
+ });
+ shell?.addEventListener('pointerleave', () => {
+ insightRailState.pointerOver = false;
+ startInsightAutoplay();
+ });
+ shell?.addEventListener('focusin', () => {
+ insightRailState.focusInside = true;
+ stopInsightAutoplay();
+ });
+ shell?.addEventListener('focusout', (event) => {
+ if (shell.contains(event.relatedTarget)) return;
+ insightRailState.focusInside = false;
+ startInsightAutoplay();
+ });
+
+ document.addEventListener('visibilitychange', () => {
+ if (document.hidden) stopInsightAutoplay();
+ else startInsightAutoplay();
+ });
+
+ if (shell && 'IntersectionObserver' in window) {
+ const io = new IntersectionObserver((entries) => {
+ insightRailState.inView = entries.some(e => e.isIntersecting && e.intersectionRatio > 0.25);
+ if (insightRailState.inView) startInsightAutoplay();
+ else stopInsightAutoplay();
+ }, { threshold: [0, 0.25, 0.5] });
+ io.observe(shell);
+ } else {
+ insightRailState.inView = true;
+ }
+
+ autoBtn?.addEventListener('click', () => {
+ if (insightRailState.reducedMotion) return;
+ if (!insightRailState.autoEnabled || insightRailState.autoStoppedByManual || insightRailState.autoPausedByUser) {
+ insightRailState.autoEnabled = true;
+ insightRailState.autoPausedByUser = false;
+ insightRailState.autoStoppedByManual = false;
+ } else {
+ insightRailState.autoPausedByUser = true;
+ stopInsightAutoplay();
+ }
+ updateInsightAutoBtn();
+ });
+
+ readBtn?.addEventListener('click', () => {
+ saveInsightsRailState({ focusInsightId: insightRailState.activeId });
+ navigateToView(insightRailState.activeId);
+ });
+
+ document.querySelectorAll('.insight-filter').forEach(btn => {
+ btn.addEventListener('click', () => {
+ document.querySelectorAll('.insight-filter').forEach(b => b.classList.remove('active'));
+ btn.classList.add('active');
+ insightRailState.filter = btn.dataset.filter || 'all';
+ insightRailState.maxVisitedIndex = 0;
+ const filtered = getFilteredInsights();
+ const still = filtered.find(i => i.id === insightRailState.activeId);
+ insightRailState.activeId = still ? still.id : (filtered[0]?.id || insightRailState.activeId);
+ insightRailState.autoStoppedByManual = true;
+ stopInsightAutoplay();
+ updateInsightAutoBtn();
+ renderInsightRailCards(filtered);
+ saveInsightsRailState();
+ });
+ });
+
+ // Enable autoplay by default only when motion is allowed; start once in view
+ if (!insightRailState.reducedMotion) {
+ insightRailState.autoEnabled = true;
+ insightRailState.autoPausedByUser = false;
+ insightRailState.autoStoppedByManual = false;
+ }
+ updateInsightAutoBtn();
+}
+
+function restoreInsightsRailContext() {
+ const saved = insightRailState.pendingRestore || loadInsightsRailState();
+ insightRailState.pendingRestore = null;
+ if (!saved) {
+ renderInsightRailCards(getFilteredInsights());
+ return;
+ }
+ if (saved.filter) {
+ insightRailState.filter = saved.filter;
+ document.querySelectorAll('.insight-filter').forEach(btn => {
+ btn.classList.toggle('active', btn.dataset.filter === saved.filter);
+ });
+ }
+ const filtered = getFilteredInsights();
+ if (saved.activeId && filtered.some(i => i.id === saved.activeId)) {
+ insightRailState.activeId = saved.activeId;
+ } else if (filtered[0]) {
+ insightRailState.activeId = filtered[0].id;
+ }
+ renderInsightRailCards(filtered);
+ if (typeof saved.scrollY === 'number') {
+ const y = saved.scrollY;
+ requestAnimationFrame(() => {
+ window.scrollTo({ top: y, behavior: 'auto' });
+ });
+ // Apply scroll restore once per article return
+ try {
+ const next = {...saved };
+ delete next.scrollY;
+ sessionStorage.setItem(INSIGHTS_RAIL_STATE_KEY, JSON.stringify(next));
+ } catch (_) { /* ignore */ }
+ }
+ if (saved.focusInsightId) {
+ requestAnimationFrame(() => {
+ const card = document.querySelector(`.insight-rail-card[data-insight-id="${saved.focusInsightId}"]`);
+ card?.focus();
+ });
+ }
 }
 
 function renderInsights() {
-  const grid = document.getElementById('insightGrid');
-  if (!grid) return;
-  grid.innerHTML = insights.map(item => `
-    <article class="insight-card glass" data-insight="${item.id}" data-filter="${item.filter}">
-      <div class="insight-card-media"><img src="${item.image}" alt="${item.alt}" style="object-position:${item.focal}" loading="lazy" /></div>
-      <div class="insight-card-body">
-        <span class="insight-card-cat">${item.category}</span>
-        <h3>${item.title}</h3>
-        <p>${item.summary}</p>
-        <span class="insight-card-relevance">${item.relevance}</span>
-        <button class="card-link" type="button">Read insight</button>
-      </div>
-    </article>
-  `).join('');
-
-  grid.querySelectorAll('[data-insight]').forEach(card => {
-    card.addEventListener('click', () => {
-      const item = insights.find(e => e.id === card.dataset.insight);
-      if (item) navigateToView(item.id);
-    });
-  });
-
-  document.querySelectorAll('.insight-filter').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.insight-filter').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const f = btn.dataset.filter;
-      grid.querySelectorAll('.insight-card').forEach(c => {
-        c.style.display = (f === 'all' || c.dataset.filter === f) ? '' : 'none';
-      });
-    });
-  });
+ bindInsightRailListeners();
+ const saved = loadInsightsRailState();
+ if (saved?.filter) insightRailState.filter = saved.filter;
+ if (saved?.activeId) insightRailState.activeId = saved.activeId;
+ document.querySelectorAll('.insight-filter').forEach(btn => {
+ btn.classList.toggle('active', btn.dataset.filter === insightRailState.filter);
+ });
+ renderInsightRailCards(getFilteredInsights());
 }
 
 function openInsightArticle(insightId) {
-  const item = insights.find(e => e.id === insightId);
-  if (!item) return;
-  const article = insightArticles[insightId];
-  if (!article) return;
-  const hero = document.getElementById('insightArticleHero');
-  const cat = document.getElementById('insightArticleCat');
-  const titleEl = document.getElementById('insightArticleTitle');
-  const deckEl = document.getElementById('insightArticleDeck');
-  const body = document.getElementById('insightArticleBody');
-  if (hero) hero.style.backgroundImage = 'url(' + item.image + ')';
-  if (hero) hero.style.backgroundPosition = item.focal;
-  if (cat) cat.textContent = item.category;
-  if (titleEl) titleEl.textContent = item.title;
-  if (deckEl) deckEl.textContent = item.deck;
-  if (body) body.innerHTML = article;
-  showView('insight-article');
+ const item = insights.find(e => e.id === insightId);
+ if (!item) return;
+ const article = insightArticles[insightId];
+ if (!article) return;
+ saveInsightsRailState({
+ activeId: insightId,
+ filter: insightRailState.filter,
+ scrollY: window.scrollY || 0,
+ focusInsightId: insightId
+ });
+ const hero = document.getElementById('insightArticleHero');
+ const cat = document.getElementById('insightArticleCat');
+ const titleEl = document.getElementById('insightArticleTitle');
+ const deckEl = document.getElementById('insightArticleDeck');
+ const body = document.getElementById('insightArticleBody');
+ if (hero) {
+ hero.style.backgroundImage = 'url(' + item.image + ')';
+ hero.style.backgroundPosition = item.focal;
+ }
+ if (cat) cat.textContent = item.category;
+ if (titleEl) titleEl.textContent = item.title;
+ if (deckEl) deckEl.textContent = item.deck;
+ if (body) body.innerHTML = article;
+ showView('insight-article');
+ if (window.AIE_I18N && typeof window.AIE_I18N.applyPhraseMap === 'function') {
+ window.AIE_I18N.applyPhraseMap(document.getElementById('insight-article'));
+ }
 }
 
 
 function applyHardDomFixes() {
-  document.querySelectorAll('.footer-cockpit-link[data-domain-jump]').forEach(btn => {
-    btn.style.cursor = 'pointer';
-    btn.setAttribute('role', 'link');
-    btn.setAttribute('tabindex', '0');
-    const fire = (event) => {
-      if (event) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      navigateToDomain(btn.dataset.domainJump);
-      return false;
-    };
-    btn.onclick = fire;
-    btn.addEventListener('click', fire, true);
-    btn.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') fire(event);
-    });
-  });
+ document.querySelectorAll('.footer-cockpit-link[data-domain-jump]').forEach(btn => {
+ btn.style.cursor = 'pointer';
+ btn.setAttribute('role', 'link');
+ btn.setAttribute('tabindex', '0');
+ const fire = (event) => {
+ if (event) {
+ event.preventDefault();
+ event.stopPropagation();
+ }
+ navigateToDomain(btn.dataset.domainJump);
+ return false;
+ };
+ btn.onclick = fire;
+ btn.addEventListener('click', fire, true);
+ btn.addEventListener('keydown', (event) => {
+ if (event.key === 'Enter' || event.key === ' ') fire(event);
+ });
+ });
 
-  document.querySelectorAll('.library-only-block').forEach(block => {
-    block.style.display = document.getElementById('library')?.classList.contains('active-view') ? '' : 'none';
-  });
+ document.querySelectorAll('.library-only-block').forEach(block => {
+ block.style.display = document.getElementById('library')?.classList.contains('active-view') ? '' : 'none';
+ });
 
-  enforceSelectContrast(document);
+ enforceSelectContrast(document);
 }
 
 const platformPulseStates = [
-  ['126 decisions tracked', 'Decision trace refreshed 11s ago', 'High', 'Fast'],
-  ['132 active cycles', 'Cross-domain memory scan refreshed 9s ago', 'Elevated', 'Fast'],
-  ['128 preserved traces', 'Decision posture synchronized 7s ago', 'High', 'Controlled']
+ ['126 decisions tracked', 'Decision trace refreshed 11s ago', 'High', 'Fast'],
+ ['132 active cycles', 'Cross domain memory scan refreshed 9s ago', 'Elevated', 'Fast'],
+ ['128 preserved traces', 'Decision posture synchronized 7s ago', 'High', 'Controlled']
 ];
 let pulseIndex = 0;
 setInterval(() => {
-  pulseIndex = (pulseIndex + 1) % platformPulseStates.length;
-  const [value, sub, readiness, execution] = platformPulseStates[pulseIndex];
-  const pulse = document.getElementById('platformPulseValue');
-  const pulseSub = document.getElementById('platformPulseSub');
-  const readinessEl = document.getElementById('depthReadiness');
-  const executionEl = document.getElementById('depthExecution');
-  if (pulse) pulse.textContent = value;
-  if (pulseSub) pulseSub.textContent = sub;
-  if (readinessEl) readinessEl.textContent = readiness;
-  if (executionEl) executionEl.textContent = execution;
+ pulseIndex = (pulseIndex + 1) % platformPulseStates.length;
+ const [value, sub, readiness, execution] = platformPulseStates[pulseIndex];
+ const pulse = document.getElementById('platformPulseValue');
+ const pulseSub = document.getElementById('platformPulseSub');
+ const readinessEl = document.getElementById('depthReadiness');
+ const executionEl = document.getElementById('depthExecution');
+ if (pulse) pulse.textContent = value;
+ if (pulseSub) pulseSub.textContent = sub;
+ if (readinessEl) readinessEl.textContent = readiness;
+ if (executionEl) executionEl.textContent = execution;
 }, 2800);
 
 
 const startupSplash = document.getElementById('startupSplash');
 let homeHeroRevealPending = false;
 function hideStartupSplash() {
-  if (!startupSplash) return;
-  startupSplash.classList.add('is-hidden');
-  if (homeHeroRevealPending) {
-    homeHeroRevealPending = false;
-    requestAnimationFrame(() => initHomeHero(true));
-  }
+ if (!startupSplash) return;
+ startupSplash.classList.add('is-hidden');
+ if (homeHeroRevealPending) {
+ homeHeroRevealPending = false;
+ requestAnimationFrame(() => initHomeHero(true));
+ }
 }
 if (startupSplash) {
-  window.setTimeout(hideStartupSplash, 1200);
+ window.setTimeout(hideStartupSplash, 1200);
 }
 
 renderCases();
@@ -2059,9 +2731,9 @@ updatePrefooter('platform');
 
 
 document.querySelectorAll('.domain-switch-card[data-domain]').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    renderTopDomainState(this.dataset.domain);
-  });
+ btn.addEventListener('click', function(){
+ renderTopDomainState(this.dataset.domain);
+ });
 });
 renderTopDomainState('governance');
 
@@ -2072,195 +2744,195 @@ const DECISION_STORAGE_KEY = 'aielevate-decision-activation-v62';
 let decisionState = { items: [], activeId: null };
 
 function getCurrentTopDomainKey() {
-  const activeBtn = document.querySelector('.domain-switch-card.is-active[data-domain]');
-  return activeBtn ? activeBtn.dataset.domain : 'governance';
+ const activeBtn = document.querySelector('.domain-switch-card.is-active[data-domain]');
+ return activeBtn ? activeBtn.dataset.domain : 'governance';
 }
 
 function getCurrentTopDomainProfile() {
-  if (typeof topDomainProfiles !== 'undefined') {
-    return topDomainProfiles[getCurrentTopDomainKey()] || topDomainProfiles.governance;
-  }
-  return null;
+ if (typeof topDomainProfiles !== 'undefined') {
+ return topDomainProfiles[getCurrentTopDomainKey()] || topDomainProfiles.governance;
+ }
+ return null;
 }
 
 function loadDecisionState() {
-  try {
-    const raw = window.localStorage.getItem(DECISION_STORAGE_KEY);
-    if (raw) decisionState = JSON.parse(raw);
-  } catch (e) {}
-  if (!decisionState || !Array.isArray(decisionState.items)) {
-    decisionState = { items: [], activeId: null };
-  }
+ try {
+ const raw = window.localStorage.getItem(DECISION_STORAGE_KEY);
+ if (raw) decisionState = JSON.parse(raw);
+ } catch (e) {}
+ if (!decisionState || !Array.isArray(decisionState.items)) {
+ decisionState = { items: [], activeId: null };
+ }
 }
 
 function saveDecisionState() {
-  try {
-    window.localStorage.setItem(DECISION_STORAGE_KEY, JSON.stringify(decisionState));
-  } catch (e) {}
+ try {
+ window.localStorage.setItem(DECISION_STORAGE_KEY, JSON.stringify(decisionState));
+ } catch (e) {}
 }
 
 function slugifyValue(value) {
-  return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+ return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 }
 
 function makeSignalId() {
-  return 'sig-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7);
+ return 'sig-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7);
 }
 
 function createSignalFromPill(pillEl) {
-  const text = (pillEl.textContent || '').trim();
-  if (!text) return;
+ const text = (pillEl.textContent || '').trim();
+ if (!text) return;
 
-  const domainKey = getCurrentTopDomainKey();
-  const profile = getCurrentTopDomainProfile();
-  const existing = decisionState.items.find(item => item.domainKey === domainKey && item.title === text);
-  if (existing) {
-    openDecisionDrawer(existing.id);
-    return;
-  }
+ const domainKey = getCurrentTopDomainKey();
+ const profile = getCurrentTopDomainProfile();
+ const existing = decisionState.items.find(item => item.domainKey === domainKey && item.title === text);
+ if (existing) {
+ openDecisionDrawer(existing.id);
+ return;
+ }
 
-  const dueDate = new Date(Date.now() + 7 * 24 * 3600 * 1000).toISOString().slice(0, 10);
-  const item = {
-    id: makeSignalId(),
-    title: text,
-    why: profile ? profile.copy + ' This signal is now visible for structured follow-through.' : 'Signal created from cockpit state.',
-    owner: (profile && profile.fit && profile.fit[0]) ? profile.fit[0] : '',
-    priority: 'High',
-    dueDate,
-    status: 'signal',
-    domain: profile ? profile.chip : 'AI Governance',
-    domainKey
-  };
-  decisionState.items.unshift(item);
-  decisionState.activeId = item.id;
-  saveDecisionState();
-  renderDecisionBoards();
-  refreshCreatedPills();
-  openDecisionDrawer(item.id);
+ const dueDate = new Date(Date.now() + 7 * 24 * 3600 * 1000).toISOString().slice(0, 10);
+ const item = {
+ id: makeSignalId(),
+ title: text,
+ why: profile ? profile.copy + ' This signal is now visible for structured follow through.' : 'Signal created from cockpit state.',
+ owner: (profile && profile.fit && profile.fit[0]) ? profile.fit[0] : '',
+ priority: 'High',
+ dueDate,
+ status: 'signal',
+ domain: profile ? profile.chip : 'AI Governance',
+ domainKey
+ };
+ decisionState.items.unshift(item);
+ decisionState.activeId = item.id;
+ saveDecisionState();
+ renderDecisionBoards();
+ refreshCreatedPills();
+ openDecisionDrawer(item.id);
 }
 
 function getDecisionItem(id) {
-  return decisionState.items.find(item => item.id === id);
+ return decisionState.items.find(item => item.id === id);
 }
 
 function renderDecisionBoards() {
-  const liveBoard = document.getElementById('liveSignalBoard');
-  const executionBoard = document.getElementById('executionBoard');
-  const pendingCount = document.getElementById('pendingSignalCount');
-  const executionCount = document.getElementById('executionSignalCount');
-  if (!liveBoard || !executionBoard) return;
+ const liveBoard = document.getElementById('liveSignalBoard');
+ const executionBoard = document.getElementById('executionBoard');
+ const pendingCount = document.getElementById('pendingSignalCount');
+ const executionCount = document.getElementById('executionSignalCount');
+ if (!liveBoard || !executionBoard) return;
 
-  const pending = decisionState.items.filter(item => item.status !== 'execution');
-  const execution = decisionState.items.filter(item => item.status === 'execution');
+ const pending = decisionState.items.filter(item => item.status !== 'execution');
+ const execution = decisionState.items.filter(item => item.status === 'execution');
 
-  if (pendingCount) pendingCount.textContent = `${pending.length} live`;
-  if (executionCount) executionCount.textContent = `${execution.length} active`;
+ if (pendingCount) pendingCount.textContent = `${pending.length} live`;
+ if (executionCount) executionCount.textContent = `${execution.length} active`;
 
-  const cardHTML = (item, isExecution=false) => `
-    <button class="signal-card ${isExecution ? 'is-execution' : ''}" data-signal-id="${item.id}">
-      <div class="signal-card-top">
-        <div class="signal-card-title">${item.title}</div>
-        <span class="signal-badge ${isExecution ? 'blue' : ''}">${isExecution ? 'Execution trace monitored' : item.priority}</span>
-      </div>
-      <div class="signal-card-meta">
-        <span><strong>Domain:</strong> ${item.domain}</span>
-        <span><strong>Owner:</strong> ${item.owner || 'Unassigned'}</span>
-        <span><strong>Due:</strong> ${item.dueDate || 'Open'}</span>
-      </div>
-    </button>
-  `;
+ const cardHTML = (item, isExecution=false) => `
+ <button class="signal-card ${isExecution ? 'is-execution' : ''}" data-signal-id="${item.id}">
+ <div class="signal-card-top">
+ <div class="signal-card-title">${item.title}</div>
+ <span class="signal-badge ${isExecution ? 'blue' : ''}">${isExecution ? 'Execution trace monitored' : item.priority}</span>
+ </div>
+ <div class="signal-card-meta">
+ <span><strong>Domain:</strong> ${item.domain}</span>
+ <span><strong>Owner:</strong> ${item.owner || 'Unassigned'}</span>
+ <span><strong>Due:</strong> ${item.dueDate || 'Open'}</span>
+ </div>
+ </button>
+ `;
 
-  liveBoard.classList.toggle('empty-state', pending.length === 0);
-  executionBoard.classList.toggle('empty-state', execution.length === 0);
+ liveBoard.classList.toggle('empty-state', pending.length === 0);
+ executionBoard.classList.toggle('empty-state', execution.length === 0);
 
-  liveBoard.innerHTML = pending.length ? pending.map(item => cardHTML(item, false)).join('') : '<div class="board-empty-copy">Click a state pill above to create a signal.</div>';
-  executionBoard.innerHTML = execution.length ? execution.map(item => cardHTML(item, true)).join('') : '<div class="board-empty-copy">Activated decisions will appear here in blue.</div>';
+ liveBoard.innerHTML = pending.length ? pending.map(item => cardHTML(item, false)).join('') : '<div class="board-empty-copy">Click a state pill above to create a signal.</div>';
+ executionBoard.innerHTML = execution.length ? execution.map(item => cardHTML(item, true)).join('') : '<div class="board-empty-copy">Activated decisions will appear here in blue.</div>';
 
-  [...liveBoard.querySelectorAll('[data-signal-id]'), ...executionBoard.querySelectorAll('[data-signal-id]')].forEach(btn => {
-    btn.addEventListener('click', () => openDecisionDrawer(btn.dataset.signalId));
-  });
+ [...liveBoard.querySelectorAll('[data-signal-id]'),...executionBoard.querySelectorAll('[data-signal-id]')].forEach(btn => {
+ btn.addEventListener('click', () => openDecisionDrawer(btn.dataset.signalId));
+ });
 }
 
 function refreshCreatedPills() {
-  const currentDomain = getCurrentTopDomainKey();
-  const titles = new Set(decisionState.items.filter(item => item.domainKey === currentDomain).map(item => item.title));
-  document.querySelectorAll('#domainStatePills .state-pill').forEach(pill => {
-    pill.classList.toggle('is-created', titles.has((pill.textContent || '').trim()));
-  });
+ const currentDomain = getCurrentTopDomainKey();
+ const titles = new Set(decisionState.items.filter(item => item.domainKey === currentDomain).map(item => item.title));
+ document.querySelectorAll('#domainStatePills.state-pill').forEach(pill => {
+ pill.classList.toggle('is-created', titles.has((pill.textContent || '').trim()));
+ });
 }
 
 function openDecisionDrawer(signalId) {
-  const item = getDecisionItem(signalId);
-  const drawer = document.getElementById('decisionDrawer');
-  if (!item || !drawer) return;
-  decisionState.activeId = signalId;
+ const item = getDecisionItem(signalId);
+ const drawer = document.getElementById('decisionDrawer');
+ if (!item || !drawer) return;
+ decisionState.activeId = signalId;
 
-  const byId = id => document.getElementById(id);
-  if (byId('drawerSignalTitle')) byId('drawerSignalTitle').textContent = item.title;
-  if (byId('drawerSignalWhy')) byId('drawerSignalWhy').textContent = item.why;
-  if (byId('drawerOwner')) byId('drawerOwner').value = item.owner || '';
-  if (byId('drawerPriority')) byId('drawerPriority').value = item.priority || 'Medium';
-  if (byId('drawerDueDate')) byId('drawerDueDate').value = item.dueDate || '';
-  if (byId('drawerStatus')) byId('drawerStatus').textContent = item.status === 'execution' ? 'Execution trace monitored' : 'Signal';
-  if (byId('drawerDomain')) byId('drawerDomain').textContent = item.domain || '';
-  drawer.classList.remove('hidden');
-  drawer.setAttribute('aria-hidden', 'false');
+ const byId = id => document.getElementById(id);
+ if (byId('drawerSignalTitle')) byId('drawerSignalTitle').textContent = item.title;
+ if (byId('drawerSignalWhy')) byId('drawerSignalWhy').textContent = item.why;
+ if (byId('drawerOwner')) byId('drawerOwner').value = item.owner || '';
+ if (byId('drawerPriority')) byId('drawerPriority').value = item.priority || 'Medium';
+ if (byId('drawerDueDate')) byId('drawerDueDate').value = item.dueDate || '';
+ if (byId('drawerStatus')) byId('drawerStatus').textContent = item.status === 'execution' ? 'Execution trace monitored' : 'Signal';
+ if (byId('drawerDomain')) byId('drawerDomain').textContent = item.domain || '';
+ drawer.classList.remove('hidden');
+ drawer.setAttribute('aria-hidden', 'false');
 }
 
 function closeDecisionDrawer() {
-  const drawer = document.getElementById('decisionDrawer');
-  if (!drawer) return;
-  drawer.classList.add('hidden');
-  drawer.setAttribute('aria-hidden', 'true');
+ const drawer = document.getElementById('decisionDrawer');
+ if (!drawer) return;
+ drawer.classList.add('hidden');
+ drawer.setAttribute('aria-hidden', 'true');
 }
 
 function syncActiveSignalFromDrawer() {
-  const item = getDecisionItem(decisionState.activeId);
-  if (!item) return null;
-  const byId = id => document.getElementById(id);
-  item.owner = byId('drawerOwner') ? byId('drawerOwner').value : item.owner;
-  item.priority = byId('drawerPriority') ? byId('drawerPriority').value : item.priority;
-  item.dueDate = byId('drawerDueDate') ? byId('drawerDueDate').value : item.dueDate;
-  saveDecisionState();
-  renderDecisionBoards();
-  return item;
+ const item = getDecisionItem(decisionState.activeId);
+ if (!item) return null;
+ const byId = id => document.getElementById(id);
+ item.owner = byId('drawerOwner') ? byId('drawerOwner').value : item.owner;
+ item.priority = byId('drawerPriority') ? byId('drawerPriority').value : item.priority;
+ item.dueDate = byId('drawerDueDate') ? byId('drawerDueDate').value : item.dueDate;
+ saveDecisionState();
+ renderDecisionBoards();
+ return item;
 }
 
 function activateCurrentDecision() {
-  const item = syncActiveSignalFromDrawer();
-  if (!item) return;
-  item.status = 'execution';
-  saveDecisionState();
-  renderDecisionBoards();
-  refreshCreatedPills();
-  openDecisionDrawer(item.id);
+ const item = syncActiveSignalFromDrawer();
+ if (!item) return;
+ item.status = 'execution';
+ saveDecisionState();
+ renderDecisionBoards();
+ refreshCreatedPills();
+ openDecisionDrawer(item.id);
 }
 
 document.addEventListener('click', function(event) {
-  const pill = event.target.closest('#domainStatePills .state-pill');
-  if (pill) {
-    createSignalFromPill(pill);
-    return;
-  }
-  if (event.target.matches('[data-close-drawer]')) {
-    closeDecisionDrawer();
-  }
+ const pill = event.target.closest('#domainStatePills.state-pill');
+ if (pill) {
+ createSignalFromPill(pill);
+ return;
+ }
+ if (event.target.matches('[data-close-drawer]')) {
+ closeDecisionDrawer();
+ }
 });
 
 const saveBtn = document.getElementById('drawerSaveBtn');
 if (saveBtn) saveBtn.addEventListener('click', function() {
-  syncActiveSignalFromDrawer();
-  closeDecisionDrawer();
+ syncActiveSignalFromDrawer();
+ closeDecisionDrawer();
 });
 
 const activateBtn = document.getElementById('drawerActivateBtn');
 if (activateBtn) activateBtn.addEventListener('click', function() {
-  activateCurrentDecision();
+ activateCurrentDecision();
 });
 
 ['drawerOwner','drawerPriority','drawerDueDate'].forEach(function(id){
-  const el = document.getElementById(id);
-  if (el) el.addEventListener('change', syncActiveSignalFromDrawer);
+ const el = document.getElementById(id);
+ if (el) el.addEventListener('change', syncActiveSignalFromDrawer);
 });
 
 loadDecisionState();
@@ -2269,297 +2941,603 @@ refreshCreatedPills();
 
 const _originalRenderTopDomainState = typeof renderTopDomainState === 'function' ? renderTopDomainState : null;
 if (_originalRenderTopDomainState) {
-  renderTopDomainState = function(domainKey) {
-    _originalRenderTopDomainState(domainKey);
-    refreshCreatedPills();
-  };
+ renderTopDomainState = function(domainKey) {
+ _originalRenderTopDomainState(domainKey);
+ refreshCreatedPills();
+ };
 }
 
 
 const initialDecisionActivationShell = document.querySelector('.decision-activation-shell');
 if (initialDecisionActivationShell) {
-  initialDecisionActivationShell.style.display = 'none';
+ initialDecisionActivationShell.style.display = 'none';
 }
 
 
 document.addEventListener('click', (event) => {
-  const footerBtn = event.target.closest('.footer-cockpit-link[data-domain-jump]');
-  if (footerBtn) {
-    event.preventDefault();
-    event.stopPropagation();
-    navigateToDomain(footerBtn.dataset.domainJump);
-  }
+ const footerBtn = event.target.closest('.footer-cockpit-link[data-domain-jump]');
+ if (footerBtn) {
+ event.preventDefault();
+ event.stopPropagation();
+ navigateToDomain(footerBtn.dataset.domainJump);
+ }
 });
 
 
 window.addEventListener('hashchange', () => {
-  if (handleStaticRoute()) return;
-  const hash = (window.location.hash || '').replace('#', '');
-  if (hash.startsWith('env-')) {
-    navigateToDomain(hash.replace('env-', ''));
-  }
+ if (handleStaticRoute()) return;
+ const hash = (window.location.hash || '').replace('#', '');
+ if (hash.startsWith('env-')) {
+ navigateToDomain(hash.replace('env-', ''));
+ }
 });
 
 window.addEventListener('load', () => {
-  enforceSelectContrast(document);
-  applyHardDomFixes();
-  const hash = (window.location.hash || '').replace('#', '');
-  applyLegalMerchantInfo();
-  if (handleStaticRoute()) return;
-  showView('platform');
-  if (hash && hash.startsWith('env-')) {
-    navigateToDomain(hash.replace('env-', ''));
-  }
+ enforceSelectContrast(document);
+ applyHardDomFixes();
+ const hash = (window.location.hash || '').replace('#', '');
+ applyLegalMerchantInfo();
+ if (handleStaticRoute()) return;
+ showView('platform');
+ if (hash && hash.startsWith('env-')) {
+ navigateToDomain(hash.replace('env-', ''));
+ }
 });
 
 
 /* v61 mobile nav and route consistency */
 function initMobileHeaderBehavior() {
-  const topbar = document.querySelector('.topbar');
-  const toggle = document.getElementById('mobileMenuToggle');
-  if (!topbar || !toggle) return;
+ const topbar = document.querySelector('.topbar');
+ const toggle = document.getElementById('mobileMenuToggle');
+ if (!topbar || !toggle) return;
 
-  const closeMenu = () => {
-    topbar.classList.remove('menu-open');
-    toggle.setAttribute('aria-expanded', 'false');
-  };
-  const openMenu = () => {
-    topbar.classList.add('menu-open');
-    topbar.classList.remove('is-hidden-mobile');
-    toggle.setAttribute('aria-expanded', 'true');
-  };
+ const closeMenu = () => {
+ topbar.classList.remove('menu-open');
+ toggle.setAttribute('aria-expanded', 'false');
+ };
+ const openMenu = () => {
+ topbar.classList.add('menu-open');
+ topbar.classList.remove('is-hidden-mobile');
+ toggle.setAttribute('aria-expanded', 'true');
+ };
 
-  toggle.addEventListener('click', () => {
-    if (topbar.classList.contains('menu-open')) closeMenu();
-    else openMenu();
-  });
+ toggle.addEventListener('click', () => {
+ if (topbar.classList.contains('menu-open')) closeMenu();
+ else openMenu();
+ });
 
-  document.addEventListener('click', (event) => {
-    if (window.innerWidth > 820) return;
-    if (!topbar.contains(event.target)) closeMenu();
-  });
+ document.addEventListener('click', (event) => {
+ if (window.innerWidth > 820) return;
+ if (!topbar.contains(event.target)) closeMenu();
+ });
 
-  [...document.querySelectorAll('.nav-btn, .header-actions .btn, .jump-btn')].forEach(el => {
-    el.addEventListener('click', () => {
-      if (window.innerWidth <= 820) closeMenu();
-    });
-  });
+ [...document.querySelectorAll('.nav-btn,.header-actions.btn,.jump-btn')].forEach(el => {
+ el.addEventListener('click', () => {
+ if (window.innerWidth <= 820) closeMenu();
+ });
+ });
 
-  let lastY = window.scrollY || 0;
-  let ticking = false;
-  const onScroll = () => {
-    if (window.innerWidth > 820) {
-      topbar.classList.remove('is-hidden-mobile');
-      return;
-    }
-    if (topbar.classList.contains('menu-open')) return;
-    const y = window.scrollY || 0;
-    const delta = y - lastY;
-    if (y <= 30 || delta < -8) topbar.classList.remove('is-hidden-mobile');
-    else if (delta > 8) topbar.classList.add('is-hidden-mobile');
-    lastY = y;
-    ticking = false;
-  };
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(onScroll);
-      ticking = true;
-    }
-  }, { passive: true });
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 820) {
-      topbar.classList.remove('is-hidden-mobile');
-      topbar.classList.remove('menu-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-  });
+ let lastY = window.scrollY || 0;
+ let ticking = false;
+ const onScroll = () => {
+ if (window.innerWidth > 820) {
+ topbar.classList.remove('is-hidden-mobile');
+ return;
+ }
+ if (topbar.classList.contains('menu-open')) return;
+ const y = window.scrollY || 0;
+ const delta = y - lastY;
+ if (y <= 30 || delta < -8) topbar.classList.remove('is-hidden-mobile');
+ else if (delta > 8) topbar.classList.add('is-hidden-mobile');
+ lastY = y;
+ ticking = false;
+ };
+ window.addEventListener('scroll', () => {
+ if (!ticking) {
+ window.requestAnimationFrame(onScroll);
+ ticking = true;
+ }
+ }, { passive: true });
+ window.addEventListener('resize', () => {
+ if (window.innerWidth > 820) {
+ topbar.classList.remove('is-hidden-mobile');
+ topbar.classList.remove('menu-open');
+ toggle.setAttribute('aria-expanded', 'false');
+ }
+ });
 }
 
 function bindRouteIntegrity() {
-  const domainCaseBtn = document.getElementById('domainCaseBtn');
-  if (domainCaseBtn) {
-    domainCaseBtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      const activeDomain = getCurrentTopDomainKey();
-      showView('cases');
-      if (typeof selectCase === 'function') selectCase(activeDomain);
-      const journey = document.querySelector('.journey-panel') || document.getElementById('cases');
-      if (journey) journey.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  }
+ const domainCaseBtn = document.getElementById('domainCaseBtn');
+ if (domainCaseBtn) {
+ domainCaseBtn.addEventListener('click', (event) => {
+ event.preventDefault();
+ const activeDomain = getCurrentTopDomainKey();
+ showView('cases');
+ if (typeof selectCase === 'function') selectCase(activeDomain);
+ const journey = document.querySelector('.journey-panel') || document.getElementById('cases');
+ if (journey) journey.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ });
+ }
 
-  const domainLiveBtn = document.getElementById('domainLiveBtn');
-  if (domainLiveBtn) {
-    domainLiveBtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      goToLibrary(getCurrentTopDomainKey());
-    });
-  }
+ const domainLiveBtn = document.getElementById('domainLiveBtn');
+ if (domainLiveBtn) {
+ domainLiveBtn.addEventListener('click', (event) => {
+ event.preventDefault();
+ goToLibrary(getCurrentTopDomainKey());
+ });
+ }
 }
 
 function initBrandHome() {
-  const brandHome = document.querySelector('.brand-home');
-  if (!brandHome) return;
+ const brandHome = document.querySelector('.brand-home');
+ if (!brandHome) return;
 
-  brandHome.addEventListener('click', () => {
-    closeOverlayPanel();
-    setEngageThankYouVisible(false);
-    if (window.location.hash) {
-      history.replaceState(null, '', window.location.pathname + window.location.search);
-    }
-    showView('platform');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+ brandHome.addEventListener('click', () => {
+ closeOverlayPanel();
+ setEngageThankYouVisible(false);
+ if (window.location.hash) {
+ history.replaceState(null, '', window.location.pathname + window.location.search);
+ }
+ showView('platform');
+ window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    const topbar = document.querySelector('.topbar');
-    const toggle = document.getElementById('mobileMenuToggle');
-    if (topbar?.classList.contains('menu-open')) {
-      topbar.classList.remove('menu-open');
-      toggle?.setAttribute('aria-expanded', 'false');
-    }
-  });
+ const topbar = document.querySelector('.topbar');
+ const toggle = document.getElementById('mobileMenuToggle');
+ if (topbar?.classList.contains('menu-open')) {
+ topbar.classList.remove('menu-open');
+ toggle?.setAttribute('aria-expanded', 'false');
+ }
+ });
 }
 
 window.addEventListener('load', () => {
-  initNavigationIntegrity();
-  initMobileHeaderBehavior();
-  bindRouteIntegrity();
-  initBrandHome();
-  initConsultContactForm();
-  initServiceJourney();
-  initHomeHero();
-  initPartnersPage();
+ initNavigationIntegrity();
+ initMobileHeaderBehavior();
+ bindRouteIntegrity();
+ initBrandHome();
+ initCapabilityNav();
+ initConsultContactForm();
+ if (typeof initEngagementHub === 'function') initEngagementHub();
+ if (typeof initSectionRail === 'function') initSectionRail();
+ initServiceJourney();
+ initHomeHero();
+ initHomeJourney();
+ initPartnersPage();
+ initAboutPage();
+ initSiteI18n();
 });
+
+function applyOrbitLocalePack(pack) {
+ const data = window.CAPABILITY_ORBIT_DATA;
+ if (!data || !pack) return;
+ if (data.center && pack.centerLabel) data.center.label = pack.centerLabel;
+ (data.domains || []).forEach((domain) => {
+ const dPack = pack.domains && pack.domains[domain.id];
+ if (!dPack) return;
+ if (dPack.label) domain.label = dPack.label;
+ if (dPack.shortLabel) domain.shortLabel = dPack.shortLabel;
+ if (dPack.tooltip) {
+ domain.tooltip = domain.tooltip || {};
+ if (dPack.tooltip.title) domain.tooltip.title = dPack.tooltip.title;
+ if (dPack.tooltip.body) domain.tooltip.body = dPack.tooltip.body;
+ }
+ (domain.satellites || []).forEach((sat) => {
+ const sPack = dPack.satellites && dPack.satellites[sat.id];
+ if (!sPack) return;
+ if (sPack.label) sat.label = sPack.label;
+ sat.tooltip = sat.tooltip || {};
+ if (sPack.title) sat.tooltip.title = sPack.title;
+ if (sPack.body) sat.tooltip.body = sPack.body;
+ });
+ });
+}
+
+function applyHubLocalePack(pack) {
+ const data = window.ENGAGEMENT_HUB_DATA;
+ if (!data || !pack) return;
+ if (data.linkedin) {
+ if (pack.linkedinCompany) data.linkedin.company.label = pack.linkedinCompany;
+ if (pack.linkedinAnthony) data.linkedin.anthony.label = pack.linkedinAnthony;
+ if (pack.linkedinNote) {
+ data.linkedin.company.note = pack.linkedinNote;
+ data.linkedin.anthony.note = pack.linkedinNote;
+ }
+ }
+ if (Array.isArray(pack.intents) && Array.isArray(data.intents)) {
+ pack.intents.forEach((item) => {
+ const target = data.intents.find((i) => i.id === item.id);
+ if (!target) return;
+ if (item.label) target.label = item.label;
+ if (item.short) target.short = item.short;
+ });
+ }
+ if (Array.isArray(pack.stages)) data.stages = pack.stages.slice();
+ if (Array.isArray(pack.engageOptions)) data.engageOptions = pack.engageOptions.slice();
+ if (Array.isArray(pack.anthonyCapabilities)) data.anthonyCapabilities = pack.anthonyCapabilities.slice();
+ if (Array.isArray(pack.domains) && Array.isArray(data.domains)) {
+ pack.domains.forEach((item) => {
+ const target = data.domains.find((d) => d.id === item.id);
+ if (!target) return;
+ if (item.label) target.label = item.label;
+ if (item.summary) target.summary = item.summary;
+ if (Array.isArray(item.items)) target.items = item.items.slice();
+ });
+ }
+ if (pack.systems && Array.isArray(data.systems)) {
+ data.systems.forEach((sys) => {
+ const sPack = pack.systems[sys.id];
+ if (!sPack) return;
+ if (sPack.kicker) sys.kicker = sPack.kicker;
+ if (sPack.maturity) sys.maturity = sPack.maturity;
+ if (sPack.title) sys.title = sPack.title;
+ if (sPack.subtitle) sys.subtitle = sPack.subtitle;
+ if (sPack.body) sys.body = sPack.body;
+ if (sPack.primary && sys.primary) sys.primary.label = sPack.primary;
+ if (sPack.secondary && sys.secondary) sys.secondary.label = sPack.secondary;
+ });
+ }
+ if (Array.isArray(pack.deeperActions) && Array.isArray(data.deeperActions)) {
+ pack.deeperActions.forEach((item, index) => {
+ if (data.deeperActions[index] && item.label) data.deeperActions[index].label = item.label;
+ });
+ }
+ if (pack.intentState && data.intentState) {
+ Object.keys(pack.intentState).forEach((key) => {
+ const src = pack.intentState[key];
+ const dest = data.intentState[key];
+ if (!src || !dest) return;
+ if (pack.recommendedTitle) dest.recommendedTitle = pack.recommendedTitle;
+ if (Array.isArray(src.recommended) && Array.isArray(dest.recommended)) {
+ src.recommended.forEach((item, index) => {
+ if (dest.recommended[index] && item.label) dest.recommended[index].label = item.label;
+ });
+ }
+ if (src.formDefaults && dest.formDefaults) {
+ Object.assign(dest.formDefaults, src.formDefaults);
+ }
+ });
+ }
+}
+
+function applySiteLocale() {
+ const i18n = window.AIE_I18N;
+ if (!i18n) return;
+
+ const principles = i18n.getPack('homePrinciples');
+ if (principles) Object.assign(HOME_PRINCIPLES, principles);
+
+ const domains = i18n.getPack('homeDomains');
+ if (domains) {
+ Object.keys(domains).forEach((key) => {
+ if (!HOME_DOMAINS[key]) return;
+ HOME_DOMAINS[key].title = domains[key].title;
+ HOME_DOMAINS[key].copy = domains[key].copy;
+ const label = document.querySelector(`[data-domain-label="${key}"]`);
+ if (label) label.textContent = domains[key].title;
+ });
+ }
+
+ const bridge = i18n.getPack('homeBridge');
+ if (Array.isArray(bridge)) {
+ bridge.forEach((item, index) => {
+ if (!HOME_BRIDGE[index]) return;
+ HOME_BRIDGE[index].title = item.title;
+ HOME_BRIDGE[index].copy = item.copy;
+ const label = document.querySelector(`[data-bridge-label="${index}"]`);
+ if (label) label.textContent = item.title;
+ });
+ }
+
+ const edmp = i18n.getPack('homeEdmp');
+ if (edmp) {
+ Object.keys(edmp).forEach((key) => {
+ if (!HOME_EDMP[key]) return;
+ HOME_EDMP[key].title = edmp[key].title;
+ HOME_EDMP[key].copy = edmp[key].copy;
+ const chip = document.querySelector(`[data-edmp-label="${key}"]`);
+ if (chip) chip.textContent = edmp[key].title;
+ const svg = document.querySelector(`[data-edmp-svg="${key}"]`);
+ if (svg) svg.textContent = edmp[key].title;
+ });
+ }
+
+ Object.keys(PREFOOTER_BASE).forEach((key) => {
+ if (!prefooterContent[key]) return;
+ const base = PREFOOTER_BASE[key];
+ const dest = prefooterContent[key];
+ dest.kicker = base.kicker;
+ dest.title = base.title;
+ dest.text = base.text;
+ dest.metrics = base.metrics.map((row) => row.slice());
+ dest.primaryLabel = base.primaryLabel;
+ dest.secondaryLabel = base.secondaryLabel;
+ });
+ const prefooterPack = i18n.getPack('prefooter');
+ if (prefooterPack) {
+ Object.keys(prefooterPack).forEach((key) => {
+ if (!prefooterContent[key]) return;
+ const src = prefooterPack[key];
+ const dest = prefooterContent[key];
+ if (src.kicker) dest.kicker = src.kicker;
+ if (src.title) dest.title = src.title;
+ if (src.text) dest.text = src.text;
+ if (Array.isArray(src.metrics)) dest.metrics = src.metrics.slice();
+ if (src.primaryLabel) dest.primaryLabel = src.primaryLabel;
+ if (src.secondaryLabel) dest.secondaryLabel = src.secondaryLabel;
+ });
+ }
+
+ const insightPack = i18n.getLocale() === 'nl' ? i18n.getPack('insightsCards') : null;
+ insights.forEach((item, index) => {
+ const base = INSIGHTS_BASE[index];
+ if (!base) return;
+ item.title = base.title;
+ item.category = base.category;
+ item.deck = base.deck;
+ item.whyItMatters = base.whyItMatters;
+ item.summary = base.summary;
+ item.relevance = base.relevance;
+ item.alt = base.alt;
+ const overlay = insightPack && insightPack[item.id];
+ if (overlay) {
+ if (overlay.title) item.title = overlay.title;
+ if (overlay.category) item.category = overlay.category;
+ if (overlay.deck) item.deck = overlay.deck;
+ if (overlay.whyItMatters) item.whyItMatters = overlay.whyItMatters;
+ if (overlay.summary) item.summary = overlay.summary;
+ if (overlay.relevance) item.relevance = overlay.relevance;
+ if (overlay.alt) item.alt = overlay.alt;
+ }
+ });
+
+ applyOrbitLocalePack(i18n.getPack('orbit'));
+ applyHubLocalePack(i18n.getPack('hub'));
+
+ const activePrinciple = document.querySelector('.home-principle.is-active');
+ const note = document.getElementById('homePrincipleNote');
+ if (note && activePrinciple) note.textContent = HOME_PRINCIPLES[activePrinciple.dataset.principle] || '';
+
+ const activeDomain = document.querySelector('.home-domain-node.is-active');
+ if (activeDomain && typeof HOME_DOMAINS[activeDomain.dataset.domain] !== 'undefined') {
+ const domain = HOME_DOMAINS[activeDomain.dataset.domain];
+ const title = document.getElementById('domainPanelTitle');
+ const copy = document.getElementById('domainPanelCopy');
+ if (title) title.textContent = domain.title;
+ if (copy) copy.textContent = domain.copy;
+ }
+
+ const bridgeRoot = document.querySelector('[data-home-bridge]');
+ if (bridgeRoot) {
+ const activeBridge = Number(bridgeRoot.dataset.active || 0);
+ setHomeBridge(activeBridge);
+ }
+
+ const activeEdmp = document.querySelector('.home-edmp-chip.is-active');
+ if (activeEdmp) setHomeEdmp(activeEdmp.dataset.edmp);
+
+ const activeView = document.querySelector('.view.active-view');
+ if (activeView) updatePrefooter(activeView.id);
+
+ const pillarRoot = document.getElementById('capabilityPillarRoot');
+ if (pillarRoot && pillarRoot._capabilityPillars && typeof pillarRoot._capabilityPillars.refreshLocale === 'function') {
+ pillarRoot._capabilityPillars.refreshLocale();
+ } else if (typeof initCapabilityPillars === 'function' && pillarRoot) {
+ initCapabilityPillars(pillarRoot);
+ }
+
+ const hub = window.__aieEngagementHub;
+ if (hub && typeof hub.refreshLocale === 'function') {
+ hub.refreshLocale();
+ } else if (typeof initEngagementHub === 'function') {
+ initEngagementHub();
+ }
+
+ if (typeof renderInsightRailCards === 'function') {
+ renderInsightRailCards(getFilteredInsights());
+ }
+
+ if (typeof i18n.applyPhraseMap === 'function') {
+ i18n.applyPhraseMap(document);
+ }
+
+ // After phrase map: dynamic partner/about panels use locale packs directly
+ if (typeof applyMarketingDataLocale === 'function') {
+ applyMarketingDataLocale(i18n);
+ }
+
+ if (typeof refreshEngageLocale === 'function') {
+ refreshEngageLocale();
+ }
+ if (window.EdmpAssessment && typeof window.EdmpAssessment.refreshLocale === 'function') {
+ window.EdmpAssessment.refreshLocale();
+ }
+ if (window.DecisionRoom && typeof window.DecisionRoom.refreshLocale === 'function') {
+ window.DecisionRoom.refreshLocale();
+ }
+
+ const articleView = document.getElementById('insight-article');
+ if (articleView && articleView.classList.contains('active-view') && insightRailState.activeId) {
+ openInsightArticle(insightRailState.activeId);
+ }
+}
+
+function initSiteI18n() {
+ const i18n = window.AIE_I18N;
+ if (!i18n) return;
+ i18n.onLocaleChange(() => applySiteLocale());
+ i18n.init();
+ applySiteLocale();
+}
 
 window.navigateToView = navigateToView;
 window.showView = showView;
 window.handleStaticRoute = handleStaticRoute;
 
 function initConsultContactForm() {
-  const form = document.getElementById('consultContactForm');
-  if (!form) return;
-  const errorEl = document.getElementById('consultContactError');
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (errorEl) errorEl.textContent = '';
-    const name = (document.getElementById('consultName')?.value || '').trim();
-    const org = (document.getElementById('consultOrg')?.value || '').trim();
-    const role = (document.getElementById('consultRole')?.value || '').trim();
-    const email = (document.getElementById('consultEmail')?.value || '').trim();
-    const situation = (document.getElementById('consultSituation')?.value || '').trim();
-    const need = (document.getElementById('consultNeed')?.value || '').trim();
-    const next = (document.getElementById('consultNext')?.value || '').trim();
-    if (!name || !org || !role || !email || !situation || !need) {
-      if (errorEl) errorEl.textContent = 'Please complete all required fields.';
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      if (errorEl) errorEl.textContent = 'Please enter a valid business email.';
-      return;
-    }
-    const subject = encodeURIComponent(`AI Elevate enquiry — ${need}`);
-    const body = encodeURIComponent(
-      `Hi AI Elevate,\n\nI would like to request a focused conversation.\n\nName: ${name}\nOrganisation: ${org}\nRole: ${role}\nBusiness email: ${email}\nPrimary need: ${need}\nPreferred next step: ${next || 'n/a'}\n\nCurrent situation:\n${situation}\n`
-    );
-    window.location.href = `mailto:info@aielevate.xyz?subject=${subject}&body=${body}`;
-  });
+ const form = document.getElementById('consultContactForm');
+ if (!form) return;
+ const errorEl = document.getElementById('consultContactError');
+ form.addEventListener('submit', (event) => {
+ event.preventDefault();
+ if (errorEl) errorEl.textContent = '';
+ const name = (document.getElementById('consultName')?.value || '').trim();
+ const org = (document.getElementById('consultOrg')?.value || '').trim();
+ const role = (document.getElementById('consultRole')?.value || '').trim();
+ const email = (document.getElementById('consultEmail')?.value || '').trim();
+ const situation = (document.getElementById('consultSituation')?.value || '').trim();
+ const need = (document.getElementById('consultNeed')?.value || '').trim();
+ const next = (document.getElementById('consultNext')?.value || '').trim();
+ if (!name || !org || !role || !email || !situation || !need) {
+ if (errorEl) errorEl.textContent = 'Please complete all required fields.';
+ return;
+ }
+ if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+ if (errorEl) errorEl.textContent = 'Please enter a valid business email.';
+ return;
+ }
+ const subject = encodeURIComponent(`AI Elevate enquiry: ${need}`);
+ const body = encodeURIComponent(
+ `Hi AI Elevate,\n\nI would like to request a focused conversation.\n\nName: ${name}\nOrganisation: ${org}\nRole: ${role}\nBusiness email: ${email}\nPrimary need: ${need}\nPreferred next step: ${next || 'n/a'}\n\nCurrent situation:\n${situation}\n`
+ );
+ window.location.href = `mailto:info@aielevate.xyz?subject=${subject}&body=${body}`;
+ });
 }
 
 function updateServiceJourney() {
-  const root = document.getElementById('svcJourney');
-  if (!root || !document.getElementById('services')?.classList.contains('active-view')) return;
-  const steps = Array.from(root.querySelectorAll('.svc-step'));
-  if (!steps.length) return;
-  const stickyTop = 120;
-  let active = 0;
-  steps.forEach((step, i) => {
-    if (step.getBoundingClientRect().top <= stickyTop) active = i;
-  });
-  root.style.setProperty('--svc-active', String(active));
-  root.dataset.active = String(active);
-  steps.forEach((step, i) => {
-    step.classList.toggle('is-active', i === active);
-    step.classList.toggle('is-behind', i < active);
-  });
-  root.querySelectorAll('.svc-node').forEach((node, i) => {
-    node.classList.toggle('is-active', i === active);
-    node.classList.toggle('is-complete', i < active);
-    if (i === active) node.setAttribute('aria-current', 'true');
-    else node.removeAttribute('aria-current');
-  });
-  root.querySelectorAll('.svc-index button').forEach((btn, i) => {
-    btn.classList.toggle('is-active', i === active);
-  });
+ const root = document.getElementById('svcJourney');
+ if (!root || !document.getElementById('services')?.classList.contains('active-view')) return;
+ const steps = Array.from(root.querySelectorAll('.svc-step'));
+ if (!steps.length) return;
+ const stickyTop = 120;
+ let active = 0;
+ steps.forEach((step, i) => {
+ if (step.getBoundingClientRect().top <= stickyTop) active = i;
+ });
+ root.style.setProperty('--svc-active', String(active));
+ root.dataset.active = String(active);
+ steps.forEach((step, i) => {
+ step.classList.toggle('is-active', i === active);
+ step.classList.toggle('is-behind', i < active);
+ });
+ root.querySelectorAll('.svc-node').forEach((node, i) => {
+ node.classList.toggle('is-active', i === active);
+ node.classList.toggle('is-complete', i < active);
+ if (i === active) node.setAttribute('aria-current', 'true');
+ else node.removeAttribute('aria-current');
+ });
+ root.querySelectorAll('.svc-index button').forEach((btn, i) => {
+ btn.classList.toggle('is-active', i === active);
+ });
 }
 
 function initServiceJourney() {
-  const root = document.getElementById('svcJourney');
-  if (!root || root.dataset.bound === '1') return;
-  root.dataset.bound = '1';
+ const root = document.getElementById('svcJourney');
+ if (!root || root.dataset.bound === '1') return;
+ root.dataset.bound = '1';
 
-  root.querySelectorAll('.svc-toggle').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const extra = document.getElementById(btn.getAttribute('aria-controls'));
-      if (!extra) return;
-      const open = extra.hasAttribute('hidden');
-      extra.toggleAttribute('hidden', !open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.textContent = open ? 'Hide full scope' : 'View full scope';
-    });
-  });
+ root.querySelectorAll('.svc-toggle').forEach((btn) => {
+ btn.addEventListener('click', () => {
+ const extra = document.getElementById(btn.getAttribute('aria-controls'));
+ if (!extra) return;
+ const open = extra.hasAttribute('hidden');
+ extra.toggleAttribute('hidden', !open);
+ btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+ btn.textContent = open ? 'Hide full scope' : 'View full scope';
+ });
+ });
 
-  const goTo = (index) => {
-    const step = root.querySelector(`.svc-step[data-stage="${index}"]`);
-    if (!step) return;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    step.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
-  };
-  root.querySelectorAll('[data-svc-goto]').forEach((btn) => {
-    btn.addEventListener('click', () => goTo(btn.dataset.svcGoto));
-  });
+ const goTo = (index) => {
+ const step = root.querySelector(`.svc-step[data-stage="${index}"]`);
+ if (!step) return;
+ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ step.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+ };
+ root.querySelectorAll('[data-svc-goto]').forEach((btn) => {
+ btn.addEventListener('click', () => goTo(btn.dataset.svcGoto));
+ });
 
-  window.addEventListener('scroll', updateServiceJourney, { passive: true });
-  window.addEventListener('resize', updateServiceJourney);
-  updateServiceJourney();
+ window.addEventListener('scroll', updateServiceJourney, { passive: true });
+ window.addEventListener('resize', updateServiceJourney);
+ updateServiceJourney();
 }
 
 const HOME_PRINCIPLES = {
-  purpose: 'Begin with the organisational purpose AI must serve—before selecting a platform.',
-  capability: 'Adoption shows activity. Capability is the organisation\'s ability to select, govern and improve valuable AI use cases.',
-  authority: 'Human decision ownership must be designed in before consequential AI assistance becomes routine.'
+ purpose: 'Begin with the organisational purpose AI must serve before selecting a platform.',
+ capability: 'Adoption shows activity. Capability is the organisation\'s ability to select, govern and improve valuable AI use cases.',
+ authority: 'Human decision ownership must be designed in before consequential AI assistance becomes routine.'
 };
 
 const HOME_DOMAINS = {
-  value: {
-    title: 'Business value',
-    copy: 'Clarify why AI matters, where it can create material value and which opportunities deserve investment.',
-    tab: 'domain-tab-value',
-    index: 0
-  },
-  org: {
-    title: 'Organisation',
-    copy: 'Translate AI ambition into processes, roles, decision rights, operating models and the capacity to change.',
-    tab: 'domain-tab-org',
-    index: 1
-  },
-  arch: {
-    title: 'Architecture',
-    copy: 'Define vendor-neutral enterprise requirements that connect current capability, intended outcomes and implementation choices.',
-    tab: 'domain-tab-arch',
-    index: 2
-  },
-  gov: {
-    title: 'Governance and accountability',
-    copy: 'Make human authority, assurance, escalation and responsibility explicit before AI becomes embedded in consequential work.',
-    tab: 'domain-tab-gov',
-    index: 3
-  },
-  evidence: {
-    title: 'Evidence and learning',
-    copy: 'Establish baselines, intended outcomes and observable evidence so the organisation can learn without losing control of change.',
-    tab: 'domain-tab-evidence',
-    index: 4
-  }
+ value: {
+ title: 'Business value',
+ copy: 'Clarify why AI matters, where it can create material value and which opportunities deserve investment.',
+ tab: 'domain-tab-value',
+ index: 0
+ },
+ org: {
+ title: 'Organisation',
+ copy: 'Translate AI ambition into processes, roles, decision rights, operating models and the capacity to change.',
+ tab: 'domain-tab-org',
+ index: 1
+ },
+ arch: {
+ title: 'Architecture',
+ copy: 'Define vendor neutral enterprise requirements that connect current capability, intended outcomes and implementation choices.',
+ tab: 'domain-tab-arch',
+ index: 2
+ },
+ gov: {
+ title: 'Governance and accountability',
+ copy: 'Make human authority, assurance, escalation and responsibility explicit before AI becomes embedded in consequential work.',
+ tab: 'domain-tab-gov',
+ index: 3
+ },
+ evidence: {
+ title: 'Evidence and learning',
+ copy: 'Establish baselines, intended outcomes and observable evidence so the organisation can learn without losing control of change.',
+ tab: 'domain-tab-evidence',
+ index: 4
+ }
 };
+
+function initHomeHeroParallax() {
+ const hero = document.querySelector('.home-hero');
+ const media = hero && (hero.querySelector('.home-pillar-shell') || hero.querySelector('.home-hero-orbit-stage') || hero.querySelector('.home-hero-media'));
+ if (!hero || !media) return;
+
+ const desktopMq = window.matchMedia('(min-width: 821px)');
+ const reduceMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+ const apply = () => {
+ const onHome = document.getElementById('platform')?.classList.contains('active-view');
+ if (!onHome || !desktopMq.matches || reduceMq.matches) {
+ media.style.transform = '';
+ return;
+ }
+ const travel = Math.min(Math.max(window.scrollY, 0), hero.offsetHeight);
+ media.style.transform = `translate3d(0, ${(-travel * 0.35).toFixed(1)}px, 0)`;
+ };
+
+ if (!initHomeHeroParallax.bound) {
+ initHomeHeroParallax.bound = true;
+ let ticking = false;
+ const onScroll = () => {
+ if (ticking) return;
+ ticking = true;
+ requestAnimationFrame(() => {
+ ticking = false;
+ apply();
+ });
+ };
+ window.addEventListener('scroll', onScroll, { passive: true });
+ window.addEventListener('resize', apply);
+ desktopMq.addEventListener('change', apply);
+ reduceMq.addEventListener('change', apply);
+ }
+
+ apply();
+}
 
 function restoreCapabilityHomeState(opts) {
  opts = opts || {};
@@ -2658,321 +3636,778 @@ function initCapabilityNav() {
  });
 }
 
-
 function initHomeHero(replay) {
-  const hero = document.querySelector('.home-hero');
-  if (!hero) return;
+ initHomeHeroParallax();
+ const hero = document.querySelector('.home-hero');
+ if (!hero) return;
 
-  if (typeof initCapabilityPillars === 'function') {
-    const pillarRoot = document.getElementById('capabilityPillarRoot') || document.querySelector('[data-capability-pillars]');
-    if (pillarRoot && (replay || !pillarRoot._capabilityPillars)) {
-      initCapabilityPillars(pillarRoot);
-    }
-  }
+ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const splashVisible = startupSplash && !startupSplash.classList.contains('is-hidden');
-  if (!reduce) {
-    if (splashVisible && !replay) {
-      homeHeroRevealPending = true;
-    } else {
-      if (replay) hero.classList.remove('is-animated');
-      if (!hero.classList.contains('is-animated')) {
-        requestAnimationFrame(() => hero.classList.add('is-animated'));
-      }
-    }
-  }
+ if (typeof initCapabilityPillars === 'function') {
+ const pillarRoot = document.getElementById('capabilityPillarRoot') || document.querySelector('[data-capability-pillars]');
+ if (pillarRoot && (replay || !pillarRoot._capabilityPillars)) {
+ initCapabilityPillars(pillarRoot);
+ }
+ }
 
-  if (hero.dataset.bound === '1') return;
-  hero.dataset.bound = '1';
+ if (hero.dataset.bound === '1') return;
+ hero.dataset.bound = '1';
 
-  const note = document.getElementById('homePrincipleNote');
-  document.querySelectorAll('.home-principle').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.home-principle').forEach((b) => {
-        b.classList.toggle('is-active', b === btn);
-        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
-      });
-      if (note) note.textContent = HOME_PRINCIPLES[btn.dataset.principle] || '';
-    });
-  });
+ const note = document.getElementById('homePrincipleNote');
+ document.querySelectorAll('.home-principle').forEach((btn) => {
+ btn.addEventListener('click', () => {
+ document.querySelectorAll('.home-principle').forEach((b) => {
+ b.classList.toggle('is-active', b === btn);
+ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+ });
+ if (note) note.textContent = HOME_PRINCIPLES[btn.dataset.principle] || '';
+ });
+ });
 
-  document.querySelectorAll('[data-scroll-target]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const target = document.getElementById(btn.dataset.scrollTarget);
-      if (!target) return;
-      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
-    });
-  });
+ document.querySelectorAll('[data-scroll-target]').forEach((btn) => {
+ btn.addEventListener('click', () => {
+ const target = document.getElementById(btn.dataset.scrollTarget);
+ if (!target) return;
+ target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+ });
+ });
 
-  const shell = document.querySelector('[data-home-constellation]');
-  if (!shell) return;
-  const panel = document.getElementById('domain-panel');
-  const title = document.getElementById('domainPanelTitle');
-  const copy = document.getElementById('domainPanelCopy');
-  const setDomain = (key) => {
-    const domain = HOME_DOMAINS[key];
-    if (!domain) return;
-    shell.style.setProperty('--domain-active', String(domain.index));
-    shell.querySelectorAll('.home-domain-node').forEach((node) => {
-      const active = node.dataset.domain === key;
-      node.classList.toggle('is-active', active);
-      node.setAttribute('aria-selected', active ? 'true' : 'false');
-      node.tabIndex = active ? 0 : -1;
-    });
-    if (title) title.textContent = domain.title;
-    if (copy) copy.textContent = domain.copy;
-    if (panel) panel.setAttribute('aria-labelledby', domain.tab);
-  };
+ const shell = document.querySelector('[data-home-constellation]');
+ if (!shell) return;
+ const panel = document.getElementById('domain-panel');
+ const title = document.getElementById('domainPanelTitle');
+ const copy = document.getElementById('domainPanelCopy');
+ const setDomain = (key) => {
+ const domain = HOME_DOMAINS[key];
+ if (!domain) return;
+ shell.style.setProperty('--domain-active', String(domain.index));
+ shell.querySelectorAll('.home-domain-node').forEach((node) => {
+ const active = node.dataset.domain === key;
+ node.classList.toggle('is-active', active);
+ node.setAttribute('aria-selected', active ? 'true' : 'false');
+ node.tabIndex = active ? 0 : -1;
+ });
+ if (title) title.textContent = domain.title;
+ if (copy) copy.textContent = domain.copy;
+ if (panel) panel.setAttribute('aria-labelledby', domain.tab);
+ };
 
-  shell.querySelectorAll('.home-domain-node').forEach((node, index) => {
-    node.tabIndex = index === 0 ? 0 : -1;
-    node.addEventListener('click', () => setDomain(node.dataset.domain));
-    node.addEventListener('keydown', (event) => {
-      const nodes = Array.from(shell.querySelectorAll('.home-domain-node'));
-      const current = nodes.indexOf(node);
-      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-        event.preventDefault();
-        const next = nodes[(current + 1) % nodes.length];
-        next.focus();
-        setDomain(next.dataset.domain);
-      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-        event.preventDefault();
-        const prev = nodes[(current - 1 + nodes.length) % nodes.length];
-        prev.focus();
-        setDomain(prev.dataset.domain);
-      } else if (event.key === 'Home') {
-        event.preventDefault();
-        nodes[0].focus();
-        setDomain(nodes[0].dataset.domain);
-      } else if (event.key === 'End') {
-        event.preventDefault();
-        nodes[nodes.length - 1].focus();
-        setDomain(nodes[nodes.length - 1].dataset.domain);
-      }
-    });
-  });
-  setDomain('value');
+ shell.querySelectorAll('.home-domain-node').forEach((node, index) => {
+ node.tabIndex = index === 0 ? 0 : -1;
+ node.addEventListener('click', () => setDomain(node.dataset.domain));
+ node.addEventListener('keydown', (event) => {
+ const nodes = Array.from(shell.querySelectorAll('.home-domain-node'));
+ const current = nodes.indexOf(node);
+ if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+ event.preventDefault();
+ const next = nodes[(current + 1) % nodes.length];
+ next.focus();
+ setDomain(next.dataset.domain);
+ } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+ event.preventDefault();
+ const prev = nodes[(current - 1 + nodes.length) % nodes.length];
+ prev.focus();
+ setDomain(prev.dataset.domain);
+ } else if (event.key === 'Home') {
+ event.preventDefault();
+ nodes[0].focus();
+ setDomain(nodes[0].dataset.domain);
+ } else if (event.key === 'End') {
+ event.preventDefault();
+ nodes[nodes.length - 1].focus();
+ setDomain(nodes[nodes.length - 1].dataset.domain);
+ }
+ });
+ });
+ setDomain('value');
 }
 
 const PARTNER_QUESTIONS = {
-  center: {
-    title: 'Shared customer outcome',
-    copy: 'Both partners contribute when these questions are answered with clear ownership—so delivery stays aligned to organisational value.'
-  },
-  1: {
-    title: 'Which use cases deserve enterprise investment?',
-    copy: 'Technical possibility is not the same as enterprise priority. Shared selection criteria keep platform work focused on opportunities with material organisational value.'
-  },
-  2: {
-    title: 'What must change in processes, roles and decision rights?',
-    copy: 'Implementation succeeds when the operating model moves with the technology. Clarifying process and role change gives delivery a usable organisational landing zone.'
-  },
-  3: {
-    title: 'How should human authority and AI support be divided?',
-    copy: 'Authority design protects accountability as AI assistance expands. Both partners need this boundary so technical features reinforce—not blur—human responsibility.'
-  },
-  4: {
-    title: 'What governance and assurance are proportionate?',
-    copy: 'Governance should match risk and consequence, not invent friction. Proportionate controls help delivery remain confident, inspectable and commercially sustainable.'
-  },
-  5: {
-    title: 'How will value and organisational capability be demonstrated?',
-    copy: 'Evidence turns delivery activity into organisational learning. Shared measures keep technical progress connected to capability outcomes the enterprise can defend.'
-  }
+ center: {
+ title: 'Shared customer outcome',
+ copy: 'Both partners contribute when these questions are answered with clear ownership so delivery stays aligned to organisational value.'
+ },
+ 1: {
+ title: 'Which use cases deserve enterprise investment?',
+ copy: 'Technical possibility is not the same as enterprise priority. Shared selection criteria keep platform work focused on opportunities with material organisational value.'
+ },
+ 2: {
+ title: 'What must change in processes, roles and decision rights?',
+ copy: 'Implementation succeeds when the operating model moves with the technology. Clarifying process and role change gives delivery a usable organisational landing zone.'
+ },
+ 3: {
+ title: 'How should human authority and AI support be divided?',
+ copy: 'Authority design protects accountability as AI assistance expands. Both partners need this boundary so technical features reinforce, not blur. Human responsibility.'
+ },
+ 4: {
+ title: 'What governance and assurance are proportionate?',
+ copy: 'Governance should match risk and consequence, not invent friction. Proportionate controls help delivery remain confident, inspectable and commercially sustainable.'
+ },
+ 5: {
+ title: 'How will value and organisational capability be demonstrated?',
+ copy: 'Evidence turns delivery activity into organisational learning. Shared measures keep technical progress connected to capability outcomes the enterprise can defend.'
+ }
 };
 
 const PARTNER_STAGES = [
-  {
-    name: 'Orient',
-    ae: ['Executive intent', 'Business value logic', 'Organisational ambition', 'Leadership decisions'],
-    ip: ['Platform possibilities', 'Solution capabilities', 'Technical opportunities', 'Initial implementation perspective'],
-    outcome: 'A qualified opportunity with clear business relevance.'
-  },
-  {
-    name: 'Assess',
-    ae: ['Organisational readiness', 'Current-state capability', 'Operating constraints', 'Use-case priorities and dependencies'],
-    ip: ['Technology landscape', 'Platform readiness', 'Data and integration constraints', 'Technical feasibility'],
-    outcome: 'An evidence-based understanding of value, readiness and feasibility.'
-  },
-  {
-    name: 'Design',
-    ae: ['Target operating model', 'Decision rights', 'Governance and accountability', 'Vendor-neutral enterprise requirements'],
-    ip: ['Solution architecture', 'Platform configuration', 'Integration design', 'Technical delivery plan'],
-    outcome: 'One delivery blueprint connecting organisational requirements with technical design.'
-  },
-  {
-    name: 'Implement and adopt',
-    ae: ['Client-side programme advisory', 'Organisational alignment', 'Adoption and role development', 'Independent value and conformance assurance'],
-    ip: ['Build and configuration', 'Integration and testing', 'Technical deployment', 'Product and user enablement'],
-    outcome: 'Implementation that works technically and becomes usable organisational capability.'
-  },
-  {
-    name: 'Govern and learn',
-    ae: ['Outcome evidence', 'Decision accountability', 'Independent challenge', 'Organisational learning and capability development'],
-    ip: ['Technical monitoring', 'Engineering remediation', 'Platform optimisation', 'Ongoing enablement'],
-    outcome: 'A controlled capability that improves as technology, evidence and organisational needs change.'
-  }
+ {
+ name: 'Orient',
+ ae: ['Executive intent', 'Business value logic', 'Organisational ambition', 'Leadership decisions'],
+ ip: ['Platform possibilities', 'Solution capabilities', 'Technical opportunities', 'Initial implementation perspective'],
+ outcome: 'A qualified opportunity with clear business relevance.'
+ },
+ {
+ name: 'Assess',
+ ae: ['Organisational readiness', 'Current state capability', 'Operating constraints', 'Use case priorities and dependencies'],
+ ip: ['Technology landscape', 'Platform readiness', 'Data and integration constraints', 'Technical feasibility'],
+ outcome: 'An evidence based understanding of value, readiness and feasibility.'
+ },
+ {
+ name: 'Design',
+ ae: ['Target operating model', 'Decision rights', 'Governance and accountability', 'Vendor neutral enterprise requirements'],
+ ip: ['Solution architecture', 'Platform configuration', 'Integration design', 'Technical delivery plan'],
+ outcome: 'One delivery blueprint connecting organisational requirements with technical design.'
+ },
+ {
+ name: 'Implement and adopt',
+ ae: ['Client side programme advisory', 'Organisational alignment', 'Adoption and role development', 'Independent value and conformance assurance'],
+ ip: ['Build and configuration', 'Integration and testing', 'Technical deployment', 'Product and user enablement'],
+ outcome: 'Implementation that works technically and becomes usable organisational capability.'
+ },
+ {
+ name: 'Govern and learn',
+ ae: ['Outcome evidence', 'Decision accountability', 'Independent challenge', 'Organisational learning and capability development'],
+ ip: ['Technical monitoring', 'Engineering remediation', 'Platform optimisation', 'Ongoing enablement'],
+ outcome: 'A controlled capability that improves as technology, evidence and organisational needs change.'
+ }
 ];
+const PARTNER_QUESTIONS_BASE = JSON.parse(JSON.stringify(PARTNER_QUESTIONS));
+const PARTNER_STAGES_BASE = JSON.parse(JSON.stringify(PARTNER_STAGES));
 
 function fillList(el, items) {
-  if (!el) return;
-  el.innerHTML = items.map((item) => `<li>${item}</li>`).join('');
+ if (!el) return;
+ el.innerHTML = items.map((item) => `<li>${item}</li>`).join('');
 }
 
 function setPartnerStage(index, options = {}) {
-  const stage = PARTNER_STAGES[index];
-  if (!stage) return;
-  const root = document.querySelector('[data-partner-nav]');
-  const panel = document.getElementById('partnerNavPanel');
-  if (!root || !panel) return;
+ const stage = PARTNER_STAGES[index];
+ if (!stage) return;
+ const root = document.querySelector('[data-partner-nav]');
+ const panel = document.getElementById('partnerNavPanel');
+ if (!root || !panel) return;
 
-  root.style.setProperty('--partner-stage', String(index));
-  root.querySelectorAll('.partner-nav-stage').forEach((btn) => {
-    const i = Number(btn.dataset.stage);
-    const active = i === index;
-    btn.classList.toggle('is-active', active);
-    btn.classList.toggle('is-complete', i < index);
-    btn.setAttribute('aria-selected', active ? 'true' : 'false');
-    btn.tabIndex = active ? 0 : -1;
-  });
+ root.style.setProperty('--partner-stage', String(index));
+ root.querySelectorAll('.partner-nav-stage').forEach((btn) => {
+ const i = Number(btn.dataset.stage);
+ const active = i === index;
+ btn.classList.toggle('is-active', active);
+ btn.classList.toggle('is-complete', i < index);
+ btn.setAttribute('aria-selected', active ? 'true' : 'false');
+ btn.tabIndex = active ? 0 : -1;
+ });
 
-  fillList(document.getElementById('partnerNavAeList'), stage.ae);
-  fillList(document.getElementById('partnerNavIpList'), stage.ip);
-  const outCopy = document.getElementById('partnerNavOutCopy');
-  const outTitle = document.getElementById('partnerNavOutTitle');
-  if (outTitle) outTitle.textContent = stage.name;
-  if (outCopy) outCopy.textContent = stage.outcome;
-  panel.setAttribute('aria-labelledby', `partner-stage-tab-${index}`);
+ fillList(document.getElementById('partnerNavAeList'), stage.ae);
+ fillList(document.getElementById('partnerNavIpList'), stage.ip);
+ const outCopy = document.getElementById('partnerNavOutCopy');
+ const outTitle = document.getElementById('partnerNavOutTitle');
+ if (outTitle) outTitle.textContent = stage.name;
+ if (outCopy) outCopy.textContent = stage.outcome;
+ panel.setAttribute('aria-labelledby', `partner-stage-tab-${index}`);
 
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduce && !options.instant) {
-    panel.classList.add('is-entering');
-    void panel.offsetWidth;
-    requestAnimationFrame(() => panel.classList.remove('is-entering'));
-  }
+ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if (!reduce && !options.instant) {
+ panel.classList.add('is-entering');
+ void panel.offsetWidth;
+ requestAnimationFrame(() => panel.classList.remove('is-entering'));
+ }
 
-  if (options.focusPanel) panel.focus({ preventScroll: true });
+ if (options.focusPanel) panel.focus({ preventScroll: true });
 }
 
 function initPartnersPage(replay) {
-  const page = document.querySelector('.partner-page');
-  if (!page) return;
+ const page = document.querySelector('.partner-page');
+ if (!page) return;
 
-  const hero = page.querySelector('.partner-hero');
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (hero && !reduce) {
-    if (replay) hero.classList.remove('is-animated');
-    if (!hero.classList.contains('is-animated')) {
-      requestAnimationFrame(() => hero.classList.add('is-animated'));
-    }
-  } else if (hero && reduce) {
-    hero.classList.add('is-animated');
-  }
+ const hero = page.querySelector('.partner-hero');
+ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if (hero && !reduce) {
+ if (replay) hero.classList.remove('is-animated');
+ if (!hero.classList.contains('is-animated')) {
+ requestAnimationFrame(() => hero.classList.add('is-animated'));
+ }
+ } else if (hero && reduce) {
+ hero.classList.add('is-animated');
+ }
 
-  if (page.dataset.bound === '1') {
-    updatePartnerNavigator();
-    return;
-  }
-  page.dataset.bound = '1';
+ if (page.dataset.bound === '1') {
+ updatePartnerNavigator();
+ return;
+ }
+ page.dataset.bound = '1';
 
-  const field = page.querySelector('[data-partner-questions]');
-  if (field) {
-    const title = document.getElementById('partnerQDetailTitle');
-    const copy = document.getElementById('partnerQDetailCopy');
-    const detail = document.getElementById('partnerQDetail');
-    const setQuestion = (key, { focus } = {}) => {
-      const data = PARTNER_QUESTIONS[key] || PARTNER_QUESTIONS.center;
-      field.classList.toggle('is-linked', key !== 'center');
-      field.querySelectorAll('.partner-q-node, .partner-q-center').forEach((btn) => {
-        const active = btn.dataset.q === key;
-        btn.classList.toggle('is-active', active);
-        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-      });
-      if (title) title.textContent = data.title;
-      if (copy) copy.textContent = data.copy;
-      if (focus && detail) detail.focus({ preventScroll: true });
-    };
-    field.querySelectorAll('.partner-q-node, .partner-q-center').forEach((btn) => {
-      btn.addEventListener('click', () => setQuestion(btn.dataset.q, { focus: true }));
-      btn.addEventListener('keydown', (event) => {
-        if (event.key !== 'Enter' && event.key !== ' ') return;
-        event.preventDefault();
-        setQuestion(btn.dataset.q, { focus: true });
-      });
-    });
-    setQuestion('center');
-  }
+ const field = page.querySelector('[data-partner-questions]');
+ if (field) {
+ const title = document.getElementById('partnerQDetailTitle');
+ const copy = document.getElementById('partnerQDetailCopy');
+ const detail = document.getElementById('partnerQDetail');
+ const setQuestion = (key, { focus } = {}) => {
+ const data = PARTNER_QUESTIONS[key] || PARTNER_QUESTIONS.center;
+ field.classList.toggle('is-linked', key !== 'center');
+ field.querySelectorAll('.partner-q-node,.partner-q-center').forEach((btn) => {
+ const active = btn.dataset.q === key;
+ btn.classList.toggle('is-active', active);
+ btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+ });
+ if (title) title.textContent = data.title;
+ if (copy) copy.textContent = data.copy;
+ if (focus && detail) detail.focus({ preventScroll: true });
+ };
+ field.querySelectorAll('.partner-q-node,.partner-q-center').forEach((btn) => {
+ btn.addEventListener('click', () => setQuestion(btn.dataset.q, { focus: true }));
+ btn.addEventListener('keydown', (event) => {
+ if (event.key !== 'Enter' && event.key !== ' ') return;
+ event.preventDefault();
+ setQuestion(btn.dataset.q, { focus: true });
+ });
+ });
+ setQuestion('center');
+ }
 
-  const nav = page.querySelector('[data-partner-nav]');
-  if (nav) {
-    nav.querySelectorAll('.partner-nav-stage').forEach((btn, index) => {
-      btn.addEventListener('click', () => {
-        const sentinel = page.querySelector(`.partner-nav-sentinel[data-stage="${btn.dataset.stage}"]`);
-        if (sentinel) {
-          sentinel.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
-        }
-        setPartnerStage(Number(btn.dataset.stage), { focusPanel: true });
-      });
-      btn.addEventListener('keydown', (event) => {
-        const buttons = Array.from(nav.querySelectorAll('.partner-nav-stage'));
-        const current = buttons.indexOf(btn);
-        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-          event.preventDefault();
-          const next = buttons[(current + 1) % buttons.length];
-          next.focus();
-          next.click();
-        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-          event.preventDefault();
-          const prev = buttons[(current - 1 + buttons.length) % buttons.length];
-          prev.focus();
-          prev.click();
-        } else if (event.key === 'Home') {
-          event.preventDefault();
-          buttons[0].focus();
-          buttons[0].click();
-        } else if (event.key === 'End') {
-          event.preventDefault();
-          buttons[buttons.length - 1].focus();
-          buttons[buttons.length - 1].click();
-        }
-      });
-    });
-    setPartnerStage(0, { instant: true });
-  }
+ const nav = page.querySelector('[data-partner-nav]');
+ if (nav) {
+ nav.querySelectorAll('.partner-nav-stage').forEach((btn, index) => {
+ btn.addEventListener('click', () => {
+ const sentinel = page.querySelector(`.partner-nav-sentinel[data-stage="${btn.dataset.stage}"]`);
+ if (sentinel) {
+ sentinel.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+ }
+ setPartnerStage(Number(btn.dataset.stage), { focusPanel: true });
+ });
+ btn.addEventListener('keydown', (event) => {
+ const buttons = Array.from(nav.querySelectorAll('.partner-nav-stage'));
+ const current = buttons.indexOf(btn);
+ if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+ event.preventDefault();
+ const next = buttons[(current + 1) % buttons.length];
+ next.focus();
+ next.click();
+ } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+ event.preventDefault();
+ const prev = buttons[(current - 1 + buttons.length) % buttons.length];
+ prev.focus();
+ prev.click();
+ } else if (event.key === 'Home') {
+ event.preventDefault();
+ buttons[0].focus();
+ buttons[0].click();
+ } else if (event.key === 'End') {
+ event.preventDefault();
+ buttons[buttons.length - 1].focus();
+ buttons[buttons.length - 1].click();
+ }
+ });
+ });
+ setPartnerStage(0, { instant: true });
+ }
 
-  const mobile = page.querySelector('[data-partner-nav-mobile]');
-  if (mobile) {
-    mobile.querySelectorAll('.partner-nav-card').forEach((card) => {
-      card.addEventListener('toggle', () => {
-        if (!card.open) return;
-        mobile.querySelectorAll('.partner-nav-card').forEach((other) => {
-          if (other !== card) other.open = false;
-        });
-      });
-    });
-  }
+ const mobile = page.querySelector('[data-partner-nav-mobile]');
+ if (mobile) {
+ mobile.querySelectorAll('.partner-nav-card').forEach((card) => {
+ card.addEventListener('toggle', () => {
+ if (!card.open) return;
+ mobile.querySelectorAll('.partner-nav-card').forEach((other) => {
+ if (other !== card) other.open = false;
+ });
+ });
+ });
+ }
 
-  window.addEventListener('scroll', updatePartnerNavigator, { passive: true });
-  window.addEventListener('resize', updatePartnerNavigator);
-  updatePartnerNavigator();
+ window.addEventListener('scroll', updatePartnerNavigator, { passive: true });
+ window.addEventListener('resize', updatePartnerNavigator);
+ updatePartnerNavigator();
 }
 
 function updatePartnerNavigator() {
-  const page = document.querySelector('.partner-page');
-  const view = document.getElementById('partners');
-  if (!page || !view?.classList.contains('active-view')) return;
-  if (window.matchMedia('(max-width: 820px)').matches) return;
+ const page = document.querySelector('.partner-page');
+ const view = document.getElementById('partners');
+ if (!page || !view?.classList.contains('active-view')) return;
+ if (window.matchMedia('(max-width: 820px)').matches) return;
 
-  const sentinels = Array.from(page.querySelectorAll('.partner-nav-sentinel'));
-  if (!sentinels.length) return;
-  const marker = window.innerHeight * 0.35;
-  let active = 0;
-  sentinels.forEach((el, index) => {
-    const top = el.getBoundingClientRect().top;
-    if (top <= marker) active = index;
-  });
-  if (page.dataset.activeStage === String(active)) return;
-  page.dataset.activeStage = String(active);
-  setPartnerStage(active);
+ const sentinels = Array.from(page.querySelectorAll('.partner-nav-sentinel'));
+ if (!sentinels.length) return;
+ const marker = window.innerHeight * 0.35;
+ let active = 0;
+ sentinels.forEach((el, index) => {
+ const top = el.getBoundingClientRect().top;
+ if (top <= marker) active = index;
+ });
+ if (page.dataset.activeStage === String(active)) return;
+ page.dataset.activeStage = String(active);
+ setPartnerStage(active);
+}
+
+const HOME_BRIDGE = [
+ { title: 'Executive orientation', copy: 'Establish why AI matters and which leadership decisions must come first.' },
+ { title: 'AI capability diagnosis', copy: 'Create an evidence based view of opportunities, readiness and constraints.' },
+ { title: 'Strategy and organisational design', copy: 'Translate ambition into priorities, operating requirements and investment choices.' },
+ { title: 'Architecture and governance advisory', copy: 'Connect enterprise requirements, technical choices, authority and control.' },
+ { title: 'Transformation accompaniment', copy: 'Keep implementation aligned with intent while the organisation adopts and learns.' }
+];
+
+const HOME_EDMP = {
+ evidence: { title: 'Evidence', copy: 'Signals, assumptions and prior reasoning that enter the decision.' },
+ decision: { title: 'Decision', copy: 'The structured choice that must remain inspectable over time.' },
+ ownership: { title: 'Ownership', copy: 'Authority and accountability surrounding the decision.' },
+ execution: { title: 'Execution', copy: 'Consequences and follow through that continue after the decision.' },
+ learning: { title: 'Learning', copy: 'Institutional memory that improves the next cycle of decision making.' }
+};
+
+const HOME_GATEWAY_INTENTS = {
+ direction: { primary: 'orientation', secondary: 'scan' },
+ scan: { primary: 'scan', secondary: 'orientation' },
+ challenge: { primary: 'challenge', secondary: 'scan' }
+};
+
+function setHomeBridge(index, { focus } = {}) {
+ const root = document.querySelector('[data-home-bridge]');
+ if (!root) return;
+ const stage = HOME_BRIDGE[index];
+ if (!stage) return;
+ root.dataset.active = String(index);
+ root.querySelectorAll('.home-bridge-node').forEach((btn) => {
+ const active = Number(btn.dataset.bridge) === index;
+ btn.classList.toggle('is-active', active);
+ btn.setAttribute('aria-selected', active ? 'true' : 'false');
+ btn.tabIndex = active ? 0 : -1;
+ });
+ const title = document.getElementById('bridgeDetailTitle');
+ const copy = document.getElementById('bridgeDetailCopy');
+ const panel = document.getElementById('bridgeDetail');
+ if (title) title.textContent = stage.title;
+ if (copy) copy.textContent = stage.copy;
+ if (panel) panel.setAttribute('aria-labelledby', `bridge-tab-${index}`);
+ if (focus && panel) panel.focus({ preventScroll: true });
+}
+
+function setHomeEdmp(key, { focus } = {}) {
+ const data = HOME_EDMP[key];
+ if (!data) return;
+ const visual = document.querySelector('[data-home-edmp]');
+ visual?.querySelectorAll('.home-edmp-dot').forEach((dot) => {
+ dot.classList.toggle('is-active', dot.dataset.edmp === key);
+ });
+ document.querySelectorAll('.home-edmp-chip').forEach((btn) => {
+ const active = btn.dataset.edmp === key;
+ btn.classList.toggle('is-active', active);
+ btn.setAttribute('aria-selected', active ? 'true' : 'false');
+ });
+ const title = document.getElementById('edmpDetailTitle');
+ const copy = document.getElementById('edmpDetailCopy');
+ const panel = document.getElementById('edmpDetail');
+ if (title) title.textContent = data.title;
+ if (copy) copy.textContent = data.copy;
+ if (panel) panel.setAttribute('aria-labelledby', `edmp-tab-${key}`);
+ if (focus && panel) panel.focus({ preventScroll: true });
+}
+
+function updateHomeSpine() {
+ const journey = document.querySelector('[data-home-journey]');
+ const view = document.getElementById('platform');
+ if (!journey || !view?.classList.contains('active-view')) return;
+
+ const sections = Array.from(journey.querySelectorAll('[data-spine-section]'));
+ if (!sections.length) return;
+ const marker = window.innerHeight * 0.45;
+ let progress = 0;
+ let activeKey = 'ambition';
+ sections.forEach((section, index) => {
+ const rect = section.getBoundingClientRect();
+ if (rect.top <= marker) {
+ activeKey = section.dataset.spineSection;
+ progress = (index + 1) / sections.length;
+ }
+ });
+ const end = journey.querySelector('.home-gateway');
+ if (end && end.getBoundingClientRect().top <= marker) {
+ activeKey = 'conversation';
+ progress = 1;
+ }
+ journey.style.setProperty('--home-spine-progress', String(progress));
+ journey.querySelectorAll('.home-spine-node').forEach((node) => {
+ const order = ['ambition', 'direction', 'delivery', 'memory', 'conversation'];
+ const nodeIndex = order.indexOf(node.dataset.spine);
+ const activeIndex = order.indexOf(activeKey);
+ node.classList.toggle('is-lit', nodeIndex >= 0 && nodeIndex <= activeIndex);
+ });
+
+ const dual = journey.querySelector('[data-home-dual]');
+ if (dual && !dual.classList.contains('is-revealed')) {
+ const top = dual.getBoundingClientRect().top;
+ if (top < window.innerHeight * 0.82) dual.classList.add('is-revealed');
+ }
+
+ const edmp = journey.querySelector('[data-home-edmp]');
+ if (edmp && !edmp.classList.contains('is-sequenced')) {
+ const top = edmp.getBoundingClientRect().top;
+ if (top < window.innerHeight * 0.8) edmp.classList.add('is-sequenced');
+ }
+}
+
+function initHomeJourney() {
+ const journey = document.querySelector('[data-home-journey]');
+ if (!journey) return;
+
+ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if (reduce) {
+ journey.querySelector('[data-home-dual]')?.classList.add('is-revealed');
+ journey.querySelector('[data-home-edmp]')?.classList.add('is-sequenced');
+ }
+
+ if (journey.dataset.bound === '1') {
+ updateHomeSpine();
+ return;
+ }
+ journey.dataset.bound = '1';
+
+ const bridge = journey.querySelector('[data-home-bridge]');
+ if (bridge) {
+ bridge.querySelectorAll('.home-bridge-node').forEach((btn) => {
+ btn.addEventListener('click', () => setHomeBridge(Number(btn.dataset.bridge), { focus: true }));
+ btn.addEventListener('keydown', (event) => {
+ const buttons = Array.from(bridge.querySelectorAll('.home-bridge-node'));
+ const current = buttons.indexOf(btn);
+ if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+ event.preventDefault();
+ const next = buttons[(current + 1) % buttons.length];
+ next.focus();
+ setHomeBridge(Number(next.dataset.bridge));
+ } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+ event.preventDefault();
+ const prev = buttons[(current - 1 + buttons.length) % buttons.length];
+ prev.focus();
+ setHomeBridge(Number(prev.dataset.bridge));
+ }
+ });
+ });
+ setHomeBridge(0);
+ }
+
+ journey.querySelectorAll('.home-edmp-chip').forEach((btn) => {
+ btn.addEventListener('click', () => setHomeEdmp(btn.dataset.edmp, { focus: true }));
+ });
+ setHomeEdmp('evidence');
+
+ const primary = document.getElementById('homeGatewayPrimary');
+ const secondary = document.getElementById('homeGatewaySecondary');
+ journey.querySelectorAll('.home-gateway-intent').forEach((btn) => {
+ btn.addEventListener('click', () => {
+ journey.querySelectorAll('.home-gateway-intent').forEach((b) => {
+ const active = b === btn;
+ b.classList.toggle('is-active', active);
+ b.setAttribute('aria-pressed', active ? 'true' : 'false');
+ });
+ const map = HOME_GATEWAY_INTENTS[btn.dataset.gatewayIntent];
+ if (!map) return;
+ if (primary) primary.dataset.contactIntent = map.primary;
+ if (secondary) secondary.dataset.contactIntent = map.secondary;
+ window.__aieContactIntent = map.primary;
+ });
+ });
+
+ window.addEventListener('scroll', updateHomeSpine, { passive: true });
+ window.addEventListener('resize', updateHomeSpine);
+ updateHomeSpine();
+}
+
+const ABOUT_INDUSTRIES = {
+ finance: {
+ title: 'Financial services',
+ reality: 'Complexity, reliability and accountability shape how work must be executed.',
+ lesson: 'Traceability and controlled execution are essential when stakes are high.',
+ relevance: 'AI systems must preserve accountability and evidence under pressure, not only accelerate activity.'
+ },
+ enterprise: {
+ title: 'Enterprise technology',
+ reality: 'Platform capability must be translated into customer specific architecture and operating requirements.',
+ lesson: 'Generic product strength is not the same as fit within an organisation’s constraints.',
+ relevance: 'Organisational AI architecture begins with enterprise requirements, not vendor feature sets.'
+ },
+ software: {
+ title: 'Software and service delivery',
+ reality: 'Delivery quality, continuity and customer expectations must be sustained across programmes.',
+ lesson: 'Implementation is not the end state; ownership and operational rhythm determine lasting value.',
+ relevance: 'AI capability must be governed, measured and improved after deployment.'
+ },
+ professional: {
+ title: 'Professional services',
+ reality: 'Expertise creates value only when responsibilities, methods and outcomes are explicit.',
+ lesson: 'Ambiguous ownership turns specialist knowledge into uncoordinated activity.',
+ relevance: 'AI work needs clear decision rights and accountable follow through.'
+ },
+ recruitment: {
+ title: 'Recruitment and workforce',
+ reality: 'Capability depends on people, roles, incentives and the organisation’s capacity to change.',
+ lesson: 'Growth stalls when commercial or technical ambition outruns human capacity.',
+ relevance: 'AI adoption succeeds only when roles, authority and skills can absorb the change.'
+ },
+ commercial: {
+ title: 'Commercial transformation',
+ reality: 'Commercial ambition must stay aligned with delivery capacity and organisational design.',
+ lesson: 'Growth becomes unstable when ambition develops faster than capability.',
+ relevance: 'AI opportunities are assessed against business value and the ability to execute responsibly.'
+ },
+ healthcare: {
+ title: 'Healthcare initiatives',
+ reality: 'Consequences, evidence and responsibility matter when decisions affect real people and operating outcomes.',
+ lesson: 'Speed without evidence weakens trust and accountability.',
+ relevance: 'Organisational AI must keep human authority and observable outcomes explicit.'
+ },
+ entrepreneurship: {
+ title: 'Entrepreneurship',
+ reality: 'Strategy is continuously tested against limited resources, uncertainty and execution reality.',
+ lesson: 'Models cannot simply be copied; context changes causality, risk and what success requires.',
+ relevance: 'The consultancy stays context sensitive across platforms, industries and delivery models.'
+ }
+};
+const ABOUT_INDUSTRIES_BASE = JSON.parse(JSON.stringify(ABOUT_INDUSTRIES));
+
+function applyMarketingDataLocale(i18n) {
+ if (!i18n) return;
+ let partnerBase;
+ try {
+ partnerBase = PARTNER_QUESTIONS_BASE;
+ } catch (_) {
+ return;
+ }
+ if (!partnerBase) return;
+
+ Object.keys(PARTNER_QUESTIONS_BASE).forEach((key) => {
+ PARTNER_QUESTIONS[key] = Object.assign({}, PARTNER_QUESTIONS_BASE[key]);
+ });
+ const partnerQPack = i18n.getLocale() === 'nl' ? i18n.getPack('partnerQuestions') : null;
+ if (partnerQPack) {
+ Object.keys(partnerQPack).forEach((key) => {
+ if (!PARTNER_QUESTIONS[key]) return;
+ PARTNER_QUESTIONS[key] = Object.assign({}, PARTNER_QUESTIONS[key], partnerQPack[key]);
+ });
+ }
+
+ PARTNER_STAGES_BASE.forEach((stage, index) => {
+ PARTNER_STAGES[index] = {
+ name: stage.name,
+ ae: stage.ae.slice(),
+ ip: stage.ip.slice(),
+ outcome: stage.outcome
+ };
+ });
+ const partnerStagePack = i18n.getLocale() === 'nl' ? i18n.getPack('partnerStages') : null;
+ if (Array.isArray(partnerStagePack)) {
+ partnerStagePack.forEach((stage, index) => {
+ if (!PARTNER_STAGES[index]) return;
+ PARTNER_STAGES[index] = {
+ name: stage.name,
+ ae: stage.ae.slice(),
+ ip: stage.ip.slice(),
+ outcome: stage.outcome
+ };
+ });
+ }
+
+ Object.keys(ABOUT_INDUSTRIES_BASE).forEach((key) => {
+ ABOUT_INDUSTRIES[key] = Object.assign({}, ABOUT_INDUSTRIES_BASE[key]);
+ });
+ const aboutPack = i18n.getLocale() === 'nl' ? i18n.getPack('aboutIndustries') : null;
+ if (aboutPack) {
+ Object.keys(aboutPack).forEach((key) => {
+ if (!ABOUT_INDUSTRIES[key]) return;
+ ABOUT_INDUSTRIES[key] = Object.assign({}, ABOUT_INDUSTRIES[key], aboutPack[key]);
+ });
+ }
+
+ const partnerActive = document.querySelector('.partner-nav-stage.is-active');
+ if (partnerActive) setPartnerStage(Number(partnerActive.dataset.stage || 0), { instant: true });
+
+ const activeQ = document.querySelector('[data-partner-questions] .partner-q-center.is-active, [data-partner-questions] .partner-q-node.is-active');
+ const qKey = (activeQ && activeQ.dataset.q) || 'center';
+ const qData = PARTNER_QUESTIONS[qKey] || PARTNER_QUESTIONS.center;
+ const qTitle = document.getElementById('partnerQDetailTitle');
+ const qCopy = document.getElementById('partnerQDetailCopy');
+ if (qTitle) qTitle.textContent = qData.title;
+ if (qCopy) qCopy.textContent = qData.copy;
+
+ const aboutIndustry = document.querySelector('.about-industry-node.is-active');
+ if (aboutIndustry) setAboutIndustry(aboutIndustry.dataset.industry || 'finance');
+}
+
+function setAboutStage(index, { instant } = {}) {
+ const page = document.querySelector('[data-about-page]');
+ const flight = page && page.querySelector('[data-about-flight]');
+ if (!page || !flight) return;
+ const stages = Array.from(flight.querySelectorAll('.about-stages.about-stage'));
+ if (!stages.length) return;
+ const active = Math.max(0, Math.min(index, stages.length - 1));
+ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ flight.style.setProperty('--about-stage', String(active));
+ page.dataset.activeStage = String(active);
+
+ const lit = new Set();
+ stages.forEach((stage, i) => {
+ const caps = (stage.dataset.caps || '').split(',').map((s) => s.trim()).filter(Boolean);
+ const passed = i < active;
+ const isActive = i === active;
+ stage.classList.toggle('is-active', isActive);
+ stage.classList.toggle('is-passed', passed);
+ if (passed || isActive) caps.forEach((cap) => lit.add(cap));
+ if (!instant && !reduce && isActive) {
+ stage.classList.remove('is-entering');
+ void stage.offsetWidth;
+ stage.classList.add('is-entering');
+ }
+ });
+
+ const fresh = (stages[active]?.dataset.caps || '').split(',').map((s) => s.trim()).filter(Boolean);
+ flight.querySelectorAll('.about-instrument-list li').forEach((item) => {
+ const key = item.dataset.cap;
+ const isLit = lit.has(key);
+ const isFresh = fresh.includes(key);
+ item.classList.toggle('is-lit', isLit);
+ item.classList.toggle('is-fresh', isLit && isFresh && active > 0);
+ });
+}
+
+function updateAboutFlight() {
+ const page = document.querySelector('[data-about-page]');
+ const view = document.getElementById('about');
+ if (!page || !view?.classList.contains('active-view')) return;
+ if (window.matchMedia('(max-width: 820px)').matches) return;
+
+ const stages = Array.from(page.querySelectorAll('.about-stages.about-stage'));
+ if (!stages.length) return;
+ const marker = window.innerHeight * 0.42;
+ let active = 0;
+ stages.forEach((el, index) => {
+ if (el.getBoundingClientRect().top <= marker) active = index;
+ });
+ if (page.dataset.activeStage === String(active)) return;
+ setAboutStage(active);
+}
+
+function setAboutIndustry(key, { focus } = {}) {
+ const page = document.querySelector('[data-about-industries]');
+ if (!page) return;
+ const data = ABOUT_INDUSTRIES[key] || ABOUT_INDUSTRIES.finance;
+ page.querySelectorAll('.about-industry-node').forEach((btn) => {
+ const active = btn.dataset.industry === key;
+ btn.classList.toggle('is-active', active);
+ btn.setAttribute('aria-selected', active ? 'true' : 'false');
+ btn.tabIndex = active ? 0 : -1;
+ });
+ const detail = document.getElementById('aboutIndustryDetail');
+ const title = document.getElementById('aboutIndustryDetailTitle');
+ const reality = document.getElementById('aboutIndustryReality');
+ const lesson = document.getElementById('aboutIndustryLesson');
+ const relevance = document.getElementById('aboutIndustryRelevance');
+ const activeBtn = page.querySelector(`.about-industry-node[data-industry="${key}"]`);
+ if (title) title.textContent = data.title;
+ if (reality) reality.textContent = data.reality;
+ if (lesson) lesson.textContent = data.lesson;
+ if (relevance) relevance.textContent = data.relevance;
+ if (detail && activeBtn) detail.setAttribute('aria-labelledby', activeBtn.id);
+ if (focus && detail) detail.focus({ preventScroll: true });
+}
+
+function initAboutPage(replay) {
+ const page = document.querySelector('[data-about-page]');
+ if (!page) return;
+
+ const hero = page.querySelector('.about-hero');
+ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if (hero) {
+ if (!reduce) {
+ if (replay) hero.classList.remove('is-animated');
+ if (!hero.classList.contains('is-animated')) {
+ requestAnimationFrame(() => hero.classList.add('is-animated'));
+ }
+ } else {
+ hero.classList.add('is-animated');
+ }
+ }
+
+ if (page.dataset.bound === '1') {
+ updateAboutFlight();
+ return;
+ }
+ page.dataset.bound = '1';
+
+ const industryRoot = page.querySelector('[data-about-industries]');
+ if (industryRoot) {
+ industryRoot.querySelectorAll('.about-industry-node').forEach((btn, index) => {
+ btn.tabIndex = index === 0 ? 0 : -1;
+ btn.addEventListener('click', () => setAboutIndustry(btn.dataset.industry, { focus: true }));
+ btn.addEventListener('keydown', (event) => {
+ const buttons = Array.from(industryRoot.querySelectorAll('.about-industry-node'));
+ const current = buttons.indexOf(btn);
+ if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+ event.preventDefault();
+ const next = buttons[(current + 1) % buttons.length];
+ next.focus();
+ setAboutIndustry(next.dataset.industry, { focus: true });
+ } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+ event.preventDefault();
+ const prev = buttons[(current - 1 + buttons.length) % buttons.length];
+ prev.focus();
+ setAboutIndustry(prev.dataset.industry, { focus: true });
+ } else if (event.key === 'Home') {
+ event.preventDefault();
+ buttons[0].focus();
+ setAboutIndustry(buttons[0].dataset.industry, { focus: true });
+ } else if (event.key === 'End') {
+ event.preventDefault();
+ buttons[buttons.length - 1].focus();
+ setAboutIndustry(buttons[buttons.length - 1].dataset.industry, { focus: true });
+ }
+ });
+ });
+ setAboutIndustry('finance');
+ }
+
+ const mobile = page.querySelector('[data-about-stages-mobile]');
+ if (mobile) {
+ mobile.querySelectorAll('.about-stage-card').forEach((card) => {
+ card.addEventListener('toggle', () => {
+ if (!card.open) return;
+ mobile.querySelectorAll('.about-stage-card').forEach((other) => {
+ if (other !== card) other.open = false;
+ });
+ const caps = (card.dataset.caps || '').split(',').map((s) => s.trim()).filter(Boolean);
+ const instrument = page.querySelector('[data-about-instrument]');
+ if (!instrument) return;
+ const allCaps = new Set();
+ mobile.querySelectorAll('.about-stage-card').forEach((c) => {
+ if (Number(c.dataset.stage) <= Number(card.dataset.stage)) {
+ (c.dataset.caps || '').split(',').map((s) => s.trim()).filter(Boolean).forEach((cap) => allCaps.add(cap));
+ }
+ });
+ instrument.querySelectorAll('.about-instrument-list li').forEach((item) => {
+ const key = item.dataset.cap;
+ item.classList.toggle('is-lit', allCaps.has(key));
+ item.classList.toggle('is-fresh', caps.includes(key));
+ });
+ });
+ });
+ }
+
+ setAboutStage(0, { instant: true });
+ window.addEventListener('scroll', updateAboutFlight, { passive: true });
+ window.addEventListener('resize', updateAboutFlight);
+ updateAboutFlight();
+}
+
+// Partner/about packs load after early i18n init; re-apply once data is ready.
+if (window.AIE_I18N) {
+ applyMarketingDataLocale(window.AIE_I18N);
+ if (window.AIE_I18N.getLocale() === 'nl' && typeof window.AIE_I18N.applyPhraseMap === 'function') {
+ window.AIE_I18N.applyPhraseMap(document);
+ applyMarketingDataLocale(window.AIE_I18N);
+ }
 }
